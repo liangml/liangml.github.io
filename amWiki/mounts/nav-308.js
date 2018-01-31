@@ -1,0 +1,1 @@
+if(typeof AWPageMounts=='undefined'){AWPageMounts={}};AWPageMounts['nav']={"name":"$navigation.md","path":"$navigation.md","content":"\n#### [首页](?file=home-首页)\n\n##### 学习amWiki\n- [amWiki轻文库简介](?file=001-学习amWiki/01-amWiki轻文库简介 \"amWiki轻文库简介\")\n- **学习markdown**\n\n##### 文档示范\n","timestamp":1517380066229}
