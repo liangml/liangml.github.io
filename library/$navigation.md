@@ -1,8 +1,8 @@
 
 #### [首页](?file=home-首页)
 
-##### 学习amWiki
-- [amWiki轻文库简介](?file=001-学习amWiki/01-amWiki轻文库简介 "amWiki轻文库简介")
-- **学习markdown**
+##### Linux
+- [linux线刷硬盘](?file=001-Linux/01-linux线刷硬盘 "linux线刷硬盘")
 
-##### 文档示范
+##### MySQL
+- [MySQL升级5.5.36升级5.6.37](?file=002-MySQL/001-MySQL升级5.5.36升级5.6.37 "MySQL升级5.5.36升级5.6.37")
