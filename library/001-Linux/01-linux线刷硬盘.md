@@ -7,7 +7,7 @@
 
   ![](assets/001/20180131-0b4cd70e.png)  
 * 3.重新扫描scsi总线来添加设备**
-```
+```bash
 [root@localhost ~]# echo "- - -" > /sys/class/scsi_host/host0/scan
 [root@localhost ~]# echo "- - -" > /sys/class/scsi_host/host1/scan
 [root@localhost ~]# echo "- - -" > /sys/class/scsi_host/host2/scan
