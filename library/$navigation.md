@@ -12,4 +12,10 @@
 
 ##### python
 - **模块**
-    - [模块](?file=004-python/001-模块/001-模块 "模块")
+    - [tab模块](?file=004-python/001-模块/001-tab模块 "tab模块")
+    - [python邮件脚本](?file=004-python/001-模块/002-python邮件脚本 "python邮件脚本")
+- **学习**
+    - [if语句](?file=004-python/002-学习/001-if语句 "if语句")
+    - [while循环](?file=004-python/002-学习/002-while循环 "while循环")
+    - [for循环](?file=004-python/002-学习/003-for循环 "for循环")
+    - [运算](?file=004-python/002-学习/004-运算 "运算")
