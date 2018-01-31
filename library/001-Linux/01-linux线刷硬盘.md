@@ -2,10 +2,10 @@
 
 * 1.添加磁盘后fdisk -l磁盘没有显示**
 
-![](assets/001/20180131-688bf07a.png)
+  ![](assets/001/20180131-688bf07a.png)
 * 2.查看主机总线号**
 
-![](assets/001/20180131-0b4cd70e.png)  
+  ![](assets/001/20180131-0b4cd70e.png)  
 * 3.重新扫描scsi总线来添加设备**
 ```
 [root@localhost ~]# echo "- - -" > /sys/class/scsi_host/host0/scan
@@ -14,4 +14,4 @@
 ```
 * 4.再次查看硬盘已经显示**
 
-![](assets/001/20180131-43556781.png)
+  ![](assets/001/20180131-43556781.png)
