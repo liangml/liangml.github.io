@@ -1,4 +1,4 @@
-#keepalived安装部署
+# keepalived安装部署
 下载最新软件：http://www.keepalived.org/software/keepalived-1.3.5.tar.gz
 上传服务器安装：
 ```
@@ -13,7 +13,7 @@ mkdir  /etc/keepalived
 echo 1 > /proc/sys/net/ipv4/ip_forward　　　　　　#开启路由转发功能
 echo 1 > /proc/sys/net/ipv4/ip_nonlocal_bind    #开启允许绑定非本机IP
 ```
-##配置文件样例
+## 配置文件样例
 ```
 ! Configuration File for keepalived
 global_defs {
@@ -50,7 +50,7 @@ track_script {
     }
 }
 ```
-##haproxy检查脚本（需要添加执行权限）
+## haproxy检查脚本（需要添加执行权限）
 ```
 #!/bin/bash
 status=`ps aux|grep haproxy | grep -v grep | grep -v bash | wc -l`
@@ -62,7 +62,7 @@ if [ "${status2}" = "0"  ]; then
     /etc/init.d/keepalived stop
 fi
 ```
-##日志添加
+## 日志添加
 默认日志存放在系统的/var/log/messages下
 把日志单独存放需要修改/etc/sysconfig/keepalived  
 ![](assets/003/20180131-cdb25d12.png)  
