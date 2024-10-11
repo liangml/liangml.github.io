@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>所有文章 - LEON BLOG</title>
+    <link>https://leon.gitee.com/posts/</link>
+    <description>LEON BLOG</description>
+    <generator>Hugo 0.135.0 &amp; FixIt v0.3.13-95436c11</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Fri, 11 Oct 2024 14:58:20 +0800</lastBuildDate>
+    <atom:link href="https://leon.gitee.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Test</title>
+      <link>https://leon.gitee.com/posts/test/</link>
+      <pubDate>Fri, 11 Oct 2024 14:58:20 +0800</pubDate>
+      <guid>https://leon.gitee.com/posts/test/</guid>
+      <description>&lt;h1 id=&#34;this-is-my-first-bolg-page-test&#34; class=&#34;heading-element&#34;&gt;&lt;span&gt;this is my first bolg page test&lt;/span&gt;&#xA;  &lt;a href=&#34;#this-is-my-first-bolg-page-test&#34; class=&#34;heading-mark&#34;&gt;&#xA;    &lt;svg class=&#34;octicon octicon-link&#34; viewBox=&#34;0 0 16 16&#34; version=&#34;1.1&#34; width=&#34;16&#34; height=&#34;16&#34; aria-hidden=&#34;true&#34;&gt;&lt;path d=&#34;m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z&#34;&gt;&lt;/path&gt;&lt;/svg&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h1&gt;&lt;h2 id=&#34;this-is-test&#34; class=&#34;heading-element&#34;&gt;&lt;span&gt;this is test&lt;/span&gt;&#xA;  &lt;a href=&#34;#this-is-test&#34; class=&#34;heading-mark&#34;&gt;&#xA;    &lt;svg class=&#34;octicon octicon-link&#34; viewBox=&#34;0 0 16 16&#34; version=&#34;1.1&#34; width=&#34;16&#34; height=&#34;16&#34; aria-hidden=&#34;true&#34;&gt;&lt;path d=&#34;m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z&#34;&gt;&lt;/path&gt;&lt;/svg&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&lt;p&gt;&lt;em&gt;test page&lt;/em&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>https://leon.gitee.com/posts/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://leon.gitee.com/posts/</guid>
+      <description>&lt;p&gt;#HAproxy安装部署&#xA;下载地址：http://www.haproxy.org/download/1.7/src/haproxy-1.7.8.tar.gz&#xA;下载后安装上传服务器安装：&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>https://leon.gitee.com/posts/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://leon.gitee.com/posts/</guid>
+      <description>&lt;p&gt;#inotify+rsync安装部署&#xA;##检查是否安装xinetd、rsync是否安装&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;&#xA;&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;&#xA;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7&#xA;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&#xA;&lt;td class=&#34;lntd&#34;&gt;&#xA;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[root@IM-web-01 ~] rpm -qa |grep xinetd rsync    #查看xinetd、rsync是否安装&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[root@IM-web-01 ~] yum -y install xinetd rsync   #如果没有安装则yum安装两个服务&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[root@IM-web-01 ~] chkconfig xinetd on           #添加xinetd自启动&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[root@IM-web-01 ~] chkconfig rsync on            #添加rsync自启动                   &#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[root@IM-web-01 ~] /etc/init.d/xinetd start      #启动xinetd守护进程服务&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[root@IM-web-01 ~] useradd www -s /sbin/nologin  #创建同步rsync同步用户&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[root@IM-web-01 ~] chown www.www /usr/local/nginx/html&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&lt;p&gt;###rsync服务端配置文件样例&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>https://leon.gitee.com/posts/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://leon.gitee.com/posts/</guid>
+      <description>&lt;h1 id=&#34;keepalived安装部署&#34; class=&#34;heading-element&#34;&gt;&lt;span&gt;keepalived安装部署&lt;/span&gt;&#xA;  &lt;a href=&#34;#keepalived%e5%ae%89%e8%a3%85%e9%83%a8%e7%bd%b2&#34; class=&#34;heading-mark&#34;&gt;&#xA;    &lt;svg class=&#34;octicon octicon-link&#34; viewBox=&#34;0 0 16 16&#34; version=&#34;1.1&#34; width=&#34;16&#34; height=&#34;16&#34; aria-hidden=&#34;true&#34;&gt;&lt;path d=&#34;m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z&#34;&gt;&lt;/path&gt;&lt;/svg&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h1&gt;&lt;p&gt;下载最新软件：http://www.keepalived.org/software/keepalived-1.3.5.tar.gz&#xA;上传服务器安装：&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>https://leon.gitee.com/posts/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://leon.gitee.com/posts/</guid>
+      <description>&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Linux系统往往有添加磁盘不够的情况，这时就需要添加新的硬盘。一般情况下需要重启服务器，这里我们来使用线刷方式读取Linux新增硬盘**&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;1.添加磁盘后fdisk -l磁盘没有显示**&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>https://leon.gitee.com/posts/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://leon.gitee.com/posts/</guid>
+      <description>&lt;h1 id=&#34;mysql源码5536--5637升级&#34; class=&#34;heading-element&#34;&gt;&lt;span&gt;MySQL源码5.5.36 =&amp;raquo; 5.6.37升级&lt;/span&gt;&#xA;  &lt;a href=&#34;#mysql%e6%ba%90%e7%a0%815536--5637%e5%8d%87%e7%ba%a7&#34; class=&#34;heading-mark&#34;&gt;&#xA;    &lt;svg class=&#34;octicon octicon-link&#34; viewBox=&#34;0 0 16 16&#34; version=&#34;1.1&#34; width=&#34;16&#34; height=&#34;16&#34; aria-hidden=&#34;true&#34;&gt;&lt;path d=&#34;m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z&#34;&gt;&lt;/path&gt;&lt;/svg&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h1&gt;&lt;p&gt;升级的方法一般有两类：&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>https://leon.gitee.com/posts/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://leon.gitee.com/posts/</guid>
+      <description>&lt;p&gt;#nfs安装部署&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;&#xA;&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;&#xA;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4&#xA;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&#xA;&lt;td class=&#34;lntd&#34;&gt;&#xA;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[root@IM-web-01 ~] rpm -qa |grep nfs-utils rpcmind   #检查软件是否安装&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[root@IM-web-01 ~] yum -y install nfs-utils rpcmind #如果没有则使用yum安装&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[root@IM-web-01 ~] chkconfig rpcmind on&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[root@IM-web-01 ~] chkconfig nfs on&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&lt;p&gt;##编辑配置文件将需要共享的目录进行配置&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>https://leon.gitee.com/posts/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://leon.gitee.com/posts/</guid>
+      <description>&lt;h1 id=&#34;nginx平滑升级&#34; class=&#34;heading-element&#34;&gt;&lt;span&gt;Nginx平滑升级&lt;/span&gt;&#xA;  &lt;a href=&#34;#nginx%e5%b9%b3%e6%bb%91%e5%8d%87%e7%ba%a7&#34; class=&#34;heading-mark&#34;&gt;&#xA;    &lt;svg class=&#34;octicon octicon-link&#34; viewBox=&#34;0 0 16 16&#34; version=&#34;1.1&#34; width=&#34;16&#34; height=&#34;16&#34; aria-hidden=&#34;true&#34;&gt;&lt;path d=&#34;m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z&#34;&gt;&lt;/path&gt;&lt;/svg&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h1&gt;&lt;p&gt;&lt;a href=&#34;http://nginx.org/download/nginx-1.12.1.tar.gz&#34;target=&#34;_blank&#34; rel=&#34;external nofollow noopener noreferrer&#34;&gt;点击下载Nginx_1.12.1:&lt;/a&gt;&lt;br&gt;&#xA;nginx版本：1.8.0&lt;br&gt;&#xA;nginx升级版本:1.12.1&lt;br&gt;&#xA;nginx -v   #查看当前Nginx版本&lt;br&gt;&#xA;&lt;strong&gt;nginx -V   #查看当前Nginx编译参数&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>https://leon.gitee.com/posts/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://leon.gitee.com/posts/</guid>
+      <description>&lt;p&gt;工作中常常有写不能有网页下载东西的需求，在Apache下搭建完成后直接导入文件即可达到下载/显示文件的效果，而Nginx也可以满足这样的需求(nginx 目录列表功能默认是关闭的)，这时就需要配置。&lt;br&gt;&#xA;ngx_http_autoindex_module:此模块用于自动生成目录列表（ngx_http_autoindex_module只在ngx_http_index_module模块未找到索引文件时发出请求）&#xA;开启目录列表功能&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>https://leon.gitee.com/posts/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://leon.gitee.com/posts/</guid>
+      <description>&lt;h1 id=&#34;nginx&#34; class=&#34;heading-element&#34;&gt;&lt;span&gt;Nginx:&lt;/span&gt;&#xA;  &lt;a href=&#34;#nginx&#34; class=&#34;heading-mark&#34;&gt;&#xA;    &lt;svg class=&#34;octicon octicon-link&#34; viewBox=&#34;0 0 16 16&#34; version=&#34;1.1&#34; width=&#34;16&#34; height=&#34;16&#34; aria-hidden=&#34;true&#34;&gt;&lt;path d=&#34;m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z&#34;&gt;&lt;/path&gt;&lt;/svg&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h1&gt;&lt;p&gt;nginx 是一个高性能的 HTTP 和 反向代理 服务器，也是一个 IMAP/POP3/SMTP 代理服务器。&lt;br&gt;&#xA;Nginx  是为俄罗斯访问量第二的 Rambler.ru 站点开发的，第一个公开版本0.1.0发布于2004年10月4日。因它的稳定性、丰富的功能集、示例配置文件和低系统资源的消耗而闻名。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>https://leon.gitee.com/posts/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://leon.gitee.com/posts/</guid>
+      <description>&lt;h1 id=&#34;php平滑升级&#34; class=&#34;heading-element&#34;&gt;&lt;span&gt;php平滑升级&lt;/span&gt;&#xA;  &lt;a href=&#34;#php%e5%b9%b3%e6%bb%91%e5%8d%87%e7%ba%a7&#34; class=&#34;heading-mark&#34;&gt;&#xA;    &lt;svg class=&#34;octicon octicon-link&#34; viewBox=&#34;0 0 16 16&#34; version=&#34;1.1&#34; width=&#34;16&#34; height=&#34;16&#34; aria-hidden=&#34;true&#34;&gt;&lt;path d=&#34;m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z&#34;&gt;&lt;/path&gt;&lt;/svg&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h1&gt;&lt;pre&gt;&lt;code&gt;1.既然是平滑升级，是不需要宕机，也不需要停止服务，是不存在关闭网站的说法&#xA;2.而升级最后的重启，重启的是PHP加载的配置文件，不影响你当前运行的网站&#xA;3.php-fpm是属于FastCgi，一旦启动是在内存中跑的，和你编译升级的过程没有任何关系&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;系统:centos6.8&#xA;php环境:php5.3.29&#xA;升级版本:php5.4.45&#xA;下载php地址:http://www.php.net/distributions/php-5.4.45.tar.gz&#xA;将php5.3.29安装目录config.nice复制到php-5.4.25&#xA;[root@localhost php-5.4.45]# cp /php-5.3.29/config.nice /usr/local/src/php-5.4.45&#xA;[root@localhost php-5.4.45]# cd php-5.4.45/&#xA;[root@localhost php-5.4.45]# ./config.nice&#xA;[root@localhost php-5.4.45]# make ZEND_EXTRA_LIBS=&amp;rsquo;-liconv&#39;&#xA;[root@localhost php-5.4.45]# make install&#xA;##升级完成后建议执行命令：&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
