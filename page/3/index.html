@@ -96,7 +96,13 @@ Leon</span></span>&nbsp;<span class=post-publish title='2024-10-14 19:39:59'>发
 </span></span><span class=line><span class=cl><span class=c1># 从1393513186编号备份中恢复</span>
 </span></span><span class=line><span class=cl>gitlab-rake gitlab:backup:restore <span class=nv>BACKUP</span><span class=o>=</span><span class=m>1393513186</span>
 </span></span><span class=line><span class=cl><span class=c1># 启动Gitlab</span>
-</span></span><span class=line><span class=cl>gitlab-ctl start</span></span></code></pre></td></tr></table></div></div><h3 id=gitconfig-常用配置 class=heading-element><span>gitconfig 常用配置</span>
+</span></span><span class=line><span class=cl>gitlab-ctl start</span></span></code></pre></td></tr></table></div></div><h3 id=submodule class=heading-element><span>submodule</span>
+<a href=#submodule class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h3><ul><li>add submodule to project</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>git submodule add https://github.com/yyy/xxx.git</span></span></code></pre></td></tr></table></div></div><ul><li>list submodule</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>git submodule</span></span></code></pre></td></tr></table></div></div><ul><li>delete submodule</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>git submodule deinit</span></span></code></pre></td></tr></table></div></div><ul><li>pull submodule: when git clone add parms &ndash;recursive</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>git clone https://github.com/xxx.git --recursive</span></span></code></pre></td></tr></table></div></div><ul><li>if you forget add &ndash;recursive<ul><li><code>git submodule update --init</code></li><li><code>git submodule update --init --recursive</code></li></ul></li><li>update submodule
+<code>git submodule update --remote</code></li></ul><h3 id=gitconfig-常用配置 class=heading-element><span>gitconfig 常用配置</span>
 <a href=#gitconfig-%e5%b8%b8%e7%94%a8%e9%85%8d%e7%bd%ae class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
@@ -176,7 +182,89 @@ Leon</span></span>&nbsp;<span class=post-publish title='2024-10-14 19:39:59'>发
 </span></span><span class=line><span class=cl>	<span class=nv>lgd</span> <span class=o>=</span> log -p --full-diff
 </span></span><span class=line><span class=cl>	<span class=nv>bcm</span> <span class=o>=</span> <span class=s2>&#34;branch -a --contains &#34;</span>
 </span></span><span class=line><span class=cl>	<span class=nv>brc</span> <span class=o>=</span> branch -a --contains
-</span></span><span class=line><span class=cl>	<span class=nv>tagc</span> <span class=o>=</span> tag --contains</span></span></code></pre></td></tr></table></div></div></div><div class=post-footer><a href=/posts/gitlab/>阅读全文</a><div class=post-tags><i class="fa-solid fa-tags fa-fw me-1" aria-hidden=true></i><a href=/tags/gitlab/ class=post-tag>Gitlab</a></div></div></article><article class="single summary" itemscope itemtype=http://schema.org/Article><h2 class=single-title itemprop="name headline"><a href=/posts/elasticsearch/>Elasticsearch</a></h2><div class=post-meta><span class=post-author><span class=author><i class="fa-solid fa-user-circle" aria-hidden=true></i>
+</span></span><span class=line><span class=cl>	<span class=nv>tagc</span> <span class=o>=</span> tag --contains</span></span></code></pre></td></tr></table></div></div><pre class=mermaid>gitGraph
+    commit
+    branch hotfix
+    checkout hotfix
+    commit
+    branch develop
+    checkout develop
+    commit id:"ash" tag:"abc"
+    branch featureB
+    checkout featureB
+    commit type:HIGHLIGHT
+    checkout main
+    checkout hotfix
+    commit type:NORMAL
+    checkout develop
+    commit type:REVERSE
+    checkout featureB
+    commit
+    checkout main
+    merge hotfix
+    checkout featureB
+    commit
+    checkout develop
+    branch featureA
+    commit
+    checkout develop
+    merge hotfix
+    checkout featureA
+    commit
+    checkout featureB
+    commit
+    checkout develop
+    merge featureA
+    branch release
+    checkout release
+    commit
+    checkout main
+    commit
+    checkout release
+    merge main
+    checkout develop
+    merge release</pre><template>gitGraph
+commit
+branch hotfix
+checkout hotfix
+commit
+branch develop
+checkout develop
+commit id:"ash" tag:"abc"
+branch featureB
+checkout featureB
+commit type:HIGHLIGHT
+checkout main
+checkout hotfix
+commit type:NORMAL
+checkout develop
+commit type:REVERSE
+checkout featureB
+commit
+checkout main
+merge hotfix
+checkout featureB
+commit
+checkout develop
+branch featureA
+commit
+checkout develop
+merge hotfix
+checkout featureA
+commit
+checkout featureB
+commit
+checkout develop
+merge featureA
+branch release
+checkout release
+commit
+checkout main
+commit
+checkout release
+merge main
+checkout develop
+merge release</template></div><div class=post-footer><a href=/posts/gitlab/>阅读全文</a><div class=post-tags><i class="fa-solid fa-tags fa-fw me-1" aria-hidden=true></i><a href=/tags/gitlab/ class=post-tag>Gitlab</a></div></div></article><article class="single summary" itemscope itemtype=http://schema.org/Article><h2 class=single-title itemprop="name headline"><a href=/posts/elasticsearch/>Elasticsearch</a></h2><div class=post-meta><span class=post-author><span class=author><i class="fa-solid fa-user-circle" aria-hidden=true></i>
 Leon</span></span>&nbsp;<span class=post-publish title='2024-10-14 19:26:39'>发布于 <time datetime=2024-10-14>2024-10-14</time></span><span class=post-included-in>&nbsp;收录于 <a href=/categories/elasticsearch/ class=post-category title="分类 - Elasticsearch"><i class="fa-regular fa-folder fa-fw" aria-hidden=true></i> Elasticsearch</a> 和 <a href=/collections/efk/ class=post-collection title="合集 - Efk"><i class="fa-solid fa-layer-group fa-fw" aria-hidden=true></i> Efk</a></span></div><div class=content><h3 id=elasticsearch伸缩容 class=heading-element><span>elasticsearch伸缩容</span>
 <a href=#elasticsearch%e4%bc%b8%e7%bc%a9%e5%ae%b9 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h3><h3 id=水平扩容 class=heading-element><span>水平扩容</span>
 <a href=#%e6%b0%b4%e5%b9%b3%e6%89%a9%e5%ae%b9 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h3><blockquote><p>将现有集群中的一个节点镜像到一个新机器(主要是相关配置 插件都使用已有配置，避免再重新安装插件修改设置等)</p></div><div class=post-footer><a href=/posts/elasticsearch/>阅读全文</a><div class=post-tags><i class="fa-solid fa-tags fa-fw me-1" aria-hidden=true></i><a href=/tags/elasticsearch/ class=post-tag>Elasticsearch</a></div></div></article><article class="single summary" itemscope itemtype=http://schema.org/Article><h2 class=single-title itemprop="name headline"><a href=/posts/postgres/>Postgres</a></h2><div class=post-meta><span class=post-author><span class=author><i class="fa-solid fa-user-circle" aria-hidden=true></i>

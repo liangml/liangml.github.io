@@ -32,6 +32,28 @@ gitlab-rake gitlab:backup:restore BACKUP=1393513186
 # 启动Gitlab
 gitlab-ctl start
 ```
+## submodule
+* add submodule to project
+```shell
+git submodule add https://github.com/yyy/xxx.git
+```
+* list submodule
+```shell
+git submodule
+```
+* delete submodule
+```shell
+git submodule deinit
+```
+* pull submodule: when git clone add parms --recursive
+```shell
+git clone https://github.com/xxx.git --recursive
+```
+* if you forget add --recursive
+  * ```git submodule update --init```
+  * ```git submodule update --init --recursive```
+* update submodule
+```git submodule update --remote```
 ## gitconfig 常用配置
 ```shell
 [alias]
@@ -74,6 +96,50 @@ gitlab-ctl start
 	bcm = &#34;branch -a --contains &#34;
 	brc = branch -a --contains
 	tagc = tag --contains
+```
+```mermaid
+gitGraph
+    commit
+    branch hotfix
+    checkout hotfix
+    commit
+    branch develop
+    checkout develop
+    commit id:&#34;ash&#34; tag:&#34;abc&#34;
+    branch featureB
+    checkout featureB
+    commit type:HIGHLIGHT
+    checkout main
+    checkout hotfix
+    commit type:NORMAL
+    checkout develop
+    commit type:REVERSE
+    checkout featureB
+    commit
+    checkout main
+    merge hotfix
+    checkout featureB
+    commit
+    checkout develop
+    branch featureA
+    commit
+    checkout develop
+    merge hotfix
+    checkout featureA
+    commit
+    checkout featureB
+    commit
+    checkout develop
+    merge featureA
+    branch release
+    checkout release
+    commit
+    checkout main
+    commit
+    checkout release
+    merge main
+    checkout develop
+    merge release
 ```
 
 ---
