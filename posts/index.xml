@@ -1931,6 +1931,9 @@
 &lt;/li>
 &lt;li>update submodule
 &lt;code>git submodule update --remote&lt;/code>&lt;/li>
+&lt;li>change branch
+&lt;code>git config submodule.xxx.branch dev&lt;/code>
+or &lt;code>git config -f .gitmodules submodule.xxx.branch dev&lt;/code>&lt;/li>
 &lt;/ul>
 &lt;h2 id="gitconfig-常用配置" class="heading-element">&lt;span>gitconfig 常用配置&lt;/span>
  &lt;a href="#gitconfig-%e5%b8%b8%e7%94%a8%e9%85%8d%e7%bd%ae" class="heading-mark">
@@ -2021,90 +2024,7 @@
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">	&lt;span class="nv">brc&lt;/span> &lt;span class="o">=&lt;/span> branch -a --contains
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">	&lt;span class="nv">tagc&lt;/span> &lt;span class="o">=&lt;/span> tag --contains&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;pre class="mermaid">gitGraph
- commit
- branch hotfix
- checkout hotfix
- commit
- branch develop
- checkout develop
- commit id:"ash" tag:"abc"
- branch featureB
- checkout featureB
- commit type:HIGHLIGHT
- checkout main
- checkout hotfix
- commit type:NORMAL
- checkout develop
- commit type:REVERSE
- checkout featureB
- commit
- checkout main
- merge hotfix
- checkout featureB
- commit
- checkout develop
- branch featureA
- commit
- checkout develop
- merge hotfix
- checkout featureA
- commit
- checkout featureB
- commit
- checkout develop
- merge featureA
- branch release
- checkout release
- commit
- checkout main
- commit
- checkout release
- merge main
- checkout develop
- merge release&lt;/pre>
-&lt;template>gitGraph
- commit
- branch hotfix
- checkout hotfix
- commit
- branch develop
- checkout develop
- commit id:"ash" tag:"abc"
- branch featureB
- checkout featureB
- commit type:HIGHLIGHT
- checkout main
- checkout hotfix
- commit type:NORMAL
- checkout develop
- commit type:REVERSE
- checkout featureB
- commit
- checkout main
- merge hotfix
- checkout featureB
- commit
- checkout develop
- branch featureA
- commit
- checkout develop
- merge hotfix
- checkout featureA
- commit
- checkout featureB
- commit
- checkout develop
- merge featureA
- branch release
- checkout release
- commit
- checkout main
- commit
- checkout release
- merge main
- checkout develop
- merge release&lt;/template></description></item><item><title>Elasticsearch</title><link>https://liangml.github.io/posts/elasticsearch/</link><pubDate>Mon, 14 Oct 2024 19:26:39 +0800</pubDate><guid>https://liangml.github.io/posts/elasticsearch/</guid><category domain="https://liangml.github.io/categories/elasticsearch/">Elasticsearch</category><description>&lt;h2 id="elasticsearch伸缩容" class="heading-element">&lt;span>elasticsearch伸缩容&lt;/span>
+&lt;/div></description></item><item><title>Elasticsearch</title><link>https://liangml.github.io/posts/elasticsearch/</link><pubDate>Mon, 14 Oct 2024 19:26:39 +0800</pubDate><guid>https://liangml.github.io/posts/elasticsearch/</guid><category domain="https://liangml.github.io/categories/elasticsearch/">Elasticsearch</category><description>&lt;h2 id="elasticsearch伸缩容" class="heading-element">&lt;span>elasticsearch伸缩容&lt;/span>
  &lt;a href="#elasticsearch%e4%bc%b8%e7%bc%a9%e5%ae%b9" class="heading-mark">
  &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z">&lt;/path>&lt;/svg>
  &lt;/a>

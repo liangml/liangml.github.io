@@ -126,6 +126,9 @@
 &lt;/li>
 &lt;li>update submodule
 &lt;code>git submodule update --remote&lt;/code>&lt;/li>
+&lt;li>change branch
+&lt;code>git config submodule.xxx.branch dev&lt;/code>
+or &lt;code>git config -f .gitmodules submodule.xxx.branch dev&lt;/code>&lt;/li>
 &lt;/ul>
 &lt;h2 id="gitconfig-常用配置" class="heading-element">&lt;span>gitconfig 常用配置&lt;/span>
  &lt;a href="#gitconfig-%e5%b8%b8%e7%94%a8%e9%85%8d%e7%bd%ae" class="heading-mark">
@@ -216,87 +219,4 @@
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">	&lt;span class="nv">brc&lt;/span> &lt;span class="o">=&lt;/span> branch -a --contains
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">	&lt;span class="nv">tagc&lt;/span> &lt;span class="o">=&lt;/span> tag --contains&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;pre class="mermaid">gitGraph
- commit
- branch hotfix
- checkout hotfix
- commit
- branch develop
- checkout develop
- commit id:"ash" tag:"abc"
- branch featureB
- checkout featureB
- commit type:HIGHLIGHT
- checkout main
- checkout hotfix
- commit type:NORMAL
- checkout develop
- commit type:REVERSE
- checkout featureB
- commit
- checkout main
- merge hotfix
- checkout featureB
- commit
- checkout develop
- branch featureA
- commit
- checkout develop
- merge hotfix
- checkout featureA
- commit
- checkout featureB
- commit
- checkout develop
- merge featureA
- branch release
- checkout release
- commit
- checkout main
- commit
- checkout release
- merge main
- checkout develop
- merge release&lt;/pre>
-&lt;template>gitGraph
- commit
- branch hotfix
- checkout hotfix
- commit
- branch develop
- checkout develop
- commit id:"ash" tag:"abc"
- branch featureB
- checkout featureB
- commit type:HIGHLIGHT
- checkout main
- checkout hotfix
- commit type:NORMAL
- checkout develop
- commit type:REVERSE
- checkout featureB
- commit
- checkout main
- merge hotfix
- checkout featureB
- commit
- checkout develop
- branch featureA
- commit
- checkout develop
- merge hotfix
- checkout featureA
- commit
- checkout featureB
- commit
- checkout develop
- merge featureA
- branch release
- checkout release
- commit
- checkout main
- commit
- checkout release
- merge main
- checkout develop
- merge release&lt;/template></description></item></channel></rss>
+&lt;/div></description></item></channel></rss>

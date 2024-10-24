@@ -54,6 +54,9 @@ git clone https://github.com/xxx.git --recursive
   * ```git submodule update --init --recursive```
 * update submodule
 ```git submodule update --remote```
+* change branch
+```git config submodule.xxx.branch dev```
+or ```git config -f .gitmodules submodule.xxx.branch dev```
 ## gitconfig 常用配置
 ```shell
 [alias]
@@ -96,50 +99,6 @@ git clone https://github.com/xxx.git --recursive
 	bcm = &#34;branch -a --contains &#34;
 	brc = branch -a --contains
 	tagc = tag --contains
-```
-```mermaid
-gitGraph
-    commit
-    branch hotfix
-    checkout hotfix
-    commit
-    branch develop
-    checkout develop
-    commit id:&#34;ash&#34; tag:&#34;abc&#34;
-    branch featureB
-    checkout featureB
-    commit type:HIGHLIGHT
-    checkout main
-    checkout hotfix
-    commit type:NORMAL
-    checkout develop
-    commit type:REVERSE
-    checkout featureB
-    commit
-    checkout main
-    merge hotfix
-    checkout featureB
-    commit
-    checkout develop
-    branch featureA
-    commit
-    checkout develop
-    merge hotfix
-    checkout featureA
-    commit
-    checkout featureB
-    commit
-    checkout develop
-    merge featureA
-    branch release
-    checkout release
-    commit
-    checkout main
-    commit
-    checkout release
-    merge main
-    checkout develop
-    merge release
 ```
 
 ---
