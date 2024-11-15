@@ -35,7 +35,7 @@ gitlab-ctl start
 ## submodule
 * add submodule to project
 ```shell
-git submodule add https://github.com/yyy/xxx.git
+git submodule add https://github.com/yyy/xxx.git DESTPATH
 ```
 * list submodule
 ```shell
