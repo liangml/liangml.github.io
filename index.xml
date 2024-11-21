@@ -336,6 +336,433 @@ Poetry 允许你区分这两者，将上述的模块安装至 dev-dependencies �
 &lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code class="language-plain" data-lang="plain">&lt;span class="line">&lt;span class="cl">((2(5[0-5]|[0-4]\\\\d))|[0-1]?\\\\d{1,2})(\\\\.((2(5[0-5]|[0-4]\\\\d))|[0-1]?\\\\d{1,2})){3}&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
+&lt;/div>&lt;h2 id="字符串运算" class="heading-element">&lt;span>字符串运算&lt;/span>
+ &lt;a href="#%e5%ad%97%e7%ac%a6%e4%b8%b2%e8%bf%90%e7%ae%97" class="heading-mark">
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z">&lt;/path>&lt;/svg>
+ &lt;/a>
+&lt;/h2>&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th style="text-align: left">运算符&lt;/th>
+ &lt;th style="text-align: left">说明&lt;/th>
+ &lt;th style="text-align: left">举例&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td style="text-align: left">=&lt;/td>
+ &lt;td style="text-align: left">检测两个字符串是否相等，相等返回 true。&lt;/td>
+ &lt;td style="text-align: left">[ $a = $b ] 返回 false。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">!=&lt;/td>
+ &lt;td style="text-align: left">检测两个字符串是否不相等，不相等返回 true。&lt;/td>
+ &lt;td style="text-align: left">[ $a != $b ] 返回 true。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">-z&lt;/td>
+ &lt;td style="text-align: left">检测字符串长度是否为0，为0返回 true。&lt;/td>
+ &lt;td style="text-align: left">[ -z $a ] 返回 false。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">-n&lt;/td>
+ &lt;td style="text-align: left">检测字符串长度是否不为 0，不为 0 返回 true。&lt;/td>
+ &lt;td style="text-align: left">[ -n &amp;ldquo;$a&amp;rdquo; ] 返回 true。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">$&lt;/td>
+ &lt;td style="text-align: left">检测字符串是否不为空，不为空返回 true。&lt;/td>
+ &lt;td style="text-align: left">[ $a ] 返回 true。&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h2 id="文件测试运算符" class="heading-element">&lt;span>文件测试运算符&lt;/span>
+ &lt;a href="#%e6%96%87%e4%bb%b6%e6%b5%8b%e8%af%95%e8%bf%90%e7%ae%97%e7%ac%a6" class="heading-mark">
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z">&lt;/path>&lt;/svg>
+ &lt;/a>
+&lt;/h2>&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th style="text-align: left">操作符&lt;/th>
+ &lt;th style="text-align: left">说明&lt;/th>
+ &lt;th style="text-align: left">举例&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td style="text-align: left">-b file&lt;/td>
+ &lt;td style="text-align: left">检测文件是否是块设备文件，如果是，则返回 true。&lt;/td>
+ &lt;td style="text-align: left">[ -b $file ] 返回 false。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">-c file&lt;/td>
+ &lt;td style="text-align: left">检测文件是否是字符设备文件，如果是，则返回 true。&lt;/td>
+ &lt;td style="text-align: left">[ -c $file ] 返回 false。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">-d file&lt;/td>
+ &lt;td style="text-align: left">检测文件是否是目录，如果是，则返回 true。&lt;/td>
+ &lt;td style="text-align: left">[ -d $file ] 返回 false。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">-f file&lt;/td>
+ &lt;td style="text-align: left">检测文件是否是普通文件（既不是目录，也不是设备文件），如果是，则返回 true。&lt;/td>
+ &lt;td style="text-align: left">[ -f $file ] 返回 true。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">-g file&lt;/td>
+ &lt;td style="text-align: left">检测文件是否设置了 SGID 位，如果是，则返回 true。&lt;/td>
+ &lt;td style="text-align: left">[ -g $file ] 返回 false。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">-k file&lt;/td>
+ &lt;td style="text-align: left">检测文件是否设置了粘着位(Sticky Bit)，如果是，则返回 true。&lt;/td>
+ &lt;td style="text-align: left">[ -k $file ] 返回 false。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">-p file&lt;/td>
+ &lt;td style="text-align: left">检测文件是否是有名管道，如果是，则返回 true。&lt;/td>
+ &lt;td style="text-align: left">[ -p $file ] 返回 false。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">-u file&lt;/td>
+ &lt;td style="text-align: left">检测文件是否设置了 SUID 位，如果是，则返回 true。&lt;/td>
+ &lt;td style="text-align: left">[ -u $file ] 返回 false。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">-r file&lt;/td>
+ &lt;td style="text-align: left">检测文件是否可读，如果是，则返回 true。&lt;/td>
+ &lt;td style="text-align: left">[ -r $file ] 返回 true。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">-w file&lt;/td>
+ &lt;td style="text-align: left">检测文件是否可写，如果是，则返回 true。&lt;/td>
+ &lt;td style="text-align: left">[ -w $file ] 返回 true。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">-x file&lt;/td>
+ &lt;td style="text-align: left">检测文件是否可执行，如果是，则返回 true。&lt;/td>
+ &lt;td style="text-align: left">[ -x $file ] 返回 true。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">-s file&lt;/td>
+ &lt;td style="text-align: left">检测文件是否为空（文件大小是否大于0），不为空返回 true。&lt;/td>
+ &lt;td style="text-align: left">[ -s $file ] 返回 true。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">-e file&lt;/td>
+ &lt;td style="text-align: left">检测文件（包括目录）是否存在，如果是，则返回 true。&lt;/td>
+ &lt;td style="text-align: left">[ -e $file ] 返回 true。&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;p>其他检查符：&lt;br>
+-S: 判断某文件是否 socket。&lt;br>
+-L: 检测文件是否存在并且是一个符号链接。&lt;/p>
+&lt;h2 id="逻辑运算" class="heading-element">&lt;span>逻辑运算&lt;/span>
+ &lt;a href="#%e9%80%bb%e8%be%91%e8%bf%90%e7%ae%97" class="heading-mark">
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z">&lt;/path>&lt;/svg>
+ &lt;/a>
+&lt;/h2>&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th style="text-align: left">运算符&lt;/th>
+ &lt;th style="text-align: left">说明&lt;/th>
+ &lt;th style="text-align: left">举例&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td style="text-align: left">&amp;amp;&amp;amp;&lt;/td>
+ &lt;td style="text-align: left">逻辑的 AND&lt;/td>
+ &lt;td style="text-align: left">[[ $a -lt 100 &amp;amp;&amp;amp; $b -gt 100 ]] 返回 false&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">||&lt;/td>
+ &lt;td style="text-align: left">逻辑的 OR&lt;/td>
+ &lt;td style="text-align: left">[[ $a -lt 100 || $b -gt 100 ]] 返回 true&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h2 id="布尔运算符" class="heading-element">&lt;span>布尔运算符&lt;/span>
+ &lt;a href="#%e5%b8%83%e5%b0%94%e8%bf%90%e7%ae%97%e7%ac%a6" class="heading-mark">
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z">&lt;/path>&lt;/svg>
+ &lt;/a>
+&lt;/h2>&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th style="text-align: left">运算符&lt;/th>
+ &lt;th style="text-align: left">说明&lt;/th>
+ &lt;th style="text-align: left">举例&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td style="text-align: left">!&lt;/td>
+ &lt;td style="text-align: left">非运算，表达式为 true 则返回 false，否则返回 true。&lt;/td>
+ &lt;td style="text-align: left">[ ! false ] 返回 true。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">-o&lt;/td>
+ &lt;td style="text-align: left">或运算，有一个表达式为 true 则返回 true。&lt;/td>
+ &lt;td style="text-align: left">[ $a -lt 20 -o $b -gt 100 ] 返回 true。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">-a&lt;/td>
+ &lt;td style="text-align: left">与运算，两个表达式都为 true 才返回 true。&lt;/td>
+ &lt;td style="text-align: left">[ $a -lt 20 -a $b -gt 100 ] 返回 false。&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h2 id="关系运算符" class="heading-element">&lt;span>关系运算符&lt;/span>
+ &lt;a href="#%e5%85%b3%e7%b3%bb%e8%bf%90%e7%ae%97%e7%ac%a6" class="heading-mark">
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z">&lt;/path>&lt;/svg>
+ &lt;/a>
+&lt;/h2>&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th style="text-align: left">运算符&lt;/th>
+ &lt;th style="text-align: left">说明&lt;/th>
+ &lt;th style="text-align: left">举例&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td style="text-align: left">-eq&lt;/td>
+ &lt;td style="text-align: left">检测两个数是否相等，相等返回 true。&lt;/td>
+ &lt;td style="text-align: left">[ $a -eq $b ] 返回 false。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">-ne&lt;/td>
+ &lt;td style="text-align: left">检测两个数是否不相等，不相等返回 true。&lt;/td>
+ &lt;td style="text-align: left">[ $a -ne $b ] 返回 true。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">-gt&lt;/td>
+ &lt;td style="text-align: left">检测左边的数是否大于右边的，如果是，则返回 true。&lt;/td>
+ &lt;td style="text-align: left">[ $a -gt $b ] 返回 false。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">-lt&lt;/td>
+ &lt;td style="text-align: left">检测左边的数是否小于右边的，如果是，则返回 true。&lt;/td>
+ &lt;td style="text-align: left">[ $a -lt $b ] 返回 true。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">-ge&lt;/td>
+ &lt;td style="text-align: left">检测左边的数是否大于等于右边的，如果是，则返回 true。&lt;/td>
+ &lt;td style="text-align: left">[ $a -ge $b ] 返回 false。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">-le&lt;/td>
+ &lt;td style="text-align: left">检测左边的数是否小于等于右边的，如果是，则返回 true。&lt;/td>
+ &lt;td style="text-align: left">[ $a -le $b ] 返回 true。&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h2 id="算术运算符" class="heading-element">&lt;span>算术运算符&lt;/span>
+ &lt;a href="#%e7%ae%97%e6%9c%af%e8%bf%90%e7%ae%97%e7%ac%a6" class="heading-mark">
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z">&lt;/path>&lt;/svg>
+ &lt;/a>
+&lt;/h2>&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th style="text-align: left">运算符&lt;/th>
+ &lt;th style="text-align: left">说明&lt;/th>
+ &lt;th style="text-align: left">举例&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td style="text-align: left">+&lt;/td>
+ &lt;td style="text-align: left">加法&lt;/td>
+ &lt;td style="text-align: left">&lt;code>expr $a + $b&lt;/code> 结果为 30。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">-&lt;/td>
+ &lt;td style="text-align: left">减法&lt;/td>
+ &lt;td style="text-align: left">&lt;code>expr $a - $b&lt;/code> 结果为 -10。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">*&lt;/td>
+ &lt;td style="text-align: left">乘法&lt;/td>
+ &lt;td style="text-align: left">&lt;code>expr $a * $b&lt;/code> 结果为 200。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">/&lt;/td>
+ &lt;td style="text-align: left">除法&lt;/td>
+ &lt;td style="text-align: left">&lt;code>expr $b / $a&lt;/code> 结果为 2。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">%&lt;/td>
+ &lt;td style="text-align: left">取余&lt;/td>
+ &lt;td style="text-align: left">&lt;code>expr $b % $a&lt;/code> 结果为 0。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">=&lt;/td>
+ &lt;td style="text-align: left">赋值&lt;/td>
+ &lt;td style="text-align: left">a=$b 把变量 b 的值赋给 a。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">==&lt;/td>
+ &lt;td style="text-align: left">相等。用于比较两个数字，相同则返回 true。&lt;/td>
+ &lt;td style="text-align: left">[ $a == $b ] 返回 false。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">!=&lt;/td>
+ &lt;td style="text-align: left">不相等。用于比较两个数字，不相同则返回 true。&lt;/td>
+ &lt;td style="text-align: left">[ $a != $b ] 返回 true。&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;p>&lt;strong>注意：条件表达式要放在方括号之间，并且要有空格，例如: [$a==$b] 是错误的，必须写成 [ $a == $b ]。&lt;/strong>&lt;/p>
+&lt;blockquote>
+&lt;p>乘号(*)前边必须加反斜杠(\)才能实现乘法运算；&lt;br>
+在 MAC 中 shell 的 expr 语法是：$((表达式))，此处表达式中的 &amp;ldquo;*&amp;rdquo; 不需要转义符号 &amp;ldquo;\&amp;rdquo; 。&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="自增和自减操作符" class="heading-element">&lt;span>自增和自减操作符&lt;/span>
+ &lt;a href="#%e8%87%aa%e5%a2%9e%e5%92%8c%e8%87%aa%e5%87%8f%e6%93%8d%e4%bd%9c%e7%ac%a6" class="heading-mark">
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z">&lt;/path>&lt;/svg>
+ &lt;/a>
+&lt;/h2>&lt;ul>
+&lt;li>使用 let 命令&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>let 命令允许对整数进行算术运算。&lt;/p>
+&lt;/blockquote>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">&lt;span class="cp">#!/bin/bash
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp">&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 初始化变量&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">num&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="m">5&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 自增&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">let&lt;/span> num++
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 自减&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">let&lt;/span> num--
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">echo&lt;/span> &lt;span class="nv">$num&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>使用 $(( )) 进行算术运算&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>$(( )) 语法也是进行算术运算的一种方式。&lt;/p>
+&lt;/blockquote>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">&lt;span class="cp">#!/bin/bash
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp">&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 初始化变量&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">num&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="m">5&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 自增&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">num&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="k">$((&lt;/span>num &lt;span class="o">+&lt;/span> &lt;span class="m">1&lt;/span>&lt;span class="k">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 自减&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">num&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="k">$((&lt;/span>num &lt;span class="o">-&lt;/span> &lt;span class="m">1&lt;/span>&lt;span class="k">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">echo&lt;/span> &lt;span class="nv">$num&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>使用 expr 命令&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>expr 命令可以用于算术运算，但在现代脚本中不如 let 和 $(( )) 常用。&lt;/p>
+&lt;/blockquote>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">&lt;span class="cp">#!/bin/bash
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp">&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 初始化变量&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">num&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="m">5&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 自增&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">num&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="k">$(&lt;/span>expr &lt;span class="nv">$num&lt;/span> + 1&lt;span class="k">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 自减&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">num&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="k">$(&lt;/span>expr &lt;span class="nv">$num&lt;/span> - 1&lt;span class="k">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">echo&lt;/span> &lt;span class="nv">$num&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>使用 (( )) 进行算术运算&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>与 $(( )) 类似，(( )) 语法也可以用于算术运算。&lt;/p>
+&lt;/blockquote>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">&lt;span class="cp">#!/bin/bash
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp">&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 初始化变量&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">num&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="m">5&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 自增&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">((&lt;/span>num++&lt;span class="o">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 自减&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">((&lt;/span>num--&lt;span class="o">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">echo&lt;/span> &lt;span class="nv">$num&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
 &lt;/div></description></item><item><title>Macos</title><link>https://liangml.github.io/posts/macos/</link><pubDate>Thu, 17 Oct 2024 18:17:57 +0800</pubDate><guid>https://liangml.github.io/posts/macos/</guid><category domain="https://liangml.github.io/categories/macos/">Macos</category><description>&lt;h2 id="minikube" class="heading-element">&lt;span>minikube&lt;/span>
  &lt;a href="#minikube" class="heading-mark">
  &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z">&lt;/path>&lt;/svg>
