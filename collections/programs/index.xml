@@ -1,4 +1,128 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Programs - 合集 - LEON BLOG</title><link>https://liangml.github.io/collections/programs/</link><description>运维小站，分享些技术经验。</description><generator>Hugo 0.139.0 &amp; FixIt v0.3.15</generator><language>zh-CN</language><lastBuildDate>Thu, 31 Oct 2024 10:54:34 +0800</lastBuildDate><atom:link href="https://liangml.github.io/collections/programs/index.xml" rel="self" type="application/rss+xml"/><item><title>Poetry: Python虚拟环境管理</title><link>https://liangml.github.io/posts/poetry/</link><pubDate>Thu, 31 Oct 2024 10:54:34 +0800</pubDate><guid>https://liangml.github.io/posts/poetry/</guid><category domain="https://liangml.github.io/categories/python/">Python</category><description>&lt;blockquote>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Programs - 合集 - LEON BLOG</title><link>https://liangml.github.io/collections/programs/</link><description>运维小站，分享些技术经验。</description><generator>Hugo 0.139.0 &amp; FixIt v0.3.15</generator><language>zh-CN</language><lastBuildDate>Fri, 22 Nov 2024 15:31:08 +0800</lastBuildDate><atom:link href="https://liangml.github.io/collections/programs/index.xml" rel="self" type="application/rss+xml"/><item><title>Golang-Guide</title><link>https://liangml.github.io/posts/golang-guide/</link><pubDate>Fri, 22 Nov 2024 15:31:08 +0800</pubDate><guid>https://liangml.github.io/posts/golang-guide/</guid><category domain="https://liangml.github.io/categories/golang/">Golang</category><description>&lt;!--
+
+Editing this document:
+
+- Discuss all changes in GitHub issues first.
+- Update the table of contents as new sections are added or removed.
+- Use tables for side-by-side code samples. See below.
+
+Code Samples:
+
+Use 2 spaces to indent. Horizontal real estate is important in side-by-side
+samples.
+
+For side-by-side code samples, use the following snippet.
+
+~~~
+&lt;table>
+&lt;thead>&lt;tr>&lt;th>Bad&lt;/th>&lt;th>Good&lt;/th>&lt;/tr>&lt;/thead>
+&lt;tbody>
+&lt;tr>&lt;td>
+
+```go
+BAD CODE GOES HERE
+```
+
+&lt;/td>&lt;td>
+
+```go
+GOOD CODE GOES HERE
+```
+
+&lt;/td>&lt;/tr>
+&lt;/tbody>&lt;/table>
+~~~
+
+(You need the empty lines between the &lt;td> and code samples for it to be
+treated as Markdown.)
+
+If you need to add labels or descriptions below the code samples, add another
+row before the &lt;/tbody>&lt;/table> line.
+
+~~~
+&lt;tr>
+&lt;td>DESCRIBE BAD CODE&lt;/td>
+&lt;td>DESCRIBE GOOD CODE&lt;/td>
+&lt;/tr>
+~~~
+
+
+
+-->
+&lt;!--
+change.md
+
+# 2019-12-17
+- 函数选项：推荐 “Option” 接口的结构实现
+- 而不是用闭包捕获值。
+
+# 2019-11-26
+- 添加针对全局变量变异的指导。
+
+# 2020-01-11
+- 为`open（..）`调用添加缺少的参数。
+
+# 2020-02-03
+- 使用 `"time"` 处理时间的建议
+- 添加有关在公共结构中嵌入类型的指导。
+
+# 2020-02-25
+- 添加有关接口验证是否符合编译时检查的指导。
+
+# 2020-06-05
+- 添加避免使用内置名称的指导意见
+
+# 2020-06-10
+- 添加 init() 指导意见
+
+# 2020-06-16
+- 追加时优先指定切片容量
+- 添加有关指针接收器可调用性的说明
+
+# 2020-06-17
+- map 和切片的联合指导
+
+# 2020-09-15
+- Remove main panic
+
+# 2021-03-17
+- 结构体初始化
+
+# 2021-04-19
+- 程序只能在`main()`中退出，最好最多退出一次
+
+# 2021-11-16
+
+- 添加有关将 `%w` 与 `%v` 与 `fmt.Errorf` 结合使用的指南，以及在何处使用 `errors.New` 或自定义错误类型。
+
+# 2022-01-05
+- 修复翻译错误
+- 修复部分失效的链接
+
+# 2022-03-30
+
+- 添加有关在封送结构中使用字段标记的指导。
+- 
+# 2022-10-18
+
+- 管理goroutine生命周期的指导.
+
+# 2023-04-13
+- Errors: 只添加一次错误处理指南
+-->
+&lt;h2 id="uber-goguidehttpsgithubcomuber-goguide-的中文翻译" class="heading-element">&lt;span>&lt;a href="https://github.com/uber-go/guide"target="_blank" rel="external nofollow noopener noreferrer">uber-go/guide&lt;/a> 的中文翻译&lt;/span>
+ &lt;a href="#uber-goguidehttpsgithubcomuber-goguide-%e7%9a%84%e4%b8%ad%e6%96%87%e7%bf%bb%e8%af%91" class="heading-mark">
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z">&lt;/path>&lt;/svg>
+ &lt;/a>
+&lt;/h2>&lt;h2 id="englishhttpsgithubcomuber-goguideblobmasterstylemd" class="heading-element">&lt;span>&lt;a href="https://github.com/uber-go/guide/blob/master/style.md"target="_blank" rel="external nofollow noopener noreferrer">English&lt;/a>&lt;/span>
+ &lt;a href="#englishhttpsgithubcomuber-goguideblobmasterstylemd" class="heading-mark">
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z">&lt;/path>&lt;/svg>
+ &lt;/a>
+&lt;/h2>&lt;h2 id="uber-go-语言编码规范" class="heading-element">&lt;span>Uber Go 语言编码规范&lt;/span>
+ &lt;a href="#uber-go-%e8%af%ad%e8%a8%80%e7%bc%96%e7%a0%81%e8%a7%84%e8%8c%83" class="heading-mark">
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z">&lt;/path>&lt;/svg>
+ &lt;/a>
+&lt;/h2>&lt;p>&lt;a href="https://www.uber.com/"target="_blank" rel="external nofollow noopener noreferrer">Uber&lt;/a> 是一家美国硅谷的科技公司，也是 Go 语言的早期 adopter。其开源了很多 golang 项目，诸如被 Gopher 圈熟知的 &lt;a href="https://github.com/uber-go/zap"target="_blank" rel="external nofollow noopener noreferrer">zap&lt;/a>、&lt;a href="https://github.com/jaegertracing/jaeger"target="_blank" rel="external nofollow noopener noreferrer">jaeger&lt;/a> 等。2018 年年末 Uber 将内部的 &lt;a href="https://github.com/uber-go/guide"target="_blank" rel="external nofollow noopener noreferrer">Go 风格规范&lt;/a> 开源到 GitHub，经过一年的积累和更新，该规范已经初具规模，并受到广大 Gopher 的关注。本文是该规范的中文版本。本版本会根据原版实时更新。&lt;/p></description></item><item><title>Poetry: Python虚拟环境管理</title><link>https://liangml.github.io/posts/poetry/</link><pubDate>Thu, 31 Oct 2024 10:54:34 +0800</pubDate><guid>https://liangml.github.io/posts/poetry/</guid><category domain="https://liangml.github.io/categories/python/">Python</category><description>&lt;blockquote>
 &lt;p>macos 使用&lt;/p>
 &lt;/blockquote>
 &lt;h2 id="install" class="heading-element">&lt;span>install&lt;/span>
