@@ -5840,12 +5840,12 @@ Poetry 允许你区分这两者，将上述的模块安装至 dev-dependencies �
  &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z">&lt;/path>&lt;/svg>
  &lt;/a>
 &lt;/h2>&lt;ul>
-&lt;li>根据/System/Library/LaunchDaemons 和/Library/LaunchDaemons路径下的plist文件，加载系统级守护进程；&lt;/li>
+&lt;li>根据&lt;code>/System/Library/LaunchDaemons&lt;/code> 和&lt;code>/Library/LaunchDaemons&lt;/code>路径下的plist文件，加载系统级守护进程；&lt;/li>
 &lt;li>注册上述守护进程需要的套接字及文件描述符；&lt;/li>
 &lt;li>根据plist文件中的KeepAlive键值，启动那些需要在系统周期内一直保持的进程；&lt;/li>
 &lt;li>根据plist文件中的设定，在条件满足时启动进程；&lt;/li>
 &lt;li>关机时，给所有由launchd开启的进程发送SIGTERM信号。
-我们将log信息中的内容与/System/Library/LaunchDaemons路径下的plist进行对照，发现在系统开启之初的bootlog，blued，mDNSResponder等都能再该路径下找到。&lt;/li>
+我们将log信息中的内容与&lt;code>/System/Library/LaunchDaemons&lt;/code>路径下的plist进行对照，发现在系统开启之初的bootlog，blued，mDNSResponder等都能再该路径下找到。&lt;/li>
 &lt;/ul>
 &lt;h3 id="launchdaemons路径下的plist指定的进程启动是否存在一定的先后顺序呢" class="heading-element">&lt;span>LaunchDaemons路径下的plist指定的进程启动是否存在一定的先后顺序呢？&lt;/span>
  &lt;a href="#launchdaemons%e8%b7%af%e5%be%84%e4%b8%8b%e7%9a%84plist%e6%8c%87%e5%ae%9a%e7%9a%84%e8%bf%9b%e7%a8%8b%e5%90%af%e5%8a%a8%e6%98%af%e5%90%a6%e5%ad%98%e5%9c%a8%e4%b8%80%e5%ae%9a%e7%9a%84%e5%85%88%e5%90%8e%e9%a1%ba%e5%ba%8f%e5%91%a2" class="heading-mark">
@@ -5855,9 +5855,9 @@ Poetry 允许你区分这两者，将上述的模块安装至 dev-dependencies �
 &lt;p>在launchd依次完成的工作中，可以看到它是先注册套接字和文件描述符，然后才去启动进程，因此plist指定的进程的启动先后顺序并不明确。&lt;/p>
 &lt;/blockquote>
 &lt;ul>
-&lt;li>launchd配置文件总共有五个路径，在系统开启之初，只加载了/System/Library/LaunchDaemons 和/Library/LaunchDaemons路径下的plist文件，另外三个路径下的plist文件是在用户login之后才进行的。&lt;/li>
-&lt;li>用户的login是由loginwindow进程完成的，而loginwindow的启动又是由/System/Library/LaunchDaemons路径下的com.apple.loginwindow.plist指定的。&lt;/li>
-&lt;li>用户登录之后，launchd才会去加载/System/Library/LaunchAgents 和/Library/LaunchAgents以及~/Library/LaunchAgents路径下的plist文件，从而根据plist文件的具体设置去启动相应的进程。&lt;/li>
+&lt;li>launchd配置文件总共有五个路径，在系统开启之初，只加载了&lt;code>/System/Library/LaunchDaemons&lt;/code> 和&lt;code>/Library/LaunchDaemons&lt;/code>路径下的plist文件，另外三个路径下的plist文件是在用户login之后才进行的。&lt;/li>
+&lt;li>用户的login是由loginwindow进程完成的，而loginwindow的启动又是由&lt;code>/System/Library/LaunchDaemons&lt;/code>路径下的com.apple.loginwindow.plist指定的。&lt;/li>
+&lt;li>用户登录之后，launchd才会去加载&lt;code>/System/Library/LaunchAgents&lt;/code> 和&lt;code>/Library/LaunchAgents&lt;/code>以及&lt;code>~/Library/LaunchAgents&lt;/code>路径下的plist文件，从而根据plist文件的具体设置去启动相应的进程。&lt;/li>
 &lt;/ul></description></item><item><title>Shell</title><link>https://liangml.github.io/posts/shell/</link><pubDate>Thu, 17 Oct 2024 18:34:22 +0800</pubDate><guid>https://liangml.github.io/posts/shell/</guid><category domain="https://liangml.github.io/categories/shell/">Shell</category><description>&lt;h2 id="shell-判断" class="heading-element">&lt;span>shell 判断&lt;/span>
  &lt;a href="#shell-%e5%88%a4%e6%96%ad" class="heading-mark">
  &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z">&lt;/path>&lt;/svg>
