@@ -1,4 +1,2421 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>LEON BLOG</title><link>https://liangml.github.io/</link><description>运维小站，分享些技术经验。</description><generator>Hugo 0.140.2 &amp; FixIt v0.3.16-f66dc32e</generator><language>zh-CN</language><lastBuildDate>Fri, 22 Nov 2024 15:31:08 +0800</lastBuildDate><atom:link href="https://liangml.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Golang-Guide</title><link>https://liangml.github.io/posts/golang-guide/</link><pubDate>Fri, 22 Nov 2024 15:31:08 +0800</pubDate><guid>https://liangml.github.io/posts/golang-guide/</guid><category domain="https://liangml.github.io/categories/golang/">Golang</category><description>&lt;!--
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>LEON BLOG</title><link>https://liangml.github.io/</link><description>运维小站，分享些技术经验。</description><generator>Hugo 0.140.2 &amp; FixIt v0.3.16-f66dc32e</generator><language>zh-CN</language><lastBuildDate>Tue, 07 Jan 2025 19:07:33 +0800</lastBuildDate><atom:link href="https://liangml.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Kubernetes</title><link>https://liangml.github.io/posts/kubernetes/</link><pubDate>Tue, 07 Jan 2025 19:07:33 +0800</pubDate><guid>https://liangml.github.io/posts/kubernetes/</guid><category domain="https://liangml.github.io/categories/kubernetes/">Kubernetes</category><description>&lt;h2 id="资源清单格式" class="heading-element">&lt;span>资源清单格式&lt;/span>
+ &lt;a href="#%e8%b5%84%e6%ba%90%e6%b8%85%e5%8d%95%e6%a0%bc%e5%bc%8f" class="heading-mark">
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z">&lt;/path>&lt;/svg>
+ &lt;/a>
+&lt;/h2>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">apiVersion&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">group/apiversion # 指定当前的组和版本（写的资源清单具体去哪个路径下调代码）。如果没有给定 group 名称，那么默认为 core，可以使用 kubectl api-versions&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># 获取当前 k8s 版本上所有的 apiVersion 版本信息( 每个版本可能不同 )&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Service &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c">#资源类别&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">metadata&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c">#资源元数据&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">pod-demo &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c">#资源对象名称；&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">namespace&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">default #使用名称级别的资源才需要填写；&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c">#处于default名称空间下；&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">lables&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c">#标签，筛选操作；一般用于集群内部的筛选功能；&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">app&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">myapp &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c">#标签&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">annotations&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># 主要目的是方便用户阅读查找&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">spec&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># 期望的状态（disired state）&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">containers&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c">#代表mainC；&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">myapp-1 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c">#mainC子对象1名称；列表开头使用 -开头&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">image&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">wangyanglinux/myapp:v1&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">busybox-1 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c">#mainC子对象2名称；&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">image&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">busybox:1.35.0&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">command&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c">#此处代表的是ENTRYPOINT；&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;/bin/sh&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;-c&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;sleep 3600&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">status&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># 当前状态，本字段有 Kubernetes 自身维护，用户不能去定义&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="字段格式配置" class="heading-element">&lt;span>字段格式配置&lt;/span>
+ &lt;a href="#%e5%ad%97%e6%ae%b5%e6%a0%bc%e5%bc%8f%e9%85%8d%e7%bd%ae" class="heading-mark">
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z">&lt;/path>&lt;/svg>
+ &lt;/a>
+&lt;/h2>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">apiVersion &amp;lt;string&amp;gt; &lt;span class="c1">#表示字符串类型&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">metadata &amp;lt;Object&amp;gt; &lt;span class="c1">#表示需要嵌套多层字段&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">labels &amp;lt;map&lt;span class="o">[&lt;/span>string&lt;span class="o">]&lt;/span>string&amp;gt; &lt;span class="c1">#表示由k:v组成的映射&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">finalizers &amp;lt;&lt;span class="o">[]&lt;/span>string&amp;gt; &lt;span class="c1">#表示字串列表&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ownerReferences &amp;lt;&lt;span class="o">[]&lt;/span>Object&amp;gt; &lt;span class="c1">#表示对象列表&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">hostPID &amp;lt;boolean&amp;gt; &lt;span class="c1">#布尔类型&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">priority &amp;lt;integer&amp;gt; &lt;span class="c1">#整型&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">name &amp;lt;string&amp;gt; -required- &lt;span class="c1">#如果类型后面接 -required-，表示为必填字段&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="常用资源清单格式定义" class="heading-element">&lt;span>常用资源清单格式定义&lt;/span>
+ &lt;a href="#%e5%b8%b8%e7%94%a8%e8%b5%84%e6%ba%90%e6%b8%85%e5%8d%95%e6%a0%bc%e5%bc%8f%e5%ae%9a%e4%b9%89" class="heading-mark">
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z">&lt;/path>&lt;/svg>
+ &lt;/a>
+&lt;/h2>&lt;blockquote>
+&lt;p>Object ：对象，下方是对象的属性&lt;br>
+list：类别，下方包含多个数组，每个数组是一个对象&lt;br>
+String：字符串 后边直接跟value的值&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="通用字段" class="heading-element">&lt;span>通用字段&lt;/span>
+ &lt;a href="#%e9%80%9a%e7%94%a8%e5%ad%97%e6%ae%b5" class="heading-mark">
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z">&lt;/path>&lt;/svg>
+ &lt;/a>
+&lt;/h3>&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>参数名&lt;/th>
+ &lt;th>字段类型&lt;/th>
+ &lt;th>说明&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>version&lt;/td>
+ &lt;td>String&lt;/td>
+ &lt;td>这里是指的是K8S API的版本，目前基本上是v1，可以用kubectl apiversions命令音询&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>kind&lt;/td>
+ &lt;td>String&lt;/td>
+ &lt;td>这里指的是yamI文件定义的资源类型和角色，比如: Pod&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>metadata&lt;/td>
+ &lt;td>Object&lt;/td>
+ &lt;td>元数据对象，固定值就写metadata&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>Spec&lt;/td>
+ &lt;td>bject&lt;/td>
+ &lt;td>详细定义对象，固定值就写Spec&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h3 id="metadate相关字段" class="heading-element">&lt;span>metadate相关字段&lt;/span>
+ &lt;a href="#metadate%e7%9b%b8%e5%85%b3%e5%ad%97%e6%ae%b5" class="heading-mark">
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z">&lt;/path>&lt;/svg>
+ &lt;/a>
+&lt;/h3>&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>参数名&lt;/th>
+ &lt;th>字段类型&lt;/th>
+ &lt;th>说明&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>metadata&lt;/td>
+ &lt;td>Object&lt;/td>
+ &lt;td>元数据对象，固定值就写metadata&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>metadata.name&lt;/td>
+ &lt;td>String&lt;/td>
+ &lt;td>元数据对象的名字，这里由我们编写，比如命名Pod的名字&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>metadata.lables&lt;/td>
+ &lt;td>list&lt;/td>
+ &lt;td>标签列表。有key=value组成&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h3 id="pod相关字段" class="heading-element">&lt;span>pod相关字段&lt;/span>
+ &lt;a href="#pod%e7%9b%b8%e5%85%b3%e5%ad%97%e6%ae%b5" class="heading-mark">
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z">&lt;/path>&lt;/svg>
+ &lt;/a>
+&lt;/h3>&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>参数名&lt;/th>
+ &lt;th>字段类型&lt;/th>
+ &lt;th>说明&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>spec.restartPolicy&lt;/td>
+ &lt;td>String&lt;/td>
+ &lt;td>定义Pod的重启策略，可选值为Always、OnFailure，默认值为Always。1.Always: Pod一旦终止运行，则无论容器是如何终止的，kubelet服务都将重启它。2.OnFailure: 只有Pod以非零退出码终止时，kubelet才会重启该容器。如果容器正常结束 (退出码为0) ，则kubelet将不会重启它3.Never: Pod终止后，kubelet将退出码报告给Master，不会重启该Pod.&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.nodeSelector&lt;/td>
+ &lt;td>Object&lt;/td>
+ &lt;td>定义Node的Label过滤标签，以key:value格式指定&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.imagePullSecrets&lt;/td>
+ &lt;td>Object&lt;/td>
+ &lt;td>定义pull镜像时使用secret名称，以name:secretkey格式指定&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.hostNetwork&lt;/td>
+ &lt;td>Boolean&lt;/td>
+ &lt;td>定义是否使用主机网络模式，默认值为false。设置true表示使用宿主机网络，不使用docker网桥，同时设置了true将无法在同一台宿主机上启动第二个副本。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>sepc.NodeName&lt;/td>
+ &lt;td>string&lt;/td>
+ &lt;td>定义pod要调度的节点，可以忽略污点，还是要预选、优选。&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h4 id="mainc字段" class="heading-element">&lt;span>mainC字段&lt;/span>
+ &lt;a href="#mainc%e5%ad%97%e6%ae%b5" class="heading-mark">
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z">&lt;/path>&lt;/svg>
+ &lt;/a>
+&lt;/h4>&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>参数名&lt;/th>
+ &lt;th>字段类型&lt;/th>
+ &lt;th>说明&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>spec.containers[]&lt;/td>
+ &lt;td>list&lt;/td>
+ &lt;td>这里是Spec对象的容器列表定义，是个列表&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.containers[].name&lt;/td>
+ &lt;td>String&lt;/td>
+ &lt;td>这里定义容器的名字&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.containers[].image&lt;/td>
+ &lt;td>String&lt;/td>
+ &lt;td>这里定义要用到的镜像名称&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.containers[].imagePullPolicy&lt;/td>
+ &lt;td>String&lt;/td>
+ &lt;td>定义镜像拉取策略，有Always、Never、lfNotPresent三个值可选 (1) Aways: 意思是每次都尝试重新拉取镜像 (2) Never: 表示仅使用本地镜像 (3) lfNotPresent: 如果本地有镜像就使用本地镜像，没有就拉取在线镜像。上面三个值都没设置的话，默认是Always。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.containers[].command[]&lt;/td>
+ &lt;td>List&lt;/td>
+ &lt;td>指定容器启动命令，因为是数组可以指定多个，不指定则使用镜像打包时使用的启动命令&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.containers[].args[]&lt;/td>
+ &lt;td>List&lt;/td>
+ &lt;td>指定容器启动命令参数，因为是数组可以指定多个。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.containers[].workingDir&lt;/td>
+ &lt;td>string&lt;/td>
+ &lt;td>指定容器的工作目录&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.containers[].volumeMounts[]&lt;/td>
+ &lt;td>List&lt;/td>
+ &lt;td>指定容器内部的存储卷配置&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.containers[].volumeMounts[].name&lt;/td>
+ &lt;td>String&lt;/td>
+ &lt;td>指定可以被容器挂载的存储卷的名称&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.containers[].volumeMounts[].mountPath&lt;/td>
+ &lt;td>string&lt;/td>
+ &lt;td>指定可以被容器挂载的存储卷的路径&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.containers[].volumeMounts[].readOnly&lt;/td>
+ &lt;td>string&lt;/td>
+ &lt;td>设置存储卷路径的读写模式，ture 或者false默认为读写模式&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.containers[].ports[]&lt;/td>
+ &lt;td>List&lt;/td>
+ &lt;td>指定容器需要用到的端口列表&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.containers[].ports[].name&lt;/td>
+ &lt;td>String&lt;/td>
+ &lt;td>指定端口名称&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.containers[].ports[].containerPort&lt;/td>
+ &lt;td>String&lt;/td>
+ &lt;td>指定容器需要监听的端口号&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.containers[].ports[].hostPort&lt;/td>
+ &lt;td>String&lt;/td>
+ &lt;td>指定容器所在主机需要监听的端口号，默认跟上面containerPort相同，注意设置了hostPort同一台主机无法启动该容器的相同副本 (因为主机的端口号不能相同，这样会冲突)&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.containers[].ports[].protocol&lt;/td>
+ &lt;td>String&lt;/td>
+ &lt;td>指定端口协议，支持TCP和UDP，默认值为TCP&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.containers[].env[]&lt;/td>
+ &lt;td>List&lt;/td>
+ &lt;td>指定容器运行前需设置的环境变量列表&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.containers[].env[].name&lt;/td>
+ &lt;td>string&lt;/td>
+ &lt;td>指定环境变量名称&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.containers[].env[].value&lt;/td>
+ &lt;td>String&lt;/td>
+ &lt;td>指定环境变量值&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.containers[].resources&lt;/td>
+ &lt;td>Object&lt;/td>
+ &lt;td>指定资源限制和资源请求的值 (这里开始就是设置容器的资源上限)&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.containers[].resources.limits&lt;/td>
+ &lt;td>Object&lt;/td>
+ &lt;td>指定设置容器运行时资源的运行上限&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.containers[].resources.limits.cpu&lt;/td>
+ &lt;td>String&lt;/td>
+ &lt;td>指定CPU的限制，单位为core数，将用于docker run &amp;ndash;cpu-shares参数 (这里前面文章Pod资源限制有讲过)&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.containers[].resources.limits.memory&lt;/td>
+ &lt;td>String&lt;/td>
+ &lt;td>指定MEM内存的限制，单位为MIB、GiB&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.containers[].resources.requests&lt;/td>
+ &lt;td>Object&lt;/td>
+ &lt;td>指定容器启动和调度时的限制设置&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.containers[].resources.requests.cpu&lt;/td>
+ &lt;td>String&lt;/td>
+ &lt;td>CPU请求，单位为core数，容器启动时初始化可用数量&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.containers[].resources.requests.memory&lt;/td>
+ &lt;td>String&lt;/td>
+ &lt;td>内存请求，单位为MIB、GiB，容器启动的初始化可用数量&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h4 id="就绪探针" class="heading-element">&lt;span>就绪探针&lt;/span>
+ &lt;a href="#%e5%b0%b1%e7%bb%aa%e6%8e%a2%e9%92%88" class="heading-mark">
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z">&lt;/path>&lt;/svg>
+ &lt;/a>
+&lt;/h4>&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>参数名&lt;/th>
+ &lt;th>字段类型&lt;/th>
+ &lt;th>说明&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>spec.containers.readinessProbe&lt;/td>
+ &lt;td>Object&lt;/td>
+ &lt;td>定义容器的就绪探测策略。有三种模式可选:&lt;br/>exec：返回码为0为就绪&lt;br/>tcpsoket：tcp 对应检测端口响应成功为就绪&lt;br/>httpget：返回码 &amp;gt;= 200 &amp;amp;&amp;amp; &amp;lt; 400 为就绪&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.containers.readinessProbe.exec&lt;/td>
+ &lt;td>list&lt;/td>
+ &lt;td>定义容器的就绪探测策略为exec。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.containers.readinessProbe.exec.command&lt;/td>
+ &lt;td>List&lt;/td>
+ &lt;td>exec所对应的命令&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.containers.readinessProbe.initialDelaySeconds&lt;/td>
+ &lt;td>init&lt;/td>
+ &lt;td>探测开始时间&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.containers.readinessProbe.periodSeconds&lt;/td>
+ &lt;td>init&lt;/td>
+ &lt;td>探测间隔时间。s为单位&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h4 id="存活探针" class="heading-element">&lt;span>存活探针&lt;/span>
+ &lt;a href="#%e5%ad%98%e6%b4%bb%e6%8e%a2%e9%92%88" class="heading-mark">
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z">&lt;/path>&lt;/svg>
+ &lt;/a>
+&lt;/h4>&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>参数名&lt;/th>
+ &lt;th>字段类型&lt;/th>
+ &lt;th>说明&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>spec.containers.livenessProbe&lt;/td>
+ &lt;td>object&lt;/td>
+ &lt;td>定义容器的就绪探测策略。有三种模式可选:&lt;br/>exec：返回码为0为就绪&lt;br/>tcpsoket：tcp 对应检测端口响应成功为就绪&lt;br/>httpget：返回码 &amp;gt;= 200 &amp;amp;&amp;amp; &amp;lt; 400 为就绪&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.containers.livenessProbe.httpGet&lt;/td>
+ &lt;td>object&lt;/td>
+ &lt;td>定义容器的就绪探测策略为httpGet。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.containers.livenessProbe.httpGet.port&lt;/td>
+ &lt;td>init&lt;/td>
+ &lt;td>探测的端口&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.containers.livenessProbe.httpGet.path&lt;/td>
+ &lt;td>string&lt;/td>
+ &lt;td>探测的文件。根为网页根路径&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.containers.livenessProbe.initialDelaySeconds&lt;/td>
+ &lt;td>init&lt;/td>
+ &lt;td>探测开始时间&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.containers.livenessProbe.periodSeconds&lt;/td>
+ &lt;td>init&lt;/td>
+ &lt;td>探测间隔时间。s为单位&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.containers.livenessProbe.timeoutSeconds&lt;/td>
+ &lt;td>init&lt;/td>
+ &lt;td>探测超时时间，超时后就是探测失败&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h4 id="钩子字段" class="heading-element">&lt;span>钩子字段&lt;/span>
+ &lt;a href="#%e9%92%a9%e5%ad%90%e5%ad%97%e6%ae%b5" class="heading-mark">
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z">&lt;/path>&lt;/svg>
+ &lt;/a>
+&lt;/h4>&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>参数名&lt;/th>
+ &lt;th>字段类型&lt;/th>
+ &lt;th>说明&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>spec.containers.lifecycle&lt;/td>
+ &lt;td>object&lt;/td>
+ &lt;td>定义钩子&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.containers.lifecycle.postStart&lt;/td>
+ &lt;td>object&lt;/td>
+ &lt;td>定义启动后的钩子&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.containers.lifecycle.preStop&lt;/td>
+ &lt;td>object&lt;/td>
+ &lt;td>定义退出前钩子&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.containers.lifecycle.postStart.exec&lt;/td>
+ &lt;td>object&lt;/td>
+ &lt;td>定义启动后的钩子动作为命令&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.containers.lifecycle.postStart.exec.command&lt;/td>
+ &lt;td>list&lt;/td>
+ &lt;td>定义启动后的钩子详细动作&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h4 id="initc字段" class="heading-element">&lt;span>initC字段&lt;/span>
+ &lt;a href="#initc%e5%ad%97%e6%ae%b5" class="heading-mark">
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z">&lt;/path>&lt;/svg>
+ &lt;/a>
+&lt;/h4>&lt;blockquote>
+&lt;p>与容器字段通过，只不过把containers换成initcontainers&lt;/p>
+&lt;/blockquote>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>参数名&lt;/th>
+ &lt;th>字段类型&lt;/th>
+ &lt;th>说明&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>spec.initcontainers[]&lt;/td>
+ &lt;td>list&lt;/td>
+ &lt;td>这里是Spec对象的容器列表定义，是个列表，定义initC容器&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.initcontainers[].name&lt;/td>
+ &lt;td>String&lt;/td>
+ &lt;td>这里定义容器的名字&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.initcontainers[].image&lt;/td>
+ &lt;td>String&lt;/td>
+ &lt;td>这里定义要用到的镜像名称&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.initcontainers[].command[]&lt;/td>
+ &lt;td>List&lt;/td>
+ &lt;td>指定容器启动命令，因为是数组可以指定多个，不指定则使用镜像打包时使用的启动命令&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h3 id="控制器通用字段" class="heading-element">&lt;span>控制器通用字段&lt;/span>
+ &lt;a href="#%e6%8e%a7%e5%88%b6%e5%99%a8%e9%80%9a%e7%94%a8%e5%ad%97%e6%ae%b5" class="heading-mark">
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z">&lt;/path>&lt;/svg>
+ &lt;/a>
+&lt;/h3>&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>参数名&lt;/th>
+ &lt;th>字段类型&lt;/th>
+ &lt;th>说明&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>spec.replicas&lt;/td>
+ &lt;td>init&lt;/td>
+ &lt;td>副本数（pod数量）&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.template&lt;/td>
+ &lt;td>object&lt;/td>
+ &lt;td>pod模板，内容就是pod中的字段内容&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.selector&lt;/td>
+ &lt;td>object&lt;/td>
+ &lt;td>标签匹配（用来区分是谁的pod），将适合的pod加入到该该控制器下 内容是：标签：值&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.minReadySeconds&lt;/td>
+ &lt;td>init&lt;/td>
+ &lt;td>用定义新建的 Pod 经过多少秒后才被视为可用，默认为0。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.backoffLimit&lt;/td>
+ &lt;td>init&lt;/td>
+ &lt;td>失败次数达到指定次数之后进入懒启动状态（重建间隔时间长）&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h4 id="标签选择标签选择器" class="heading-element">&lt;span>标签选择—标签选择器&lt;/span>
+ &lt;a href="#%e6%a0%87%e7%ad%be%e9%80%89%e6%8b%a9%e6%a0%87%e7%ad%be%e9%80%89%e6%8b%a9%e5%99%a8" class="heading-mark">
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z">&lt;/path>&lt;/svg>
+ &lt;/a>
+&lt;/h4>&lt;blockquote>
+&lt;p>处理RC其他都支持&lt;/p>
+&lt;/blockquote>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>参数名&lt;/th>
+ &lt;th>字段类型&lt;/th>
+ &lt;th>说明&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>spec.selector&lt;/td>
+ &lt;td>object&lt;/td>
+ &lt;td>标签匹配（用来区分是谁的pod），将适合的pod加入到该该控制器下&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.selector.matchLabels[]&lt;/td>
+ &lt;td>list&lt;/td>
+ &lt;td>集合式的标签匹配（用来区分是谁的pod），将适合的pod加入到该该控制器下内容是：标签：值（RS支持）&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.selector.matchExpressions[]&lt;/td>
+ &lt;td>object&lt;/td>
+ &lt;td>支持运算符匹配进行标签选择（用来区分是谁的pod），将适合的pod加入到该该控制器下&lt;br/>内容是：&lt;br/>key： xxxx&lt;br/>operator: 运算符&lt;br/>vlaues：&lt;br/>- xxxx&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.selector.matchExpressions[].key&lt;/td>
+ &lt;td>string&lt;/td>
+ &lt;td>标签选择器的key字段&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.selector.matchExpressions.operator&lt;/td>
+ &lt;td>string&lt;/td>
+ &lt;td>标签选择的运算符，有In、NotIn、Exists、DoesNotExist 四个值可选&lt;br/>In ：label 的值在某个列表中（根据value的值进行选择）&lt;br/>NotIn ：label 的值不在某个列表中&lt;br/>Exists ：某个 label 存在（根据key进行选择）&lt;br/>DoesNotExist：某个 label 不存在&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.selector.matchExpressions[].values&lt;/td>
+ &lt;td>list&lt;/td>
+ &lt;td>标签选择器下的value字段&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h3 id="rc-控制器" class="heading-element">&lt;span>RC 控制器&lt;/span>
+ &lt;a href="#rc-%e6%8e%a7%e5%88%b6%e5%99%a8" class="heading-mark">
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z">&lt;/path>&lt;/svg>
+ &lt;/a>
+&lt;/h3>&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>参数名&lt;/th>
+ &lt;th>字段类型&lt;/th>
+ &lt;th>说明&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>spec.selector&lt;/td>
+ &lt;td>list&lt;/td>
+ &lt;td>标签匹配（用来区分是谁的pod），将适合的pod加入到该该控制器下 内容是：标签：值&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;ul>
+&lt;li>RC （ReplicationController ）主要的作用就是用来确保容器应用的副本数始终保持在用户定义的副本数
+。即如果有容器异常退出，会自动创建新的Pod来替代；而如果异常多出来的容器也会自动回收（回收最晚创建的）&lt;/li>
+&lt;li>根据标签确认是否输入控制器&lt;/li>
+&lt;li>不支持集合式的标签匹配&lt;/li>
+&lt;/ul>
+&lt;h3 id="rs控制器" class="heading-element">&lt;span>RS控制器&lt;/span>
+ &lt;a href="#rs%e6%8e%a7%e5%88%b6%e5%99%a8" class="heading-mark">
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z">&lt;/path>&lt;/svg>
+ &lt;/a>
+&lt;/h3>&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>参数名&lt;/th>
+ &lt;th>字段类型&lt;/th>
+ &lt;th>说明&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>spec.minReadySeconds&lt;/td>
+ &lt;td>init&lt;/td>
+ &lt;td>用定义新建的 Pod 经过多少秒后才被视为可用，默认为0。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.selector.matchLabels[]&lt;/td>
+ &lt;td>list&lt;/td>
+ &lt;td>集合式的标签匹配（用来区分是谁的pod），将适合的pod加入到该该控制器下内容是：标签：值（RS支持）&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.selector.matchExpressions[]&lt;/td>
+ &lt;td>object&lt;/td>
+ &lt;td>支持运算符匹配进行标签选择（用来区分是谁的pod），将适合的pod加入到该该控制器下&lt;br/>内容是：&lt;br/>key： xxxx&lt;br/>operator: 运算符&lt;br/>vlaues：xxxx&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.selector.matchExpressions[].key&lt;/td>
+ &lt;td>string&lt;/td>
+ &lt;td>标签选择器的key字段&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.selector.matchExpressions.operator&lt;/td>
+ &lt;td>string&lt;/td>
+ &lt;td>标签选择的运算符，有In、NotIn、Exists、DoesNotExist 四个值可选&lt;br/>In ：label 的值在某个列表中（根据value的值进行选择）&lt;br/>NotIn ：label 的值不在某个列表中&lt;br/>Exists ：某个 label 存在（根据key进行选择）&lt;br/>DoesNotExist：某个 label 不存在&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.selector.matchExpressions[].values&lt;/td>
+ &lt;td>list&lt;/td>
+ &lt;td>标签选择器下的value字段&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h3 id="deployment控制器" class="heading-element">&lt;span>deployment控制器&lt;/span>
+ &lt;a href="#deployment%e6%8e%a7%e5%88%b6%e5%99%a8" class="heading-mark">
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z">&lt;/path>&lt;/svg>
+ &lt;/a>
+&lt;/h3>&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>参数名&lt;/th>
+ &lt;th>字段类型&lt;/th>
+ &lt;th>说明&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>spec.minReadySeconds&lt;/td>
+ &lt;td>init&lt;/td>
+ &lt;td>用定义新建的 Pod 经过多少秒后才被视为可用，默认为0。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.selector&lt;/td>
+ &lt;td>list&lt;/td>
+ &lt;td>默认标签选择器。默认是matchLabels子集形式进行匹配&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.selector.matchLabels[]&lt;/td>
+ &lt;td>list&lt;/td>
+ &lt;td>集合式的标签匹配（用来区分是谁的pod），将适合的pod加入到该该控制器下内容是：标签：值&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.selector.matchExpressions[]&lt;/td>
+ &lt;td>object&lt;/td>
+ &lt;td>支持运算符匹配进行标签选择（用来区分是谁的pod），将适合的pod加入到该该控制器下&lt;br/>内容是：&lt;br/>key： xxxx&lt;br/>operator: 运算符&lt;br/>vlaues：xxxx&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.selector.matchExpressions[].key&lt;/td>
+ &lt;td>string&lt;/td>
+ &lt;td>标签选择器的key字段&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.selector.matchExpressions.operator&lt;/td>
+ &lt;td>string&lt;/td>
+ &lt;td>标签选择的运算符，有In、NotIn、Exists、DoesNotExist 四个值可选&lt;br/>In ：label 的值在某个列表中（根据value的值进行选择）&lt;br/>NotIn ：label 的值不在某个列表中&lt;br/>Exists ：某个 label 存在（根据key进行选择）&lt;br/>DoesNotExist：某个 label 不存在&lt;br/>spec.selector.matchExpressions[].values	list	标签选择器下的value字段&lt;br/>sepc.revisionHistoryLimit	init	设置保留的滚动更新历史版本数量，默认值为2147483647,表示保存所有历史版本&lt;br/>spec.strategy.type	string	部署类型，可以选择 的值为ecreate (字母开头大写) 或 RollingUpdate , 默认为 RollingUpdate 。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>Deployment.spec.strategy.Recreate&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>滚动更新方式为重建&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>Deployment.spec.strategy.rollingUpdate&lt;/td>
+ &lt;td>映射&lt;/td>
+ &lt;td>滚动更新方式为滚动更新&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>Deployment.spec.strategy.rollingUpdate.maxSurge&lt;/td>
+ &lt;td>init&lt;/td>
+ &lt;td>设置更新时pod最多多几个（或者指定百分比）&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>Deployment.spec.strategy.rollingUpdate.maxUnavailable&lt;/td>
+ &lt;td>init&lt;/td>
+ &lt;td>设置更新时pod最多几个不可用（或者指定百分比）&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>Deployment.spec.revisonHistoryLimit&lt;/td>
+ &lt;td>init&lt;/td>
+ &lt;td>指定 deployment 最多保留多少 镜像版本修改的历史记录。默认的会保留所有的 revision；如果将该项设置为0，Deployment 就不允许回退了&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h3 id="job控制器" class="heading-element">&lt;span>job控制器&lt;/span>
+ &lt;a href="#job%e6%8e%a7%e5%88%b6%e5%99%a8" class="heading-mark">
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z">&lt;/path>&lt;/svg>
+ &lt;/a>
+&lt;/h3>&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>参数名&lt;/th>
+ &lt;th>字段类型&lt;/th>
+ &lt;th>说明&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>spec.template&lt;/td>
+ &lt;td>–&lt;/td>
+ &lt;td>格式同Pod相同&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.template.spec.restartPolicy&lt;/td>
+ &lt;td>String&lt;/td>
+ &lt;td>仅支持Never或OnFailure，需要修改&lt;br/>定义Pod的重启策略，可选值为Always、OnFailure，默认值为Always。&lt;br/>1.Always: Pod一旦终止运行，则无论容器是如何终止的，kubelet服务都将重启它。&lt;br/>2.OnFailure: 只有Pod以非零退出码终止时，kubelet才会重启该容器。如果容器正常结束 (退出码为0) ，则kubelet将不会重启它&lt;br/>3.Never: Pod终止后，kubelet将退出码报告给Master，不会重启该Pod.&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.completions&lt;/td>
+ &lt;td>init&lt;/td>
+ &lt;td>标志Job结束需要成功运行的Pod个数，默认为1&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.parallelism&lt;/td>
+ &lt;td>init&lt;/td>
+ &lt;td>标志并行运行的Pod的个数，默认为1&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.activeDeadlineSeconds&lt;/td>
+ &lt;td>init&lt;/td>
+ &lt;td>标志失败Pod的重试最大时间，超过这个时间不会继续重试。秒为单位&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h3 id="cronjob控制器" class="heading-element">&lt;span>CronJob控制器&lt;/span>
+ &lt;a href="#cronjob%e6%8e%a7%e5%88%b6%e5%99%a8" class="heading-mark">
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z">&lt;/path>&lt;/svg>
+ &lt;/a>
+&lt;/h3>&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>参数名&lt;/th>
+ &lt;th>字段类型&lt;/th>
+ &lt;th>说明&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>.spec.schedule&lt;/td>
+ &lt;td>string&lt;/td>
+ &lt;td>调度，必需字段，指定任务运行周期，格式同 Cron。如：“*/1 * * * *”&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.completions&lt;/td>
+ &lt;td>init&lt;/td>
+ &lt;td>标志Job结束需要成功运行的Pod个数，默认为1&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.parallelism&lt;/td>
+ &lt;td>init&lt;/td>
+ &lt;td>标志并行运行的Pod的个数，默认为1&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.concurrencyPolicy&lt;/td>
+ &lt;td>string&lt;/td>
+ &lt;td>-并发策略，该字段也是可选的。它指定了如何处理被 Cron Job 创建的 Job 的并发执行。只允许指定下面策略中的一种：&lt;br/>Allow（默认）：允许并发运行 Job&lt;br/>Forbid：禁止并发运行，如果前一个还没有完成，则直接跳过下一个&lt;br/>Replace：取消当前正在运行的 Job，用一个新的来替换&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.suspend&lt;/td>
+ &lt;td>string&lt;/td>
+ &lt;td>挂起，该字段也是可选的。有true、false两个值可以选择。如果设置为 true，后续所有执行都会被挂起。它对已经开始执行的 Job 不起作用。默认值为 false&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.successfulJobsHistoryLimit&lt;/td>
+ &lt;td>init&lt;/td>
+ &lt;td>历史限制。是可选的字段。它们指定了可以保留多少完成的 Job。默认为3&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.failedJobsHistoryLimit&lt;/td>
+ &lt;td>init&lt;/td>
+ &lt;td>历史限制。是可选的字段。它们指定了可以保留多少失败的 Job。默认为0&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.activeDeadlineSeconds&lt;/td>
+ &lt;td>init&lt;/td>
+ &lt;td>标志失败Pod的重试最大时间，超过这个时间不会继续重试。该字段是可选的。如果因为任何原因而错过了被调度的时间，那么错过执行时间的 Job 将被认为是失败。秒为单位&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.jobTemplate&lt;/td>
+ &lt;td>object&lt;/td>
+ &lt;td>的。如果没有指定，则没有期限Job 模板，必需字段，指定需要运行的任务，格式同 Job&lt;br/>jobTemplate.spec.template	–	格式同Pod相同&lt;br/>jobTemplate.spec.template.spec.restartPolicy	String	仅支持Never或OnFailure，需要修改&lt;br/>定义Pod的重启策略，可选值为Always、OnFailure，默认值为Always。&lt;br/>1.Always: Pod一旦终止运行，则无论容器是如何终止的，kubelet服务都将重启它。&lt;br/>2.OnFailure: 只有Pod以非零退出码终止时，kubelet才会重启该容器。如果容器正常结束 (退出码为0) ，则kubelet将不会重启它&lt;br/>3.Never: Pod终止后，kubelet将退出码报告给Master，不会重启该Pod.&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h3 id="service" class="heading-element">&lt;span>service&lt;/span>
+ &lt;a href="#service" class="heading-mark">
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z">&lt;/path>&lt;/svg>
+ &lt;/a>
+&lt;/h3>&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>参数名&lt;/th>
+ &lt;th>字段类型&lt;/th>
+ &lt;th>是否必选&lt;/th>
+ &lt;th>取值说明&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>.apiVersion&lt;/td>
+ &lt;td>string&lt;/td>
+ &lt;td>Required	v1&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>.kind&lt;/td>
+ &lt;td>string&lt;/td>
+ &lt;td>Required	Service&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>.metadata&lt;/td>
+ &lt;td>object&lt;/td>
+ &lt;td>Required	元数据&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>.metadata.name&lt;/td>
+ &lt;td>string&lt;/td>
+ &lt;td>Required	Service名称，需符合RFC 1035规范&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>.metadata.namespace&lt;/td>
+ &lt;td>string&lt;/td>
+ &lt;td>Required	命名空间，不指定系统时将使用名为default的命名空间&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>.metadata.labels	[]&lt;/td>
+ &lt;td>list&lt;/td>
+ &lt;td>自定义标签属性列表&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>.metadata.annotation[]&lt;/td>
+ &lt;td>list&lt;/td>
+ &lt;td>自定义注解属性列表&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>.spec&lt;/td>
+ &lt;td>object&lt;/td>
+ &lt;td>Required	期望描述&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>.spec.selector[]&lt;/td>
+ &lt;td>list&lt;/td>
+ &lt;td>Required	Label Selector配置，将选择具有指定Label标签的Pod作为管理范围&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>.spec.type&lt;/td>
+ &lt;td>string&lt;/td>
+ &lt;td>Requited	Service的类型，指定Service的防问方式，默认值为ClusterIP。取值可有：ClusterIP、NodePort、LoadBalancer。&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>.spec.clusterIP&lt;/td>
+ &lt;td>string&lt;/td>
+ &lt;td>虚拟服务的IP地址，当type=ClusterIP时，如果不指定，则系统自动分配，也可以手工分配；当type=LoadBalancer时，需要指定&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>.spec.sessionAffinity&lt;/td>
+ &lt;td>string&lt;/td>
+ &lt;td>会话保持字段是否支持Session,可选值为ClientIP,默认值为None。ClientIP:表示将同一个客户端（根据客户端的IP地址决定）的访问请求都转发到同一个后端Pod&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>.spec.ports[]&lt;/td>
+ &lt;td>list&lt;/td>
+ &lt;td>Service端口列表&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>.spec.ports[].name&lt;/td>
+ &lt;td>string&lt;/td>
+ &lt;td>端口名称&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>.spec.ports[].protocol&lt;/td>
+ &lt;td>string&lt;/td>
+ &lt;td>端口协议，支持TCP和UDP，默认值为TCP&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>.spec.ports[].port&lt;/td>
+ &lt;td>int&lt;/td>
+ &lt;td>服务监听的端口号&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>.spec.ports[].targetPort&lt;/td>
+ &lt;td>int&lt;/td>
+ &lt;td>需要转发到后端Pod的端口号&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>.spec.ports[].nodePort&lt;/td>
+ &lt;td>int&lt;/td>
+ &lt;td>当spec.type=NodePort时，指定映射到宿主机的端口号&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>.status&lt;/td>
+ &lt;td>object&lt;/td>
+ &lt;td>当spec.type=LoadBalancer时，设置外部负载均衡器的地址&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>.status.loadBalancer&lt;/td>
+ &lt;td>object&lt;/td>
+ &lt;td>外部负载均衡器&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>.status.loadBalancer.ingress&lt;/td>
+ &lt;td>object&lt;/td>
+ &lt;td>外部负载均衡器&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>.status.loadBalancer.ingress.ip&lt;/td>
+ &lt;td>string&lt;/td>
+ &lt;td>外部负载均衡器的IP地址&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>.status.loadBalancer.ingress.hostname&lt;/td>
+ &lt;td>string&lt;/td>
+ &lt;td>外部负载均衡器的主机名&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h3 id="endpoint" class="heading-element">&lt;span>Endpoint&lt;/span>
+ &lt;a href="#endpoint" class="heading-mark">
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z">&lt;/path>&lt;/svg>
+ &lt;/a>
+&lt;/h3>&lt;blockquote>
+&lt;p>作用：连接外部服务值本地svc
+原理：只有配置了 selector 的 service 才会自动创建一个同名的 endpoints，没有配置 selector 的 service 不会产生 endpoints
+资源对象&lt;/p>
+&lt;/blockquote>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>参数名&lt;/th>
+ &lt;th>字段类型&lt;/th>
+ &lt;th>说明&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>metadata.name&lt;/td>
+ &lt;td>string&lt;/td>
+ &lt;td>必需字段，必须与要匹配的svc名字完全一致，并且在同一名字空间中&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>svc.subsets&lt;/td>
+ &lt;td>object&lt;/td>
+ &lt;td>#配置外部集群信息（一级字段）&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>subsets.address&lt;/td>
+ &lt;td>list&lt;/td>
+ &lt;td>外部地址&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>subsets.ports&lt;/td>
+ &lt;td>list&lt;/td>
+ &lt;td>外部端口&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">apiVersion&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">v1&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Service&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">metadata&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">nginx&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">spec&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">ports&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">protocol&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">TCP&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">port&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">6666&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">targetPort&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">80&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nn">---&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">apiVersion&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">v1&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Endpoints&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">metadata&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">nginx &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c">#名字必须与svc名字完全一致，并且在同一名字空间中&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">subsets&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c">#配置外部集群信息&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">addresses&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c">#外部地址&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">ip&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">192.168.110.102&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="c"># - ip: xxxxxx 跟踪多个 ip (多个 pod 或者容器或者应用)，可以使用以下方式&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">ports&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">port&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">80&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c">#外部端口&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="ingress" class="heading-element">&lt;span>ingress&lt;/span>
+ &lt;a href="#ingress" class="heading-mark">
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z">&lt;/path>&lt;/svg>
+ &lt;/a>
+&lt;/h3>&lt;blockquote>
+&lt;p>Ingress（入口，准入）是Kubernetes提供的接口，Kubernetes使用Ingress策略定义和Ingress Controller
+实现了基于Ingress策略定义的服务路由功能，用于对Kubernetes集群外部的客户端提供服务。&lt;br>
+Ingress 专门对接用于七层负载的&lt;/p>
+&lt;/blockquote>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>参数名&lt;/th>
+ &lt;th>字段类型&lt;/th>
+ &lt;th>说明&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>Ingress.spec.rules&lt;/td>
+ &lt;td>list&lt;/td>
+ &lt;td>规则设置&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.rules.host&lt;/td>
+ &lt;td>string&lt;/td>
+ &lt;td>代理到的域名&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.rules.http&lt;/td>
+ &lt;td>object&lt;/td>
+ &lt;td>基于http协议&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.rules.http.path&lt;/td>
+ &lt;td>list&lt;/td>
+ &lt;td>访问的网址路径&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.rules.http.path.paths&lt;/td>
+ &lt;td>string&lt;/td>
+ &lt;td>访问的网址路径是哪个&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.rules.http.path.paths.backend&lt;/td>
+ &lt;td>object&lt;/td>
+ &lt;td>代理设置&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.rules.http.path.paths.backend.serviceName&lt;/td>
+ &lt;td>string&lt;/td>
+ &lt;td>代理到哪个svc&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.rules.http.path.paths.backend.servicePort&lt;/td>
+ &lt;td>string&lt;/td>
+ &lt;td>代理的端口&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h3 id="configmap" class="heading-element">&lt;span>configmap&lt;/span>
+ &lt;a href="#configmap" class="heading-mark">
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z">&lt;/path>&lt;/svg>
+ &lt;/a>
+&lt;/h3>&lt;blockquote>
+&lt;p>创建方式：使用命令创建，在命令中&lt;/p>
+&lt;/blockquote>
+&lt;p>下方是如何使用：&lt;/p>
+&lt;h4 id="在资源清单中添加环境变量" class="heading-element">&lt;span>在资源清单中添加环境变量&lt;/span>
+ &lt;a href="#%e5%9c%a8%e8%b5%84%e6%ba%90%e6%b8%85%e5%8d%95%e4%b8%ad%e6%b7%bb%e5%8a%a0%e7%8e%af%e5%a2%83%e5%8f%98%e9%87%8f" class="heading-mark">
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z">&lt;/path>&lt;/svg>
+ &lt;/a>
+&lt;/h4>&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>字段&lt;/th>
+ &lt;th>字段类型&lt;/th>
+ &lt;th>描述&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>pod.spec.containers.env&lt;/td>
+ &lt;td>list&lt;/td>
+ &lt;td>要在容器中设置的环境变量列表。 无法更新。 EnvVar 表示容器中存在的环境变量。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>pod.spec.containers.env.name&lt;/td>
+ &lt;td>string&lt;/td>
+ &lt;td>环境变量的Key值，必须设置。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>pod.spec.containers.env.value&lt;/td>
+ &lt;td>string&lt;/td>
+ &lt;td>设置环境变量的Value，可以使用 &lt;code>$(VAR_NAME)&lt;/code> 的方式对容器中的环境变量进行引用。 &lt;code>$(VAR_NAME)&lt;/code> 表示对 &lt;code>$&lt;/code> 进行转义，会将&lt;code>$(VAR_NAME)&lt;/code> 以值的方式设置为环境变量的值而不是将其展开。&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h4 id="通过configmap逐个添加env变量名容器内二次定义" class="heading-element">&lt;span>通过ConfigMap逐个添加env（变量名容器内二次定义）&lt;/span>
+ &lt;a href="#%e9%80%9a%e8%bf%87configmap%e9%80%90%e4%b8%aa%e6%b7%bb%e5%8a%a0env%e5%8f%98%e9%87%8f%e5%90%8d%e5%ae%b9%e5%99%a8%e5%86%85%e4%ba%8c%e6%ac%a1%e5%ae%9a%e4%b9%89" class="heading-mark">
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z">&lt;/path>&lt;/svg>
+ &lt;/a>
+&lt;/h4>&lt;blockquote>
+&lt;p>key=容器定义。value=configmap中的key的value&lt;/p>
+&lt;/blockquote>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>字段&lt;/th>
+ &lt;th>字段类型&lt;/th>
+ &lt;th>描述&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>pod.spec.containers.env&lt;/td>
+ &lt;td>list&lt;/td>
+ &lt;td>要在容器中设置的环境变量列表。 无法更新。 EnvVar 表示容器中存在的环境变量。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>pod.spec.containers.env.valueFrom&lt;/td>
+ &lt;td>object&lt;/td>
+ &lt;td>环境变量值的源。如果值不为空，则无法使用。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>pod.spec.containers.env.valueFrom.configMapKeyRef&lt;/td>
+ &lt;td>object&lt;/td>
+ &lt;td>选择configMap中的一个Key值的字段。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>pod.spec.contaienrs.env.valueFrom.configMapKeyRef.name&lt;/td>
+ &lt;td>string&lt;/td>
+ &lt;td>指定configMap的名字&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>pod.spec.containers.env.valueFrom.configMapKeyRef.key&lt;/td>
+ &lt;td>string&lt;/td>
+ &lt;td>指定configMap引用的key值，会将对应的value赋予环境变量的value值。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>pod.spec.contianers.env.valueFrom.configMapKeyRef.optional&lt;/td>
+ &lt;td>boolean&lt;/td>
+ &lt;td>指定configMap和key值是否必需预先定义好逐个添加env（没学，不用看）&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h4 id="通过configmap批量添加env变量名无法二次定义" class="heading-element">&lt;span>通过ConfigMap批量添加env（变量名无法二次定义）&lt;/span>
+ &lt;a href="#%e9%80%9a%e8%bf%87configmap%e6%89%b9%e9%87%8f%e6%b7%bb%e5%8a%a0env%e5%8f%98%e9%87%8f%e5%90%8d%e6%97%a0%e6%b3%95%e4%ba%8c%e6%ac%a1%e5%ae%9a%e4%b9%89" class="heading-mark">
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z">&lt;/path>&lt;/svg>
+ &lt;/a>
+&lt;/h4>&lt;blockquote>
+&lt;p>key=configmap中的key。value=configmap中的key的value&lt;/p>
+&lt;/blockquote>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>字段&lt;/th>
+ &lt;th>字段类型&lt;/th>
+ &lt;th>描述&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>pod.spec.contianers.envFrom&lt;/td>
+ &lt;td>list&lt;/td>
+ &lt;td>用于在容器中填充 环境变量的源列表 ，格式必须为C_IDENTIFIER(C语言标识符格式标准) 。如果Key值无效则报告为事件，如果key重复，则以最后的为准，环境变量注入 无法被更新 。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>pod.spec.containers.envFrom.configMapRef&lt;/td>
+ &lt;td>Object&lt;/td>
+ &lt;td>选择ConfigMap，注入环境变量&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>pod.spec.containers.envFrom.configMapRef.name&lt;/td>
+ &lt;td>string&lt;/td>
+ &lt;td>ConfigMap的名称&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>pod.spec.containers.optional&lt;/td>
+ &lt;td>boolean&lt;/td>
+ &lt;td>（没学，不用看）指定configMap是否需要被预先定义好&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h4 id="通过数据卷插件使用configmap" class="heading-element">&lt;span>通过数据卷插件使用configmap&lt;/span>
+ &lt;a href="#%e9%80%9a%e8%bf%87%e6%95%b0%e6%8d%ae%e5%8d%b7%e6%8f%92%e4%bb%b6%e4%bd%bf%e7%94%a8configmap" class="heading-mark">
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z">&lt;/path>&lt;/svg>
+ &lt;/a>
+&lt;/h4>&lt;blockquote>
+&lt;p>将文件填入数据卷。key就是文件名，value就是文件内容&lt;/p>
+&lt;/blockquote>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>字段&lt;/th>
+ &lt;th>字段类型&lt;/th>
+ &lt;th>描述&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>pod.sepc.containers.volumeMounts&lt;/td>
+ &lt;td>list&lt;/td>
+ &lt;td>挂载一个卷&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>pod.sepc.containers.volumeMounts.name&lt;/td>
+ &lt;td>string&lt;/td>
+ &lt;td>挂载的卷名&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>pod.sepc.containers.volumeMounts.mountPath&lt;/td>
+ &lt;td>srting&lt;/td>
+ &lt;td>挂载到哪个目录下&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>pod.sepc.volumes&lt;/td>
+ &lt;td>list&lt;/td>
+ &lt;td>定义卷&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>pod.sepc.volumes.name&lt;/td>
+ &lt;td>string&lt;/td>
+ &lt;td>卷名&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>pod.sepc.volumes.name.configMap&lt;/td>
+ &lt;td>object&lt;/td>
+ &lt;td>卷来源是configmap&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>pod.sepc.volumes.name.configMap.name&lt;/td>
+ &lt;td>string&lt;/td>
+ &lt;td>configmap的名字&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h4 id="configmap的热更新修改-pod-annotations-的方式" class="heading-element">&lt;span>configmap的热更新（修改 pod annotations 的方式）&lt;/span>
+ &lt;a href="#configmap%e7%9a%84%e7%83%ad%e6%9b%b4%e6%96%b0%e4%bf%ae%e6%94%b9-pod-annotations-%e7%9a%84%e6%96%b9%e5%bc%8f" class="heading-mark">
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z">&lt;/path>&lt;/svg>
+ &lt;/a>
+&lt;/h4>&lt;blockquote>
+&lt;p>更新 ConfigMap 目前并不会触发相关 Pod 的滚动更新，可以通过修改 pod annotations 的方式强制触发滚动更新 这个例子里我们在
+&lt;code>.spec.template.metadata.annotations&lt;/code> 中添加 &lt;code>version/config&lt;/code>，每次通过修改 &lt;code>version/config&lt;/code>的值 来触发滚动更新&lt;/p>
+&lt;/blockquote>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">$ kubectl patch deployment nginx-test --patch &lt;span class="s1">&amp;#39;{&amp;#34;spec&amp;#34;: {&amp;#34;template&amp;#34;: {&amp;#34;metadata&amp;#34;: {&amp;#34;annotations&amp;#34;: {&amp;#34;version/config&amp;#34;: &amp;#34;20190411&amp;#34; }}}}}&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 在其中添加此字段即可滚动更新，修改也可以触发滚动更新&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>使用该 ConfigMap 挂载的 Env 不会同步更新&lt;/li>
+&lt;li>使用该 ConfigMap 挂载的 Volume 中的数据需要一段时间（实测大概10秒）才能同步更新&lt;br/>
+⚠️ 注意：apps/v1版本的api接口，默认滚动幅度为25%&lt;/li>
+&lt;/ul>
+&lt;h3 id="secret" class="heading-element">&lt;span>secret&lt;/span>
+ &lt;a href="#secret" class="heading-mark">
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z">&lt;/path>&lt;/svg>
+ &lt;/a>
+&lt;/h3>&lt;h4 id="service-account" class="heading-element">&lt;span>service Account&lt;/span>
+ &lt;a href="#service-account" class="heading-mark">
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z">&lt;/path>&lt;/svg>
+ &lt;/a>
+&lt;/h4>&lt;p>用来访问 Kubernetes API，由 Kubernetes 自动创建，并且会自动挂载到 Pod 的 &lt;code>/run/secrets/kubernetes.io/serviceaccount&lt;/code>
+目录中。专门用于集群安全中pod的认证。&lt;/p>
+&lt;h4 id="opaque-secret" class="heading-element">&lt;span>Opaque Secret&lt;/span>
+ &lt;a href="#opaque-secret" class="heading-mark">
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z">&lt;/path>&lt;/svg>
+ &lt;/a>
+&lt;/h4>&lt;p>类似于 configmap，但是 value 字段是编码的value 数据必须是原数据经过 base64 编码以后的结果，secret 在使用的时候，value
+会被自动解码&lt;/p>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>字段&lt;/th>
+ &lt;th>字段类型&lt;/th>
+ &lt;th>描述&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>secret.type&lt;/td>
+ &lt;td>string&lt;/td>
+ &lt;td>secret类型。有三种类型、service Account、opaque 、dockerconfigjson。本处写opaque&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>secret.data&lt;/td>
+ &lt;td>list&lt;/td>
+ &lt;td>数据段。格式：key=value；value必须是过 base64 编码以后的结果&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;ul>
+&lt;li>&lt;code>kubernetes.io/dockerconfigjson&lt;/code>
+使用 Kuberctl 命令创建 docker 仓库认证的 secret，命令中有写到。资源清单不在做描述&lt;/li>
+&lt;/ul>
+&lt;h3 id="volume" class="heading-element">&lt;span>volume&lt;/span>
+ &lt;a href="#volume" class="heading-mark">
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z">&lt;/path>&lt;/svg>
+ &lt;/a>
+&lt;/h3>&lt;h4 id="emptydir空目录" class="heading-element">&lt;span>emptyDir（空目录）&lt;/span>
+ &lt;a href="#emptydir%e7%a9%ba%e7%9b%ae%e5%bd%95" class="heading-mark">
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z">&lt;/path>&lt;/svg>
+ &lt;/a>
+&lt;/h4>&lt;blockquote>
+&lt;ul>
+&lt;li>当 Pod 被分配给节点时，首先创建 emptyDir 卷，并且只要该 Pod 在该节点上运行，该卷就会存在。正如卷的名字所述，它最初是空的。Pod
+中的容器可以读取和写入 emptyDir 卷中的相同文件，尽管该卷可以挂载到每个容器中的相同或不同路径上。当出于任何原因从节点中删除
+Pod 时，emptyDir 中的数据将被永久删除&lt;/li>
+&lt;li>用法：pod的暂存空间。（存放initC执行结果、容器运行产生元数据-mfsmaster的元数据日志）&lt;/li>
+&lt;/ul>
+&lt;/blockquote>
+&lt;p>⚠️注意：emptyDir跟pod生命周期一致。容器崩溃不会从节点中移除 pod，因此 emptyDir 卷中的数据在容器崩溃时是安全的&lt;/p>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>字段&lt;/th>
+ &lt;th>字段类型&lt;/th>
+ &lt;th>描述&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>pod.spec.volumes&lt;/td>
+ &lt;td>list&lt;/td>
+ &lt;td>定义卷&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>pod.spec.volumes.name&lt;/td>
+ &lt;td>string&lt;/td>
+ &lt;td>卷名&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>pod.spec.volumes.emptyDir&lt;/td>
+ &lt;td>string&lt;/td>
+ &lt;td>卷类型是emptydir。value值为{ }&lt;br/>emptyDir: {}&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>pod.sepc.containers.volumeMounts&lt;/td>
+ &lt;td>list&lt;/td>
+ &lt;td>挂载一个卷&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>pod.sepc.containers.volumeMounts.name&lt;/td>
+ &lt;td>string&lt;/td>
+ &lt;td>挂载的卷名&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>pod.sepc.containers.volumeMounts.mountPath&lt;/td>
+ &lt;td>srting&lt;/td>
+ &lt;td>挂载到哪个目录下&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h4 id="hostpath" class="heading-element">&lt;span>hostPath&lt;/span>
+ &lt;a href="#hostpath" class="heading-mark">
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z">&lt;/path>&lt;/svg>
+ &lt;/a>
+&lt;/h4>&lt;blockquote>
+&lt;p>hostPath卷将主机节点的文件系统中的文件或目录挂载到集群中，可对主机文件/目录进行判断，判断是否存在，存在是否合理，并做出动作&lt;/p>
+&lt;/blockquote>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>字段&lt;/th>
+ &lt;th>字段类型&lt;/th>
+ &lt;th>描述&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>pod.sepc.containers.volumeMounts&lt;/td>
+ &lt;td>list&lt;/td>
+ &lt;td>挂载一个卷&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>pod.sepc.containers.volumeMounts.name&lt;/td>
+ &lt;td>string&lt;/td>
+ &lt;td>挂载的卷名&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>pod.sepc.containers.volumeMounts.mountPath&lt;/td>
+ &lt;td>string&lt;/td>
+ &lt;td>挂载到哪个目录下&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>pod.spec.volumes&lt;/td>
+ &lt;td>list&lt;/td>
+ &lt;td>定义卷&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>pod.spec.volumes.name&lt;/td>
+ &lt;td>string&lt;/td>
+ &lt;td>卷名&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>pod.spec.volumes.hostPath&lt;/td>
+ &lt;td>object&lt;/td>
+ &lt;td>卷类型为hostpath&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>pod.spec.volumes.hostPath.path&lt;/td>
+ &lt;td>string&lt;/td>
+ &lt;td>卷的物理机路径（主机上的目录位置）&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>pod.spec.volumes.hostPath.type&lt;/td>
+ &lt;td>string&lt;/td>
+ &lt;td>key值填hostPath卷的类型。有八个值可选，下方详解。&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;ul>
+&lt;li>hostPath卷类型的vlaue值&lt;/li>
+&lt;/ul>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>值&lt;/th>
+ &lt;th>行为&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;/td>
+ &lt;td>空字符串（默认）用于向后兼容，这意味着在挂载 hostPath 卷之前不会执行任何检查。（不检查直接使用）&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>DirectoryOrCreate&lt;/td>
+ &lt;td>如果在给定的路径上没有任何东西存在，那么将根据需要在那里创建一个空目录，权限设置为 0755，与 Kubelet 具有相同的组和所有权**（就是节点所在的Kubelet创建的）。（如果目录不存在则创建一个空目录，存在的是个文件则报错）**&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>Directory&lt;/td>
+ &lt;td>给定的路径下必须存在目录，不存在则报错&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>FileOrCreate&lt;/td>
+ &lt;td>如果在给定的路径上没有任何东西存在，那么会根据需要创建一个空文件，权限设置为 0644，与 Kubelet 具有相同的组和所有权。（如果文件不存在则创建空文件，存在的是个目录则报错）&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>File&lt;/td>
+ &lt;td>给定的路径下必须存在文件，否则报错。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>Socket&lt;/td>
+ &lt;td>给定的路径下必须存在 UNIX 套接字，否则报错。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>CharDevice&lt;/td>
+ &lt;td>给定的路径下必须存在字符设备，否则报错。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>BlockDevice&lt;/td>
+ &lt;td>给定的路径下必须存在块设备，否则报错。&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h3 id="pvc持久化卷" class="heading-element">&lt;span>PVC持久化卷&lt;/span>
+ &lt;a href="#pvc%e6%8c%81%e4%b9%85%e5%8c%96%e5%8d%b7" class="heading-mark">
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z">&lt;/path>&lt;/svg>
+ &lt;/a>
+&lt;/h3>&lt;h4 id="pv" class="heading-element">&lt;span>PV&lt;/span>
+ &lt;a href="#pv" class="heading-mark">
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z">&lt;/path>&lt;/svg>
+ &lt;/a>
+&lt;/h4>&lt;blockquote>
+&lt;p>类别是：PersistentVolume&lt;br>
+PV 也是集群中的资源。 PV 是 Volume 之类的卷插件，但具有独立于使用 PV 的 Pod 的生命周期。可被PVC调用提供给pod&lt;/p>
+&lt;/blockquote>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>字段&lt;/th>
+ &lt;th>字段类型&lt;/th>
+ &lt;th>描述&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>spec.capacity&lt;/td>
+ &lt;td>object&lt;/td>
+ &lt;td>pv容量&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.capacity.storage&lt;/td>
+ &lt;td>string&lt;/td>
+ &lt;td>pv的大小。5Gi表示5GB&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.volumeMode&lt;/td>
+ &lt;td>string&lt;/td>
+ &lt;td>卷模式。写Filesystem即可&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.accessModes&lt;/td>
+ &lt;td>string&lt;/td>
+ &lt;td>访问模式（读写策略）。三个值可选 ReadWriteOnce——该卷可以被单个节点以读/写模式挂载ReadOnlyMany——该卷可以被多个节点以只读模式挂载ReadWriteMany——该卷可以被多个节点以读/写模式挂载&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.persistentVolumeReclaimPolicy&lt;/td>
+ &lt;td>string&lt;/td>
+ &lt;td>卷的回收策略，三个值可选&lt;br/>Retain（保留）——手动回收（基本都用这个）Recycle（回收）——基本擦除（rm -rf /thevolume/*）&lt;br/>Delete（删除）——关联的存储资产，用于动态pv。此策略会将卷直接删除&amp;mdash;-节省成本&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>sepc.storageClassName&lt;/td>
+ &lt;td>string&lt;/td>
+ &lt;td>定义存储类的类名（是自定义的，严格匹配）&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>sepc.nfs&lt;/td>
+ &lt;td>object&lt;/td>
+ &lt;td>通过nfs提供底层数据存储&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>sepc.nfs.path&lt;/td>
+ &lt;td>string&lt;/td>
+ &lt;td>nfs共享的路径&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>sepc.nfs.server&lt;/td>
+ &lt;td>string&lt;/td>
+ &lt;td>nfs的地址&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;ul>
+&lt;li>Retain（保留）——手动回收（基本都用这个）&lt;/li>
+&lt;li>Recycle（回收）——基本擦除（rm -rf /thevolume/*）&lt;/li>
+&lt;li>Delete（删除）——关联的存储资产（例如 AWS EBS、GCE PD、Azure Disk 和 OpenStack Cinder 卷）将被删除&amp;mdash;-节省成本&lt;/li>
+&lt;/ul>
+&lt;h4 id="pvc" class="heading-element">&lt;span>PVC&lt;/span>
+ &lt;a href="#pvc" class="heading-mark">
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z">&lt;/path>&lt;/svg>
+ &lt;/a>
+&lt;/h4>&lt;blockquote>
+&lt;p>&lt;code>pvc&lt;/code>是用户存储的请求。它与Pod相似。Pod消耗节点资源，PVC消耗PV资源。Pod可以请求特定级别的资源（CPU和内存）。声明可以请求特定的大小和访问模式（例如，可以以读/写一次或只读多次模式挂载）
+声明需要在StatefulSet控制器中进行声明&lt;br>
+&lt;code>StatefulSet&lt;/code>是为了 解决有状态服务的问题 （对应 Deployments 和 ReplicaSets 是为无状态服务而设计），需要配合无头服务Service使用&lt;/p>
+&lt;/blockquote>
+&lt;ul>
+&lt;li>
+&lt;p>其特性包括：&lt;/p>
+&lt;ul>
+&lt;li>稳定的存储：即 Pod 重新调度后还是能访问到相同的持久化数据，基于 PVC 来实现。&lt;br>
+&lt;code>PV卷的名称为：PodName+PV模板Name。&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>稳定的网络标识：即 Pod 重新调度后其 PodName 和 HostName（域名）不变，基于 Headless Service（即没有 Cluster IP 的 Service
+）来实现。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>有序扩容：有序扩展，即 Pod 是有顺序的，在部署或者扩展的时候要依据定义的顺序依次依次进行&lt;br>
+&lt;code>即从 0 到 N-1，在 下一个 Pod 运行之前所有之前的 Pod 必须都是 Running 和 Ready 状态 ，基于 init containers 来实现。 只有当第一个pod就绪以后才会创建第二个pod&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>有序的回收：有序删除（即从 N-1 到 0）&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Service具有以下特点：&lt;/p>
+&lt;blockquote>
+&lt;ul>
+&lt;li>没有ClusterIP地址&lt;/li>
+&lt;li>kube-proxy不会创建负载均衡转发规则&lt;/li>
+&lt;li>Service是否有DNS域名解析取决于还Headless Service是否设置了Label Selector&lt;/li>
+&lt;/ul>
+&lt;/blockquote>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;span class="lnt">32
+&lt;/span>&lt;span class="lnt">33
+&lt;/span>&lt;span class="lnt">34
+&lt;/span>&lt;span class="lnt">35
+&lt;/span>&lt;span class="lnt">36
+&lt;/span>&lt;span class="lnt">37
+&lt;/span>&lt;span class="lnt">38
+&lt;/span>&lt;span class="lnt">39
+&lt;/span>&lt;span class="lnt">40
+&lt;/span>&lt;span class="lnt">41
+&lt;/span>&lt;span class="lnt">42
+&lt;/span>&lt;span class="lnt">43
+&lt;/span>&lt;span class="lnt">44
+&lt;/span>&lt;span class="lnt">45
+&lt;/span>&lt;span class="lnt">46
+&lt;/span>&lt;span class="lnt">47
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">apiVersion&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">v1&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Service&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">metadata&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">nginx&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">labels&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">app&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">nginx&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">spec&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">ports&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">port&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">80&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">web&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">clusterIP&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">None &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c">#无头svc&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">selector&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">app&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">nginx&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nn">---&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">apiVersion&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">apps/v1&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">StatefulSet&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">metadata&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">web&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">spec&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">selector&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">matchLabels&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">app&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">nginx&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">serviceName&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;nginx&amp;#34;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c">#必须填写无头服务svc的名字&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">replicas&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">3&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">template&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">metadata&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">labels&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">app&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">nginx&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">spec&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">containers&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">nginx&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">image&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">wangyanglinux/myapp:v1&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">ports&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">containerPort&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">80&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">web&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">volumeMounts&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c">#卷绑定&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">www &lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">mountPath&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">/usr/share/nginx/html&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">volumeClaimTemplates&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c">#pvc的卷声明模板（一个pod对应一个pvc，跟随pod一起创建）&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">metadata&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">www&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">spec&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">accessModes&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;ReadWriteOnce&amp;#34;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">]&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c">#访问策略&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">storageClassName&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;nfs&amp;#34;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c">#使用存储类&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">resources&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">requests&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">storage&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">1Gi &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c">#请求资源是1G 回收策略可不写&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;h3 id="调度器" class="heading-element">&lt;span>调度器&lt;/span>
+ &lt;a href="#%e8%b0%83%e5%ba%a6%e5%99%a8" class="heading-mark">
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z">&lt;/path>&lt;/svg>
+ &lt;/a>
+&lt;/h3>&lt;h4 id="节点亲和性" class="heading-element">&lt;span>节点亲和性&lt;/span>
+ &lt;a href="#%e8%8a%82%e7%82%b9%e4%ba%b2%e5%92%8c%e6%80%a7" class="heading-mark">
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z">&lt;/path>&lt;/svg>
+ &lt;/a>
+&lt;/h4>&lt;ul>
+&lt;li>匹配逻辑
+&lt;blockquote>
+&lt;p>匹配的是节点的标签。只要node符合该标签即为匹配成功&lt;/p>
+&lt;/blockquote>
+&lt;/li>
+&lt;/ul>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>字段&lt;/th>
+ &lt;th>字段类型&lt;/th>
+ &lt;th>描述&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>pod.spec.schedulername&lt;/td>
+ &lt;td>string&lt;/td>
+ &lt;td>指定使用调度器（自定义调度器的使用）&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>pod.spec.affinity&lt;/td>
+ &lt;td>object&lt;/td>
+ &lt;td>pod的亲和性设置&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>pod.spec.affinity.nodeAffinity&lt;/td>
+ &lt;td>object&lt;/td>
+ &lt;td>节点亲和性设置（硬亲和跟软亲和可在一起）&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>pod.spec.affinity.nodeAffinity.requiredDuringSchedulingIgnoredDuringExecution&lt;/td>
+ &lt;td>object&lt;/td>
+ &lt;td>节点硬亲和&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>硬亲和.nodeSelectorTerms&lt;/td>
+ &lt;td>list&lt;/td>
+ &lt;td>节点标签选择器&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>硬亲和.nodeSelectorTerms.matchExpressions&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>匹配运算符。下面有多个选项的话，满足任何一个条件就可以了&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>硬亲和.nodeSelectorTerms.matchExpressions.matchExpressions&lt;/td>
+ &lt;td>list&lt;/td>
+ &lt;td>匹配运算符&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>硬亲和.nodeSelectorTerms.matchExpressions.matchExpressions.key&lt;/td>
+ &lt;td>string&lt;/td>
+ &lt;td>匹配节点标签的key&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>硬亲和.nodeSelectorTerms.matchExpressions.matchExpressions.operator&lt;/td>
+ &lt;td>string&lt;/td>
+ &lt;td>使用哪个运算符&lt;br/>In：label 的值在某个列表中&lt;br/>NotIn：label 的值不在某个列表中&lt;br/>Gt：label 的值大于某个值&lt;br/>Lt：label 的值小于某个值&lt;br/>Exists：某个 label 存在（key是否存在）&lt;br/>DoesNotExist：某个 label 不存在（key是否不存在）&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>硬亲和.nodeSelectorTerms.matchExpressions.matchExpressions.values&lt;/td>
+ &lt;td>list&lt;/td>
+ &lt;td>列表内写匹配的node标签值&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>pod.spec.affinity.nodeAffinity.preferredDuringSchedulingIgnoredDuringExecution&lt;/td>
+ &lt;td>object&lt;/td>
+ &lt;td>节点软亲和&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>软亲和.weight&lt;/td>
+ &lt;td>string&lt;/td>
+ &lt;td>软亲和权重范围在 1-100 之间（多个软亲和若产生冲突，选择权重高的）&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>软亲和.preference&lt;/td>
+ &lt;td>object&lt;/td>
+ &lt;td>节点选择器条目，与权重（weight）相关&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>软亲和.preference.matchExpressions&lt;/td>
+ &lt;td>list&lt;/td>
+ &lt;td>节点选择器条目，与权重（weight）相关&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>软亲和.preference.matchExpressions&lt;/td>
+ &lt;td>list&lt;/td>
+ &lt;td>匹配运算符有多个选项的话，则必须同时满足这些条件才能正常调度&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>软亲和.preference.matchExpressions.matchExpressions.key&lt;/td>
+ &lt;td>string&lt;/td>
+ &lt;td>匹配节点标签的key&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>软亲和.preference.matchExpressions…matchExpressions.operator&lt;/td>
+ &lt;td>string&lt;/td>
+ &lt;td>使用哪个运算符&lt;br/>In：label 的值在某个列表中&lt;br/>NotIn：label 的值不在某个列表中&lt;br/>Gt：label 的值大于某个值&lt;br/>Lt：label 的值小于某个值&lt;br/>Exists：某个 label 存在（key是否存在）&lt;br/>DoesNotExist：某个 label 不存在（key是否不存在）&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>软亲和.preference.matchExpressions.matchExpressions.values&lt;/td>
+ &lt;td>list&lt;/td>
+ &lt;td>列表内写匹配的node标签值&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h4 id="pod亲和性" class="heading-element">&lt;span>pod亲和性&lt;/span>
+ &lt;a href="#pod%e4%ba%b2%e5%92%8c%e6%80%a7" class="heading-mark">
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z">&lt;/path>&lt;/svg>
+ &lt;/a>
+&lt;/h4>&lt;ul>
+&lt;li>
+&lt;p>匹配逻辑&lt;/p>
+&lt;blockquote>
+&lt;p>pod亲和性匹配的是拓扑域，亲和的是拓扑域，反亲和的也是拓扑域。决定跟不跟pod在同一个拓扑域&lt;/p>
+&lt;/blockquote>
+&lt;/li>
+&lt;li>
+&lt;p>首先在整个集群中寻找标签符合匹配条件的pod&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>找到该pod后，根据设置的拓扑域的key匹配其拓扑域的value&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>只要在设置的拓扑域的value与符合标签的pod的拓扑域的value一致，就可以建立pod&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>根据拓扑域匹配新的pod该建立在哪里，只要与上面符合条件的pod在同拓扑域即可。&lt;br>
+拓扑域：在同一层次就属于同一拓扑域。例如：同一主机、同一机房、同一地区等等&lt;br>
+pod亲和性不支持Gt、Lt运算符。&lt;/p>
+&lt;/blockquote>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>字段&lt;/th>
+ &lt;th>字段类型&lt;/th>
+ &lt;th>描述&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>pod.spec.affinity&lt;/td>
+ &lt;td>object&lt;/td>
+ &lt;td>pod的亲和性设置&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>pod.spec.affinity.podAffinity&lt;/td>
+ &lt;td>object&lt;/td>
+ &lt;td>pod亲和性设置&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>pod.spec.affinity.podAntiAffinity&lt;/td>
+ &lt;td>object&lt;/td>
+ &lt;td>pod反亲和性设置&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>pod亲和性.requiredDuringSchedulingIgnoredDuringExecution&lt;/td>
+ &lt;td>list&lt;/td>
+ &lt;td>pod硬亲和策略&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>pod亲和性.preferredDuringSchedulingIgnoredDuringExecution&lt;/td>
+ &lt;td>list&lt;/td>
+ &lt;td>pod软亲和策略&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;blockquote>
+&lt;p>下方字段通过node亲和性一致&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="亲和性相关运算符" class="heading-element">&lt;span>亲和性相关运算符&lt;/span>
+ &lt;a href="#%e4%ba%b2%e5%92%8c%e6%80%a7%e7%9b%b8%e5%85%b3%e8%bf%90%e7%ae%97%e7%ac%a6" class="heading-mark">
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z">&lt;/path>&lt;/svg>
+ &lt;/a>
+&lt;/h3>&lt;blockquote>
+&lt;p>键值运算关系&lt;/p>
+&lt;/blockquote>
+&lt;ul>
+&lt;li>In：label 的值在某个列表中&lt;/li>
+&lt;li>NotIn：label 的值不在某个列表中&lt;/li>
+&lt;li>Gt：label 的值大于某个值–pod不支持&lt;/li>
+&lt;li>Lt：label 的值小于某个值–pod不支持&lt;/li>
+&lt;li>Exists：某个 label 存在（key是否存在）&lt;/li>
+&lt;li>DoesNotExist：某个 label 不存在（key是否不存在&lt;/li>
+&lt;/ul>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>调度策略&lt;/th>
+ &lt;th>匹配标签&lt;/th>
+ &lt;th>操作符&lt;/th>
+ &lt;th>拓扑域支持&lt;/th>
+ &lt;th>调度目标&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>nodeAffinity&lt;/td>
+ &lt;td>主机&lt;/td>
+ &lt;td>In, NotIn, Exists, DoesNotExist, Gt, Lt&lt;/td>
+ &lt;td>否&lt;/td>
+ &lt;td>指定主机&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>podAffinity&lt;/td>
+ &lt;td>POD&lt;/td>
+ &lt;td>In, NotIn, Exists, DoesNotExist&lt;/td>
+ &lt;td>是&lt;/td>
+ &lt;td>POD与指定POD同一拓扑域&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>podAnitAffinity&lt;/td>
+ &lt;td>POD&lt;/td>
+ &lt;td>In, NotIn, Exists, DoesNotExist&lt;/td>
+ &lt;td>是&lt;/td>
+ &lt;td>POD与指定POD不在同一拓扑域&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;ul>
+&lt;li>节点亲和性的前提条件是：
+&lt;ul>
+&lt;li>在指定拓扑域内，有目标Pod（设置为flag的Pod）。&lt;/li>
+&lt;li>如果是硬限制，则目标Pod的标签与matchExpressions中的条件（一个或多个）必须完全匹配。&lt;/li>
+&lt;li>如果是软限制，则目标Pod的标签，不是必须的，如果相匹配，还要考虑weight（1~100）关系。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h4 id="固定节点调度" class="heading-element">&lt;span>固定节点调度&lt;/span>
+ &lt;a href="#%e5%9b%ba%e5%ae%9a%e8%8a%82%e7%82%b9%e8%b0%83%e5%ba%a6" class="heading-mark">
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z">&lt;/path>&lt;/svg>
+ &lt;/a>
+&lt;/h4>&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>字段&lt;/th>
+ &lt;th>字段类型&lt;/th>
+ &lt;th>描述&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>Pod.spec.nodeName&lt;/td>
+ &lt;td>string&lt;/td>
+ &lt;td>固定节点调度，后边跟节点名，可以跳过污点&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>Pod.spec.nodeSelector&lt;/td>
+ &lt;td>string&lt;/td>
+ &lt;td>匹配节点标签进行调度，不会跳过污点。 &lt;br/>类似于节点硬亲和，只会在符合匹配的节点上建立。节点不让建立则pending（等待调度）&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h3 id="污点与容忍" class="heading-element">&lt;span>污点与容忍&lt;/span>
+ &lt;a href="#%e6%b1%a1%e7%82%b9%e4%b8%8e%e5%ae%b9%e5%bf%8d" class="heading-mark">
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z">&lt;/path>&lt;/svg>
+ &lt;/a>
+&lt;/h3>&lt;h4 id="污点" class="heading-element">&lt;span>污点&lt;/span>
+ &lt;a href="#%e6%b1%a1%e7%82%b9" class="heading-mark">
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z">&lt;/path>&lt;/svg>
+ &lt;/a>
+&lt;/h4>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 设置污点&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$ kubectl taint node 节点名 &lt;span class="nv">key1&lt;/span>&lt;span class="o">=&lt;/span>value:NoSchedule
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 节点说明中，查找 Taints 字段&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$ kubectl describe node 节点名 
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 去除污点&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$ kubectl taint node 节点名 &lt;span class="nv">key&lt;/span>&lt;span class="o">=&lt;/span>value:NoSchedule- &lt;span class="c1">#加个 - 号&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="容忍字段" class="heading-element">&lt;span>容忍字段&lt;/span>
+ &lt;a href="#%e5%ae%b9%e5%bf%8d%e5%ad%97%e6%ae%b5" class="heading-mark">
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z">&lt;/path>&lt;/svg>
+ &lt;/a>
+&lt;/h4>&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>字段&lt;/th>
+ &lt;th>字段类型&lt;/th>
+ &lt;th>描述&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>pod.spec.tolerations&lt;/td>
+ &lt;td>list&lt;/td>
+ &lt;td>容忍设置&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>pod.spec.tolerations.key&lt;/td>
+ &lt;td>string&lt;/td>
+ &lt;td>污点的key&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>pod.spec.tolerations.operator&lt;/td>
+ &lt;td>string&lt;/td>
+ &lt;td>污点运算符 &lt;br/>“Equal” #运算符是等于&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>pod.spec.tolerations.value&lt;/td>
+ &lt;td>srting&lt;/td>
+ &lt;td>污点的value&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>pod.spec.tolerations.effect&lt;/td>
+ &lt;td>string&lt;/td>
+ &lt;td>污点的effect（效果）&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h3 id="rbac" class="heading-element">&lt;span>RBAC&lt;/span>
+ &lt;a href="#rbac" class="heading-mark">
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z">&lt;/path>&lt;/svg>
+ &lt;/a>
+&lt;/h3>&lt;h4 id="role-and-clusterrole" class="heading-element">&lt;span>Role and ClusterRole&lt;/span>
+ &lt;a href="#role-and-clusterrole" class="heading-mark">
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z">&lt;/path>&lt;/svg>
+ &lt;/a>
+&lt;/h4>&lt;blockquote>
+&lt;p>在 RBAC API 中，Role 表示一组规则权限，权限只会增加(累加权限)，不存在一个资源一开始就有很多权限而通过 RBAC 对其进行减少的操作；Role
+可以定义在一个 namespace 中，如果想要跨 namespace 则可以创建 ClusterRole&lt;/p>
+&lt;/blockquote>
+&lt;ul>
+&lt;li>
+&lt;p>Role资源清单&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Role&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">apiVersion&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">rbac.authorization.k8s.io/v1beta1&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">metadata&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">namespace&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">default &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c">#必须写，不写就会有个默认值是default&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">pod-reader&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">rules&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">apiGroups&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;&amp;#34;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">]&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># &amp;#34;&amp;#34; indicates the core API group #对哪个接口组版本的资源进行操作，不写就代表核心组：v1 &lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">resources&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;pods&amp;#34;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">]&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c">#可进行操作的资源对象&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">verbs&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;get&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;watch&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;list&amp;#34;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">]&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c">#对上方资源的操作，一般写all即可，不同资源有不同操作，在开发者手册中有。get：获取这个pod。watch：监控。lsit：列出，加起来就是查看pod的信息&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>ClusterRole资源清单&lt;/p>
+&lt;blockquote>
+&lt;p>ClusterRole 具有与 Role 相同的权限角色控制能力，不同的是 ClusterRole 是集群级别的，ClusterRole 可以用于:&lt;/p>
+&lt;ul>
+&lt;li>集群级别的资源控制( 例如 node 访问权限 )&lt;/li>
+&lt;li>非资源型 endpoints( 例如 /health 访问 )&lt;/li>
+&lt;li>所有命名空间资源控制(例如 pods )&lt;/li>
+&lt;/ul>
+&lt;/blockquote>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">ClusterRole&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">apiVersion&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">rbac.authorization.k8s.io/v1beta1&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">metadata&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="c"># &amp;#34;namespace&amp;#34; omitted since ClusterRoles are not namespaced不能写名字空间&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">secret-reader&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">rules&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">apiGroups&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;&amp;#34;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">]&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">resources&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;secrets&amp;#34;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">]&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">verbs&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;get&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;watch&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;list&amp;#34;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">]&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>⚠️ 集群角色不能写名字空间&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h4 id="rolebinding-and-clusterrolebinding" class="heading-element">&lt;span>RoleBinding and ClusterRoleBinding&lt;/span>
+ &lt;a href="#rolebinding-and-clusterrolebinding" class="heading-mark">
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z">&lt;/path>&lt;/svg>
+ &lt;/a>
+&lt;/h4>&lt;blockquote>
+&lt;p>RoleBinding and ClusterRoleBinding是什么？&lt;br>
+RoloBinding可以将角色中定义的权限授予用户或用户组，RoleBinding 包含一组权限列表(subjects)
+权限列表中包含有不同形式的待授予权限资源类型(users, groups, or service accounts)；RoloBinding同样包含对被Bind的Role
+引用；RoleBinding 适用于某个命名空间内授权，而 ClusterRoleBinding 适用于集群范围内的授权&lt;/p>
+&lt;/blockquote>
+&lt;ul>
+&lt;li>
+&lt;p>RoleBinding绑定Role&lt;/p>
+&lt;blockquote>
+&lt;p>角色通过角色绑定，绑定给用户（user/group/sa）&lt;br>
+例如：将 default 命名空间的 pod-reader Role 授予 jane 用户，此后 jane 用户在 default 命名空间中将具有 pod-reader 的权限&lt;/p>
+&lt;/blockquote>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">RoleBinding&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">apiVersion&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">rbac.authorization.k8s.io/v1beta1&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">metadata&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">read-pods&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">namespace&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">default &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c">#角色所在的名字空间&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">subjects&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c">#绑定给说&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">User &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c">#绑定给用户&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">jane &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c">#jane用户&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">apiGroup&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">rbac.authorization.k8s.io &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c">#接口组版本&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">roleRef&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c">#角色来源&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Role &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c">#来源于角色&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">pod-reader &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c">#来源哪个角色用户&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">apiGroup&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">rbac.authorization.k8s.io&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>RoleBinding绑定ClusterRole&lt;/p>
+&lt;blockquote>
+&lt;ul>
+&lt;li>集群角色通过集群角色绑定，绑定给用户（user/group/sa）&lt;/li>
+&lt;li>同样可以引用ClusterRole来对当前namespace内用户、用户组或ServiceAccount进行授权，这种操作允许集群管理员在整个集群内定义一些通用的ClusterRole，然后在不同的namespace中使用
+&lt;code>RoleBinding&lt;/code>来引用&lt;/li>
+&lt;li>例如：以下 &lt;code>RoleBinding&lt;/code> 引用了一个 ClusterRole，这个 ClusterRole 具有整个集群内对 secrets 的访问权限；但是其授权用户dave只能访问
+development 空间中的 secrets(因为 &lt;code>RoleBinding&lt;/code> 定义在 development 命名空间)&lt;/li>
+&lt;/ul>
+&lt;/blockquote>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="c"># This role binding allows &amp;#34;dave&amp;#34; to read secrets in the &amp;#34;development&amp;#34; namespace.&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="c">#这个角色绑定允许“dave”读取“dev”命名空间中的信息。&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">RoleBinding &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c">#资源类型&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">apiVersion&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">rbac.authorization.k8s.io/v1beta1&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">metadata&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">read-secrets&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">namespace&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">dev&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># 这只授予“dev”名称空间内的权限。必写&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">subjects&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>- &lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">User&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">dave&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">apiGroup&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">rbac.authorization.k8s.io&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">roleRef&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">ClusterRole &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c">#角色来源于集群角色&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">secret-reader&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">apiGroup&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">rbac.authorization.k8s.io&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>ClusterRoleBinding绑定ClusterRole&lt;/p>
+&lt;blockquote>
+&lt;ul>
+&lt;li>集群角色通过角色绑定，绑定给用户（user/group/sa）。将集群角色权限限制在角色名字空间下&lt;/li>
+&lt;li>使用ClusterRoleBinding可以对整个集群中的所有命名空间资源权限进行授权；以下ClusterRoleBinding样例展示了授权manager组内所有用户在全部命名空间中对secrets进行访问&lt;/li>
+&lt;/ul>
+&lt;/blockquote>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="c"># This cluster role binding allows anyone in the &amp;#34;manager&amp;#34; group to read secrets in any namespace.&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="c">#此集群角色绑定允许“manager”组中的任何人读取任何名称空间中的秘密。&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">ClusterRoleBinding&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">apiVersion&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">rbac.authorization.k8s.io/v1beta1&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">metadata&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">read-secrets-global&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">subjects&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>- &lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Group&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">manager&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">apiGroup&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">rbac.authorization.k8s.io&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">roleRef&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">ClusterRole&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">secret-reader&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">apiGroup&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">rbac.authorization.k8s.io&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;h4 id="resources子资源" class="heading-element">&lt;span>Resources（子资源）&lt;/span>
+ &lt;a href="#resources%e5%ad%90%e8%b5%84%e6%ba%90" class="heading-mark">
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z">&lt;/path>&lt;/svg>
+ &lt;/a>
+&lt;/h4>&lt;blockquote>
+&lt;p>Kubernetes 集群内一些资源一般以其名称字符串来表示，这些字符串一般会在 API 的 URL 地址中出现；同时某些资源也会包含子资源，例如
+logs 资源就属于 pods 的子资源，API 中 URL 样例如下&lt;/p>
+&lt;/blockquote>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-text" data-lang="text">&lt;span class="line">&lt;span class="cl">GET /api/v1/namespaces/{namespace}/pods/{name}/log
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">/api/v1/namespaces/default/pods/pod-demo/log&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;blockquote>
+&lt;p>例如：如果要在 RBAC 授权模型中控制这些子资源的访问权限，可以通过 / 分隔符来实现，以下是一个定义 pods 资资源 logs 访问权限的
+Role 定义样例&lt;/p>
+&lt;/blockquote>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Role&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">apiVersion&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">rbac.authorization.k8s.io/v1beta1&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">metadata&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">namespace&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">default&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">pod-and-pod-logs-reader&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">rules&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">apiGroups&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;&amp;#34;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">]&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">resources&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;pods&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;pods/log&amp;#34;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">]&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c">#这里添加了两个权限。pods权限，pods/log权限。pods权限包含pods/log权限，这里写pods/log就是给看看写的格式。&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">verbs&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;get&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;list&amp;#34;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">]&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="to-subjects" class="heading-element">&lt;span>to Subjects&lt;/span>
+ &lt;a href="#to-subjects" class="heading-mark">
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z">&lt;/path>&lt;/svg>
+ &lt;/a>
+&lt;/h4>&lt;blockquote>
+&lt;p>权利附着点：user、group、sa&lt;br>
+权利附着点命名方式&lt;br>
+RoleBinding 和 ClusterRoleBinding 可以将 Role 绑定到 Subjects；Subjects 可以是 groups、users 或者 service accounts&lt;/p>
+&lt;/blockquote>
+&lt;ul>
+&lt;li>Subjects 中 Users 使用字符串表示，
+&lt;ul>
+&lt;li>它可以是一个普通的名字字符串，如 “alice”；&lt;/li>
+&lt;li>也可以是 email 格式的邮箱地址，如 “xxx@163.com”；&lt;/li>
+&lt;li>甚至是一组字符串形式的数字 ID 。&lt;/li>
+&lt;li>但是 Users 的前缀 system: 是系统保留的，集群管理员应该确保普通用户不会使用这个前缀格式&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Groups 书写格式与 Users 相同，都为一个字符串，并且没有特定的格式要求；同样 system: 前缀为系统保留&lt;/li>
+&lt;/ul>
+&lt;h3 id="资源限制" class="heading-element">&lt;span>资源限制&lt;/span>
+ &lt;a href="#%e8%b5%84%e6%ba%90%e9%99%90%e5%88%b6" class="heading-mark">
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z">&lt;/path>&lt;/svg>
+ &lt;/a>
+&lt;/h3>&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>参数&lt;/th>
+ &lt;th>含义&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>spec.container[].resources.requests.cpu&lt;/td>
+ &lt;td>容器初始要求的CPU数量（Pod运行可能不需要要求的CPU，但必须分配，不能被其他Pod使用）。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.container[].resources.limits.cpu&lt;/td>
+ &lt;td>容器所能使用的最大CPU数量（单位：500m=0.5）。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.container[].resources.requests.memory&lt;/td>
+ &lt;td>容器初始要求的内存数量(可以不用，必须分配，不能被其他Pod使用)&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>spec.container[].resources.requests.memory&lt;/td>
+ &lt;td>容器能使用的最大内存数量（单位：Ki,Mi,Gi,Ti,Pi,Ei）&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>字段&lt;/th>
+ &lt;th>描述&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>.kind LimitRange&lt;/td>
+ &lt;td>（指定资源限制对象类型）,注意,需要在metadata中指定命名空间。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>.spec.limits[].default&lt;/td>
+ &lt;td>设置默认的CPU和memory&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>.spec.limits[].defaultRequest&lt;/td>
+ &lt;td>设置默认的请求值&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>.spec.limits[].max&lt;/td>
+ &lt;td>设置Pod可以请求的（在Pod中设置的）最大资源限制&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>.spec.limits[].min&lt;/td>
+ &lt;td>设置Pod可以请求的（在Pod中设置的）最小资源限制 量（单位：500m=0.5）。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>.spec.container[].resources.requests.memory&lt;/td>
+ &lt;td>容器初始要求的内存数量(可以不用，必须分配，不能被其他Pod使用)&lt;br/>容器能使用的最大内存数量（单位：Ki,Mi,Gi,Ti,Pi,Ei）&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>.spec.limits[].maxLimitRequestRatio&lt;/td>
+ &lt;td>设置默认超售值，Pod可以使用可以超过的的最大资源限制。&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table></description></item><item><title>Golang-Guide</title><link>https://liangml.github.io/posts/golang-guide/</link><pubDate>Fri, 22 Nov 2024 15:31:08 +0800</pubDate><guid>https://liangml.github.io/posts/golang-guide/</guid><category domain="https://liangml.github.io/categories/golang/">Golang</category><description>&lt;!--
 
 Editing this document:
 
@@ -6870,72 +9287,5 @@ Poetry 允许你区分这两者，将上述的模块安装至 dev-dependencies �
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">;&lt;/span>stdout日志文件备份数
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">stdout_logfile_backups&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="m">20&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">;&lt;/span>&lt;span class="nv">environment&lt;/span>&lt;span class="o">=&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div></description></item><item><title>OpenvpnCommunity</title><link>https://liangml.github.io/posts/openvpncommunity/</link><pubDate>Tue, 15 Oct 2024 19:25:44 +0800</pubDate><guid>https://liangml.github.io/posts/openvpncommunity/</guid><category domain="https://liangml.github.io/categories/openvpn/">Openvpn</category><description>&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
-&lt;/span>&lt;span class="lnt"> 2
-&lt;/span>&lt;span class="lnt"> 3
-&lt;/span>&lt;span class="lnt"> 4
-&lt;/span>&lt;span class="lnt"> 5
-&lt;/span>&lt;span class="lnt"> 6
-&lt;/span>&lt;span class="lnt"> 7
-&lt;/span>&lt;span class="lnt"> 8
-&lt;/span>&lt;span class="lnt"> 9
-&lt;/span>&lt;span class="lnt">10
-&lt;/span>&lt;span class="lnt">11
-&lt;/span>&lt;span class="lnt">12
-&lt;/span>&lt;span class="lnt">13
-&lt;/span>&lt;span class="lnt">14
-&lt;/span>&lt;span class="lnt">15
-&lt;/span>&lt;span class="lnt">16
-&lt;/span>&lt;span class="lnt">17
-&lt;/span>&lt;span class="lnt">18
-&lt;/span>&lt;span class="lnt">19
-&lt;/span>&lt;span class="lnt">20
-&lt;/span>&lt;span class="lnt">21
-&lt;/span>&lt;span class="lnt">22
-&lt;/span>&lt;span class="lnt">23
-&lt;/span>&lt;span class="lnt">24
-&lt;/span>&lt;span class="lnt">25
-&lt;/span>&lt;span class="lnt">26
-&lt;/span>&lt;span class="lnt">27
-&lt;/span>&lt;span class="lnt">28
-&lt;/span>&lt;span class="lnt">29
-&lt;/span>&lt;span class="lnt">30
-&lt;/span>&lt;span class="lnt">31
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">port &lt;span class="m">2305&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">proto udp
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">dev tun
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ca ca.crt
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">cert server.crt
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">key server.key
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">dh dh.pem
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">auth SHA512
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">tls-crypt tc.key
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">topology subnet
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">server 10.8.0.0 255.255.255.0
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ifconfig-pool-persist ipp.txt
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">push &lt;span class="s2">&amp;#34;dhcp-option DNS 100.100.2.136&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">push &lt;span class="s2">&amp;#34;dhcp-option DNS 100.100.2.138&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 内网推送&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">push &lt;span class="s2">&amp;#34;route 172.16.0.0 255.255.0.0&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 阿里内网推送&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">push &lt;span class="s2">&amp;#34;route 100.100.0.0 255.255.0.0&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">push &lt;span class="s2">&amp;#34;route 100.103.0.0 255.255.0.0&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">push &lt;span class="s2">&amp;#34;route 47.106.223.210 255.255.255.255&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">keepalive &lt;span class="m">10&lt;/span> &lt;span class="m">120&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">cipher AES-256-CBC
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">user nobody
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">group nobody
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">persist-key
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">persist-tun
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">verb &lt;span class="m">3&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">crl-verify crl.pem
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">explicit-exit-notify&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div></description></item></channel></rss>

@@ -1,68 +1,5 @@
-# 
+# Kubernetes
 
-[---
-title: &#34;Kubernetes&#34;
-slug: &#34;Kubernetes&#34;
-
-# 副标题
-
-subtitle: &#34;&#34;
-
-# 文章描述，是搜索引擎呈现在搜索结果链接下方的网页简介，建议设置
-
-description: &#34;&#34;
-date: 2025-01-07T19:07:33&#43;08:00
-lastmod: 2025-01-07T19:07:33&#43;08:00
-
-# 文章过期提醒
-
-outdatedInfoWarning: true
-draft: false
-
-# 文章的标签
-
-tags:
-
-- k8s
-
-# 文章所属的类别
-
-categories:
-
-- kubernetes
-
-# 文章所属的合集
-
-collections:
-
-- kubernetes
-
-# 是否在侧边栏开启合集
-
-collectionList: true
-
-# 是否在帖子末尾启用合集
-
-collectionNavigation: true
-
-# 如果设为 true, 这篇文章将不会显示在主页上
-
-hiddenFromHomePage: false
-
-# 如果设为 true, 这篇文章将不会显示在搜索结果中
-
-hiddenFromSearch: false
-
-# 文章的特色图片
-
-featuredImage: &#34;&#34;
-
-# 用在主页预览的文章特色图片
-
-featuredImagePreview: &#34;&#34;
-
-license: &#39;&lt;a rel=&#34;license external nofollow noopener noreffer&#34; href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34;&gt;CC BY-NC 4.0&lt;/a&gt;&#39;
----
 
 ## 资源清单格式
 
@@ -885,5 +822,5 @@ $ kubectl taint node 节点名  key=value:NoSchedule-   #加个  -  号
 ---
 
 > 作者: Leon  
-> URL: https://liangml.github.io/posts/  
+> URL: https://liangml.github.io/posts/kubernetes/  
 
