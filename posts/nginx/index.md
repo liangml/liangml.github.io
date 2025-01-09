@@ -29,9 +29,9 @@ location / {
 ## 443 force ssl
 ```bash
 if ($ssl_protocol = &#34;&#34;) { return 302 https://$host$request_uri; }
-or
+# 302
 if ($server_port !~ 443) { rewrite ^(.*)$ https://$host$1 redirect; }
-or
+# 301
 if ($server_port !~ 443) { rewrite ^(.*)$ https://$host$1 permanent; }
 ```
 
