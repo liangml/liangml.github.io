@@ -1,6 +1,10 @@
 # Shell
 
-
+## `ps`命令
+### 查看进程启动时间
+```shell
+ps -eo pid,lstart,etime,cmd |grep $PID
+```
 ## shell 判断
 
 ```plain
