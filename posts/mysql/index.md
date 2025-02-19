@@ -3,7 +3,7 @@
 # 常用命令
 ## mysql导出
 &gt; --skip-extended-insert 跳过多行写入 --skip-quote-names 跳过 ` 表名 --complete-insert 带字段的insert
-## 结构导出
+### 结构导出
 ```shell
 mysqldump -uroot -pxxx \
 --default-character-set=utf8 \
@@ -11,9 +11,9 @@ mysqldump -uroot -pxxx \
 --compact \
 --no-data \
 --databases xxx \
---tables xxx &gt; xxx.sql
+--tables xxx &gt; $(date &#43;%Y%m%d%H%M%S)_struct.sql
 ```
-## 数据导出
+### 数据导出
 ```shell
 mysqldump -uroot -pxxx \
 --default-character-set=utf8 \
@@ -23,7 +23,20 @@ mysqldump -uroot -pxxx \
 --skip-quote-names \
 --complete-insert \
 --databases xxx \
---tables xxx &gt; xxx.sql
+--tables xxx &gt; $(date &#43;%Y%m%d%H%M%S)_data.sql
+```
+### 数据加条件导出
+```shell
+mysqldump -uroot -pxxx \
+--default-character-set=utf8 \
+--set-gtid-purged=off \
+--compact \
+--no-create-info \
+--skip-quote-names \
+--complete-insert \
+--databases xxx \
+--tables xxx \
+--where=&#34;sqlxxx&#34;&gt; $(date &#43;%Y%m%d%H%M%S)_data.sql
 ```
 ## binlog日志查看
 ```plain
