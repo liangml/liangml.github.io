@@ -38,6 +38,12 @@ mysqldump -uroot -pxxx \
 --tables xxx \
 --where=&#34;sqlxxx&#34;&gt; $(date &#43;%Y%m%d%H%M%S)_data.sql
 ```
+### 整库备份
+```shell
+# 建表语句&#43;数据
+mysqldump -u USER -p -h HOST -B DATABASENAME --single-transaction --default-character-set=utf8 --set-gtid-purged=off &gt; DATABASENAME_$(date &#43;%Y%m%d%H%M%S).sql
+```
+
 ## binlog日志查看
 ```plain
 mysqlbinlog --base64-output=decode-rows -v -v mysql-bin.021530 &gt;021530.sql
