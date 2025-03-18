@@ -221,7 +221,13 @@ nginx -s reload
 tailf /var/log/nginx/000_default.access.log
 ```
 
-
+## nginx warn variables_hash
+&gt; nginx: [warn] could not build optimal variables_hash, you should increase either variables_hash_max_size: 1024 or variables_hash_bucket_size: 64; ignoring variables_hash_bucket_size
+```shell
+# 解决方法,在http中添加
+variables_hash_max_size 4096;
+variables_hash_bucket_size 2048;
+```
 
 ---
 
