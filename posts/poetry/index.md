@@ -1,6 +1,6 @@
 # Poetry: Python虚拟环境管理
 
-&gt; macos 使用
+> macos 使用
 ## install
 ```shell
 brew install poetry
@@ -29,22 +29,22 @@ poetry config --list
 ```shell
 poetry config virtualenvs.in-project true
 ```
-&gt; 如果已经创建了环境需要先移除 ```poetry env remove PYTHONPATH```  
-&gt; 创建目录：poetry env use PYTHONPATH
+> 如果已经创建了环境需要先移除 ```poetry env remove PYTHONPATH```  
+> 创建目录：poetry env use PYTHONPATH
 * 退出与启动环境
-&gt; 已 poetry 开头的命令自动检测当前环境  
-&gt; 同样也可以使用```poetry shell```进入  
-&gt; 退出环境：deactivate
+> 已 poetry 开头的命令自动检测当前环境  
+> 同样也可以使用```poetry shell```进入  
+> 退出环境：deactivate
 
 ## poetry 指令
 ### 添加依赖包
-&gt; poetry add
+> poetry add
 ```shell
 poetry add requests
 ```
 ## poetry.lock 与更新顺序
-&gt; 除了更新 pyproject.toml ，此时项目中还会新增一个文件，名为 poetry.lock ，它实际上就相当于 pip 的 requirements.txt ，详细记录了所有安装的模块与版本。  
-&gt; 当使用 poetry add 指令时，poetry 会自动依序帮你做完这三件事：
+> 除了更新 pyproject.toml ，此时项目中还会新增一个文件，名为 poetry.lock ，它实际上就相当于 pip 的 requirements.txt ，详细记录了所有安装的模块与版本。  
+> 当使用 poetry add 指令时，poetry 会自动依序帮你做完这三件事：
 * 更新 `pyproject.toml`。
 * 依照 `pyproject.toml` 的内容，更新 `poetry.lock` 。
 * 依照 `poetry.lock` 的内容，更新虚拟环境。
@@ -57,7 +57,7 @@ poetry lock
 ```
 如此一来，才能确保手动修改的内容，也更新到 `poetry.lock` 中，毕竟虚拟环境如果要重新建立，是基于 `poetry.lock` 的内容来安装模块，而非 `pyproject.toml` 。
 还是那句话：
-&gt; poetry.lock 相当于 Poetry 的 requirements.txt。
+> poetry.lock 相当于 Poetry 的 requirements.txt。
 
 但要特别注意的是， `poetry lock` 指令，仅会更新 `poetry.lock` ，不会同时安装模块至虚拟环境
 因此，在执行完 `poetry lock` 指令后，必须再使用 `poetry install` 来安装模块。否则就会出现 `poetry.lock` 和虚拟环境不一致的状况。
@@ -72,11 +72,11 @@ poetry add black --group dev
 ```
 结果的区别显示在 pyproject.toml 里：
 ```[tool.poetry.dependencies]
-python = &#34;^3.10&#34;
-flask = &#34;^2.3.2&#34;
+python = "^3.10"
+flask = "^2.3.2"
 
 [tool.poetry.group.dev.dependencies]
-black = &#34;^23.7.0&#34;
+black = "^23.7.0"
 ```
 可以看到 black 被列在不同区块： `tool.poetry.dev-dependencies` 。  
 **强烈建议善用 `dev-dependencies`**  

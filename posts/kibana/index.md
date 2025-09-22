@@ -1,14 +1,14 @@
 # Kibana
 
 
-* kibana无法新建索引模式，F12 &#34;403&#34;: 权限问题
+* kibana无法新建索引模式，F12 "403": 权限问题
 
 ```shell
 PUT .kibana/_settings
 {
-   &#34;index&#34;: {
-     &#34;blocks&#34;: {
-       &#34;read_only_allow_delete&#34;: false
+   "index": {
+     "blocks": {
+       "read_only_allow_delete": false
     }
   }
 }
@@ -19,9 +19,9 @@ PUT .kibana/_settings
 ```shell
 PUT _settings
 {
-  &#34;index&#34;: {
-      &#34;blocks&#34;: {
-          &#34;read_only_allow_delete&#34;: &#34;false&#34;
+  "index": {
+      "blocks": {
+          "read_only_allow_delete": "false"
       }
   }
 }

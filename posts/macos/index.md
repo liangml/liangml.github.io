@@ -2,7 +2,7 @@
 
 ## minikube
 ```bash
-minikube start --image-mirror-country=&#39;cn&#39; --driver=hyperkit --registry-mirror=&#34;&lt;https://xxx.mirror.aliyuncs.com&gt;&#34;
+minikube start --image-mirror-country='cn' --driver=hyperkit --registry-mirror="<https://xxx.mirror.aliyuncs.com>"
 ```
 
 ## macos工具集

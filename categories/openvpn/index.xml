@@ -1,68 +1,68 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Openvpn - 分类 - LEON BLOG</title><link>https://liangml.github.io/categories/openvpn/</link><description>运维小站，分享些技术经验。</description><generator>Hugo 0.145.0 &amp; FixIt v0.3.16-f66dc32e</generator><language>zh-CN</language><lastBuildDate>Tue, 15 Oct 2024 19:25:44 +0800</lastBuildDate><atom:link href="https://liangml.github.io/categories/openvpn/index.xml" rel="self" type="application/rss+xml"/><item><title>OpenvpnCommunity</title><link>https://liangml.github.io/posts/openvpncommunity/</link><pubDate>Tue, 15 Oct 2024 19:25:44 +0800</pubDate><guid>https://liangml.github.io/posts/openvpncommunity/</guid><category domain="https://liangml.github.io/categories/openvpn/">Openvpn</category><description>&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
-&lt;/span>&lt;span class="lnt"> 2
-&lt;/span>&lt;span class="lnt"> 3
-&lt;/span>&lt;span class="lnt"> 4
-&lt;/span>&lt;span class="lnt"> 5
-&lt;/span>&lt;span class="lnt"> 6
-&lt;/span>&lt;span class="lnt"> 7
-&lt;/span>&lt;span class="lnt"> 8
-&lt;/span>&lt;span class="lnt"> 9
-&lt;/span>&lt;span class="lnt">10
-&lt;/span>&lt;span class="lnt">11
-&lt;/span>&lt;span class="lnt">12
-&lt;/span>&lt;span class="lnt">13
-&lt;/span>&lt;span class="lnt">14
-&lt;/span>&lt;span class="lnt">15
-&lt;/span>&lt;span class="lnt">16
-&lt;/span>&lt;span class="lnt">17
-&lt;/span>&lt;span class="lnt">18
-&lt;/span>&lt;span class="lnt">19
-&lt;/span>&lt;span class="lnt">20
-&lt;/span>&lt;span class="lnt">21
-&lt;/span>&lt;span class="lnt">22
-&lt;/span>&lt;span class="lnt">23
-&lt;/span>&lt;span class="lnt">24
-&lt;/span>&lt;span class="lnt">25
-&lt;/span>&lt;span class="lnt">26
-&lt;/span>&lt;span class="lnt">27
-&lt;/span>&lt;span class="lnt">28
-&lt;/span>&lt;span class="lnt">29
-&lt;/span>&lt;span class="lnt">30
-&lt;/span>&lt;span class="lnt">31
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">port &lt;span class="m">2305&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">proto udp
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">dev tun
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ca ca.crt
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">cert server.crt
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">key server.key
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">dh dh.pem
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">auth SHA512
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">tls-crypt tc.key
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">topology subnet
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">server 10.8.0.0 255.255.255.0
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ifconfig-pool-persist ipp.txt
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">push &lt;span class="s2">&amp;#34;dhcp-option DNS 100.100.2.136&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">push &lt;span class="s2">&amp;#34;dhcp-option DNS 100.100.2.138&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 内网推送&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">push &lt;span class="s2">&amp;#34;route 172.16.0.0 255.255.0.0&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 阿里内网推送&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">push &lt;span class="s2">&amp;#34;route 100.100.0.0 255.255.0.0&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">push &lt;span class="s2">&amp;#34;route 100.103.0.0 255.255.0.0&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">push &lt;span class="s2">&amp;#34;route 47.106.223.210 255.255.255.255&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">keepalive &lt;span class="m">10&lt;/span> &lt;span class="m">120&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">cipher AES-256-CBC
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">user nobody
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">group nobody
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">persist-key
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">persist-tun
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">verb &lt;span class="m">3&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">crl-verify crl.pem
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">explicit-exit-notify&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Openvpn - 分类 - LEON BLOG</title><link>https://liangml.github.io/categories/openvpn/</link><description>运维小站，分享些技术经验。</description><generator>Hugo 0.150.0 &amp; FixIt v0.3.20</generator><language>zh-CN</language><lastBuildDate>Tue, 15 Oct 2024 19:25:44 +0800</lastBuildDate><atom:link href="https://liangml.github.io/categories/openvpn/index.xml" rel="self" type="application/rss+xml"/><item><title>OpenvpnCommunity</title><link>https://liangml.github.io/posts/openvpncommunity/</link><pubDate>Tue, 15 Oct 2024 19:25:44 +0800</pubDate><guid>https://liangml.github.io/posts/openvpncommunity/</guid><category domain="https://liangml.github.io/categories/openvpn/">Openvpn</category><description>&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;span class="lnt"&gt;12
+&lt;/span&gt;&lt;span class="lnt"&gt;13
+&lt;/span&gt;&lt;span class="lnt"&gt;14
+&lt;/span&gt;&lt;span class="lnt"&gt;15
+&lt;/span&gt;&lt;span class="lnt"&gt;16
+&lt;/span&gt;&lt;span class="lnt"&gt;17
+&lt;/span&gt;&lt;span class="lnt"&gt;18
+&lt;/span&gt;&lt;span class="lnt"&gt;19
+&lt;/span&gt;&lt;span class="lnt"&gt;20
+&lt;/span&gt;&lt;span class="lnt"&gt;21
+&lt;/span&gt;&lt;span class="lnt"&gt;22
+&lt;/span&gt;&lt;span class="lnt"&gt;23
+&lt;/span&gt;&lt;span class="lnt"&gt;24
+&lt;/span&gt;&lt;span class="lnt"&gt;25
+&lt;/span&gt;&lt;span class="lnt"&gt;26
+&lt;/span&gt;&lt;span class="lnt"&gt;27
+&lt;/span&gt;&lt;span class="lnt"&gt;28
+&lt;/span&gt;&lt;span class="lnt"&gt;29
+&lt;/span&gt;&lt;span class="lnt"&gt;30
+&lt;/span&gt;&lt;span class="lnt"&gt;31
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;port &lt;span class="m"&gt;2305&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;proto udp
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;dev tun
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;ca ca.crt
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;cert server.crt
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;key server.key
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;dh dh.pem
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;auth SHA512
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;tls-crypt tc.key
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;topology subnet
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;server 10.8.0.0 255.255.255.0
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;ifconfig-pool-persist ipp.txt
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;push &lt;span class="s2"&gt;&amp;#34;dhcp-option DNS 100.100.2.136&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;push &lt;span class="s2"&gt;&amp;#34;dhcp-option DNS 100.100.2.138&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 内网推送&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;push &lt;span class="s2"&gt;&amp;#34;route 172.16.0.0 255.255.0.0&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 阿里内网推送&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;push &lt;span class="s2"&gt;&amp;#34;route 100.100.0.0 255.255.0.0&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;push &lt;span class="s2"&gt;&amp;#34;route 100.103.0.0 255.255.0.0&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;push &lt;span class="s2"&gt;&amp;#34;route 47.106.223.210 255.255.255.255&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;keepalive &lt;span class="m"&gt;10&lt;/span&gt; &lt;span class="m"&gt;120&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;cipher AES-256-CBC
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;user nobody
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;group nobody
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;persist-key
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;persist-tun
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;verb &lt;span class="m"&gt;3&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;crl-verify crl.pem
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;explicit-exit-notify&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description></item></channel></rss>

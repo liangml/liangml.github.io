@@ -1,6 +1,6 @@
 # Golang-Guide
 
-&lt;!--
+<!--
 
 Editing this document:
 
@@ -16,43 +16,43 @@ samples.
 For side-by-side code samples, use the following snippet.
 
 ~~~
-&lt;table&gt;
-&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Bad&lt;/th&gt;&lt;th&gt;Good&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;&lt;td&gt;
+<table>
+<thead><tr><th>Bad</th><th>Good</th></tr></thead>
+<tbody>
+<tr><td>
 
 ```go
 BAD CODE GOES HERE
 ```
 
-&lt;/td&gt;&lt;td&gt;
+</td><td>
 
 ```go
 GOOD CODE GOES HERE
 ```
 
-&lt;/td&gt;&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;
+</td></tr>
+</tbody></table>
 ~~~
 
-(You need the empty lines between the &lt;td&gt; and code samples for it to be
+(You need the empty lines between the <td> and code samples for it to be
 treated as Markdown.)
 
 If you need to add labels or descriptions below the code samples, add another
-row before the &lt;/tbody&gt;&lt;/table&gt; line.
+row before the </tbody></table> line.
 
 ~~~
-&lt;tr&gt;
-&lt;td&gt;DESCRIBE BAD CODE&lt;/td&gt;
-&lt;td&gt;DESCRIBE GOOD CODE&lt;/td&gt;
-&lt;/tr&gt;
+<tr>
+<td>DESCRIBE BAD CODE</td>
+<td>DESCRIBE GOOD CODE</td>
+</tr>
 ~~~
 
 
 
---&gt;
+-->
 
-&lt;!--
+<!--
 change.md
 
 # 2019-12-17
@@ -66,7 +66,7 @@ change.md
 - 为`open（..）`调用添加缺少的参数。
 
 # 2020-02-03
-- 使用 `&#34;time&#34;` 处理时间的建议
+- 使用 `"time"` 处理时间的建议
 - 添加有关在公共结构中嵌入类型的指导。
 
 # 2020-02-25
@@ -112,7 +112,7 @@ change.md
 
 # 2023-04-13
 - Errors: 只添加一次错误处理指南
---&gt;
+-->
 ## [uber-go/guide](https://github.com/uber-go/guide) 的中文翻译
 
 ## [English](https://github.com/uber-go/guide/blob/master/style.md)
@@ -234,7 +234,7 @@ change.md
 - 运行 `golint` 和 `go vet` 检查错误
 
 您可以在以下 Go 编辑器工具支持页面中找到更为详细的信息：
-&lt;https://go.dev/wiki/IDEsAndTextEditorPlugins&gt;
+<https://go.dev/wiki/IDEsAndTextEditorPlugins>
 
 ## 指导原则
 
@@ -244,7 +244,7 @@ change.md
 
 接口实质上在底层用两个字段表示：
 
-1. 一个指向某些特定类型信息的指针。您可以将其视为&#34;type&#34;。
+1. 一个指向某些特定类型信息的指针。您可以将其视为"type"。
 2. 数据指针。如果存储的数据是指针，则直接存储。如果存储的数据是一个值，则存储指向该值的指针。
 
 如果希望接口方法修改基础数据，则必须使用指针传递 (将对象指针赋值给接口变量)。
@@ -265,7 +265,7 @@ func (s *S2) f() {}
 // f1.f() 无法修改底层数据
 // f2.f() 可以修改底层数据，给接口变量 f2 赋值时使用的是对象指针
 var f1 F = S1{}
-var f2 F = &amp;S2{}
+var f2 F = &S2{}
 ```
 永远不要使用指向interface的指针，这个是没有意义的.在go语言中，接口本身就是引用类型，换句话说，接口类型本身就是一个指针。对于我的需求，其实test的参数只要是myinterface就可以了，只需要在传值的时候，传*mystruct类型（也只能传*mystruct类型）
 ```
@@ -285,7 +285,7 @@ func (this *mystruct) print(){
 	this.i=1
 }
 func main(){
-m := &amp;mystruct{0}
+m := &mystruct{0}
 test(m)//错误
 test(*m)//错误
 }
@@ -303,10 +303,10 @@ test(*m)//错误
 大体意思是错误使用接口会在编译期报错。
 所以可以利用这个机制让部分问题在编译期暴露。
 
-&lt;table&gt;
-&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Bad&lt;/th&gt;&lt;th&gt;Good&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;&lt;td&gt;
+<table>
+<thead><tr><th>Bad</th><th>Good</th></tr></thead>
+<tbody>
+<tr><td>
 
 ```go
 // 如果 Handler 没有实现 http.Handler，会在运行时报错
@@ -321,7 +321,7 @@ func (h *Handler) ServeHTTP(
 }
 ```
 
-&lt;/td&gt;&lt;td&gt;
+</td><td>
 
 ```go
 type Handler struct {
@@ -338,8 +338,8 @@ func (h *Handler) ServeHTTP(
 }
 ```
 
-&lt;/td&gt;&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;
+</td></tr>
+</tbody></table>
 
 如果 `*Handler` 与 `http.Handler` 的接口不匹配，
 那么语句 `var _ http.Handler = (*Handler)(nil)` 将无法编译通过。
@@ -385,19 +385,19 @@ func (s *S) Write(str string) {
   s.data = str
 }
 
-sVals := map[int]S{1: {&#34;A&#34;}}
+sVals := map[int]S{1: {"A"}}
 
 // 你通过值只能调用 Read
 sVals[1].Read()
 
 // 这不能编译通过：
-//  sVals[1].Write(&#34;test&#34;)
+//  sVals[1].Write("test")
 
-sPtrs := map[int]*S{1: {&#34;A&#34;}}
+sPtrs := map[int]*S{1: {"A"}}
 
 // 通过指针既可以调用 Read，也可以调用 Write 方法
 sPtrs[1].Read()
-sPtrs[1].Write(&#34;test&#34;)
+sPtrs[1].Write("test")
 ```
 
 类似的，即使方法有了值接收器，也同样可以用指针接收器来满足接口。
@@ -416,9 +416,9 @@ type S2 struct{}
 func (s *S2) f() {}
 
 s1Val := S1{}
-s1Ptr := &amp;S1{}
+s1Ptr := &S1{}
 s2Val := S2{}
-s2Ptr := &amp;S2{}
+s2Ptr := &S2{}
 
 var i F
 i = s1Val
@@ -437,7 +437,7 @@ i = s2Ptr
     - 值接收器方法集是指针接收器方法集的子集，反之不是
 - 规则
     - 值对象只可以使用值接收器方法集
-    - 指针对象可以使用 值接收器方法集 &#43; 指针接收器方法集
+    - 指针对象可以使用 值接收器方法集 + 指针接收器方法集
 - 接口的匹配 (或者叫实现)
     - 类型实现了接口的所有方法，叫匹配
     - 具体的讲，要么是类型的值方法集匹配接口，要么是指针方法集匹配接口
@@ -456,32 +456,32 @@ i = s2Ptr
 
 零值 `sync.Mutex` 和 `sync.RWMutex` 是有效的。所以指向 mutex 的指针基本是不必要的。
 
-&lt;table&gt;
-&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Bad&lt;/th&gt;&lt;th&gt;Good&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;&lt;td&gt;
+<table>
+<thead><tr><th>Bad</th><th>Good</th></tr></thead>
+<tbody>
+<tr><td>
 
 ```go
 mu := new(sync.Mutex)
 mu.Lock()
 ```
 
-&lt;/td&gt;&lt;td&gt;
+</td><td>
 
 ```go
 var mu sync.Mutex
 mu.Lock()
 ```
 
-&lt;/td&gt;&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;
+</td></tr>
+</tbody></table>
 
 如果你使用结构体指针，mutex 应该作为结构体的非指针字段。即使该结构体不被导出，也不要直接把 mutex 嵌入到结构体中。
 
-&lt;table&gt;
-&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Bad&lt;/th&gt;&lt;th&gt;Good&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;&lt;td&gt;
+<table>
+<thead><tr><th>Bad</th><th>Good</th></tr></thead>
+<tbody>
+<tr><td>
 
 ```go
 type SMap struct {
@@ -491,7 +491,7 @@ type SMap struct {
 }
 
 func NewSMap() *SMap {
-  return &amp;SMap{
+  return &SMap{
     data: make(map[string]string),
   }
 }
@@ -504,7 +504,7 @@ func (m *SMap) Get(k string) string {
 }
 ```
 
-&lt;/td&gt;&lt;td&gt;
+</td><td>
 
 ```go
 type SMap struct {
@@ -514,7 +514,7 @@ type SMap struct {
 }
 
 func NewSMap() *SMap {
-  return &amp;SMap{
+  return &SMap{
     data: make(map[string]string),
   }
 }
@@ -527,17 +527,17 @@ func (m *SMap) Get(k string) string {
 }
 ```
 
-&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;
+</td></tr>
+<tr><td>
 
 `Mutex` 字段， `Lock` 和 `Unlock` 方法是 `SMap` 导出的 API 中不刻意说明的一部分。
 
- &lt;/td&gt;&lt;td&gt;
+ </td><td>
 
 mutex 及其方法是 `SMap` 的实现细节，对其调用者不可见。
 
- &lt;/td&gt;&lt;/tr&gt;
- &lt;/tbody&gt;&lt;/table&gt;
+ </td></tr>
+ </tbody></table>
 
 ### 在边界处拷贝 Slices 和 Maps
 
@@ -547,11 +547,11 @@ slices 和 maps 包含了指向底层数据的指针，因此在需要复制它�
 
 请记住，当 map 或 slice 作为函数参数传入时，如果您存储了对它们的引用，则用户可以对其进行修改。
 
-&lt;table&gt;
-&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Bad&lt;/th&gt; &lt;th&gt;Good&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;
+<table>
+<thead><tr><th>Bad</th> <th>Good</th></tr></thead>
+<tbody>
+<tr>
+<td>
 
 ```go
 func (d *Driver) SetTrips(trips []Trip) {
@@ -565,8 +565,8 @@ d1.SetTrips(trips)
 trips[0] = ...
 ```
 
-&lt;/td&gt;
-&lt;td&gt;
+</td>
+<td>
 
 ```go
 func (d *Driver) SetTrips(trips []Trip) {
@@ -581,20 +581,20 @@ d1.SetTrips(trips)
 trips[0] = ...
 ```
 
-&lt;/td&gt;
-&lt;/tr&gt;
+</td>
+</tr>
 
-&lt;/tbody&gt;
-&lt;/table&gt;
+</tbody>
+</table>
 
 #### 返回 slices 或 maps
 
 同样，请注意用户对暴露内部状态的 map 或 slice 的修改。
 
-&lt;table&gt;
-&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Bad&lt;/th&gt;&lt;th&gt;Good&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;&lt;td&gt;
+<table>
+<thead><tr><th>Bad</th><th>Good</th></tr></thead>
+<tbody>
+<tr><td>
 
 ```go
 type Stats struct {
@@ -617,7 +617,7 @@ func (s *Stats) Snapshot() map[string]int {
 snapshot := stats.Snapshot()
 ```
 
-&lt;/td&gt;&lt;td&gt;
+</td><td>
 
 ```go
 type Stats struct {
@@ -641,26 +641,26 @@ func (s *Stats) Snapshot() map[string]int {
 snapshot := stats.Snapshot()
 ```
 
-&lt;/td&gt;&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;
+</td></tr>
+</tbody></table>
 
 ### 使用 defer 释放资源
 
 使用 defer 释放资源，诸如文件和锁。
 
-&lt;table&gt;
-&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Bad&lt;/th&gt;&lt;th&gt;Good&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;&lt;td&gt;
+<table>
+<thead><tr><th>Bad</th><th>Good</th></tr></thead>
+<tbody>
+<tr><td>
 
 ```go
 p.Lock()
-if p.count &lt; 10 {
+if p.count < 10 {
   p.Unlock()
   return p.count
 }
 
-p.count&#43;&#43;
+p.count++
 newCount := p.count
 p.Unlock()
 
@@ -669,24 +669,24 @@ return newCount
 // 当有多个 return 分支时，很容易遗忘 unlock
 ```
 
-&lt;/td&gt;&lt;td&gt;
+</td><td>
 
 ```go
 p.Lock()
 defer p.Unlock()
 
-if p.count &lt; 10 {
+if p.count < 10 {
   return p.count
 }
 
-p.count&#43;&#43;
+p.count++
 return p.count
 
 // 更可读
 ```
 
-&lt;/td&gt;&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;
+</td></tr>
+</tbody></table>
 
 Defer 的开销非常小，只有在您可以证明函数执行时间处于纳秒级的程度时，才应避免这样做。使用 defer 提升可读性是值得的，因为使用它们的成本微不足道。尤其适用于那些不仅仅是简单内存访问的较大的方法，在这些方法中其他计算的资源消耗远超过 `defer`。
 
@@ -694,17 +694,17 @@ Defer 的开销非常小，只有在您可以证明函数执行时间处于纳�
 
 channel 通常 size 应为 1 或是无缓冲的。默认情况下，channel 是无缓冲的，其 size 为零。任何其他尺寸都必须经过严格的审查。我们需要考虑如何确定大小，考虑是什么阻止了 channel 在高负载下和阻塞写时的写入，以及当这种情况发生时系统逻辑有哪些变化。(翻译解释：按照原文意思是需要界定通道边界，竞态条件，以及逻辑上下文梳理)
 
-&lt;table&gt;
-&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Bad&lt;/th&gt;&lt;th&gt;Good&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;&lt;td&gt;
+<table>
+<thead><tr><th>Bad</th><th>Good</th></tr></thead>
+<tbody>
+<tr><td>
 
 ```go
 // 应该足以满足任何情况！
 c := make(chan int, 64)
 ```
 
-&lt;/td&gt;&lt;td&gt;
+</td><td>
 
 ```go
 // 大小：1
@@ -713,17 +713,17 @@ c := make(chan int, 1) // 或者
 c := make(chan int)
 ```
 
-&lt;/td&gt;&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;
+</td></tr>
+</tbody></table>
 
 ### 枚举从 1 开始
 
 在 Go 中引入枚举的标准方法是声明一个自定义类型和一个使用了 iota 的 const 组。由于变量的默认值为 0，因此通常应以非零值开头枚举。
 
-&lt;table&gt;
-&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Bad&lt;/th&gt;&lt;th&gt;Good&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;&lt;td&gt;
+<table>
+<thead><tr><th>Bad</th><th>Good</th></tr></thead>
+<tbody>
+<tr><td>
 
 ```go
 type Operation int
@@ -737,13 +737,13 @@ const (
 // Add=0, Subtract=1, Multiply=2
 ```
 
-&lt;/td&gt;&lt;td&gt;
+</td><td>
 
 ```go
 type Operation int
 
 const (
-  Add Operation = iota &#43; 1
+  Add Operation = iota + 1
   Subtract
   Multiply
 )
@@ -751,8 +751,8 @@ const (
 // Add=1, Subtract=2, Multiply=3
 ```
 
-&lt;/td&gt;&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;
+</td></tr>
+</tbody></table>
 
 在某些情况下，使用零值是有意义的（枚举从零开始），例如，当零值是理想的默认行为时。
 
@@ -780,9 +780,9 @@ const (
 
 例如，*1* 表示在一个时间点上加上 24 小时并不总是产生一个新的日历日。
 
-因此，在处理时间时始终使用 [`&#34;time&#34;`] 包，因为它有助于以更安全、更准确的方式处理这些不正确的假设。
+因此，在处理时间时始终使用 [`"time"`] 包，因为它有助于以更安全、更准确的方式处理这些不正确的假设。
 
-[`&#34;time&#34;`]: https://pkg.go.dev/time/
+[`"time"`]: https://pkg.go.dev/time/
 
 #### 使用 `time.Time` 表达瞬时时间
 
@@ -790,27 +790,27 @@ const (
 
 [`time.Time`]: https://pkg.go.dev/time/#Time
 
-&lt;table&gt;
-&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Bad&lt;/th&gt;&lt;th&gt;Good&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;&lt;td&gt;
+<table>
+<thead><tr><th>Bad</th><th>Good</th></tr></thead>
+<tbody>
+<tr><td>
 
 ```go
 func isActive(now, start, stop int) bool {
-  return start &lt;= now &amp;&amp; now &lt; stop
+  return start <= now && now < stop
 }
 ```
 
-&lt;/td&gt;&lt;td&gt;
+</td><td>
 
 ```go
 func isActive(now, start, stop time.Time) bool {
-  return (start.Before(now) || start.Equal(now)) &amp;&amp; now.Before(stop)
+  return (start.Before(now) || start.Equal(now)) && now.Before(stop)
 }
 ```
 
-&lt;/td&gt;&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;
+</td></tr>
+</tbody></table>
 
 #### 使用 `time.Duration` 表达时间段
 
@@ -818,10 +818,10 @@ func isActive(now, start, stop time.Time) bool {
 
 [`time.Duration`]: https://pkg.go.dev/time/#Duration
 
-&lt;table&gt;
-&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Bad&lt;/th&gt;&lt;th&gt;Good&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;&lt;td&gt;
+<table>
+<thead><tr><th>Bad</th><th>Good</th></tr></thead>
+<tbody>
+<tr><td>
 
 ```go
 func poll(delay int) {
@@ -833,7 +833,7 @@ func poll(delay int) {
 poll(10) // 是几秒钟还是几毫秒？
 ```
 
-&lt;/td&gt;&lt;td&gt;
+</td><td>
 
 ```go
 func poll(delay time.Duration) {
@@ -845,8 +845,8 @@ func poll(delay time.Duration) {
 poll(10*time.Second)
 ```
 
-&lt;/td&gt;&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;
+</td></tr>
+</tbody></table>
 
 回到第一个例子，在一个时间瞬间加上 24 小时，我们用于添加时间的方法取决于意图。如果我们想要下一个日历日 (当前天的下一天) 的同一个时间点，我们应该使用 [`Time.AddDate`]。但是，如果我们想保证某一时刻比前一时刻晚 24 小时，我们应该使用 [`Time.Add`]。
 
@@ -879,41 +879,41 @@ maybeNewDay := t.Add(24 * time.Hour)
 
 例如，由于 `encoding/json` 不支持 `time.Duration`，因此该单位包含在字段的名称中。
 
-&lt;table&gt;
-&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Bad&lt;/th&gt;&lt;th&gt;Good&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;&lt;td&gt;
+<table>
+<thead><tr><th>Bad</th><th>Good</th></tr></thead>
+<tbody>
+<tr><td>
 
 ```go
-// {&#34;interval&#34;: 2}
+// {"interval": 2}
 type Config struct {
-  Interval int `json:&#34;interval&#34;`
+  Interval int `json:"interval"`
 }
 ```
 
-&lt;/td&gt;&lt;td&gt;
+</td><td>
 
 ```go
-// {&#34;intervalMillis&#34;: 2000}
+// {"intervalMillis": 2000}
 type Config struct {
-  IntervalMillis int `json:&#34;intervalMillis&#34;`
+  IntervalMillis int `json:"intervalMillis"`
 }
 ```
 
-&lt;/td&gt;&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;
+</td></tr>
+</tbody></table>
 
 当在这些交互中不能使用 `time.Time` 时，除非达成一致，否则使用 `string` 和 [RFC 3339] 中定义的格式时间戳。默认情况下，[`Time.UnmarshalText`] 使用此格式，并可通过 [`time.RFC3339`] 在 `Time.Format` 和 `time.Parse` 中使用。
 
 [`Time.UnmarshalText`]: https://pkg.go.dev/time/#Time.UnmarshalText
 [`time.RFC3339`]: https://pkg.go.dev/time/#RFC3339
 
-尽管这在实践中并不成问题，但请记住，`&#34;time&#34;` 包不支持解析闰秒时间戳（[8728]），也不在计算中考虑闰秒（[15190]）。如果您比较两个时间瞬间，则差异将不包括这两个瞬间之间可能发生的闰秒。
+尽管这在实践中并不成问题，但请记住，`"time"` 包不支持解析闰秒时间戳（[8728]），也不在计算中考虑闰秒（[15190]）。如果您比较两个时间瞬间，则差异将不包括这两个瞬间之间可能发生的闰秒。
 
 [8728]: https://go.dev/issues/8728
 [15190]: https://go.dev/issues/15190
 
-&lt;!-- TODO: section on String methods for enums --&gt;
+<!-- TODO: section on String methods for enums -->
 
 
 ### Errors
@@ -947,32 +947,32 @@ type Config struct {
 使用 [`errors.New`] 表示带有静态字符串的错误。
 如果调用者需要匹配并处理此错误，则将此错误导出为变量以支持将其与 `errors.Is` 匹配。
 
-&lt;table&gt;
-&lt;thead&gt;&lt;tr&gt;&lt;th&gt;无错误匹配&lt;/th&gt;&lt;th&gt;错误匹配&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;&lt;td&gt;
+<table>
+<thead><tr><th>无错误匹配</th><th>错误匹配</th></tr></thead>
+<tbody>
+<tr><td>
 
 ```go
 // package foo
 
 func Open() error {
-  return errors.New(&#34;could not open&#34;)
+  return errors.New("could not open")
 }
 
 // package bar
 
 if err := foo.Open(); err != nil {
-  // Can&#39;t handle the error.
-  panic(&#34;unknown error&#34;)
+  // Can't handle the error.
+  panic("unknown error")
 }
 ```
 
-&lt;/td&gt;&lt;td&gt;
+</td><td>
 
 ```go
 // package foo
 
-var ErrCouldNotOpen = errors.New(&#34;could not open&#34;)
+var ErrCouldNotOpen = errors.New("could not open")
 
 func Open() error {
   return ErrCouldNotOpen
@@ -984,39 +984,39 @@ if err := foo.Open(); err != nil {
   if errors.Is(err, foo.ErrCouldNotOpen) {
     // handle the error
   } else {
-    panic(&#34;unknown error&#34;)
+    panic("unknown error")
   }
 }
 ```
 
-&lt;/td&gt;&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;
+</td></tr>
+</tbody></table>
 
 对于动态字符串的错误，
 如果调用者不需要匹配它，则使用 [`fmt.Errorf`]，
 如果调用者确实需要匹配它，则自定义 `error`。
 
-&lt;table&gt;
-&lt;thead&gt;&lt;tr&gt;&lt;th&gt;无错误匹配&lt;/th&gt;&lt;th&gt;错误匹配&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;&lt;td&gt;
+<table>
+<thead><tr><th>无错误匹配</th><th>错误匹配</th></tr></thead>
+<tbody>
+<tr><td>
 
 ```go
 // package foo
 
 func Open(file string) error {
-  return fmt.Errorf(&#34;file %q not found&#34;, file)
+  return fmt.Errorf("file %q not found", file)
 }
 
 // package bar
 
-if err := foo.Open(&#34;testfile.txt&#34;); err != nil {
-  // Can&#39;t handle the error.
-  panic(&#34;unknown error&#34;)
+if err := foo.Open("testfile.txt"); err != nil {
+  // Can't handle the error.
+  panic("unknown error")
 }
 ```
 
-&lt;/td&gt;&lt;td&gt;
+</td><td>
 
 ```go
 // package foo
@@ -1026,28 +1026,28 @@ type NotFoundError struct {
 }
 
 func (e *NotFoundError) Error() string {
-  return fmt.Sprintf(&#34;file %q not found&#34;, e.File)
+  return fmt.Sprintf("file %q not found", e.File)
 }
 
 func Open(file string) error {
-  return &amp;NotFoundError{File: file}
+  return &NotFoundError{File: file}
 }
 
 
 // package bar
 
-if err := foo.Open(&#34;testfile.txt&#34;); err != nil {
+if err := foo.Open("testfile.txt"); err != nil {
   var notFound *NotFoundError
-  if errors.As(err, &amp;notFound) {
+  if errors.As(err, &notFound) {
     // handle the error
   } else {
-    panic(&#34;unknown error&#34;)
+    panic("unknown error")
   }
 }
 ```
 
-&lt;/td&gt;&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;
+</td></tr>
+</tbody></table>
 
 请注意，如果您从包中导出错误变量或类型，
 它们将成为包的公共 API 的一部分。
@@ -1077,52 +1077,52 @@ if err := foo.Open(&#34;testfile.txt&#34;); err != nil {
 - 使用 `%v` 来混淆底层错误。
   调用者将无法匹配它，但如果需要，您可以在将来切换到 `%w`。
 
-在为返回的错误添加上下文时，通过避免使用&#34;failed to&#34;之类的短语来保持上下文简洁，当错误通过堆栈向上渗透时，它会一层一层被堆积起来：
+在为返回的错误添加上下文时，通过避免使用"failed to"之类的短语来保持上下文简洁，当错误通过堆栈向上渗透时，它会一层一层被堆积起来：
 
-&lt;table&gt;
-&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Bad&lt;/th&gt;&lt;th&gt;Good&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;&lt;td&gt;
-
-```go
-s, err := store.New()
-if err != nil {
-    return fmt.Errorf(
-        &#34;failed to create new store: %w&#34;, err)
-}
-```
-
-&lt;/td&gt;&lt;td&gt;
+<table>
+<thead><tr><th>Bad</th><th>Good</th></tr></thead>
+<tbody>
+<tr><td>
 
 ```go
 s, err := store.New()
 if err != nil {
     return fmt.Errorf(
-        &#34;new store: %w&#34;, err)
+        "failed to create new store: %w", err)
 }
 ```
 
-&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;
+</td><td>
+
+```go
+s, err := store.New()
+if err != nil {
+    return fmt.Errorf(
+        "new store: %w", err)
+}
+```
+
+</td></tr><tr><td>
 
 ```plain
 failed to x: failed to y: failed to create new store: the error
 ```
 
-&lt;/td&gt;&lt;td&gt;
+</td><td>
 
 ```plain
 x: y: new store: the error
 ```
 
-&lt;/td&gt;&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;
+</td></tr>
+</tbody></table>
 
-然而，一旦错误被发送到另一个系统，应该清楚消息是一个错误（例如`err` 标签或日志中的&#34;Failed&#34;前缀）。
+然而，一旦错误被发送到另一个系统，应该清楚消息是一个错误（例如`err` 标签或日志中的"Failed"前缀）。
 
 
 另见 [不要只检查错误，优雅地处理它们]。
 
-[`&#34;pkg/errors&#34;.Cause`]: https://pkg.go.dev/github.com/pkg/errors#Cause
+[`"pkg/errors".Cause`]: https://pkg.go.dev/github.com/pkg/errors#Cause
 [不要只检查错误，优雅地处理它们]: https://dave.cheney.net/2016/04/27/dont-just-check-errors-handle-them-gracefully
 
 #### 错误命名
@@ -1135,12 +1135,12 @@ x: y: new store: the error
 var (
   // 导出以下两个错误，以便此包的用户可以将它们与 errors.Is 进行匹配。
 
-  ErrBrokenLink = errors.New(&#34;link is broken&#34;)
-  ErrCouldNotOpen = errors.New(&#34;could not open&#34;)
+  ErrBrokenLink = errors.New("link is broken")
+  ErrCouldNotOpen = errors.New("could not open")
 
   // 这个错误没有被导出，因为我们不想让它成为我们公共 API 的一部分。 我们可能仍然在带有错误的包内使用它。
 
-  errNotFound = errors.New(&#34;not found&#34;)
+  errNotFound = errors.New("not found")
 )
 ```
 
@@ -1154,7 +1154,7 @@ type NotFoundError struct {
 }
 
 func (e *NotFoundError) Error() string {
-  return fmt.Sprintf(&#34;file %q not found&#34;, e.File)
+  return fmt.Sprintf("file %q not found", e.File)
 }
 
 // 并且这个错误没有被导出，因为我们不想让它成为公共 API 的一部分。 我们仍然可以在带有 errors.As 的包中使用它。
@@ -1163,7 +1163,7 @@ type resolveError struct {
 }
 
 func (e *resolveError) Error() string {
-  return fmt.Sprintf(&#34;resolve %q&#34;, e.Path)
+  return fmt.Sprintf("resolve %q", e.Path)
 }
 ```
 #### 一次处理错误
@@ -1181,28 +1181,28 @@ func (e *resolveError) Error() string {
 
 例如，考虑以下情况：
 
-&lt;table&gt;
-&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Description&lt;/th&gt;&lt;th&gt;Code&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;&lt;td&gt;
+<table>
+<thead><tr><th>Description</th><th>Code</th></tr></thead>
+<tbody>
+<tr><td>
 
 **Bad**: 记录错误并将其返回
 
 堆栈中的调用程序可能会对该错误采取类似的操作。这样做会在应用程序日志中造成大量噪音，但收效甚微。
 
-&lt;/td&gt;&lt;td&gt;
+</td><td>
 
 ```go
 u, err := getUser(id)
 if err != nil {
   // BAD: See description
-  log.Printf(&#34;Could not get user %q: %v&#34;, id, err)
+  log.Printf("Could not get user %q: %v", id, err)
   return err
 }
 ```
 
-&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;
+</td></tr>
+<tr><td>
 
 **Good**: 将错误换行并返回
 
@@ -1210,35 +1210,35 @@ if err != nil {
 
 堆栈中更靠上的调用程序将处理该错误。使用`%w`可确保它们可以将错误与`errors.Is`或`errors.As`相匹配 （如果相关）。
 
-&lt;/td&gt;&lt;td&gt;
+</td><td>
 
 ```go
 u, err := getUser(id)
 if err != nil {
-  return fmt.Errorf(&#34;get user %q: %w&#34;, id, err)
+  return fmt.Errorf("get user %q: %w", id, err)
 }
 ```
 
-&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;
+</td></tr>
+<tr><td>
 
 **Good**: 记录错误并正常降级
 
 如果操作不是绝对必要的，我们可以通过从中恢复来提供降级但不间断的体验。
 
-&lt;/td&gt;&lt;td&gt;
+</td><td>
 
 ```go
 if err := emitMetrics(); err != nil {
   // Failure to write metrics should not
   // break the application.
-  log.Printf(&#34;Could not emit metrics: %v&#34;, err)
+  log.Printf("Could not emit metrics: %v", err)
 }
 
 ```
 
-&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;
+</td></tr>
+<tr><td>
 
 **Good**: 匹配错误并适当降级
 
@@ -1246,22 +1246,22 @@ if err := emitMetrics(); err != nil {
 
 堆栈中更靠上的调用程序将处理其他错误。
 
-&lt;/td&gt;&lt;td&gt;
+</td><td>
 
 ```go
 tz, err := getUserTimeZone(id)
 if err != nil {
   if errors.Is(err, ErrUserNotFound) {
-    // User doesn&#39;t exist. Use UTC.
+    // User doesn't exist. Use UTC.
     tz = time.UTC
   } else {
-    return fmt.Errorf(&#34;get user %q: %w&#34;, id, err)
+    return fmt.Errorf("get user %q: %w", id, err)
   }
 }
 ```
 
-&lt;/td&gt;&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;
+</td></tr>
+</tbody></table>
 
 ### 处理断言失败
 
@@ -1269,16 +1269,16 @@ if err != nil {
 
 [类型断言]: https://golang.org/ref/spec#Type_assertions
 
-&lt;table&gt;
-&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Bad&lt;/th&gt;&lt;th&gt;Good&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;&lt;td&gt;
+<table>
+<thead><tr><th>Bad</th><th>Good</th></tr></thead>
+<tbody>
+<tr><td>
 
 ```go
 t := i.(string)
 ```
 
-&lt;/td&gt;&lt;td&gt;
+</td><td>
 
 ```go
 t, ok := i.(string)
@@ -1287,11 +1287,11 @@ if !ok {
 }
 ```
 
-&lt;/td&gt;&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;
+</td></tr>
+</tbody></table>
 
-&lt;!-- TODO: There are a few situations where the single assignment form is
-fine. --&gt;
+<!-- TODO: There are a few situations where the single assignment form is
+fine. -->
 
 ### 不要使用 panic
 
@@ -1299,15 +1299,15 @@ fine. --&gt;
 
 [级联失败]: https://en.wikipedia.org/wiki/Cascading_failure
 
-&lt;table&gt;
-&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Bad&lt;/th&gt;&lt;th&gt;Good&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;&lt;td&gt;
+<table>
+<thead><tr><th>Bad</th><th>Good</th></tr></thead>
+<tbody>
+<tr><td>
 
 ```go
 func run(args []string) {
   if len(args) == 0 {
-    panic(&#34;an argument is required&#34;)
+    panic("an argument is required")
   }
   // ...
 }
@@ -1317,12 +1317,12 @@ func main() {
 }
 ```
 
-&lt;/td&gt;&lt;td&gt;
+</td><td>
 
 ```go
 func run(args []string) error {
   if len(args) == 0 {
-    return errors.New(&#34;an argument is required&#34;)
+    return errors.New("an argument is required")
   }
   // ...
   return nil
@@ -1336,46 +1336,46 @@ func main() {
 }
 ```
 
-&lt;/td&gt;&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;
+</td></tr>
+</tbody></table>
 
 panic/recover 不是错误处理策略。仅当发生不可恢复的事情（例如：nil 引用）时，程序才必须 panic。程序初始化是一个例外：程序启动时应使程序中止的不良情况可能会引起 panic。
 
 ```go
-var _statusTemplate = template.Must(template.New(&#34;name&#34;).Parse(&#34;_statusHTML&#34;))
+var _statusTemplate = template.Must(template.New("name").Parse("_statusHTML"))
 ```
 
 即使在测试代码中，也优先使用`t.Fatal`或者`t.FailNow`而不是 panic 来确保失败被标记。
 
-&lt;table&gt;
-&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Bad&lt;/th&gt;&lt;th&gt;Good&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;&lt;td&gt;
+<table>
+<thead><tr><th>Bad</th><th>Good</th></tr></thead>
+<tbody>
+<tr><td>
 
 ```go
 // func TestFoo(t *testing.T)
 
-f, err := os.CreateTemp(&#34;&#34;, &#34;test&#34;)
+f, err := os.CreateTemp("", "test")
 if err != nil {
-  panic(&#34;failed to set up test&#34;)
+  panic("failed to set up test")
 }
 ```
 
-&lt;/td&gt;&lt;td&gt;
+</td><td>
 
 ```go
 // func TestFoo(t *testing.T)
 
-f, err := os.CreateTemp(&#34;&#34;, &#34;test&#34;)
+f, err := os.CreateTemp("", "test")
 if err != nil {
-  t.Fatal(&#34;failed to set up test&#34;)
+  t.Fatal("failed to set up test")
 }
 ```
 
-&lt;/td&gt;&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;
+</td></tr>
+</tbody></table>
 
-&lt;!-- TODO: Explain how to use _test packages. --&gt;
+<!-- TODO: Explain how to use _test packages. -->
 
 ### 使用 go.uber.org/atomic
 
@@ -1386,10 +1386,10 @@ if err != nil {
 [go.uber.org/atomic]: https://pkg.go.dev/go.uber.org/atomic
 [sync/atomic]: https://pkg.go.dev/sync/atomic/
 
-&lt;table&gt;
-&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Bad&lt;/th&gt;&lt;th&gt;Good&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;&lt;td&gt;
+<table>
+<thead><tr><th>Bad</th><th>Good</th></tr></thead>
+<tbody>
+<tr><td>
 
 ```go
 type foo struct {
@@ -1397,7 +1397,7 @@ type foo struct {
 }
 
 func (f* foo) start() {
-  if atomic.SwapInt32(&amp;f.running, 1) == 1 {
+  if atomic.SwapInt32(&f.running, 1) == 1 {
      // already running…
      return
   }
@@ -1409,7 +1409,7 @@ func (f *foo) isRunning() bool {
 }
 ```
 
-&lt;/td&gt;&lt;td&gt;
+</td><td>
 
 ```go
 type foo struct {
@@ -1429,18 +1429,18 @@ func (f *foo) isRunning() bool {
 }
 ```
 
-&lt;/td&gt;&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;
+</td></tr>
+</tbody></table>
 
 ### 避免可变全局变量
 
 使用选择依赖注入方式避免改变全局变量。
 既适用于函数指针又适用于其他值类型
 
-&lt;table&gt;
-&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Bad&lt;/th&gt;&lt;th&gt;Good&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;&lt;td&gt;
+<table>
+<thead><tr><th>Bad</th><th>Good</th></tr></thead>
+<tbody>
+<tr><td>
 
 ```go
 // sign.go
@@ -1451,7 +1451,7 @@ func sign(msg string) string {
 }
 ```
 
-&lt;/td&gt;&lt;td&gt;
+</td><td>
 
 ```go
 // sign.go
@@ -1459,7 +1459,7 @@ type signer struct {
   now func() time.Time
 }
 func newSigner() *signer {
-  return &amp;signer{
+  return &signer{
     now: time.Now,
   }
 }
@@ -1468,8 +1468,8 @@ func (s *signer) Sign(msg string) string {
   return signWithTime(msg, now)
 }
 ```
-&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;
+</td></tr>
+<tr><td>
 
 ```go
 // sign_test.go
@@ -1483,7 +1483,7 @@ func TestSign(t *testing.T) {
 }
 ```
 
-&lt;/td&gt;&lt;td&gt;
+</td><td>
 
 ```go
 // sign_test.go
@@ -1496,8 +1496,8 @@ func TestSigner(t *testing.T) {
 }
 ```
 
-&lt;/td&gt;&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;
+</td></tr>
+</tbody></table>
 
 ### 避免在公共结构中嵌入类型
 
@@ -1518,10 +1518,10 @@ func (l *AbstractList) Remove(e Entity) {
 }
 ```
 
-&lt;table&gt;
-&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Bad&lt;/th&gt;&lt;th&gt;Good&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;&lt;td&gt;
+<table>
+<thead><tr><th>Bad</th><th>Good</th></tr></thead>
+<tbody>
+<tr><td>
 
 ```go
 // ConcreteList 是一个实体列表。
@@ -1530,7 +1530,7 @@ type ConcreteList struct {
 }
 ```
 
-&lt;/td&gt;&lt;td&gt;
+</td><td>
 
 ```go
 // ConcreteList 是一个实体列表。
@@ -1547,8 +1547,8 @@ func (l *ConcreteList) Remove(e Entity) {
 }
 ```
 
-&lt;/td&gt;&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;
+</td></tr>
+</tbody></table>
 
 Go 允许 [类型嵌入](https://golang.org/doc/effective_go.html#embedding) 作为继承和组合之间的折衷。外部类型获取嵌入类型的方法的隐式副本。默认情况下，这些方法委托给嵌入实例的同一方法。
 
@@ -1560,10 +1560,10 @@ Go 允许 [类型嵌入](https://golang.org/doc/effective_go.html#embedding) 作
 
 即使嵌入兼容的抽象列表 *interface*，而不是结构体，这将为开发人员提供更大的灵活性来改变未来，但仍然泄露了具体列表使用抽象实现的细节。
 
-&lt;table&gt;
-&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Bad&lt;/th&gt;&lt;th&gt;Good&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;&lt;td&gt;
+<table>
+<thead><tr><th>Bad</th><th>Good</th></tr></thead>
+<tbody>
+<tr><td>
 
 ```go
 // AbstractList 是各种实体列表的通用实现。
@@ -1577,7 +1577,7 @@ type ConcreteList struct {
 }
 ```
 
-&lt;/td&gt;&lt;td&gt;
+</td><td>
 
 ```go
 // ConcreteList 是一个实体列表。
@@ -1594,8 +1594,8 @@ func (l *ConcreteList) Remove(e Entity) {
 }
 ```
 
-&lt;/td&gt;&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;
+</td></tr>
+</tbody></table>
 
 无论是使用嵌入结构还是嵌入接口，都会限制类型的演化。
 
@@ -1618,10 +1618,10 @@ Go [语言规范] 概述了几个内置的，
 [语言规范]: https://golang.org/ref/spec
 [预先声明的标识符]: https://golang.org/ref/spec#Predeclared_identifiers
 
-&lt;table&gt;
-&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Bad&lt;/th&gt;&lt;th&gt;Good&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;&lt;td&gt;
+<table>
+<thead><tr><th>Bad</th><th>Good</th></tr></thead>
+<tbody>
+<tr><td>
 
 ```go
 var error string
@@ -1634,7 +1634,7 @@ func handleErrorMessage(error string) {
 }
 ```
 
-&lt;/td&gt;&lt;td&gt;
+</td><td>
 
 ```go
 var errorMessage string
@@ -1647,8 +1647,8 @@ func handleErrorMessage(msg string) {
 }
 ```
 
-&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;
+</td></tr>
+<tr><td>
 
 ```go
 type Foo struct {
@@ -1668,7 +1668,7 @@ func (f Foo) String() string {
 }
 ```
 
-&lt;/td&gt;&lt;td&gt;
+</td><td>
 
 ```go
 type Foo struct {
@@ -1685,8 +1685,8 @@ func (f Foo) String() string {
     return f.str
 }
 ```
-&lt;/td&gt;&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;
+</td></tr>
+</tbody></table>
 
 注意，编译器在使用预先分隔的标识符时不会生成错误，
 但是诸如`go vet`之类的工具会正确地指出这些和其他情况下的隐式问题。
@@ -1705,10 +1705,10 @@ func (f Foo) String() string {
 或者作为`main()`本身的一部分写入。特别是，打算由其他程序使用的库应该特别注意完全确定性，
 而不是执行“init magic”
 
-&lt;table&gt;
-&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Bad&lt;/th&gt;&lt;th&gt;Good&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;&lt;td&gt;
+<table>
+<thead><tr><th>Bad</th><th>Good</th></tr></thead>
+<tbody>
+<tr><td>
 
 ```go
 type Foo struct {
@@ -1722,7 +1722,7 @@ func init() {
 }
 ```
 
-&lt;/td&gt;&lt;td&gt;
+</td><td>
 
 ```go
 var _defaultFoo = Foo{
@@ -1737,8 +1737,8 @@ func defaultFoo() Foo {
 }
 ```
 
-&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;
+</td></tr>
+<tr><td>
 
 ```go
 type Config struct {
@@ -1750,13 +1750,13 @@ func init() {
     cwd, _ := os.Getwd()
     // Bad: I/O
     raw, _ := os.ReadFile(
-        path.Join(cwd, &#34;config&#34;, &#34;config.yaml&#34;),
+        path.Join(cwd, "config", "config.yaml"),
     )
-    yaml.Unmarshal(raw, &amp;_config)
+    yaml.Unmarshal(raw, &_config)
 }
 ```
 
-&lt;/td&gt;&lt;td&gt;
+</td><td>
 
 ```go
 type Config struct {
@@ -1766,17 +1766,17 @@ func loadConfig() Config {
     cwd, err := os.Getwd()
     // handle err
     raw, err := os.ReadFile(
-        path.Join(cwd, &#34;config&#34;, &#34;config.yaml&#34;),
+        path.Join(cwd, "config", "config.yaml"),
     )
     // handle err
     var config Config
-    yaml.Unmarshal(raw, &amp;config)
+    yaml.Unmarshal(raw, &config)
     return config
 }
 ```
 
-&lt;/td&gt;&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;
+</td></tr>
+</tbody></table>
 
 考虑到上述情况，在某些情况下，`init()`可能更可取或是必要的，可能包括：
 
@@ -1792,46 +1792,46 @@ func loadConfig() Config {
 
 在尽可能的情况下，在初始化要追加的切片时为`make()`提供一个容量值。
 
-&lt;table&gt;
-&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Bad&lt;/th&gt;&lt;th&gt;Good&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;&lt;td&gt;
+<table>
+<thead><tr><th>Bad</th><th>Good</th></tr></thead>
+<tbody>
+<tr><td>
 
 ```go
-for n := 0; n &lt; b.N; n&#43;&#43; {
+for n := 0; n < b.N; n++ {
   data := make([]int, 0)
-  for k := 0; k &lt; size; k&#43;&#43;{
+  for k := 0; k < size; k++{
     data = append(data, k)
   }
 }
 ```
 
-&lt;/td&gt;&lt;td&gt;
+</td><td>
 
 ```go
-for n := 0; n &lt; b.N; n&#43;&#43; {
+for n := 0; n < b.N; n++ {
   data := make([]int, 0, size)
-  for k := 0; k &lt; size; k&#43;&#43;{
+  for k := 0; k < size; k++{
     data = append(data, k)
   }
 }
 ```
 
-&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;
+</td></tr>
+<tr><td>
 
 ```
 BenchmarkBad-4    100000000    2.48s
 ```
 
-&lt;/td&gt;&lt;td&gt;
+</td><td>
 
 ```
 BenchmarkGood-4   100000000    0.21s
 ```
 
-&lt;/td&gt;&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;
+</td></tr>
+</tbody></table>
 
 ### 主函数退出方式 (Exit)
 
@@ -1842,10 +1842,10 @@ Go 程序使用 [`os.Exit`] 或者 [`log.Fatal*`] 立即退出 (使用`panic`不
 
 **仅在`main()`** 中调用其中一个 `os.Exit` 或者 `log.Fatal*`。所有其他函数应将错误返回到信号失败中。
 
-&lt;table&gt;
-&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Bad&lt;/th&gt;&lt;th&gt;Good&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;&lt;td&gt;
+<table>
+<thead><tr><th>Bad</th><th>Good</th></tr></thead>
+<tbody>
+<tr><td>
 
 ```go
 func main() {
@@ -1865,7 +1865,7 @@ func readFile(path string) string {
 }
 ```
 
-&lt;/td&gt;&lt;td&gt;
+</td><td>
 
 ```go
 func main() {
@@ -1878,18 +1878,18 @@ func main() {
 func readFile(path string) (string, error) {
   f, err := os.Open(path)
   if err != nil {
-    return &#34;&#34;, err
+    return "", err
   }
   b, err := os.ReadAll(f)
   if err != nil {
-    return &#34;&#34;, err
+    return "", err
   }
   return string(b), nil
 }
 ```
 
-&lt;/td&gt;&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;
+</td></tr>
+</tbody></table>
 
 原则上：退出的具有多种功能的程序存在一些问题：
 
@@ -1901,17 +1901,17 @@ func readFile(path string) (string, error) {
 如果可能的话，你的`main（）`函数中 **最多一次** 调用 `os.Exit`或者`log.Fatal`。如果有多个错误场景停止程序执行，请将该逻辑放在单独的函数下并从中返回错误。
 这会缩短 `main()` 函数，并将所有关键业务逻辑放入一个单独的、可测试的函数中。
 
-&lt;table&gt;
-&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Bad&lt;/th&gt;&lt;th&gt;Good&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;&lt;td&gt;
+<table>
+<thead><tr><th>Bad</th><th>Good</th></tr></thead>
+<tbody>
+<tr><td>
 
 ```go
 package main
 func main() {
   args := os.Args[1:]
   if len(args) != 1 {
-    log.Fatal(&#34;missing file&#34;)
+    log.Fatal("missing file")
   }
   name := args[0]
   f, err := os.Open(name)
@@ -1929,7 +1929,7 @@ func main() {
 }
 ```
 
-&lt;/td&gt;&lt;td&gt;
+</td><td>
 
 ```go
 package main
@@ -1941,7 +1941,7 @@ func main() {
 func run() error {
   args := os.Args[1:]
   if len(args) != 1 {
-    return errors.New(&#34;missing file&#34;)
+    return errors.New("missing file")
   }
   name := args[0]
   f, err := os.Open(name)
@@ -1957,8 +1957,8 @@ func run() error {
 }
 ```
 
-&lt;/td&gt;&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;
+</td></tr>
+</tbody></table>
 
 上面的示例使用`log.Fatal`，但该指南也适用于`os.Exit`或任何调用`os.Exit`的库代码。
 
@@ -1997,10 +1997,10 @@ func run() (exitCode int) {
 任何序列化到JSON、YAML、，
 或其他支持基于标记的字段命名的格式应使用相关标记进行注释。
 
-&lt;table&gt;
-&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Bad&lt;/th&gt;&lt;th&gt;Good&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;&lt;td&gt;
+<table>
+<thead><tr><th>Bad</th><th>Good</th></tr></thead>
+<tbody>
+<tr><td>
 
 ```go
 type Stock struct {
@@ -2009,26 +2009,26 @@ type Stock struct {
 }
 bytes, err := json.Marshal(Stock{
   Price: 137,
-  Name:  &#34;UBER&#34;,
+  Name:  "UBER",
 })
 ```
 
-&lt;/td&gt;&lt;td&gt;
+</td><td>
 
 ```go
 type Stock struct {
-  Price int    `json:&#34;price&#34;`
-  Name  string `json:&#34;name&#34;`
+  Price int    `json:"price"`
+  Name  string `json:"name"`
   // Safe to rename Name to Symbol.
 }
 bytes, err := json.Marshal(Stock{
   Price: 137,
-  Name:  &#34;UBER&#34;,
+  Name:  "UBER",
 })
 ```
 
-&lt;/td&gt;&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;
+</td></tr>
+</tbody></table>
 
 理论上：
 结构的序列化形式是不同系统之间的契约。
@@ -2055,10 +2055,10 @@ Goroutines 是轻量级的，但它们不是免费的：
 
 For example:
 
-&lt;table&gt;
-&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Bad&lt;/th&gt;&lt;th&gt;Good&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;&lt;td&gt;
+<table>
+<thead><tr><th>Bad</th><th>Good</th></tr></thead>
+<tbody>
+<tr><td>
 
 ```go
 go func() {
@@ -2069,7 +2069,7 @@ go func() {
 }()
 ```
 
-&lt;/td&gt;&lt;td&gt;
+</td><td>
 
 ```go
 var (
@@ -2082,30 +2082,30 @@ go func() {
   defer ticker.Stop()
   for {
     select {
-    case &lt;-tick.C:
+    case <-tick.C:
       flush()
-    case &lt;-stop:
+    case <-stop:
       return
     }
   }
 }()
 // 其它...
 close(stop)  // 指示 goroutine 停止
-&lt;-done       // and wait for it to exit
+<-done       // and wait for it to exit
 ```
 
-&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;
+</td></tr>
+<tr><td>
 
 没有办法阻止这个 goroutine。这将一直运行到应用程序退出。
 
-&lt;/td&gt;&lt;td&gt;
+</td><td>
 
 这个 goroutine 可以用 `close(stop)`,
-我们可以等待它退出 `&lt;-done`.
+我们可以等待它退出 `<-done`.
 
-&lt;/td&gt;&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;
+</td></tr>
+</tbody></table>
 
 #### 等待 goroutines 退出
 
@@ -2118,7 +2118,7 @@ close(stop)  // 指示 goroutine 停止
 
     ```go
     var wg sync.WaitGroup
-    for i := 0; i &lt; N; i&#43;&#43; {
+    for i := 0; i < N; i++ {
       wg.Add(1)
       go func() {
         defer wg.Done()
@@ -2141,7 +2141,7 @@ close(stop)  // 指示 goroutine 停止
     }()
     
     // To wait for the goroutine to finish:
-    &lt;-done
+    <-done
     ```
 
 #### 不要在 `init()` 使用 goroutines
@@ -2153,10 +2153,10 @@ close(stop)  // 指示 goroutine 停止
 它必须公开一个负责管理 goroutine 生命周期的对象。
 该对象必须提供一个方法（`Close`、`Stop`、`Shutdown` 等）来指示后台 goroutine 停止并等待它的退出。
 
-&lt;table&gt;
-&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Bad&lt;/th&gt;&lt;th&gt;Good&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;&lt;td&gt;
+<table>
+<thead><tr><th>Bad</th><th>Good</th></tr></thead>
+<tbody>
+<tr><td>
 
 ```go
 func init() {
@@ -2169,12 +2169,12 @@ func doWork() {
 }
 ```
 
-&lt;/td&gt;&lt;td&gt;
+</td><td>
 
 ```go
 type Worker struct{ /* ... */ }
 func NewWorker(...) *Worker {
-  w := &amp;Worker{
+  w := &Worker{
     stop: make(chan struct{}),
     done: make(chan struct{}),
     // ...
@@ -2185,7 +2185,7 @@ func (w *Worker) doWork() {
   defer close(w.done)
   for {
     // ...
-    case &lt;-w.stop:
+    case <-w.stop:
       return
   }
 }
@@ -2193,17 +2193,17 @@ func (w *Worker) doWork() {
 // 并等待它完成。
 func (w *Worker) Shutdown() {
   close(w.stop)
-  &lt;-w.done
+  <-w.done
 }
 ```
 
-&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;
+</td></tr>
+<tr><td>
 
 当用户导出这个包时，无条件地生成一个后台 goroutine。
 用户无法控制 goroutine 或停止它的方法。
 
-&lt;/td&gt;&lt;td&gt;
+</td><td>
 
 仅当用户请求时才生成工作人员。
 提供一种关闭工作器的方法，以便用户可以释放工作器使用的资源。
@@ -2212,8 +2212,8 @@ func (w *Worker) Shutdown() {
 请参阅 [等待 goroutines 退出](#等待-goroutines-退出)。
 
 
-&lt;/td&gt;&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;
+</td></tr>
+</tbody></table>
 
 ## 性能
 
@@ -2223,40 +2223,40 @@ func (w *Worker) Shutdown() {
 
 将原语转换为字符串或从字符串转换时，`strconv`速度比`fmt`快。
 
-&lt;table&gt;
-&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Bad&lt;/th&gt;&lt;th&gt;Good&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;&lt;td&gt;
+<table>
+<thead><tr><th>Bad</th><th>Good</th></tr></thead>
+<tbody>
+<tr><td>
 
 ```go
-for i := 0; i &lt; b.N; i&#43;&#43; {
+for i := 0; i < b.N; i++ {
   s := fmt.Sprint(rand.Int())
 }
 ```
 
-&lt;/td&gt;&lt;td&gt;
+</td><td>
 
 ```go
-for i := 0; i &lt; b.N; i&#43;&#43; {
+for i := 0; i < b.N; i++ {
   s := strconv.Itoa(rand.Int())
 }
 ```
 
-&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;
+</td></tr>
+<tr><td>
 
 ```plain
 BenchmarkFmtSprint-4    143 ns/op    2 allocs/op
 ```
 
-&lt;/td&gt;&lt;td&gt;
+</td><td>
 
 ```plain
 BenchmarkStrconv-4    64.2 ns/op    1 allocs/op
 ```
 
-&lt;/td&gt;&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;
+</td></tr>
+</tbody></table>
 
 
 
@@ -2264,41 +2264,41 @@ BenchmarkStrconv-4    64.2 ns/op    1 allocs/op
 
 不要反复从固定字符串创建字节 slice。相反，请执行一次转换并捕获结果。
 
-&lt;table&gt;
-&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Bad&lt;/th&gt;&lt;th&gt;Good&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;&lt;td&gt;
+<table>
+<thead><tr><th>Bad</th><th>Good</th></tr></thead>
+<tbody>
+<tr><td>
 
 ```go
-for i := 0; i &lt; b.N; i&#43;&#43; {
-  w.Write([]byte(&#34;Hello world&#34;))
+for i := 0; i < b.N; i++ {
+  w.Write([]byte("Hello world"))
 }
 ```
 
-&lt;/td&gt;&lt;td&gt;
+</td><td>
 
 ```go
-data := []byte(&#34;Hello world&#34;)
-for i := 0; i &lt; b.N; i&#43;&#43; {
+data := []byte("Hello world")
+for i := 0; i < b.N; i++ {
   w.Write(data)
 }
 ```
 
-&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;
+</tr>
+<tr><td>
 
 ```plain
 BenchmarkBad-4   50000000   22.2 ns/op
 ```
 
-&lt;/td&gt;&lt;td&gt;
+</td><td>
 
 ```plain
 BenchmarkGood-4  500000000   3.25 ns/op
 ```
 
-&lt;/td&gt;&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;
+</td></tr>
+</tbody></table>
 
 ### 指定容器容量
 
@@ -2318,25 +2318,25 @@ make(map[T1]T2, hint)
 注意，与 slices 不同。map 容量提示并不保证完全的、预先的分配，而是用于估计所需的 hashmap bucket 的数量。
 因此，在将元素添加到 map 时，甚至在指定 map 容量时，仍可能发生分配。
 
-&lt;table&gt;
-&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Bad&lt;/th&gt;&lt;th&gt;Good&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;&lt;td&gt;
+<table>
+<thead><tr><th>Bad</th><th>Good</th></tr></thead>
+<tbody>
+<tr><td>
 
 ```go
 m := make(map[string]os.FileInfo)
 
-files, _ := os.ReadDir(&#34;./files&#34;)
+files, _ := os.ReadDir("./files")
 for _, f := range files {
     m[f.Name()] = f
 }
 ```
 
-&lt;/td&gt;&lt;td&gt;
+</td><td>
 
 ```go
 
-files, _ := os.ReadDir(&#34;./files&#34;)
+files, _ := os.ReadDir("./files")
 
 m := make(map[string]os.FileInfo, len(files))
 for _, f := range files {
@@ -2344,17 +2344,17 @@ for _, f := range files {
 }
 ```
 
-&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;
+</td></tr>
+<tr><td>
 
 `m` 是在没有大小提示的情况下创建的； 在运行时可能会有更多分配。
 
-&lt;/td&gt;&lt;td&gt;
+</td><td>
 
 `m` 是有大小提示创建的；在运行时可能会有更少的分配。
 
-&lt;/td&gt;&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;
+</td></tr>
+</tbody></table>
 
 #### 指定切片容量
 
@@ -2367,46 +2367,46 @@ make([]T, length, capacity)
 与 maps 不同，slice capacity 不是一个提示：编译器将为提供给`make()`的 slice 的容量分配足够的内存，
 这意味着后续的`append()`操作将导致零分配（直到 slice 的长度与容量匹配，在此之后，任何 append 都可能调整大小以容纳其他元素）。
 
-&lt;table&gt;
-&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Bad&lt;/th&gt;&lt;th&gt;Good&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;&lt;td&gt;
+<table>
+<thead><tr><th>Bad</th><th>Good</th></tr></thead>
+<tbody>
+<tr><td>
 
 ```go
-for n := 0; n &lt; b.N; n&#43;&#43; {
+for n := 0; n < b.N; n++ {
   data := make([]int, 0)
-  for k := 0; k &lt; size; k&#43;&#43;{
+  for k := 0; k < size; k++{
     data = append(data, k)
   }
 }
 ```
 
-&lt;/td&gt;&lt;td&gt;
+</td><td>
 
 ```go
-for n := 0; n &lt; b.N; n&#43;&#43; {
+for n := 0; n < b.N; n++ {
   data := make([]int, 0, size)
-  for k := 0; k &lt; size; k&#43;&#43;{
+  for k := 0; k < size; k++{
     data = append(data, k)
   }
 }
 ```
 
-&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;
+</td></tr>
+<tr><td>
 
 ```
 BenchmarkBad-4    100000000    2.48s
 ```
 
-&lt;/td&gt;&lt;td&gt;
+</td><td>
 
 ```
 BenchmarkGood-4   100000000    0.21s
 ```
 
-&lt;/td&gt;&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;
+</td></tr>
+</tbody></table>
 
 ## 规范
 ### 避免过长的行
@@ -2433,34 +2433,34 @@ BenchmarkGood-4   100000000    0.21s
 
 Go 语言支持将相似的声明放在一个组内。
 
-&lt;table&gt;
-&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Bad&lt;/th&gt;&lt;th&gt;Good&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;&lt;td&gt;
+<table>
+<thead><tr><th>Bad</th><th>Good</th></tr></thead>
+<tbody>
+<tr><td>
 
 ```go
-import &#34;a&#34;
-import &#34;b&#34;
+import "a"
+import "b"
 ```
 
-&lt;/td&gt;&lt;td&gt;
+</td><td>
 
 ```go
 import (
-  &#34;a&#34;
-  &#34;b&#34;
+  "a"
+  "b"
 )
 ```
 
-&lt;/td&gt;&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;
+</td></tr>
+</tbody></table>
 
 这同样适用于常量、变量和类型声明：
 
-&lt;table&gt;
-&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Bad&lt;/th&gt;&lt;th&gt;Good&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;&lt;td&gt;
+<table>
+<thead><tr><th>Bad</th><th>Good</th></tr></thead>
+<tbody>
+<tr><td>
 
 ```go
 
@@ -2474,7 +2474,7 @@ type Area float64
 type Volume float64
 ```
 
-&lt;/td&gt;&lt;td&gt;
+</td><td>
 
 ```go
 const (
@@ -2493,50 +2493,50 @@ type (
 )
 ```
 
-&lt;/td&gt;&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;
+</td></tr>
+</tbody></table>
 
 仅将相关的声明放在一组。不要将不相关的声明放在一组。
 
-&lt;table&gt;
-&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Bad&lt;/th&gt;&lt;th&gt;Good&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;&lt;td&gt;
+<table>
+<thead><tr><th>Bad</th><th>Good</th></tr></thead>
+<tbody>
+<tr><td>
 
 ```go
 type Operation int
 
 const (
-  Add Operation = iota &#43; 1
+  Add Operation = iota + 1
   Subtract
   Multiply
-  EnvVar = &#34;MY_ENV&#34;
+  EnvVar = "MY_ENV"
 )
 ```
 
-&lt;/td&gt;&lt;td&gt;
+</td><td>
 
 ```go
 type Operation int
 
 const (
-  Add Operation = iota &#43; 1
+  Add Operation = iota + 1
   Subtract
   Multiply
 )
 
-const EnvVar = &#34;MY_ENV&#34;
+const EnvVar = "MY_ENV"
 ```
 
-&lt;/td&gt;&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;
+</td></tr>
+</tbody></table>
 
 分组使用的位置没有限制，例如：你可以在函数内部使用它们：
 
-&lt;table&gt;
-&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Bad&lt;/th&gt;&lt;th&gt;Good&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;&lt;td&gt;
+<table>
+<thead><tr><th>Bad</th><th>Good</th></tr></thead>
+<tbody>
+<tr><td>
 
 ```go
 func f() string {
@@ -2548,7 +2548,7 @@ func f() string {
 }
 ```
 
-&lt;/td&gt;&lt;td&gt;
+</td><td>
 
 ```go
 func f() string {
@@ -2562,33 +2562,33 @@ func f() string {
 }
 ```
 
-&lt;/td&gt;&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;
+</td></tr>
+</tbody></table>
 
 例外：如果变量声明与其他变量相邻，则应将变量声明（尤其是函数内部的声明）分组在一起。对一起声明的变量执行此操作，即使它们不相关。
 
-&lt;table&gt;
-&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Bad&lt;/th&gt;&lt;th&gt;Good&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;&lt;td&gt;
+<table>
+<thead><tr><th>Bad</th><th>Good</th></tr></thead>
+<tbody>
+<tr><td>
 
 ```go
 func (c *client) request() {
   caller := c.name
-  format := &#34;json&#34;
+  format := "json"
   timeout := 5*time.Second
   var err error
   // ...
 }
 ```
 
-&lt;/td&gt;&lt;td&gt;
+</td><td>
 
 ```go
 func (c *client) request() {
   var (
     caller  = c.name
-    format  = &#34;json&#34;
+    format  = "json"
     timeout = 5*time.Second
     err error
   )
@@ -2596,8 +2596,8 @@ func (c *client) request() {
 }
 ```
 
-&lt;/td&gt;&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;
+</td></tr>
+</tbody></table>
 
 ### import 分组
 
@@ -2608,34 +2608,34 @@ func (c *client) request() {
 
 默认情况下，这是 goimports 应用的分组。
 
-&lt;table&gt;
-&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Bad&lt;/th&gt;&lt;th&gt;Good&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;&lt;td&gt;
+<table>
+<thead><tr><th>Bad</th><th>Good</th></tr></thead>
+<tbody>
+<tr><td>
 
 ```go
 import (
-  &#34;fmt&#34;
-  &#34;os&#34;
-  &#34;go.uber.org/atomic&#34;
-  &#34;golang.org/x/sync/errgroup&#34;
+  "fmt"
+  "os"
+  "go.uber.org/atomic"
+  "golang.org/x/sync/errgroup"
 )
 ```
 
-&lt;/td&gt;&lt;td&gt;
+</td><td>
 
 ```go
 import (
-  &#34;fmt&#34;
-  &#34;os&#34;
+  "fmt"
+  "os"
 
-  &#34;go.uber.org/atomic&#34;
-  &#34;golang.org/x/sync/errgroup&#34;
+  "go.uber.org/atomic"
+  "golang.org/x/sync/errgroup"
 )
 ```
 
-&lt;/td&gt;&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;
+</td></tr>
+</tbody></table>
 
 ### 包名
 
@@ -2664,43 +2664,43 @@ import (
 
 ```go
 import (
-  &#34;net/http&#34;
+  "net/http"
 
-  client &#34;example.com/client-go&#34;
-  trace &#34;example.com/trace/v2&#34;
+  client "example.com/client-go"
+  trace "example.com/trace/v2"
 )
 ```
 
 在所有其他情况下，除非导入之间有直接冲突，否则应避免导入别名。
 
-&lt;table&gt;
-&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Bad&lt;/th&gt;&lt;th&gt;Good&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;&lt;td&gt;
+<table>
+<thead><tr><th>Bad</th><th>Good</th></tr></thead>
+<tbody>
+<tr><td>
 
 ```go
 import (
-  &#34;fmt&#34;
-  &#34;os&#34;
+  "fmt"
+  "os"
 
-  nettrace &#34;golang.net/x/trace&#34;
+  nettrace "golang.net/x/trace"
 )
 ```
 
-&lt;/td&gt;&lt;td&gt;
+</td><td>
 
 ```go
 import (
-  &#34;fmt&#34;
-  &#34;os&#34;
-  &#34;runtime/trace&#34;
+  "fmt"
+  "os"
+  "runtime/trace"
 
-  nettrace &#34;golang.net/x/trace&#34;
+  nettrace "golang.net/x/trace"
 )
 ```
 
-&lt;/td&gt;&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;
+</td></tr>
+</tbody></table>
 
 ### 函数分组与顺序
 
@@ -2713,10 +2713,10 @@ import (
 
 由于函数是按接收者分组的，因此普通工具函数应在文件末尾出现。
 
-&lt;table&gt;
-&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Bad&lt;/th&gt;&lt;th&gt;Good&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;&lt;td&gt;
+<table>
+<thead><tr><th>Bad</th><th>Good</th></tr></thead>
+<tbody>
+<tr><td>
 
 ```go
 func (s *something) Cost() {
@@ -2730,17 +2730,17 @@ func calcCost(n []int) int {...}
 func (s *something) Stop() {...}
 
 func newSomething() *something {
-    return &amp;something{}
+    return &something{}
 }
 ```
 
-&lt;/td&gt;&lt;td&gt;
+</td><td>
 
 ```go
 type something struct{ ... }
 
 func newSomething() *something {
-    return &amp;something{}
+    return &something{}
 }
 
 func (s *something) Cost() {
@@ -2752,17 +2752,17 @@ func (s *something) Stop() {...}
 func calcCost(n []int) int {...}
 ```
 
-&lt;/td&gt;&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;
+</td></tr>
+</tbody></table>
 
 ### 减少嵌套
 
 代码应通过尽可能先处理错误情况/特殊情况并尽早返回或继续循环来减少嵌套。减少嵌套多个级别的代码的代码量。
 
-&lt;table&gt;
-&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Bad&lt;/th&gt;&lt;th&gt;Good&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;&lt;td&gt;
+<table>
+<thead><tr><th>Bad</th><th>Good</th></tr></thead>
+<tbody>
+<tr><td>
 
 ```go
 for _, v := range data {
@@ -2774,17 +2774,17 @@ for _, v := range data {
       return err
     }
   } else {
-    log.Printf(&#34;Invalid v: %v&#34;, v)
+    log.Printf("Invalid v: %v", v)
   }
 }
 ```
 
-&lt;/td&gt;&lt;td&gt;
+</td><td>
 
 ```go
 for _, v := range data {
   if v.F1 != 1 {
-    log.Printf(&#34;Invalid v: %v&#34;, v)
+    log.Printf("Invalid v: %v", v)
     continue
   }
 
@@ -2796,17 +2796,17 @@ for _, v := range data {
 }
 ```
 
-&lt;/td&gt;&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;
+</td></tr>
+</tbody></table>
 
 ### 不必要的 else
 
 如果在 if 的两个分支中都设置了变量，则可以将其替换为单个 if。
 
-&lt;table&gt;
-&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Bad&lt;/th&gt;&lt;th&gt;Good&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;&lt;td&gt;
+<table>
+<thead><tr><th>Bad</th><th>Good</th></tr></thead>
+<tbody>
+<tr><td>
 
 ```go
 var a int
@@ -2817,7 +2817,7 @@ if b {
 }
 ```
 
-&lt;/td&gt;&lt;td&gt;
+</td><td>
 
 ```go
 a := 10
@@ -2826,43 +2826,43 @@ if b {
 }
 ```
 
-&lt;/td&gt;&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;
+</td></tr>
+</tbody></table>
 
 ### 顶层变量声明
 
 在顶层，使用标准`var`关键字。请勿指定类型，除非它与表达式的类型不同。
 
-&lt;table&gt;
-&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Bad&lt;/th&gt;&lt;th&gt;Good&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;&lt;td&gt;
+<table>
+<thead><tr><th>Bad</th><th>Good</th></tr></thead>
+<tbody>
+<tr><td>
 
 ```go
 var _s string = F()
 
-func F() string { return &#34;A&#34; }
+func F() string { return "A" }
 ```
 
-&lt;/td&gt;&lt;td&gt;
+</td><td>
 
 ```go
 var _s = F()
 // 由于 F 已经明确了返回一个字符串类型，因此我们没有必要显式指定_s 的类型
 // 还是那种类型
 
-func F() string { return &#34;A&#34; }
+func F() string { return "A" }
 ```
 
-&lt;/td&gt;&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;
+</td></tr>
+</tbody></table>
 
 如果表达式的类型与所需的类型不完全匹配，请指定类型。
 
 ```go
 type myError struct{}
 
-func (myError) Error() string { return &#34;error&#34; }
+func (myError) Error() string { return "error" }
 
 func F() myError { return myError{} }
 
@@ -2876,17 +2876,17 @@ var _e error = F()
 
 基本依据：顶级变量和常量具有包范围作用域。使用通用名称可能很容易在其他文件中意外使用错误的值。
 
-&lt;table&gt;
-&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Bad&lt;/th&gt;&lt;th&gt;Good&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;&lt;td&gt;
+<table>
+<thead><tr><th>Bad</th><th>Good</th></tr></thead>
+<tbody>
+<tr><td>
 
 ```go
 // foo.go
 
 const (
   defaultPort = 8080
-  defaultUser = &#34;user&#34;
+  defaultUser = "user"
 )
 
 // bar.go
@@ -2894,26 +2894,26 @@ const (
 func Bar() {
   defaultPort := 9090
   ...
-  fmt.Println(&#34;Default port&#34;, defaultPort)
+  fmt.Println("Default port", defaultPort)
 
   // We will not see a compile error if the first line of
   // Bar() is deleted.
 }
 ```
 
-&lt;/td&gt;&lt;td&gt;
+</td><td>
 
 ```go
 // foo.go
 
 const (
   _defaultPort = 8080
-  _defaultUser = &#34;user&#34;
+  _defaultUser = "user"
 )
 ```
 
-&lt;/td&gt;&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;
+</td></tr>
+</tbody></table>
 
 **例外**：未导出的错误值可以使用不带下划线的前缀 `err`。 参见[错误命名](#错误命名)。
 
@@ -2921,10 +2921,10 @@ const (
 
 嵌入式类型（例如 mutex）应位于结构体内的字段列表的顶部，并且必须有一个空行将嵌入式字段与常规字段分隔开。
 
-&lt;table&gt;
-&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Bad&lt;/th&gt;&lt;th&gt;Good&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;&lt;td&gt;
+<table>
+<thead><tr><th>Bad</th><th>Good</th></tr></thead>
+<tbody>
+<tr><td>
 
 ```go
 type Client struct {
@@ -2933,7 +2933,7 @@ type Client struct {
 }
 ```
 
-&lt;/td&gt;&lt;td&gt;
+</td><td>
 
 ```go
 type Client struct {
@@ -2943,8 +2943,8 @@ type Client struct {
 }
 ```
 
-&lt;/td&gt;&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;
+</td></tr>
+</tbody></table>
 
 内嵌应该提供切实的好处，比如以语义上合适的方式添加或增强功能。
 它应该在对用户没有任何不利影响的情况下使用。（另请参见：[避免在公共结构中嵌入类型]）。
@@ -2969,13 +2969,13 @@ type Client struct {
 - 通过包装的方式改变内部函数的一般行为，这种包装方式会给用户带来一些意料之外情况。
 
 简单地说，有意识地和有目的地嵌入。一种很好的测试体验是，
-&#34;是否所有这些导出的内部方法/字段都将直接添加到外部类型&#34;
+"是否所有这些导出的内部方法/字段都将直接添加到外部类型"
 如果答案是`some`或`no`，不要嵌入内部类型 - 而是使用字段。
 
-&lt;table&gt;
-&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Bad&lt;/th&gt;&lt;th&gt;Good&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;&lt;td&gt;
+<table>
+<thead><tr><th>Bad</th><th>Good</th></tr></thead>
+<tbody>
+<tr><td>
 
 ```go
 type A struct {
@@ -2985,7 +2985,7 @@ type A struct {
 }
 ```
 
-&lt;/td&gt;&lt;td&gt;
+</td><td>
 
 ```go
 type countingWriteCloser struct {
@@ -2995,13 +2995,13 @@ type countingWriteCloser struct {
     count int
 }
 func (w *countingWriteCloser) Write(bs []byte) (int, error) {
-    w.count &#43;= len(bs)
+    w.count += len(bs)
     return w.WriteCloser.Write(bs)
 }
 ```
 
-&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;
+</td></tr>
+<tr><td>
 
 ```go
 type Book struct {
@@ -3016,7 +3016,7 @@ b.String()   // panic: nil pointer
 b.Write(...) // panic: nil pointer
 ```
 
-&lt;/td&gt;&lt;td&gt;
+</td><td>
 
 ```go
 type Book struct {
@@ -3031,8 +3031,8 @@ b.String()   // ok
 b.Write(...) // ok
 ```
 
-&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;
+</td></tr>
+<tr><td>
 
 ```go
 type Client struct {
@@ -3043,7 +3043,7 @@ type Client struct {
 }
 ```
 
-&lt;/td&gt;&lt;td&gt;
+</td><td>
 
 ```go
 type Client struct {
@@ -3054,66 +3054,66 @@ type Client struct {
 }
 ```
 
-&lt;/td&gt;&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;
+</td></tr>
+</tbody></table>
 
 ### 本地变量声明
 
 如果将变量明确设置为某个值，则应使用短变量声明形式 (`:=`)。
 
-&lt;table&gt;
-&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Bad&lt;/th&gt;&lt;th&gt;Good&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;&lt;td&gt;
+<table>
+<thead><tr><th>Bad</th><th>Good</th></tr></thead>
+<tbody>
+<tr><td>
 
 ```go
-var s = &#34;foo&#34;
+var s = "foo"
 ```
 
-&lt;/td&gt;&lt;td&gt;
+</td><td>
 
 ```go
-s := &#34;foo&#34;
+s := "foo"
 ```
 
-&lt;/td&gt;&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;
+</td></tr>
+</tbody></table>
 
 但是，在某些情况下，`var` 使用关键字时默认值会更清晰。例如，[声明空切片]。
 
 [声明空切片]: https://go.dev/wiki/CodeReviewComments#declaring-empty-slices
 
-&lt;table&gt;
-&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Bad&lt;/th&gt;&lt;th&gt;Good&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;&lt;td&gt;
+<table>
+<thead><tr><th>Bad</th><th>Good</th></tr></thead>
+<tbody>
+<tr><td>
 
 ```go
 func f(list []int) {
   filtered := []int{}
   for _, v := range list {
-    if v &gt; 10 {
+    if v > 10 {
       filtered = append(filtered, v)
     }
   }
 }
 ```
 
-&lt;/td&gt;&lt;td&gt;
+</td><td>
 
 ```go
 func f(list []int) {
   var filtered []int
   for _, v := range list {
-    if v &gt; 10 {
+    if v > 10 {
       filtered = append(filtered, v)
     }
   }
 }
 ```
 
-&lt;/td&gt;&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;
+</td></tr>
+</tbody></table>
 
 ### nil 是一个有效的 slice
 
@@ -3121,34 +3121,34 @@ func f(list []int) {
 
 - 您不应明确返回长度为零的切片。应该返回`nil` 来代替。
 
-  &lt;table&gt;
-  &lt;thead&gt;&lt;tr&gt;&lt;th&gt;Bad&lt;/th&gt;&lt;th&gt;Good&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
-  &lt;tbody&gt;
-  &lt;tr&gt;&lt;td&gt;
+  <table>
+  <thead><tr><th>Bad</th><th>Good</th></tr></thead>
+  <tbody>
+  <tr><td>
 
   ```go
-  if x == &#34;&#34; {
+  if x == "" {
     return []int{}
   }
   ```
 
-  &lt;/td&gt;&lt;td&gt;
+  </td><td>
 
   ```go
-  if x == &#34;&#34; {
+  if x == "" {
     return nil
   }
   ```
 
-  &lt;/td&gt;&lt;/tr&gt;
-  &lt;/tbody&gt;&lt;/table&gt;
+  </td></tr>
+  </tbody></table>
 
 - 要检查切片是否为空，请始终使用`len(s) == 0`。而非 `nil`。
 
-  &lt;table&gt;
-  &lt;thead&gt;&lt;tr&gt;&lt;th&gt;Bad&lt;/th&gt;&lt;th&gt;Good&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
-  &lt;tbody&gt;
-  &lt;tr&gt;&lt;td&gt;
+  <table>
+  <thead><tr><th>Bad</th><th>Good</th></tr></thead>
+  <tbody>
+  <tr><td>
 
   ```go
   func isEmpty(s []string) bool {
@@ -3156,7 +3156,7 @@ func f(list []int) {
   }
   ```
 
-  &lt;/td&gt;&lt;td&gt;
+  </td><td>
 
   ```go
   func isEmpty(s []string) bool {
@@ -3164,15 +3164,15 @@ func f(list []int) {
   }
   ```
 
-  &lt;/td&gt;&lt;/tr&gt;
-  &lt;/tbody&gt;&lt;/table&gt;
+  </td></tr>
+  </tbody></table>
 
 - 零值切片（用`var`声明的切片）可立即使用，无需调用`make()`创建。
 
-  &lt;table&gt;
-  &lt;thead&gt;&lt;tr&gt;&lt;th&gt;Bad&lt;/th&gt;&lt;th&gt;Good&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
-  &lt;tbody&gt;
-  &lt;tr&gt;&lt;td&gt;
+  <table>
+  <thead><tr><th>Bad</th><th>Good</th></tr></thead>
+  <tbody>
+  <tr><td>
 
   ```go
   nums := []int{}
@@ -3187,7 +3187,7 @@ func f(list []int) {
   }
   ```
 
-  &lt;/td&gt;&lt;td&gt;
+  </td><td>
 
   ```go
   var nums []int
@@ -3201,8 +3201,8 @@ func f(list []int) {
   }
   ```
 
-  &lt;/td&gt;&lt;/tr&gt;
-  &lt;/tbody&gt;&lt;/table&gt;
+  </td></tr>
+  </tbody></table>
 
 记住，虽然 nil 切片是有效的切片，但它不等于长度为 0 的切片（一个为 nil，另一个不是），并且在不同的情况下（例如序列化），这两个切片的处理方式可能不同。
 
@@ -3210,10 +3210,10 @@ func f(list []int) {
 
 如果有可能，尽量缩小变量作用范围。除非它与 [减少嵌套](#减少嵌套)的规则冲突。
 
-&lt;table&gt;
-&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Bad&lt;/th&gt;&lt;th&gt;Good&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;&lt;td&gt;
+<table>
+<thead><tr><th>Bad</th><th>Good</th></tr></thead>
+<tbody>
+<tr><td>
 
 ```go
 err := os.WriteFile(name, data, 0644)
@@ -3222,7 +3222,7 @@ if err != nil {
 }
 ```
 
-&lt;/td&gt;&lt;td&gt;
+</td><td>
 
 ```go
 if err := os.WriteFile(name, data, 0644); err != nil {
@@ -3230,15 +3230,15 @@ if err := os.WriteFile(name, data, 0644); err != nil {
 }
 ```
 
-&lt;/td&gt;&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;
+</td></tr>
+</tbody></table>
 
 如果需要在 if 之外使用函数调用的结果，则不应尝试缩小范围。
 
-&lt;table&gt;
-&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Bad&lt;/th&gt;&lt;th&gt;Good&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;&lt;td&gt;
+<table>
+<thead><tr><th>Bad</th><th>Good</th></tr></thead>
+<tbody>
+<tr><td>
 
 ```go
 if data, err := os.ReadFile(name); err == nil {
@@ -3254,7 +3254,7 @@ if data, err := os.ReadFile(name); err == nil {
 }
 ```
 
-&lt;/td&gt;&lt;td&gt;
+</td><td>
 
 ```go
 data, err := os.ReadFile(name)
@@ -3270,34 +3270,34 @@ fmt.Println(cfg)
 return nil
 ```
 
-&lt;/td&gt;&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;
+</td></tr>
+</tbody></table>
 
 ### 避免参数语义不明确 (Avoid Naked Parameters)
 
 函数调用中的`意义不明确的参数`可能会损害可读性。当参数名称的含义不明显时，请为参数添加 C 样式注释 (`/* ... */`)
 
-&lt;table&gt;
-&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Bad&lt;/th&gt;&lt;th&gt;Good&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;&lt;td&gt;
+<table>
+<thead><tr><th>Bad</th><th>Good</th></tr></thead>
+<tbody>
+<tr><td>
 
 ```go
 // func printInfo(name string, isLocal, done bool)
 
-printInfo(&#34;foo&#34;, true, true)
+printInfo("foo", true, true)
 ```
 
-&lt;/td&gt;&lt;td&gt;
+</td><td>
 
 ```go
 // func printInfo(name string, isLocal, done bool)
 
-printInfo(&#34;foo&#34;, true /* isLocal */, true /* done */)
+printInfo("foo", true /* isLocal */, true /* done */)
 ```
 
-&lt;/td&gt;&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;
+</td></tr>
+</tbody></table>
 
 对于上面的示例代码，还有一种更好的处理方式是将上面的 `bool` 类型换成自定义类型。将来，该参数可以支持不仅仅局限于两个状态（true/false）。
 
@@ -3312,7 +3312,7 @@ const (
 type Status int
 
 const (
-  StatusReady Status= iota &#43; 1
+  StatusReady Status= iota + 1
   StatusDone
   // Maybe we will have a StatusInProgress in the future.
 )
@@ -3322,27 +3322,27 @@ func printInfo(name string, region Region, status Status)
 
 ### 使用原始字符串字面值，避免转义
 
-Go 支持使用 [原始字符串字面值](https://golang.org/ref/spec#raw_string_lit)，也就是 &#34; ` &#34; 来表示原生字符串，在需要转义的场景下，我们应该尽量使用这种方案来替换。
+Go 支持使用 [原始字符串字面值](https://golang.org/ref/spec#raw_string_lit)，也就是 " ` " 来表示原生字符串，在需要转义的场景下，我们应该尽量使用这种方案来替换。
 
 可以跨越多行并包含引号。使用这些字符串可以避免更难阅读的手工转义的字符串。
 
-&lt;table&gt;
-&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Bad&lt;/th&gt;&lt;th&gt;Good&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;&lt;td&gt;
+<table>
+<thead><tr><th>Bad</th><th>Good</th></tr></thead>
+<tbody>
+<tr><td>
 
 ```go
-wantError := &#34;unknown name:\&#34;test\&#34;&#34;
+wantError := "unknown name:\"test\""
 ```
 
-&lt;/td&gt;&lt;td&gt;
+</td><td>
 
 ```go
-wantError := `unknown error:&#34;test&#34;`
+wantError := `unknown error:"test"`
 ```
 
-&lt;/td&gt;&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;
+</td></tr>
+</tbody></table>
 
 ### 初始化结构体
 
@@ -3352,27 +3352,27 @@ wantError := `unknown error:&#34;test&#34;`
 
 [`go vet`]: https://golang.org/cmd/vet/
 
-&lt;table&gt;
-&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Bad&lt;/th&gt;&lt;th&gt;Good&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;&lt;td&gt;
+<table>
+<thead><tr><th>Bad</th><th>Good</th></tr></thead>
+<tbody>
+<tr><td>
 
 ```go
-k := User{&#34;John&#34;, &#34;Doe&#34;, true}
+k := User{"John", "Doe", true}
 ```
 
-&lt;/td&gt;&lt;td&gt;
+</td><td>
 
 ```go
 k := User{
-    FirstName: &#34;John&#34;,
-    LastName: &#34;Doe&#34;,
+    FirstName: "John",
+    LastName: "Doe",
     Admin: true,
 }
 ```
 
-&lt;/td&gt;&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;
+</td></tr>
+</tbody></table>
 
 例外：当有 3 个或更少的字段时，测试表中的字段名*may*可以省略。
 
@@ -3381,8 +3381,8 @@ tests := []struct{
   op Operation
   want string
 }{
-  {Add, &#34;add&#34;},
-  {Subtract, &#34;subtract&#34;},
+  {Add, "add"},
+  {Subtract, "subtract"},
 }
 ```
 #### 省略结构中的零值字段
@@ -3390,31 +3390,31 @@ tests := []struct{
 初始化具有字段名的结构时，除非提供有意义的上下文，否则忽略值为零的字段。
 也就是，让我们自动将这些设置为零值
 
-&lt;table&gt;
-&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Bad&lt;/th&gt;&lt;th&gt;Good&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;&lt;td&gt;
+<table>
+<thead><tr><th>Bad</th><th>Good</th></tr></thead>
+<tbody>
+<tr><td>
 
 ```go
 user := User{
-  FirstName: &#34;John&#34;,
-  LastName: &#34;Doe&#34;,
-  MiddleName: &#34;&#34;,
+  FirstName: "John",
+  LastName: "Doe",
+  MiddleName: "",
   Admin: false,
 }
 ```
 
-&lt;/td&gt;&lt;td&gt;
+</td><td>
 
 ```go
 user := User{
-  FirstName: &#34;John&#34;,
-  LastName: &#34;Doe&#34;,
+  FirstName: "John",
+  LastName: "Doe",
 }
 ```
 
-&lt;/td&gt;&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;
+</td></tr>
+</tbody></table>
 
 这有助于通过省略该上下文中的默认值来减少阅读的障碍。只指定有意义的值。
 
@@ -3425,7 +3425,7 @@ tests := []struct{
   give string
   want int
 }{
-  {give: &#34;0&#34;, want: 0},
+  {give: "0", want: 0},
   // ...
 }
 ```
@@ -3433,64 +3433,64 @@ tests := []struct{
 
 如果在声明中省略了结构的所有字段，请使用 `var` 声明结构。
 
-&lt;table&gt;
-&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Bad&lt;/th&gt;&lt;th&gt;Good&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;&lt;td&gt;
+<table>
+<thead><tr><th>Bad</th><th>Good</th></tr></thead>
+<tbody>
+<tr><td>
 
 ```go
 user := User{}
 ```
 
-&lt;/td&gt;&lt;td&gt;
+</td><td>
 
 ```go
 var user User
 ```
 
-&lt;/td&gt;&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;
+</td></tr>
+</tbody></table>
 
 这将零值结构与那些具有类似于为 [初始化 Maps](#初始化-maps) 创建的，区别于非零值字段的结构区分开来，
 我们倾向于[声明一个空切片](https://go.dev/wiki/CodeReviewComments#declaring-empty-slices)
 
 #### 初始化 Struct 引用
 
-在初始化结构引用时，请使用`&amp;T{}`代替`new(T)`，以使其与结构体初始化一致。
+在初始化结构引用时，请使用`&T{}`代替`new(T)`，以使其与结构体初始化一致。
 
-&lt;table&gt;
-&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Bad&lt;/th&gt;&lt;th&gt;Good&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;&lt;td&gt;
+<table>
+<thead><tr><th>Bad</th><th>Good</th></tr></thead>
+<tbody>
+<tr><td>
 
 ```go
-sval := T{Name: &#34;foo&#34;}
+sval := T{Name: "foo"}
 
 // inconsistent
 sptr := new(T)
-sptr.Name = &#34;bar&#34;
+sptr.Name = "bar"
 ```
 
-&lt;/td&gt;&lt;td&gt;
+</td><td>
 
 ```go
-sval := T{Name: &#34;foo&#34;}
+sval := T{Name: "foo"}
 
-sptr := &amp;T{Name: &#34;bar&#34;}
+sptr := &T{Name: "bar"}
 ```
 
-&lt;/td&gt;&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;
+</td></tr>
+</tbody></table>
 
 ### 初始化 Maps
 
 对于空 map 请使用 `make(..)` 初始化， 并且 map 是通过编程方式填充的。
 这使得 map 初始化在表现上不同于声明，并且它还可以方便地在 make 后添加大小提示。
 
-&lt;table&gt;
-&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Bad&lt;/th&gt;&lt;th&gt;Good&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;&lt;td&gt;
+<table>
+<thead><tr><th>Bad</th><th>Good</th></tr></thead>
+<tbody>
+<tr><td>
 
 ```go
 var (
@@ -3501,7 +3501,7 @@ var (
 )
 ```
 
-&lt;/td&gt;&lt;td&gt;
+</td><td>
 
 ```go
 var (
@@ -3512,17 +3512,17 @@ var (
 )
 ```
 
-&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;
+</td></tr>
+<tr><td>
 
 声明和初始化看起来非常相似的。
 
-&lt;/td&gt;&lt;td&gt;
+</td><td>
 
 声明和初始化看起来差别非常大。
 
-&lt;/td&gt;&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;
+</td></tr>
+</tbody></table>
 
 在尽可能的情况下，请在初始化时提供 map 容量大小，详细请看 [指定 Map 容量提示](#指定Map容量提示)。
 
@@ -3530,10 +3530,10 @@ var (
 另外，如果 map 包含固定的元素列表，则使用 map literals(map 初始化列表) 初始化映射。
 
 
-&lt;table&gt;
-&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Bad&lt;/th&gt;&lt;th&gt;Good&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;&lt;td&gt;
+<table>
+<thead><tr><th>Bad</th><th>Good</th></tr></thead>
+<tbody>
+<tr><td>
 
 ```go
 m := make(map[T1]T2, 3)
@@ -3542,7 +3542,7 @@ m[k2] = v2
 m[k3] = v3
 ```
 
-&lt;/td&gt;&lt;td&gt;
+</td><td>
 
 ```go
 m := map[T1]T2{
@@ -3552,8 +3552,8 @@ m := map[T1]T2{
 }
 ```
 
-&lt;/td&gt;&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;
+</td></tr>
+</tbody></table>
 
 基本准则是：在初始化时使用 map 初始化列表 来添加一组固定的元素。否则使用 `make` (如果可以，请尽量指定 map 容量)。
 
@@ -3563,25 +3563,25 @@ m := map[T1]T2{
 
 这有助于`go vet`对格式字符串执行静态分析。
 
-&lt;table&gt;
-&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Bad&lt;/th&gt;&lt;th&gt;Good&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;&lt;td&gt;
+<table>
+<thead><tr><th>Bad</th><th>Good</th></tr></thead>
+<tbody>
+<tr><td>
 
 ```go
-msg := &#34;unexpected values %v, %v\n&#34;
+msg := "unexpected values %v, %v\n"
 fmt.Printf(msg, 1, 2)
 ```
 
-&lt;/td&gt;&lt;td&gt;
+</td><td>
 
 ```go
-const msg = &#34;unexpected values %v, %v\n&#34;
+const msg = "unexpected values %v, %v\n"
 fmt.Printf(msg, 1, 2)
 ```
 
-&lt;/td&gt;&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;
+</td></tr>
+</tbody></table>
 
 ### 命名 Printf 样式的函数
 
@@ -3609,36 +3609,36 @@ go vet -printfuncs=wrapf,statusf
 
 [subtests]: https://go.dev/blog/subtests
 
-&lt;table&gt;
-&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Bad&lt;/th&gt;&lt;th&gt;Good&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;&lt;td&gt;
+<table>
+<thead><tr><th>Bad</th><th>Good</th></tr></thead>
+<tbody>
+<tr><td>
 
 ```go
 // func TestSplitHostPort(t *testing.T)
 
-host, port, err := net.SplitHostPort(&#34;192.0.2.0:8000&#34;)
+host, port, err := net.SplitHostPort("192.0.2.0:8000")
 require.NoError(t, err)
-assert.Equal(t, &#34;192.0.2.0&#34;, host)
-assert.Equal(t, &#34;8000&#34;, port)
+assert.Equal(t, "192.0.2.0", host)
+assert.Equal(t, "8000", port)
 
-host, port, err = net.SplitHostPort(&#34;192.0.2.0:http&#34;)
+host, port, err = net.SplitHostPort("192.0.2.0:http")
 require.NoError(t, err)
-assert.Equal(t, &#34;192.0.2.0&#34;, host)
-assert.Equal(t, &#34;http&#34;, port)
+assert.Equal(t, "192.0.2.0", host)
+assert.Equal(t, "http", port)
 
-host, port, err = net.SplitHostPort(&#34;:8000&#34;)
+host, port, err = net.SplitHostPort(":8000")
 require.NoError(t, err)
-assert.Equal(t, &#34;&#34;, host)
-assert.Equal(t, &#34;8000&#34;, port)
+assert.Equal(t, "", host)
+assert.Equal(t, "8000", port)
 
-host, port, err = net.SplitHostPort(&#34;1:8&#34;)
+host, port, err = net.SplitHostPort("1:8")
 require.NoError(t, err)
-assert.Equal(t, &#34;1&#34;, host)
-assert.Equal(t, &#34;8&#34;, port)
+assert.Equal(t, "1", host)
+assert.Equal(t, "8", port)
 ```
 
-&lt;/td&gt;&lt;td&gt;
+</td><td>
 
 ```go
 // func TestSplitHostPort(t *testing.T)
@@ -3649,24 +3649,24 @@ tests := []struct{
   wantPort string
 }{
   {
-    give:     &#34;192.0.2.0:8000&#34;,
-    wantHost: &#34;192.0.2.0&#34;,
-    wantPort: &#34;8000&#34;,
+    give:     "192.0.2.0:8000",
+    wantHost: "192.0.2.0",
+    wantPort: "8000",
   },
   {
-    give:     &#34;192.0.2.0:http&#34;,
-    wantHost: &#34;192.0.2.0&#34;,
-    wantPort: &#34;http&#34;,
+    give:     "192.0.2.0:http",
+    wantHost: "192.0.2.0",
+    wantPort: "http",
   },
   {
-    give:     &#34;:8000&#34;,
-    wantHost: &#34;&#34;,
-    wantPort: &#34;8000&#34;,
+    give:     ":8000",
+    wantHost: "",
+    wantPort: "8000",
   },
   {
-    give:     &#34;1:8&#34;,
-    wantHost: &#34;1&#34;,
-    wantPort: &#34;8&#34;,
+    give:     "1:8",
+    wantHost: "1",
+    wantPort: "8",
   },
 }
 
@@ -3680,8 +3680,8 @@ for _, tt := range tests {
 }
 ```
 
-&lt;/td&gt;&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;
+</td></tr>
+</tbody></table>
 
 很明显，使用 test table 的方式在代码逻辑扩展的时候，比如新增 test case，都会显得更加的清晰。
 
@@ -3729,10 +3729,10 @@ for _, tt := range tests {
 
 将此模式用于您需要扩展的构造函数和其他公共 API 中的可选参数，尤其是在这些功能上已经具有三个或更多参数的情况下。
 
-&lt;table&gt;
-&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Bad&lt;/th&gt;&lt;th&gt;Good&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;&lt;td&gt;
+<table>
+<thead><tr><th>Bad</th><th>Good</th></tr></thead>
+<tbody>
+<tr><td>
 
 ```go
 // package db
@@ -3746,7 +3746,7 @@ func Open(
 }
 ```
 
-&lt;/td&gt;&lt;td&gt;
+</td><td>
 
 ```go
 // package db
@@ -3772,8 +3772,8 @@ func Open(
 }
 ```
 
-&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;
+</td></tr>
+<tr><td>
 
 必须始终提供缓存和记录器参数，即使用户希望使用默认值。
 
@@ -3784,7 +3784,7 @@ db.Open(addr, false /* cache */, zap.NewNop())
 db.Open(addr, false /* cache */, log)
 ```
 
-&lt;/td&gt;&lt;td&gt;
+</td><td>
 
 只有在需要时才提供选项。
 
@@ -3799,8 +3799,8 @@ db.Open(
 )
 ```
 
-&lt;/td&gt;&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;
+</td></tr>
+</tbody></table>
 
 我们建议实现此模式的方法是使用一个 `Option` 接口，该接口保存一个未导出的方法，在一个未导出的 `options` 结构上记录选项。
 
@@ -3847,7 +3847,7 @@ func Open(
   }
 
   for _, o := range opts {
-    o.apply(&amp;options)
+    o.apply(&options)
   }
 
   // ...
@@ -3864,12 +3864,12 @@ func Open(
   [Self-referential functions and the design of options]: https://commandcenter.blogspot.com/2014/01/self-referential-functions-and-design.html
   [Functional options for friendly APIs]: https://dave.cheney.net/2014/10/17/functional-options-for-friendly-apis
 
-&lt;!-- TODO: replace this with parameter structs and functional options, when to
-use one vs other --&gt;
+<!-- TODO: replace this with parameter structs and functional options, when to
+use one vs other -->
 
 ## Linting
 
-比任何 &#34;blessed&#34; linter 集更重要的是，lint 在一个代码库中始终保持一致。
+比任何 "blessed" linter 集更重要的是，lint 在一个代码库中始终保持一致。
 
 我们建议至少使用以下 linters，因为我认为它们有助于发现最常见的问题，并在不需要规定的情况下为代码质量建立一个高标准：
 

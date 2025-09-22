@@ -19,30 +19,30 @@ spec: # 期望的状态（disired state）
     - name: busybox-1            #mainC子对象2名称；
       image: busybox:1.35.0
       command: #此处代表的是ENTRYPOINT；
-        - &#34;/bin/sh&#34;
-        - &#34;-c&#34;
-        - &#34;sleep 3600&#34;
+        - "/bin/sh"
+        - "-c"
+        - "sleep 3600"
 status: # 当前状态，本字段有 Kubernetes 自身维护，用户不能去定义
 ```
 
 ## 字段格式配置
 
 ```shell
-apiVersion &lt;string&gt;          #表示字符串类型
-metadata &lt;Object&gt;            #表示需要嵌套多层字段
-labels &lt;map[string]string&gt;   #表示由k:v组成的映射
-finalizers &lt;[]string&gt;        #表示字串列表
-ownerReferences &lt;[]Object&gt;   #表示对象列表
-hostPID &lt;boolean&gt;            #布尔类型
-priority &lt;integer&gt;           #整型
-name &lt;string&gt; -required-     #如果类型后面接 -required-，表示为必填字段
+apiVersion <string>          #表示字符串类型
+metadata <Object>            #表示需要嵌套多层字段
+labels <map[string]string>   #表示由k:v组成的映射
+finalizers <[]string>        #表示字串列表
+ownerReferences <[]Object>   #表示对象列表
+hostPID <boolean>            #布尔类型
+priority <integer>           #整型
+name <string> -required-     #如果类型后面接 -required-，表示为必填字段
 ```
 
 ## 常用资源清单格式定义
 
-&gt; Object ：对象，下方是对象的属性  
-&gt; list：类别，下方包含多个数组，每个数组是一个对象  
-&gt; String：字符串 后边直接跟value的值
+> Object ：对象，下方是对象的属性  
+> list：类别，下方包含多个数组，每个数组是一个对象  
+> String：字符串 后边直接跟value的值
 
 ### 通用字段
 
@@ -106,7 +106,7 @@ name &lt;string&gt; -required-     #如果类型后面接 -required-，表示为
 
 | 参数名                                                 | 	字段类型	 | 说明                                                                                                         |
 |-----------------------------------------------------|--------|------------------------------------------------------------------------------------------------------------|
-| spec.containers.readinessProbe	                     | Object | 	定义容器的就绪探测策略。有三种模式可选:&lt;br/&gt;exec：返回码为0为就绪&lt;br/&gt;tcpsoket：tcp 对应检测端口响应成功为就绪&lt;br/&gt;httpget：返回码 &gt;= 200 &amp;&amp; &lt; 400 为就绪 |
+| spec.containers.readinessProbe	                     | Object | 	定义容器的就绪探测策略。有三种模式可选:<br/>exec：返回码为0为就绪<br/>tcpsoket：tcp 对应检测端口响应成功为就绪<br/>httpget：返回码 >= 200 && < 400 为就绪 |
 | spec.containers.readinessProbe.exec	                | list   | 	定义容器的就绪探测策略为exec。                                                                                         |
 | spec.containers.readinessProbe.exec.command	        | List   | 	exec所对应的命令                                                                                                |
 | spec.containers.readinessProbe.initialDelaySeconds	 | init   | 	探测开始时间                                                                                                    |
@@ -116,7 +116,7 @@ name &lt;string&gt; -required-     #如果类型后面接 -required-，表示为
 
 | 参数名	                                               | 字段类型	  | 说明                                                                                                         |
 |----------------------------------------------------|--------|------------------------------------------------------------------------------------------------------------|
-| spec.containers.livenessProbe	                     | object | 	定义容器的就绪探测策略。有三种模式可选:&lt;br/&gt;exec：返回码为0为就绪&lt;br/&gt;tcpsoket：tcp 对应检测端口响应成功为就绪&lt;br/&gt;httpget：返回码 &gt;= 200 &amp;&amp; &lt; 400 为就绪 |
+| spec.containers.livenessProbe	                     | object | 	定义容器的就绪探测策略。有三种模式可选:<br/>exec：返回码为0为就绪<br/>tcpsoket：tcp 对应检测端口响应成功为就绪<br/>httpget：返回码 >= 200 && < 400 为就绪 |
 | spec.containers.livenessProbe.httpGet	             | object | 	定义容器的就绪探测策略为httpGet。                                                                                      |
 | spec.containers.livenessProbe.httpGet.port	        | init   | 	探测的端口                                                                                                     |
 | spec.containers.livenessProbe.httpGet.path	        | string | 	探测的文件。根为网页根路径                                                                                             |
@@ -136,7 +136,7 @@ name &lt;string&gt; -required-     #如果类型后面接 -required-，表示为
 
 #### initC字段
 
-&gt; 与容器字段通过，只不过把containers换成initcontainers
+> 与容器字段通过，只不过把containers换成initcontainers
 
 | 参数名	                             | 字段类型    | 	说明                                     |
 |----------------------------------|---------|-----------------------------------------|
@@ -157,15 +157,15 @@ name &lt;string&gt; -required-     #如果类型后面接 -required-，表示为
 
 #### 标签选择—标签选择器
 
-&gt; 处理RC其他都支持
+> 处理RC其他都支持
 
 | 参数名                                      | 	字段类型	  | 说明                                                                                                                                                                              |
 |------------------------------------------|---------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | spec.selector	                           | object  | 	标签匹配（用来区分是谁的pod），将适合的pod加入到该该控制器下                                                                                                                                              |
 | spec.selector.matchLabels[]	             | list	   | 集合式的标签匹配（用来区分是谁的pod），将适合的pod加入到该该控制器下内容是：标签：值（RS支持）                                                                                                                             |
-| spec.selector.matchExpressions[]	        | object	 | 支持运算符匹配进行标签选择（用来区分是谁的pod），将适合的pod加入到该该控制器下&lt;br/&gt;内容是：&lt;br/&gt;key： xxxx&lt;br/&gt;operator: 运算符&lt;br/&gt;vlaues：&lt;br/&gt;- xxxx                                                                      |
+| spec.selector.matchExpressions[]	        | object	 | 支持运算符匹配进行标签选择（用来区分是谁的pod），将适合的pod加入到该该控制器下<br/>内容是：<br/>key： xxxx<br/>operator: 运算符<br/>vlaues：<br/>- xxxx                                                                      |
 | spec.selector.matchExpressions[].key	    | string	 | 标签选择器的key字段                                                                                                                                                                     |
-| spec.selector.matchExpressions.operator	 | string  | 	标签选择的运算符，有In、NotIn、Exists、DoesNotExist 四个值可选&lt;br/&gt;In ：label 的值在某个列表中（根据value的值进行选择）&lt;br/&gt;NotIn ：label 的值不在某个列表中&lt;br/&gt;Exists ：某个 label 存在（根据key进行选择）&lt;br/&gt;DoesNotExist：某个 label 不存在 |
+| spec.selector.matchExpressions.operator	 | string  | 	标签选择的运算符，有In、NotIn、Exists、DoesNotExist 四个值可选<br/>In ：label 的值在某个列表中（根据value的值进行选择）<br/>NotIn ：label 的值不在某个列表中<br/>Exists ：某个 label 存在（根据key进行选择）<br/>DoesNotExist：某个 label 不存在 |
 | spec.selector.matchExpressions[].values  | list	   | 标签选择器下的value字段                                                                                                                                                                  |
 
 ### RC 控制器
@@ -185,9 +185,9 @@ name &lt;string&gt; -required-     #如果类型后面接 -required-，表示为
 |------------------------------------------|---------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | spec.minReadySeconds	                    | init	   | 用定义新建的 Pod 经过多少秒后才被视为可用，默认为0。                                                                                                                                                  |
 | spec.selector.matchLabels[]	             | list    | 	集合式的标签匹配（用来区分是谁的pod），将适合的pod加入到该该控制器下内容是：标签：值（RS支持）                                                                                                                           |
-| spec.selector.matchExpressions[]	        | object  | 	支持运算符匹配进行标签选择（用来区分是谁的pod），将适合的pod加入到该该控制器下&lt;br/&gt;内容是：&lt;br/&gt;key： xxxx&lt;br/&gt;operator: 运算符&lt;br/&gt;vlaues：xxxx                                                                           |
+| spec.selector.matchExpressions[]	        | object  | 	支持运算符匹配进行标签选择（用来区分是谁的pod），将适合的pod加入到该该控制器下<br/>内容是：<br/>key： xxxx<br/>operator: 运算符<br/>vlaues：xxxx                                                                           |
 | spec.selector.matchExpressions[].key	    | string  | 	标签选择器的key字段                                                                                                                                                                   |
-| spec.selector.matchExpressions.operator	 | string	 | 标签选择的运算符，有In、NotIn、Exists、DoesNotExist 四个值可选&lt;br/&gt;In ：label 的值在某个列表中（根据value的值进行选择）&lt;br/&gt;NotIn ：label 的值不在某个列表中&lt;br/&gt;Exists ：某个 label 存在（根据key进行选择）&lt;br/&gt;DoesNotExist：某个 label 不存在 |
+| spec.selector.matchExpressions.operator	 | string	 | 标签选择的运算符，有In、NotIn、Exists、DoesNotExist 四个值可选<br/>In ：label 的值在某个列表中（根据value的值进行选择）<br/>NotIn ：label 的值不在某个列表中<br/>Exists ：某个 label 存在（根据key进行选择）<br/>DoesNotExist：某个 label 不存在 |
 | spec.selector.matchExpressions[].values	 | list    | 	标签选择器下的value字段                                                                                                                                                                |
 
 ### deployment控制器
@@ -197,9 +197,9 @@ name &lt;string&gt; -required-     #如果类型后面接 -required-，表示为
 | spec.minReadySeconds	                                  | init    | 	用定义新建的 Pod 经过多少秒后才被视为可用，默认为0。                                                                                                                                                                                                                                                                                                                                                                                                 |
 | spec.selector	                                         | list    | 	默认标签选择器。默认是matchLabels子集形式进行匹配                                                                                                                                                                                                                                                                                                                                                                                                |
 | spec.selector.matchLabels[]	                           | list	   | 集合式的标签匹配（用来区分是谁的pod），将适合的pod加入到该该控制器下内容是：标签：值                                                                                                                                                                                                                                                                                                                                                                                  |
-| spec.selector.matchExpressions[]	                      | object  | 	支持运算符匹配进行标签选择（用来区分是谁的pod），将适合的pod加入到该该控制器下&lt;br/&gt;内容是：&lt;br/&gt;key： xxxx&lt;br/&gt;operator: 运算符&lt;br/&gt;vlaues：xxxx                                                                                                                                                                                                                                                                                                                           |
+| spec.selector.matchExpressions[]	                      | object  | 	支持运算符匹配进行标签选择（用来区分是谁的pod），将适合的pod加入到该该控制器下<br/>内容是：<br/>key： xxxx<br/>operator: 运算符<br/>vlaues：xxxx                                                                                                                                                                                                                                                                                                                           |
 | spec.selector.matchExpressions[].key	                  | string	 | 标签选择器的key字段                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| spec.selector.matchExpressions.operator                | 	string | 	标签选择的运算符，有In、NotIn、Exists、DoesNotExist 四个值可选&lt;br/&gt;In ：label 的值在某个列表中（根据value的值进行选择）&lt;br/&gt;NotIn ：label 的值不在某个列表中&lt;br/&gt;Exists ：某个 label 存在（根据key进行选择）&lt;br/&gt;DoesNotExist：某个 label 不存在&lt;br/&gt;spec.selector.matchExpressions[].values	list	标签选择器下的value字段&lt;br/&gt;sepc.revisionHistoryLimit	init	设置保留的滚动更新历史版本数量，默认值为2147483647,表示保存所有历史版本&lt;br/&gt;spec.strategy.type	string	部署类型，可以选择 的值为ecreate (字母开头大写) 或 RollingUpdate , 默认为 RollingUpdate 。 |
+| spec.selector.matchExpressions.operator                | 	string | 	标签选择的运算符，有In、NotIn、Exists、DoesNotExist 四个值可选<br/>In ：label 的值在某个列表中（根据value的值进行选择）<br/>NotIn ：label 的值不在某个列表中<br/>Exists ：某个 label 存在（根据key进行选择）<br/>DoesNotExist：某个 label 不存在<br/>spec.selector.matchExpressions[].values	list	标签选择器下的value字段<br/>sepc.revisionHistoryLimit	init	设置保留的滚动更新历史版本数量，默认值为2147483647,表示保存所有历史版本<br/>spec.strategy.type	string	部署类型，可以选择 的值为ecreate (字母开头大写) 或 RollingUpdate , 默认为 RollingUpdate 。 |
 | Deployment.spec.strategy.Recreate	                     |         | 	滚动更新方式为重建                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | Deployment.spec.strategy.rollingUpdate	                | 映射      | 	滚动更新方式为滚动更新                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | Deployment.spec.strategy.rollingUpdate.maxSurge	       | init    | 	设置更新时pod最多多几个（或者指定百分比）                                                                                                                                                                                                                                                                                                                                                                                                        |
@@ -211,7 +211,7 @@ name &lt;string&gt; -required-     #如果类型后面接 -required-，表示为
 | 参数名                               | 	字段类型   | 	说明                                                                                                                                                                                                                                                            |
 |-----------------------------------|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | spec.template                     | 	–	     | 格式同Pod相同                                                                                                                                                                                                                                                       |
-| spec.template.spec.restartPolicy	 | String	 | 仅支持Never或OnFailure，需要修改&lt;br/&gt;定义Pod的重启策略，可选值为Always、OnFailure，默认值为Always。&lt;br/&gt;1.Always: Pod一旦终止运行，则无论容器是如何终止的，kubelet服务都将重启它。&lt;br/&gt;2.OnFailure: 只有Pod以非零退出码终止时，kubelet才会重启该容器。如果容器正常结束 (退出码为0) ，则kubelet将不会重启它&lt;br/&gt;3.Never: Pod终止后，kubelet将退出码报告给Master，不会重启该Pod. |
+| spec.template.spec.restartPolicy	 | String	 | 仅支持Never或OnFailure，需要修改<br/>定义Pod的重启策略，可选值为Always、OnFailure，默认值为Always。<br/>1.Always: Pod一旦终止运行，则无论容器是如何终止的，kubelet服务都将重启它。<br/>2.OnFailure: 只有Pod以非零退出码终止时，kubelet才会重启该容器。如果容器正常结束 (退出码为0) ，则kubelet将不会重启它<br/>3.Never: Pod终止后，kubelet将退出码报告给Master，不会重启该Pod. |
 | spec.completions                  | 	init	  | 标志Job结束需要成功运行的Pod个数，默认为1                                                                                                                                                                                                                                       |
 | spec.parallelism	                 | init    | 	标志并行运行的Pod的个数，默认为1                                                                                                                                                                                                                                            |
 | spec.activeDeadlineSeconds        | 	init   | 	标志失败Pod的重试最大时间，超过这个时间不会继续重试。秒为单位                                                                                                                                                                                                                              |
@@ -223,12 +223,12 @@ name &lt;string&gt; -required-     #如果类型后面接 -required-，表示为
 | .spec.schedule	                  | string	 | 调度，必需字段，指定任务运行周期，格式同 Cron。如：“*/1 * * * *”                                                                                                                                                                                                                                                                                                                                                                    |
 | spec.completions	                | init	   | 标志Job结束需要成功运行的Pod个数，默认为1                                                                                                                                                                                                                                                                                                                                                                                     |
 | spec.parallelism	                | init    | 	标志并行运行的Pod的个数，默认为1                                                                                                                                                                                                                                                                                                                                                                                          |
-| spec.concurrencyPolicy           | 	string | 	-并发策略，该字段也是可选的。它指定了如何处理被 Cron Job 创建的 Job 的并发执行。只允许指定下面策略中的一种：&lt;br/&gt;Allow（默认）：允许并发运行 Job&lt;br/&gt;Forbid：禁止并发运行，如果前一个还没有完成，则直接跳过下一个&lt;br/&gt;Replace：取消当前正在运行的 Job，用一个新的来替换                                                                                                                                                                                                                                            |
+| spec.concurrencyPolicy           | 	string | 	-并发策略，该字段也是可选的。它指定了如何处理被 Cron Job 创建的 Job 的并发执行。只允许指定下面策略中的一种：<br/>Allow（默认）：允许并发运行 Job<br/>Forbid：禁止并发运行，如果前一个还没有完成，则直接跳过下一个<br/>Replace：取消当前正在运行的 Job，用一个新的来替换                                                                                                                                                                                                                                            |
 | spec.suspend	                    | string  | 	挂起，该字段也是可选的。有true、false两个值可以选择。如果设置为 true，后续所有执行都会被挂起。它对已经开始执行的 Job 不起作用。默认值为 false                                                                                                                                                                                                                                                                                                                         |
 | spec.successfulJobsHistoryLimit	 | init    | 	历史限制。是可选的字段。它们指定了可以保留多少完成的 Job。默认为3                                                                                                                                                                                                                                                                                                                                                                         |
 | spec.failedJobsHistoryLimit	     | init	   | 历史限制。是可选的字段。它们指定了可以保留多少失败的 Job。默认为0                                                                                                                                                                                                                                                                                                                                                                          |
 | spec.activeDeadlineSeconds       | 	init   | 	标志失败Pod的重试最大时间，超过这个时间不会继续重试。该字段是可选的。如果因为任何原因而错过了被调度的时间，那么错过执行时间的 Job 将被认为是失败。秒为单位                                                                                                                                                                                                                                                                                                                           |
-| spec.jobTemplate	                | object  | 	的。如果没有指定，则没有期限Job 模板，必需字段，指定需要运行的任务，格式同 Job&lt;br/&gt;jobTemplate.spec.template	–	格式同Pod相同&lt;br/&gt;jobTemplate.spec.template.spec.restartPolicy	String	仅支持Never或OnFailure，需要修改&lt;br/&gt;定义Pod的重启策略，可选值为Always、OnFailure，默认值为Always。&lt;br/&gt;1.Always: Pod一旦终止运行，则无论容器是如何终止的，kubelet服务都将重启它。&lt;br/&gt;2.OnFailure: 只有Pod以非零退出码终止时，kubelet才会重启该容器。如果容器正常结束 (退出码为0) ，则kubelet将不会重启它&lt;br/&gt;3.Never: Pod终止后，kubelet将退出码报告给Master，不会重启该Pod. |
+| spec.jobTemplate	                | object  | 	的。如果没有指定，则没有期限Job 模板，必需字段，指定需要运行的任务，格式同 Job<br/>jobTemplate.spec.template	–	格式同Pod相同<br/>jobTemplate.spec.template.spec.restartPolicy	String	仅支持Never或OnFailure，需要修改<br/>定义Pod的重启策略，可选值为Always、OnFailure，默认值为Always。<br/>1.Always: Pod一旦终止运行，则无论容器是如何终止的，kubelet服务都将重启它。<br/>2.OnFailure: 只有Pod以非零退出码终止时，kubelet才会重启该容器。如果容器正常结束 (退出码为0) ，则kubelet将不会重启它<br/>3.Never: Pod终止后，kubelet将退出码报告给Master，不会重启该Pod. |
 
 ### service
 
@@ -260,9 +260,9 @@ name &lt;string&gt; -required-     #如果类型后面接 -required-，表示为
 
 ### Endpoint
 
-&gt; 作用：连接外部服务值本地svc
-&gt; 原理：只有配置了 selector 的 service 才会自动创建一个同名的 endpoints，没有配置 selector 的 service 不会产生 endpoints
-&gt; 资源对象
+> 作用：连接外部服务值本地svc
+> 原理：只有配置了 selector 的 service 才会自动创建一个同名的 endpoints，没有配置 selector 的 service 不会产生 endpoints
+> 资源对象
 
 | 参数名	             | 字段类型    | 	说明                              |
 |------------------|---------|----------------------------------|
@@ -296,9 +296,9 @@ subsets: #配置外部集群信息
 
 ### ingress
 
-&gt; Ingress（入口，准入）是Kubernetes提供的接口，Kubernetes使用Ingress策略定义和Ingress Controller
-&gt; 实现了基于Ingress策略定义的服务路由功能，用于对Kubernetes集群外部的客户端提供服务。  
-&gt; Ingress 专门对接用于七层负载的
+> Ingress（入口，准入）是Kubernetes提供的接口，Kubernetes使用Ingress策略定义和Ingress Controller
+> 实现了基于Ingress策略定义的服务路由功能，用于对Kubernetes集群外部的客户端提供服务。  
+> Ingress 专门对接用于七层负载的
 
 | 参数名                                             | 	字段类型    | 	说明         |
 |-------------------------------------------------|----------|-------------|
@@ -313,7 +313,7 @@ subsets: #配置外部集群信息
 
 ### configmap
 
-&gt; 创建方式：使用命令创建，在命令中
+> 创建方式：使用命令创建，在命令中
 
 下方是如何使用：
 
@@ -327,7 +327,7 @@ subsets: #配置外部集群信息
 
 #### 通过ConfigMap逐个添加env（变量名容器内二次定义）
 
-&gt; key=容器定义。value=configmap中的key的value
+> key=容器定义。value=configmap中的key的value
 
 | 字段	                                                         | 字段类型    | 	描述                                          |
 |-------------------------------------------------------------|---------|----------------------------------------------|
@@ -340,7 +340,7 @@ subsets: #配置外部集群信息
 
 #### 通过ConfigMap批量添加env（变量名无法二次定义）
 
-&gt; key=configmap中的key。value=configmap中的key的value
+> key=configmap中的key。value=configmap中的key的value
 
 | 字段                                            | 字段类型    | 描述                                                                                              |
 |-----------------------------------------------|---------|-------------------------------------------------------------------------------------------------|
@@ -351,7 +351,7 @@ subsets: #配置外部集群信息
 
 #### 通过数据卷插件使用configmap
 
-&gt; 将文件填入数据卷。key就是文件名，value就是文件内容
+> 将文件填入数据卷。key就是文件名，value就是文件内容
 
 | 字段	                                        | 字段类型	    | 描述             |
 |--------------------------------------------|----------|----------------|
@@ -365,16 +365,16 @@ subsets: #配置外部集群信息
 
 #### configmap的热更新（修改 pod annotations 的方式）
 
-&gt; 更新 ConfigMap 目前并不会触发相关 Pod 的滚动更新，可以通过修改 pod annotations 的方式强制触发滚动更新 这个例子里我们在
+> 更新 ConfigMap 目前并不会触发相关 Pod 的滚动更新，可以通过修改 pod annotations 的方式强制触发滚动更新 这个例子里我们在
 `.spec.template.metadata.annotations` 中添加 `version/config`，每次通过修改 `version/config`的值 来触发滚动更新
 
 ```shell
-$ kubectl patch deployment nginx-test --patch &#39;{&#34;spec&#34;: {&#34;template&#34;: {&#34;metadata&#34;: {&#34;annotations&#34;: {&#34;version/config&#34;: &#34;20190411&#34; }}}}}&#39;
+$ kubectl patch deployment nginx-test --patch '{"spec": {"template": {"metadata": {"annotations": {"version/config": "20190411" }}}}}'
 # 在其中添加此字段即可滚动更新，修改也可以触发滚动更新
 ```
 
 * 使用该 ConfigMap 挂载的 Env 不会同步更新
-* 使用该 ConfigMap 挂载的 Volume 中的数据需要一段时间（实测大概10秒）才能同步更新&lt;br/&gt;
+* 使用该 ConfigMap 挂载的 Volume 中的数据需要一段时间（实测大概10秒）才能同步更新<br/>
   ⚠️ 注意：apps/v1版本的api接口，默认滚动幅度为25%
 
 ### secret
@@ -401,10 +401,10 @@ $ kubectl patch deployment nginx-test --patch &#39;{&#34;spec&#34;: {&#34;templa
 
 #### emptyDir（空目录）
 
-&gt; * 当 Pod 被分配给节点时，首先创建 emptyDir 卷，并且只要该 Pod 在该节点上运行，该卷就会存在。正如卷的名字所述，它最初是空的。Pod
+> * 当 Pod 被分配给节点时，首先创建 emptyDir 卷，并且只要该 Pod 在该节点上运行，该卷就会存在。正如卷的名字所述，它最初是空的。Pod
     中的容器可以读取和写入 emptyDir 卷中的相同文件，尽管该卷可以挂载到每个容器中的相同或不同路径上。当出于任何原因从节点中删除
     Pod 时，emptyDir 中的数据将被永久删除
-&gt; * 用法：pod的暂存空间。（存放initC执行结果、容器运行产生元数据-mfsmaster的元数据日志）
+> * 用法：pod的暂存空间。（存放initC执行结果、容器运行产生元数据-mfsmaster的元数据日志）
 
 ⚠️注意：emptyDir跟pod生命周期一致。容器崩溃不会从节点中移除 pod，因此 emptyDir 卷中的数据在容器崩溃时是安全的
 
@@ -412,14 +412,14 @@ $ kubectl patch deployment nginx-test --patch &#39;{&#34;spec&#34;: {&#34;templa
 |--------------------------------------------|--------|------------------------------------------|
 | pod.spec.volumes                           | list   | 定义卷                                      |
 | pod.spec.volumes.name                      | string | 卷名                                       |
-| pod.spec.volumes.emptyDir                  | string | 卷类型是emptydir。value值为{ }&lt;br/&gt;emptyDir: {} |
+| pod.spec.volumes.emptyDir                  | string | 卷类型是emptydir。value值为{ }<br/>emptyDir: {} |
 | pod.sepc.containers.volumeMounts           | list   | 挂载一个卷                                    |
 | pod.sepc.containers.volumeMounts.name      | string | 挂载的卷名                                    |
 | pod.sepc.containers.volumeMounts.mountPath | srting | 挂载到哪个目录下                                 |
 
 #### hostPath
 
-&gt; hostPath卷将主机节点的文件系统中的文件或目录挂载到集群中，可对主机文件/目录进行判断，判断是否存在，存在是否合理，并做出动作
+> hostPath卷将主机节点的文件系统中的文件或目录挂载到集群中，可对主机文件/目录进行判断，判断是否存在，存在是否合理，并做出动作
 
 | 字段	                                         | 字段类型	    | 描述                             |
 |---------------------------------------------|----------|--------------------------------|
@@ -449,8 +449,8 @@ $ kubectl patch deployment nginx-test --patch &#39;{&#34;spec&#34;: {&#34;templa
 
 #### PV
 
-&gt; 类别是：PersistentVolume  
-&gt; PV 也是集群中的资源。 PV 是 Volume 之类的卷插件，但具有独立于使用 PV 的 Pod 的生命周期。可被PVC调用提供给pod
+> 类别是：PersistentVolume  
+> PV 也是集群中的资源。 PV 是 Volume 之类的卷插件，但具有独立于使用 PV 的 Pod 的生命周期。可被PVC调用提供给pod
 
 | 字段	                                 | 字段类型	   | 描述                                                                                                                                 |
 |-------------------------------------|---------|------------------------------------------------------------------------------------------------------------------------------------|
@@ -458,7 +458,7 @@ $ kubectl patch deployment nginx-test --patch &#39;{&#34;spec&#34;: {&#34;templa
 | spec.capacity.storage	              | string  | 	pv的大小。5Gi表示5GB                                                                                                                    |
 | spec.volumeMode	                    | string  | 	卷模式。写Filesystem即可                                                                                                                 |
 | spec.accessModes	                   | string  | 	访问模式（读写策略）。三个值可选 ReadWriteOnce——该卷可以被单个节点以读/写模式挂载ReadOnlyMany——该卷可以被多个节点以只读模式挂载ReadWriteMany——该卷可以被多个节点以读/写模式挂载                   |
-| spec.persistentVolumeReclaimPolicy	 | string  | 	卷的回收策略，三个值可选&lt;br/&gt;Retain（保留）——手动回收（基本都用这个）Recycle（回收）——基本擦除（rm -rf /thevolume/*）&lt;br/&gt;Delete（删除）——关联的存储资产，用于动态pv。此策略会将卷直接删除----节省成本 |
+| spec.persistentVolumeReclaimPolicy	 | string  | 	卷的回收策略，三个值可选<br/>Retain（保留）——手动回收（基本都用这个）Recycle（回收）——基本擦除（rm -rf /thevolume/*）<br/>Delete（删除）——关联的存储资产，用于动态pv。此策略会将卷直接删除----节省成本 |
 | sepc.storageClassName	              | string  | 	定义存储类的类名（是自定义的，严格匹配）                                                                                                              |
 | sepc.nfs	                           | object  | 	通过nfs提供底层数据存储                                                                                                                     |
 | sepc.nfs.path	                      | string	 | nfs共享的路径                                                                                                                           |
@@ -470,13 +470,13 @@ $ kubectl patch deployment nginx-test --patch &#39;{&#34;spec&#34;: {&#34;templa
 
 #### PVC
 
-&gt; `pvc`是用户存储的请求。它与Pod相似。Pod消耗节点资源，PVC消耗PV资源。Pod可以请求特定级别的资源（CPU和内存）。声明可以请求特定的大小和访问模式（例如，可以以读/写一次或只读多次模式挂载）
-&gt; 声明需要在StatefulSet控制器中进行声明  
-&gt; `StatefulSet`是为了 解决有状态服务的问题 （对应 Deployments 和 ReplicaSets 是为无状态服务而设计），需要配合无头服务Service使用
+> `pvc`是用户存储的请求。它与Pod相似。Pod消耗节点资源，PVC消耗PV资源。Pod可以请求特定级别的资源（CPU和内存）。声明可以请求特定的大小和访问模式（例如，可以以读/写一次或只读多次模式挂载）
+> 声明需要在StatefulSet控制器中进行声明  
+> `StatefulSet`是为了 解决有状态服务的问题 （对应 Deployments 和 ReplicaSets 是为无状态服务而设计），需要配合无头服务Service使用
 
 * 其特性包括：
     * 稳定的存储：即 Pod 重新调度后还是能访问到相同的持久化数据，基于 PVC 来实现。  
-      `PV卷的名称为：PodName&#43;PV模板Name。`
+      `PV卷的名称为：PodName+PV模板Name。`
 
 * 稳定的网络标识：即 Pod 重新调度后其 PodName 和 HostName（域名）不变，基于 Headless Service（即没有 Cluster IP 的 Service
   ）来实现。
@@ -488,9 +488,9 @@ $ kubectl patch deployment nginx-test --patch &#39;{&#34;spec&#34;: {&#34;templa
 
 * Service具有以下特点：
 
-  &gt; * 没有ClusterIP地址
-  &gt; * kube-proxy不会创建负载均衡转发规则
-  &gt; * Service是否有DNS域名解析取决于还Headless Service是否设置了Label Selector
+  > * 没有ClusterIP地址
+  > * kube-proxy不会创建负载均衡转发规则
+  > * Service是否有DNS域名解析取决于还Headless Service是否设置了Label Selector
     ```yaml
     apiVersion: v1
     kind: Service
@@ -514,7 +514,7 @@ $ kubectl patch deployment nginx-test --patch &#39;{&#34;spec&#34;: {&#34;templa
       selector:
         matchLabels:
           app: nginx
-      serviceName: &#34;nginx&#34;    #必须填写无头服务svc的名字
+      serviceName: "nginx"    #必须填写无头服务svc的名字
       replicas: 3
       template:
         metadata:
@@ -534,8 +534,8 @@ $ kubectl patch deployment nginx-test --patch &#39;{&#34;spec&#34;: {&#34;templa
       - metadata:
           name: www
         spec:
-          accessModes: [ &#34;ReadWriteOnce&#34; ]     #访问策略
-          storageClassName: &#34;nfs&#34;      #使用存储类
+          accessModes: [ "ReadWriteOnce" ]     #访问策略
+          storageClassName: "nfs"      #使用存储类
           resources:
             requests:
               storage: 1Gi    #请求资源是1G  回收策略可不写
@@ -546,7 +546,7 @@ $ kubectl patch deployment nginx-test --patch &#39;{&#34;spec&#34;: {&#34;templa
 #### 节点亲和性
 
 * 匹配逻辑
-  &gt; 匹配的是节点的标签。只要node符合该标签即为匹配成功
+  > 匹配的是节点的标签。只要node符合该标签即为匹配成功
 
 | 字段	                                                                             | 字段类型	    | 描述                                                                                                                                                                         |
 |---------------------------------------------------------------------------------|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -558,7 +558,7 @@ $ kubectl patch deployment nginx-test --patch &#39;{&#34;spec&#34;: {&#34;templa
 | 硬亲和.nodeSelectorTerms.matchExpressions	                                         | 	        | 匹配运算符。下面有多个选项的话，满足任何一个条件就可以了                                                                                                                                               |
 | 硬亲和.nodeSelectorTerms.matchExpressions.matchExpressions                         | 	list    | 	匹配运算符                                                                                                                                                                     |
 | 硬亲和.nodeSelectorTerms.matchExpressions.matchExpressions.key	                    | string	  | 匹配节点标签的key                                                                                                                                                                 |
-| 硬亲和.nodeSelectorTerms.matchExpressions.matchExpressions.operator                | 	string	 | 使用哪个运算符&lt;br/&gt;In：label 的值在某个列表中&lt;br/&gt;NotIn：label 的值不在某个列表中&lt;br/&gt;Gt：label 的值大于某个值&lt;br/&gt;Lt：label 的值小于某个值&lt;br/&gt;Exists：某个 label 存在（key是否存在）&lt;br/&gt;DoesNotExist：某个 label 不存在（key是否不存在）  |
+| 硬亲和.nodeSelectorTerms.matchExpressions.matchExpressions.operator                | 	string	 | 使用哪个运算符<br/>In：label 的值在某个列表中<br/>NotIn：label 的值不在某个列表中<br/>Gt：label 的值大于某个值<br/>Lt：label 的值小于某个值<br/>Exists：某个 label 存在（key是否存在）<br/>DoesNotExist：某个 label 不存在（key是否不存在）  |
 | 硬亲和.nodeSelectorTerms.matchExpressions.matchExpressions.values	                 | list     | 	列表内写匹配的node标签值                                                                                                                                                            |
 | pod.spec.affinity.nodeAffinity.preferredDuringSchedulingIgnoredDuringExecution	 | object   | 	节点软亲和                                                                                                                                                                     |
 | 软亲和.weight	                                                                     | string   | 	软亲和权重范围在 1-100 之间（多个软亲和若产生冲突，选择权重高的）                                                                                                                                      |
@@ -566,21 +566,21 @@ $ kubectl patch deployment nginx-test --patch &#39;{&#34;spec&#34;: {&#34;templa
 | 软亲和.preference.matchExpressions                                                 | 	list    | 	节点选择器条目，与权重（weight）相关                                                                                                                                                     |
 | 软亲和.preference.matchExpressions	                                                | list     | 	匹配运算符有多个选项的话，则必须同时满足这些条件才能正常调度                                                                                                                                            |
 | 软亲和.preference.matchExpressions.matchExpressions.key	                           | string   | 	匹配节点标签的key                                                                                                                                                                |
-| 软亲和.preference.matchExpressions…matchExpressions.operator	                      | string   | 	使用哪个运算符&lt;br/&gt;In：label 的值在某个列表中&lt;br/&gt;NotIn：label 的值不在某个列表中&lt;br/&gt;Gt：label 的值大于某个值&lt;br/&gt;Lt：label 的值小于某个值&lt;br/&gt;Exists：某个 label 存在（key是否存在）&lt;br/&gt;DoesNotExist：某个 label 不存在（key是否不存在） |
+| 软亲和.preference.matchExpressions…matchExpressions.operator	                      | string   | 	使用哪个运算符<br/>In：label 的值在某个列表中<br/>NotIn：label 的值不在某个列表中<br/>Gt：label 的值大于某个值<br/>Lt：label 的值小于某个值<br/>Exists：某个 label 存在（key是否存在）<br/>DoesNotExist：某个 label 不存在（key是否不存在） |
 | 软亲和.preference.matchExpressions.matchExpressions.values	                        | list	    | 列表内写匹配的node标签值                                                                                                                                                             |
 
 #### pod亲和性
 
 * 匹配逻辑
-  &gt; pod亲和性匹配的是拓扑域，亲和的是拓扑域，反亲和的也是拓扑域。决定跟不跟pod在同一个拓扑域
+  > pod亲和性匹配的是拓扑域，亲和的是拓扑域，反亲和的也是拓扑域。决定跟不跟pod在同一个拓扑域
 
 * 首先在整个集群中寻找标签符合匹配条件的pod
 * 找到该pod后，根据设置的拓扑域的key匹配其拓扑域的value
 * 只要在设置的拓扑域的value与符合标签的pod的拓扑域的value一致，就可以建立pod
 
-&gt; 根据拓扑域匹配新的pod该建立在哪里，只要与上面符合条件的pod在同拓扑域即可。  
-&gt; 拓扑域：在同一层次就属于同一拓扑域。例如：同一主机、同一机房、同一地区等等  
-&gt; pod亲和性不支持Gt、Lt运算符。
+> 根据拓扑域匹配新的pod该建立在哪里，只要与上面符合条件的pod在同拓扑域即可。  
+> 拓扑域：在同一层次就属于同一拓扑域。例如：同一主机、同一机房、同一地区等等  
+> pod亲和性不支持Gt、Lt运算符。
 
 | 字段	                                                     | 字段类型   | 	描述        |
 |---------------------------------------------------------|--------|------------|
@@ -590,11 +590,11 @@ $ kubectl patch deployment nginx-test --patch &#39;{&#34;spec&#34;: {&#34;templa
 | pod亲和性.requiredDuringSchedulingIgnoredDuringExecution	  | list   | 	pod硬亲和策略  |
 | pod亲和性.preferredDuringSchedulingIgnoredDuringExecution	 | list   | 	pod软亲和策略  |
 
-&gt; 下方字段通过node亲和性一致
+> 下方字段通过node亲和性一致
 
 ### 亲和性相关运算符
 
-&gt; 键值运算关系
+> 键值运算关系
 
 * In：label 的值在某个列表中
 * NotIn：label 的值不在某个列表中
@@ -619,7 +619,7 @@ $ kubectl patch deployment nginx-test --patch &#39;{&#34;spec&#34;: {&#34;templa
 | 字段	                    | 字段类型    | 	描述                                                                 |
 |------------------------|---------|---------------------------------------------------------------------|
 | Pod.spec.nodeName	     | string  | 	固定节点调度，后边跟节点名，可以跳过污点                                               |
-| Pod.spec.nodeSelector	 | string	 | 匹配节点标签进行调度，不会跳过污点。 &lt;br/&gt;类似于节点硬亲和，只会在符合匹配的节点上建立。节点不让建立则pending（等待调度） |
+| Pod.spec.nodeSelector	 | string	 | 匹配节点标签进行调度，不会跳过污点。 <br/>类似于节点硬亲和，只会在符合匹配的节点上建立。节点不让建立则pending（等待调度） |
 
 ### 污点与容忍
 
@@ -642,7 +642,7 @@ $ kubectl taint node 节点名  key=value:NoSchedule-   #加个  -  号
 |--------------------------------|---------|-----------------------------|
 | pod.spec.tolerations	          | list    | 	容忍设置                       |
 | pod.spec.tolerations.key	      | string  | 	污点的key                     |
-| pod.spec.tolerations.operator	 | string  | 	污点运算符 &lt;br/&gt;“Equal” #运算符是等于 |
+| pod.spec.tolerations.operator	 | string  | 	污点运算符 <br/>“Equal” #运算符是等于 |
 | pod.spec.tolerations.value     | 	srting | 	污点的value                   |
 | pod.spec.tolerations.effect	   | string  | 	污点的effect（效果）              |
 
@@ -650,8 +650,8 @@ $ kubectl taint node 节点名  key=value:NoSchedule-   #加个  -  号
 
 #### Role and ClusterRole
 
-&gt; 在 RBAC API 中，Role 表示一组规则权限，权限只会增加(累加权限)，不存在一个资源一开始就有很多权限而通过 RBAC 对其进行减少的操作；Role
-&gt; 可以定义在一个 namespace 中，如果想要跨 namespace 则可以创建 ClusterRole
+> 在 RBAC API 中，Role 表示一组规则权限，权限只会增加(累加权限)，不存在一个资源一开始就有很多权限而通过 RBAC 对其进行减少的操作；Role
+> 可以定义在一个 namespace 中，如果想要跨 namespace 则可以创建 ClusterRole
 
 * Role资源清单
 
@@ -662,42 +662,42 @@ $ kubectl taint node 节点名  key=value:NoSchedule-   #加个  -  号
     namespace: default   #必须写，不写就会有个默认值是default
     name: pod-reader
   rules:
-    - apiGroups: [ &#34;&#34; ] # &#34;&#34; indicates the core API group    #对哪个接口组版本的资源进行操作，不写就代表核心组：v1 
-      resources: [ &#34;pods&#34; ]     #可进行操作的资源对象
-      verbs: [ &#34;get&#34;, &#34;watch&#34;, &#34;list&#34; ]  #对上方资源的操作，一般写all即可，不同资源有不同操作，在开发者手册中有。get：获取这个pod。watch：监控。lsit：列出，加起来就是查看pod的信息
+    - apiGroups: [ "" ] # "" indicates the core API group    #对哪个接口组版本的资源进行操作，不写就代表核心组：v1 
+      resources: [ "pods" ]     #可进行操作的资源对象
+      verbs: [ "get", "watch", "list" ]  #对上方资源的操作，一般写all即可，不同资源有不同操作，在开发者手册中有。get：获取这个pod。watch：监控。lsit：列出，加起来就是查看pod的信息
   ```
 
 * ClusterRole资源清单
 
-  &gt; ClusterRole 具有与 Role 相同的权限角色控制能力，不同的是 ClusterRole 是集群级别的，ClusterRole 可以用于:
-  &gt; * 集群级别的资源控制( 例如 node 访问权限 )
-  &gt; * 非资源型 endpoints( 例如 /health 访问 )
-  &gt; * 所有命名空间资源控制(例如 pods )
+  > ClusterRole 具有与 Role 相同的权限角色控制能力，不同的是 ClusterRole 是集群级别的，ClusterRole 可以用于:
+  > * 集群级别的资源控制( 例如 node 访问权限 )
+  > * 非资源型 endpoints( 例如 /health 访问 )
+  > * 所有命名空间资源控制(例如 pods )
 
     ```yaml
     kind: ClusterRole
     apiVersion: rbac.authorization.k8s.io/v1beta1
     metadata:
-    # &#34;namespace&#34; omitted since ClusterRoles are not namespaced不能写名字空间
+    # "namespace" omitted since ClusterRoles are not namespaced不能写名字空间
     name: secret-reader
     rules:
-      - apiGroups: [ &#34;&#34; ]
-    resources: [ &#34;secrets&#34; ]
-    verbs: [ &#34;get&#34;, &#34;watch&#34;, &#34;list&#34; ]
+      - apiGroups: [ "" ]
+    resources: [ "secrets" ]
+    verbs: [ "get", "watch", "list" ]
     ```
   ⚠️ 集群角色不能写名字空间
 
 #### RoleBinding and ClusterRoleBinding
 
-&gt; RoleBinding and ClusterRoleBinding是什么？  
-&gt; RoloBinding可以将角色中定义的权限授予用户或用户组，RoleBinding 包含一组权限列表(subjects)
-&gt; 权限列表中包含有不同形式的待授予权限资源类型(users, groups, or service accounts)；RoloBinding同样包含对被Bind的Role
-&gt; 引用；RoleBinding 适用于某个命名空间内授权，而 ClusterRoleBinding 适用于集群范围内的授权
+> RoleBinding and ClusterRoleBinding是什么？  
+> RoloBinding可以将角色中定义的权限授予用户或用户组，RoleBinding 包含一组权限列表(subjects)
+> 权限列表中包含有不同形式的待授予权限资源类型(users, groups, or service accounts)；RoloBinding同样包含对被Bind的Role
+> 引用；RoleBinding 适用于某个命名空间内授权，而 ClusterRoleBinding 适用于集群范围内的授权
 
 * RoleBinding绑定Role
 
-  &gt; 角色通过角色绑定，绑定给用户（user/group/sa）  
-  &gt; 例如：将 default 命名空间的 pod-reader Role 授予 jane 用户，此后 jane 用户在 default 命名空间中将具有 pod-reader 的权限
+  > 角色通过角色绑定，绑定给用户（user/group/sa）  
+  > 例如：将 default 命名空间的 pod-reader Role 授予 jane 用户，此后 jane 用户在 default 命名空间中将具有 pod-reader 的权限
 
   ```yaml
   kind: RoleBinding
@@ -716,14 +716,14 @@ $ kubectl taint node 节点名  key=value:NoSchedule-   #加个  -  号
   ```
 
 * RoleBinding绑定ClusterRole
-  &gt; * 集群角色通过集群角色绑定，绑定给用户（user/group/sa）
-  &gt; * 同样可以引用ClusterRole来对当前namespace内用户、用户组或ServiceAccount进行授权，这种操作允许集群管理员在整个集群内定义一些通用的ClusterRole，然后在不同的namespace中使用
+  > * 集群角色通过集群角色绑定，绑定给用户（user/group/sa）
+  > * 同样可以引用ClusterRole来对当前namespace内用户、用户组或ServiceAccount进行授权，这种操作允许集群管理员在整个集群内定义一些通用的ClusterRole，然后在不同的namespace中使用
       `RoleBinding`来引用
-  &gt; * 例如：以下 `RoleBinding` 引用了一个 ClusterRole，这个 ClusterRole 具有整个集群内对 secrets 的访问权限；但是其授权用户dave只能访问
+  > * 例如：以下 `RoleBinding` 引用了一个 ClusterRole，这个 ClusterRole 具有整个集群内对 secrets 的访问权限；但是其授权用户dave只能访问
       development 空间中的 secrets(因为 `RoleBinding` 定义在 development 命名空间)
 
   ```yaml
-  # This role binding allows &#34;dave&#34; to read secrets in the &#34;development&#34; namespace.
+  # This role binding allows "dave" to read secrets in the "development" namespace.
   #这个角色绑定允许“dave”读取“dev”命名空间中的信息。
   kind: RoleBinding          #资源类型
   apiVersion: rbac.authorization.k8s.io/v1beta1
@@ -741,11 +741,11 @@ $ kubectl taint node 节点名  key=value:NoSchedule-   #加个  -  号
   ```
 * ClusterRoleBinding绑定ClusterRole
 
-  &gt; * 集群角色通过角色绑定，绑定给用户（user/group/sa）。将集群角色权限限制在角色名字空间下
-  &gt; * 使用ClusterRoleBinding可以对整个集群中的所有命名空间资源权限进行授权；以下ClusterRoleBinding样例展示了授权manager组内所有用户在全部命名空间中对secrets进行访问
+  > * 集群角色通过角色绑定，绑定给用户（user/group/sa）。将集群角色权限限制在角色名字空间下
+  > * 使用ClusterRoleBinding可以对整个集群中的所有命名空间资源权限进行授权；以下ClusterRoleBinding样例展示了授权manager组内所有用户在全部命名空间中对secrets进行访问
 
     ```yaml
-    # This cluster role binding allows anyone in the &#34;manager&#34; group to read secrets in any namespace.
+    # This cluster role binding allows anyone in the "manager" group to read secrets in any namespace.
     #此集群角色绑定允许“manager”组中的任何人读取任何名称空间中的秘密。
     kind: ClusterRoleBinding
     apiVersion: rbac.authorization.k8s.io/v1beta1
@@ -763,16 +763,16 @@ $ kubectl taint node 节点名  key=value:NoSchedule-   #加个  -  号
 
 #### Resources（子资源）
 
-&gt; Kubernetes 集群内一些资源一般以其名称字符串来表示，这些字符串一般会在 API 的 URL 地址中出现；同时某些资源也会包含子资源，例如
-&gt; logs 资源就属于 pods 的子资源，API 中 URL 样例如下
+> Kubernetes 集群内一些资源一般以其名称字符串来表示，这些字符串一般会在 API 的 URL 地址中出现；同时某些资源也会包含子资源，例如
+> logs 资源就属于 pods 的子资源，API 中 URL 样例如下
 
   ```text
   GET /api/v1/namespaces/{namespace}/pods/{name}/log
   /api/v1/namespaces/default/pods/pod-demo/log
   ```
 
-&gt; 例如：如果要在 RBAC 授权模型中控制这些子资源的访问权限，可以通过 / 分隔符来实现，以下是一个定义 pods 资资源 logs 访问权限的
-&gt; Role 定义样例
+> 例如：如果要在 RBAC 授权模型中控制这些子资源的访问权限，可以通过 / 分隔符来实现，以下是一个定义 pods 资资源 logs 访问权限的
+> Role 定义样例
 
   ```yaml
   kind: Role
@@ -781,16 +781,16 @@ $ kubectl taint node 节点名  key=value:NoSchedule-   #加个  -  号
     namespace: default
     name: pod-and-pod-logs-reader
   rules:
-    - apiGroups: [ &#34;&#34; ]
-      resources: [ &#34;pods&#34;, &#34;pods/log&#34; ]  #这里添加了两个权限。pods权限，pods/log权限。pods权限包含pods/log权限，这里写pods/log就是给看看写的格式。
-      verbs: [ &#34;get&#34;, &#34;list&#34; ]
+    - apiGroups: [ "" ]
+      resources: [ "pods", "pods/log" ]  #这里添加了两个权限。pods权限，pods/log权限。pods权限包含pods/log权限，这里写pods/log就是给看看写的格式。
+      verbs: [ "get", "list" ]
   ```
 
 #### to Subjects
 
-&gt; 权利附着点：user、group、sa  
-&gt; 权利附着点命名方式  
-&gt; RoleBinding 和 ClusterRoleBinding 可以将 Role 绑定到 Subjects；Subjects 可以是 groups、users 或者 service accounts
+> 权利附着点：user、group、sa  
+> 权利附着点命名方式  
+> RoleBinding 和 ClusterRoleBinding 可以将 Role 绑定到 Subjects；Subjects 可以是 groups、users 或者 service accounts
 
 * Subjects 中 Users 使用字符串表示，
     * 它可以是一个普通的名字字符串，如 “alice”；
@@ -815,7 +815,7 @@ $ kubectl taint node 节点名  key=value:NoSchedule-   #加个  -  号
 | .spec.limits[].defaultRequest	              | 设置默认的请求值                                                                 |
 | .spec.limits[].max                          | 设置Pod可以请求的（在Pod中设置的）最大资源限制                                               |
 | .spec.limits[].min                          | 设置Pod可以请求的（在Pod中设置的）最小资源限制 量（单位：500m=0.5）。                               |
-| .spec.container[].resources.requests.memory | 容器初始要求的内存数量(可以不用，必须分配，不能被其他Pod使用)&lt;br/&gt;容器能使用的最大内存数量（单位：Ki,Mi,Gi,Ti,Pi,Ei） |
+| .spec.container[].resources.requests.memory | 容器初始要求的内存数量(可以不用，必须分配，不能被其他Pod使用)<br/>容器能使用的最大内存数量（单位：Ki,Mi,Gi,Ti,Pi,Ei） |
 | .spec.limits[].maxLimitRequestRatio	        | 设置默认超售值，Pod可以使用可以超过的的最大资源限制。                                             |
 
 

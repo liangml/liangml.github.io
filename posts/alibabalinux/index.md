@@ -1,7 +1,7 @@
 # Alibabalinux
 
-&#43; 系统版本：Alibaba Cloud Linux 3.2104 LTS 64位
-&#43; 默认镜像操作
++ 系统版本：Alibaba Cloud Linux 3.2104 LTS 64位
++ 默认镜像操作
 ```bash
 # 关闭默认启动服务
 systemctl disable nfs-server
@@ -29,11 +29,11 @@ service nscd restart
 # 或者使用以下命令清楚
 service nscd restart
 ```
-&#43;  crontab
++  crontab
 ```bash
 59 23 * * * /usr/sbin/logrotate /etc/logrotate.conf
 ```
-&#43; logrostate
++ logrostate
 ```bash
 daily                     #指定转储周期为每天
 weekly                    #指定转储周期为每周；
@@ -56,7 +56,7 @@ olddir directory          #转储后的日志文件放入指定的目录，必�
 noolddir                  #转储后的日志文件和当前日志文件放在同一个目录下；
 prerotate/endscript       #在转储以前需要执行的命令可以放入这个对，这两个关键字必须单独成行；
 postrotate/endscript      #在转储以后需要执行的命令可以放入这个对，这两个关键字必须单独成行；
-tabootext [&#43;] list        #让logrotate不转储指定扩展名的文件，缺省的扩展名是：.rpm-orig, .rpmsave,v,和~ ；
+tabootext [+] list        #让logrotate不转储指定扩展名的文件，缺省的扩展名是：.rpm-orig, .rpmsave,v,和~ ；
 size size                 #当日志文件到达指定的大小时才转储，Size可以指定bytes(缺省)以及KB(sizek)或者MB(sizem)；
 postrotate                #日志轮换过后指定指定的脚本，endscript参数表示结束脚本；
 sharedscripts             #共享脚本,下面的postrotate中的脚本只执行一次即可；
@@ -91,7 +91,7 @@ sharedscripts             #共享脚本,下面的postrotate中的脚本只执行
     sharedscripts
     su root
     postrotate
-        /bin/kill -USR1 $(cat /var/run/nginx.pid 2&gt;/dev/null) 2&gt;/dev/null || :
+        /bin/kill -USR1 $(cat /var/run/nginx.pid 2>/dev/null) 2>/dev/null || :
     endscript
 }
 # httpd
@@ -101,7 +101,7 @@ sharedscripts             #共享脚本,下面的postrotate中的脚本只执行
     sharedscripts
     delaycompress
     postrotate
-        /sbin/service httpd reload &gt; /dev/null 2&gt;/dev/null || true
+        /sbin/service httpd reload > /dev/null 2>/dev/null || true
     endscript
 }
 ```

@@ -1,30 +1,30 @@
 # Kafka
 
-&#43; 查看topic
++ 查看topic
 ```shell
 bin/kafka-topics.sh --list --bootstrap-server 127.0.0.1:9092
 ```
-&#43; 查看某个topic信息
++ 查看某个topic信息
 ```shell
 bin/kafka-topics.sh --bootstrap-server 127.0.0.1:9092 --describe TOPICNAME
 ```
-&#43; 查看所有消费组
++ 查看所有消费组
 ```shell
 bin/kafka-consumer-groups.sh --bootstrap-server 127.0.0.1:9092 --describe --group --all-groups
 ```
-&#43; 消费消息
++ 消费消息
 ```shell
 bin/kafka-consumer-groups.sh --zookeeper 127.0.0.1:2181 --topic TOPICNAME
 ```
-&#43; 查看topic内容
++ 查看topic内容
 ```shell
 bin/kafka-console-consumer.sh --bootstrap-server 127.0.0.1:9092 --from-beginning --topic TOPICNAME 
 ```
-&#43; 创建topic
++ 创建topic
 ```bash
 bin/kafka-topics.sh --create --bootstrap-server 127.0.0.1:9092 --partitions 1 --replication-factor 1  --topic TOPICNAME 
 ```
-&#43; 删除topic
++ 删除topic
 ```shell
 bin/kafka-topics.sh --delete --bootstrap-server 127.0.0.1:9092 --topic TOPICNAME
 ```

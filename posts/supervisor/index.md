@@ -1,6 +1,6 @@
 # Supervisor
 
-&#43; /etc/supervisor.conf
++ /etc/supervisor.conf
 ```bash
 [unix_http_server]
 file=/tmp/supervisor.sock
@@ -14,7 +14,7 @@ serverurl=unix:///tmp/supervisor.sock
 
 
 
-&#43; supervisor exsample
++ supervisor exsample
 
 
 

@@ -3,11 +3,11 @@
 
 ## mem centos6.5
 ```text
--/&#43; buffers/cache：
+-/+ buffers/cache：
 -buffers/cache 的内存数：95 (等于第1行的 used - buffers - cached)
-&#43;buffers/cache 的内存数: 32 (等于第1行的 free &#43; buffers &#43; cached)
++buffers/cache 的内存数: 32 (等于第1行的 free + buffers + cached)
 1. -buffers/cache 反映的是被程序实实在在吃掉的内存，
-2. &#43;buffers/cache 反映的是可以挪用的内存总数。
+2. +buffers/cache 反映的是可以挪用的内存总数。
 ```
 ## Linux Ctrl C无效
 ```text
@@ -16,36 +16,36 @@
 命令查看：
     正常：
             [root@server002 ~]# trap
-            trap -- &#39;&#39; SIGTSTP
-            trap -- &#39;&#39; SIGTTIN
-            trap -- &#39;&#39; SIGTTOU
+            trap -- '' SIGTSTP
+            trap -- '' SIGTTIN
+            trap -- '' SIGTTOU
     异常：
             [root@server002 ~]# trap
-            trap -- &#39;&#39; SIGTSTP
-            trap -- &#39;&#39; SIGTTIN
-            trap -- &#39;&#39; SIGTTOU
-            trap -- &#39;&#39; SIGINT
-            trap -- &#39;&#39; SIGQUIT
-       现象：终端Ctrl &#43; C完全失效，当执行trap 信号命令时多处两个SIGINT和SIGQUIT两项
+            trap -- '' SIGTSTP
+            trap -- '' SIGTTIN
+            trap -- '' SIGTTOU
+            trap -- '' SIGINT
+            trap -- '' SIGQUIT
+       现象：终端Ctrl + C完全失效，当执行trap 信号命令时多处两个SIGINT和SIGQUIT两项
 升级rvm 版本：rvm get stable（
 1.29.4
 版本以上都可以解决）
 卸载rvm工具：gem uninstall rvm
 ```
 ## pip
-&#43; 国内源临时加速
++ 国内源临时加速
 ```bash
-pip install markdown -i &lt;https://pypi.tuna.tsinghua.edu.cn/simple&gt;
+pip install markdown -i <https://pypi.tuna.tsinghua.edu.cn/simple>
 ```
-&#43; 永久配置
++ 永久配置
 ```bash
 # 清华源
-pip config set global.index-url &lt;https://pypi.tuna.tsinghua.edu.cn/simple&gt;
+pip config set global.index-url <https://pypi.tuna.tsinghua.edu.cn/simple>
 # 或：
 # 阿里源
-pip config set global.index-url &lt;https://mirrors.aliyun.com/pypi/simple/&gt;
+pip config set global.index-url <https://mirrors.aliyun.com/pypi/simple/>
 # 腾讯源
-pip config set global.index-url &lt;http://mirrors.cloud.tencent.com/pypi/simple&gt;
+pip config set global.index-url <http://mirrors.cloud.tencent.com/pypi/simple>
 ```
 ## goaccess
 ## conda
@@ -60,12 +60,12 @@ conda config --set auto_activate_base false
 lvm
 pvcreate /dev/vdc
 vgextend VolGroup /dev/vdc
-lvextend -l &#43;100%FREE /dev/mapper/VolGroup-LogVol00
+lvextend -l +100%FREE /dev/mapper/VolGroup-LogVol00
 resize2fs /dev/mapper/VolGroup-LogVol00
 ```
 ## 根据日期排序删除
 ```plain
-ls -ltd FilePath | awk &#39;{if(NR&gt;10){print $0}}&#39; | xargs rm -rf;
+ls -ltd FilePath | awk '{if(NR>10){print $0}}' | xargs rm -rf;
 ```
 ## 磁盘在线扩容
 * 安装工具包：
@@ -84,7 +84,7 @@ resize2fs /dev/vda1
 ## timewait查看
 
 ```plain
-netstat -an | awk &#39;{print $6}&#39; | sort | uniq -c | sort -nr
+netstat -an | awk '{print $6}' | sort | uniq -c | sort -nr
 ```
 ## 路由新增删除
 ```plain
@@ -100,8 +100,8 @@ rsync  --delete -rlptD /tmp/empty/ /var/spool/postfix/maildrop/
 ```plain
 ServerAliveInterval 60
 ServerAliveCountMax 30
-HostkeyAlgorithms &#43;ssh-rsa
-PubkeyAcceptedAlgorithms &#43;ssh-rsa
+HostkeyAlgorithms +ssh-rsa
+PubkeyAcceptedAlgorithms +ssh-rsa
 UserKnownHostsFile=/dev/null
 StrictHostKeyChecking no
 UserKnownHostsFile=/dev/null
@@ -111,8 +111,8 @@ UserKnownHostsFile=/dev/null
 Host *
  ServerAliveInterval 60
  ServerAliveCountMax 30
- HostkeyAlgorithms &#43;ssh-rsa
- PubkeyAcceptedAlgorithms &#43;ssh-rsa
+ HostkeyAlgorithms +ssh-rsa
+ PubkeyAcceptedAlgorithms +ssh-rsa
  StrictHostKeyChecking no
 ```
 ---
@@ -139,11 +139,11 @@ Host IPADDRESS
 pigz -k filename # -k 保留原文件
 pigz -l filename.gz # -l 查看文件压缩内容
 # 压缩目录
-tar --use-compress-program=&#34;pigz -k&#34; -cvf dir1.tar.gz dir1
+tar --use-compress-program="pigz -k" -cvf dir1.tar.gz dir1
 # 解压文件
 pigz -k -d filename.gz
 # 解压目录
-tar --use-compress-program=&#34;pigz -k &#34; -xvf dir1.tar.gz
+tar --use-compress-program="pigz -k " -xvf dir1.tar.gz
 ```
 
 
@@ -154,7 +154,7 @@ pipreqs --encoding utf8 --force
 ```
 
 ## openssl
-&#43; 证书测试
++ 证书测试
 
 ```bash
 openssl s_client -connect domainName:443

@@ -1,5 +1,12 @@
 # Nginx
 
+## trust proxy ip
+```text
+    set_real_ip_from   172.16.0.0/16;
+    real_ip_header     X-Forwarded-For;
+    real_ip_recursive on;
+```
+
 ## 请求方法限制
 ```bash
     if ($request_method !~ ^(GET|HEAD|POST)$ ) {
@@ -16,7 +23,7 @@ location / {
 }
 ```
 ---
-&#43; next.js
++ next.js
 
 
 
@@ -28,7 +35,7 @@ location / {
 
 ## 443 force ssl
 ```bash
-if ($ssl_protocol = &#34;&#34;) { return 302 https://$host$request_uri; }
+if ($ssl_protocol = "") { return 302 https://$host$request_uri; }
 # 302
 if ($server_port !~ 443) { rewrite ^(.*)$ https://$host$1 redirect; }
 # 301
@@ -46,29 +53,29 @@ proxy_send_timeout 600;
 
 ## log format
 ```bash
-log_format main  escape=json &#39;{ &#34;time_local&#34;: &#34;$time_local&#34;, &#39;
-                        &#39;&#34;remote_user&#34;: &#34;$remote_user&#34;, &#39;
-                        &#39;&#34;remote_addr&#34;: &#34;$remote_addr&#34;, &#39;
-                        &#39;&#34;http_referer&#34;: &#34;$http_referer&#34;, &#39;
-                        &#39;&#34;request&#34;: &#34;$request&#34;, &#39;
-                        &#39;&#34;method&#34;: &#34;$request_method&#34;, &#39;
-                        &#39;&#34;url_path&#34;: &#34;$request_uri&#34;, &#39;
-                        &#39;&#34;request_body&#34;: &#34;$request_body&#34;, &#39;
-                        &#39;&#34;status&#34;: $status, &#39;
-                        &#39;&#34;level&#34;: &#34;$level&#34;,&#39;
-                        &#39;&#34;body_bytes_sent&#34;: $body_bytes_sent, &#39;
-                        &#39;&#34;http_user_agent&#34;: &#34;$http_user_agent&#34;, &#39;
-                        &#39;&#34;http_host&#34;: &#34;$http_host&#34;, &#39;
-                        &#39;&#34;http_requestid&#34;: &#34;$http_requestid&#34;, &#39;
-                        &#39;&#34;http_authorization&#34;: &#34;$http_authorization&#34;, &#39;
-                        &#39;&#34;business&#34;: &#34;ngx_access-$host&#34;, &#39;
-                        &#39;&#34;http_x_forwarded_for&#34;: &#34;$http_x_forwarded_for&#34;, &#39;
-                        &#39;&#34;upstream_addr&#34;: &#34;$upstream_addr&#34;,&#39;
-                        &#39;&#34;trace_id&#34;: &#34;$trace_id&#34;,&#39;
-                        &#39;&#34;upstream_response_time&#34;: &#34;$upstream_response_timer&#34;,&#39;
-                        &#39;&#34;ssl_protocol&#34;: &#34;$ssl_protocol&#34;,&#39;
-                        &#39;&#34;request_time&#34;: $request_time&#39;
-                        &#39; }&#39;;
+log_format main  escape=json '{ "time_local": "$time_local", '
+                        '"remote_user": "$remote_user", '
+                        '"remote_addr": "$remote_addr", '
+                        '"http_referer": "$http_referer", '
+                        '"request": "$request", '
+                        '"method": "$request_method", '
+                        '"url_path": "$request_uri", '
+                        '"request_body": "$request_body", '
+                        '"status": $status, '
+                        '"level": "$level",'
+                        '"body_bytes_sent": $body_bytes_sent, '
+                        '"http_user_agent": "$http_user_agent", '
+                        '"http_host": "$http_host", '
+                        '"http_requestid": "$http_requestid", '
+                        '"http_authorization": "$http_authorization", '
+                        '"business": "ngx_access-$host", '
+                        '"http_x_forwarded_for": "$http_x_forwarded_for", '
+                        '"upstream_addr": "$upstream_addr",'
+                        '"trace_id": "$trace_id",'
+                        '"upstream_response_time": "$upstream_response_timer",'
+                        '"ssl_protocol": "$ssl_protocol",'
+                        '"request_time": $request_time'
+                        ' }';
 ```
 ## 跨域
 ```bash
@@ -111,7 +118,7 @@ upstream xxx.cn {
 	server  10.x:3000  weight=10 max_fails=3 fail_timeout=3s;
 
  	check interval=1000 rise=2 fall=3 timeout=5000 type=http default_down=false;
- 	check_http_send &#34;GET /ping HTTP/1.0\\r\\n\\r\\n&#34;;
+ 	check_http_send "GET /ping HTTP/1.0\\r\\n\\r\\n";
  	check_http_expect_alive http_2xx http_3xx;
 }
 
@@ -172,7 +179,7 @@ access_log /var/log/xxx.log combined;
 index index.html index.htm index.php;
 root xxx_path;
 
-if ($ssl_protocol = &#34;&#34;) { return 302 https://$host$request_uri; }
+if ($ssl_protocol = "") { return 302 https://$host$request_uri; }
 location ~ [^/]\\.php(/|$) {
   #fastcgi_pass remote_php_ip:9000;
   fastcgi_pass unix:/dev/shm/php-cgi.sock;
@@ -201,7 +208,7 @@ location /.well-known {
 openssl req -x509 -nodes -days 3650 -newkey rsa:2048 -keyout /etc/nginx/ssl/nginx.key -out /etc/nginx/ssl/nginx.crt
 
 # 增加default_server
-cat &lt;&lt; &#39;EOF&#39; &gt; /etc/nginx/sites-available/000_default
+cat << 'EOF' > /etc/nginx/sites-available/000_default
 server {
     listen 80 default_server;
     listen 443 ssl default_server;
@@ -222,7 +229,7 @@ tailf /var/log/nginx/000_default.access.log
 ```
 
 ## nginx warn variables_hash
-&gt; nginx: [warn] could not build optimal variables_hash, you should increase either variables_hash_max_size: 1024 or variables_hash_bucket_size: 64; ignoring variables_hash_bucket_size
+> nginx: [warn] could not build optimal variables_hash, you should increase either variables_hash_max_size: 1024 or variables_hash_bucket_size: 64; ignoring variables_hash_bucket_size
 ```shell
 # 解决方法,在http中添加
 variables_hash_max_size 4096;

@@ -5,17 +5,17 @@
 * 参考连接：https://blog.csdn.net/root_miss/article/details/81450687
 ## gitlab邮箱配置
 ```shell
-gitlab_rails[&#39;smtp_enable&#39;] = true
-gitlab_rails[&#39;smtp_address&#39;] = &#34;smtp.exmail.qq.com&#34;
-gitlab_rails[&#39;smtp_port&#39;] = 25
-gitlab_rails[&#39;smtp_user_name&#39;] = &#34;gitlab@xxx.cn&#34;
-gitlab_rails[&#39;smtp_password&#39;] = &#34;xxx&#34;
-gitlab_rails[&#39;smtp_domain&#39;] = &#34;smtp.exmail.qq.com&#34;
-gitlab_rails[&#39;smtp_authentication&#39;] = &#34;login&#34;
-gitlab_rails[&#39;smtp_ssl&#39;] = false
-gitlab_rails[&#39;smtp_enable_starttls_auto&#39;] = true
-gitlab_rails[&#39;gitlab_email_from&#39;] = &#34;gitlab@xxx.cn&#34;
-user[&#34;git_user_email&#34;] = &#34;gitlab@xxx.cn&#34;
+gitlab_rails['smtp_enable'] = true
+gitlab_rails['smtp_address'] = "smtp.exmail.qq.com"
+gitlab_rails['smtp_port'] = 25
+gitlab_rails['smtp_user_name'] = "gitlab@xxx.cn"
+gitlab_rails['smtp_password'] = "xxx"
+gitlab_rails['smtp_domain'] = "smtp.exmail.qq.com"
+gitlab_rails['smtp_authentication'] = "login"
+gitlab_rails['smtp_ssl'] = false
+gitlab_rails['smtp_enable_starttls_auto'] = true
+gitlab_rails['gitlab_email_from'] = "gitlab@xxx.cn"
+user["git_user_email"] = "gitlab@xxx.cn"
 ```
 ## gitlab迁移
 * gitlab备份
@@ -62,7 +62,7 @@ or ```git config -f .gitmodules submodule.xxx.branch dev```
 [alias]
 	ch = checkou
 	st = status
-	staust = &#39;gitst&#39;
+	staust = 'gitst'
 	cf = config
 	ck = checkout
 	ft = fetch
@@ -96,7 +96,7 @@ or ```git config -f .gitmodules submodule.xxx.branch dev```
 	lt = ls-tree -r HEAD~ --name-only
 	ltng = ls-tree -r HEAD~ --name-only |grep
 	lgd = log -p --full-diff
-	bcm = &#34;branch -a --contains &#34;
+	bcm = "branch -a --contains "
 	brc = branch -a --contains
 	tagc = tag --contains
 ```

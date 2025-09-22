@@ -7,14 +7,14 @@
 # 常规打包方法
 go build                      
 # 使用 “-dflags” 缩小大小
-go build -ldflags &#39;-w -s&#39;
+go build -ldflags '-w -s'
 # 使用upx打包为最小程序
 upx  ...二进制文件
 ```
 ### 示例
 ```shell
-CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o target/NAME_`date &#43;%Y_%m_%d` ${MAINSRCPATH}
-CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -ldflags &#39;-w -s&#39; -o pkg/PACKAGENAME
+CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o target/NAME_`date +%Y_%m_%d` ${MAINSRCPATH}
+CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -ldflags '-w -s' -o pkg/PACKAGENAME
 ```
 ### multi_platfrom_build
 ```shell
@@ -30,9 +30,9 @@ $ CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build test.go
 $ SET CGO_ENABLED=0SET GOOS=darwin3 SET GOARCH=amd64 go build test.go
 $ SET CGO_ENABLED=0 SET GOOS=linux SET GOARCH=amd64 go build test.go
 ```
-&gt; 参数说明&lt;br&gt;
-&gt; GOOS：目标可执行程序运行操作系统，支持 darwin，freebsd，linux，windows&lt;br&gt;
-&gt; GOARCH：目标可执行程序操作系统构架，包括 386，amd64，arm
+> 参数说明<br>
+> GOOS：目标可执行程序运行操作系统，支持 darwin，freebsd，linux，windows<br>
+> GOARCH：目标可执行程序操作系统构架，包括 386，amd64，arm
 
 ## go 代理配置
 ```shell
@@ -46,7 +46,7 @@ go env -w GOPROXY=https://goproxy.cn,direct
 ```
 ### Integer
 ```go
-%&#43;d  // 带符号的整型，fmt.Printf(&#34;%&#43;d&#34;, 255)输出&#43;255
+%+d  // 带符号的整型，fmt.Printf("%+d", 255)输出+255
 %q   // 打印单引号
 %o   // 不带零的八进制
 %#o  // 带零的八进制
@@ -93,9 +93,9 @@ go env -w GOPROXY=https://goproxy.cn,direct
 ### Struct
 ```go
 %v    // 正常打印。比如：{sam {12345 67890}}
-%&#43;v   // 带字段名称。比如：{name:sam phone:{mobile:12345 office:67890}
+%+v   // 带字段名称。比如：{name:sam phone:{mobile:12345 office:67890}
 %#v   // 用Go的语法打印。
-// 比如main.People{name:&#34;sam&#34;, phone:main.Phone{mobile:&#34;12345&#34;, office:&#34;67890&#34;}}
+// 比如main.People{name:"sam", phone:main.Phone{mobile:"12345", office:"67890"}}
 ```
 ### Boolean
 ```go

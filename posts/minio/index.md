@@ -1,9 +1,9 @@
 # Minio
 
 集群版条件
-&gt; [!NOTE]
-&gt; * 单独无数据磁盘使用 
-&gt; * minio节点的时间不能超过3s
+> [!NOTE]
+> * 单独无数据磁盘使用 
+> * minio节点的时间不能超过3s
 
 ## nginx 配置
 ```text
@@ -41,10 +41,10 @@ server {
       proxy_connect_timeout 300;
       # Default is HTTP/1, keepalive is only enabled in HTTP/1.1
       proxy_http_version 1.1;
-      proxy_set_header Connection &#34;&#34;;
+      proxy_set_header Connection "";
       chunked_transfer_encoding off;
 
-      proxy_pass &lt;http://xxx.com&gt;; # This uses the upstream directive definition to load balance
+      proxy_pass <http://xxx.com>; # This uses the upstream directive definition to load balance
    }
 
    location /minio {
@@ -62,26 +62,26 @@ server {
       # To support websockets in MinIO versions released after January 2023
       proxy_http_version 1.1;
       proxy_set_header Upgrade $http_upgrade;
-      proxy_set_header Connection &#34;upgrade&#34;;
+      proxy_set_header Connection "upgrade";
 
       chunked_transfer_encoding off;
 
-      proxy_pass &lt;http://xxx.com-console&gt;; # This uses the upstream directive definition to load balance and assumes a static Console port of 9001
+      proxy_pass <http://xxx.com-console>; # This uses the upstream directive definition to load balance and assumes a static Console port of 9001
    }
 }
 ```
 ## minio 配置
 
-&#43; useradd minio -s /sbin/nologin
-&#43; /etc/default/minio
++ useradd minio -s /sbin/nologin
++ /etc/default/minio
 ```bash
-MINIO_VOLUMES=&#34;&lt;http://192.168.1.141/data/minio&gt; &lt;http://192.168.1.140/data/minio&gt;&#34;
-MINIO_OPTS=&#34;--console-address :9001 --address :9000&#34;
+MINIO_VOLUMES="<http://192.168.1.141/data/minio> <http://192.168.1.140/data/minio>"
+MINIO_OPTS="--console-address :9001 --address :9000"
 MINIO_ROOT_USER=admin
 MINIO_ROOT_PASSWORD=xxx
-# MINIO_SERVER_URL=&#34;&lt;https://minio.example.net:9000&gt;&#34;
+# MINIO_SERVER_URL="<https://minio.example.net:9000>"
 ```
-&#43; /usr/lib/systemd/system/minio.service
++ /usr/lib/systemd/system/minio.service
 ```text
 [Unit]
 Description=MinIO
@@ -98,10 +98,10 @@ Group=minio
 ProtectProc=invisible
 
 EnvironmentFile=-/etc/default/minio
-ExecStartPre=/bin/bash -c &#34;if [ -z \\&#34;${MINIO_VOLUMES}\\&#34; ]; then echo \\&#34;Variable MINIO_VOLUMES not set in /etc/default/minio\\&#34;; exit 1; fi&#34;
+ExecStartPre=/bin/bash -c "if [ -z \\"${MINIO_VOLUMES}\\" ]; then echo \\"Variable MINIO_VOLUMES not set in /etc/default/minio\\"; exit 1; fi"
 ExecStart=/usr/local/bin/minio server $MINIO_OPTS $MINIO_VOLUMES
 
-# MinIO RELEASE.2023-05-04T21-44-30Z adds support for Type=notify (&lt;https://www.freedesktop.org/software/systemd/man/systemd.service.html#Type=&gt;)
+# MinIO RELEASE.2023-05-04T21-44-30Z adds support for Type=notify (<https://www.freedesktop.org/software/systemd/man/systemd.service.html#Type=>)
 # This may improve systemctl setups where other services use `After=minio.server`
 # Uncomment the line to enable the functionality
 # Type=notify
@@ -124,7 +124,7 @@ WantedBy=multi-user.target
 
 # Built for ${project.name}-${project.version} (${project.name})
 ```
-&#43; 开启自启动
++ 开启自启动
 ```shell
 # 创建minio目录（一个盘对应一个目录即可）
 mkdir /data/minio

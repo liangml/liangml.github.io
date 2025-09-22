@@ -13,15 +13,15 @@ tls-crypt tc.key
 topology subnet
 server 10.8.0.0 255.255.255.0
 ifconfig-pool-persist ipp.txt
-push &#34;dhcp-option DNS 100.100.2.136&#34;
-push &#34;dhcp-option DNS 100.100.2.138&#34;
+push "dhcp-option DNS 100.100.2.136"
+push "dhcp-option DNS 100.100.2.138"
 
 # 内网推送
-push &#34;route 172.16.0.0 255.255.0.0&#34;
+push "route 172.16.0.0 255.255.0.0"
 # 阿里内网推送
-push &#34;route 100.100.0.0 255.255.0.0&#34;
-push &#34;route 100.103.0.0 255.255.0.0&#34;
-push &#34;route 47.106.223.210 255.255.255.255&#34;
+push "route 100.100.0.0 255.255.0.0"
+push "route 100.103.0.0 255.255.0.0"
+push "route 47.106.223.210 255.255.255.255"
 
 keepalive 10 120
 cipher AES-256-CBC
