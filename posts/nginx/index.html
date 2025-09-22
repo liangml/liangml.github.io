@@ -15,46 +15,46 @@ Leon</span></span><span class=post-included-in>&nbsp;收录于 <a href=/categori
 <a href=#trust-proxy-ip class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>    set_real_ip_from   172.16.0.0/16;
-</span></span><span class=line><span class=cl>    real_ip_header     X-Forwarded-For;
-</span></span><span class=line><span class=cl>    real_ip_recursive on;</span></span></code></pre></td></tr></table></div></div><h2 class=heading-element id=请求方法限制><span>请求方法限制</span>
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>set_real_ip_from   172.16.0.0/16;
+</span></span><span class=line><span class=cl>real_ip_header     X-Forwarded-For;
+</span></span><span class=line><span class=cl>real_ip_recursive on;</span></span></code></pre></td></tr></table></div></div><h2 class=heading-element id=请求方法限制><span>请求方法限制</span>
 <a href=#%e8%af%b7%e6%b1%82%e6%96%b9%e6%b3%95%e9%99%90%e5%88%b6 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>    <span class=k>if</span> <span class=o>(</span><span class=nv>$request_method</span> !~ ^<span class=o>(</span>GET<span class=p>|</span>HEAD<span class=p>|</span>POST<span class=o>)</span>$ <span class=o>)</span> <span class=o>{</span>
-</span></span><span class=line><span class=cl>        <span class=k>return</span> 501<span class=p>;</span>
-</span></span><span class=line><span class=cl>    <span class=o>}</span></span></span></code></pre></td></tr></table></div></div><h2 class=heading-element id=try_files><span>try_files</span>
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>if ($request_method !~ ^(GET|HEAD|POST)$ ) {
+</span></span><span class=line><span class=cl>    return 501;
+</span></span><span class=line><span class=cl>}</span></span></code></pre></td></tr></table></div></div><h2 class=heading-element id=try_files><span>try_files</span>
 <a href=#try_files class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>location / <span class=o>{</span>
-</span></span><span class=line><span class=cl>    try_files <span class=nv>$uri</span> <span class=nv>$uri</span>/ /index.html<span class=p>;</span>
-</span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></td></tr></table></div></div><hr><ul><li>next.js</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>location / {
+</span></span><span class=line><span class=cl>    try_files $uri $uri/ /index.html;
+</span></span><span class=line><span class=cl>}</span></span></code></pre></td></tr></table></div></div><hr><ul><li>next.js</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>location / <span class=o>{</span>
-</span></span><span class=line><span class=cl>    try_files <span class=nv>$uri</span> <span class=nv>$uri</span>.html <span class=nv>$uri</span>/ /index.html<span class=p>;</span>
-</span></span><span class=line><span class=cl>  <span class=o>}</span></span></span></code></pre></td></tr></table></div></div><h2 class=heading-element id=443-force-ssl><span>443 force ssl</span>
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>location / {
+</span></span><span class=line><span class=cl>    try_files $uri $uri.html $uri/ /index.html;
+</span></span><span class=line><span class=cl>  }</span></span></code></pre></td></tr></table></div></div><h2 class=heading-element id=443-force-ssl><span>443 force ssl</span>
 <a href=#443-force-ssl class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
 </span><span class=lnt>5
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=k>if</span> <span class=o>(</span><span class=nv>$ssl_protocol</span> <span class=o>=</span> <span class=s2>&#34;&#34;</span><span class=o>)</span> <span class=o>{</span> <span class=k>return</span> <span class=m>302</span> https://<span class=nv>$host$request_uri</span><span class=p>;</span> <span class=o>}</span>
-</span></span><span class=line><span class=cl><span class=c1># 302</span>
-</span></span><span class=line><span class=cl><span class=k>if</span> <span class=o>(</span><span class=nv>$server_port</span> !~ 443<span class=o>)</span> <span class=o>{</span> rewrite ^<span class=o>(</span>.*<span class=o>)</span>$ https://<span class=nv>$host$1</span> redirect<span class=p>;</span> <span class=o>}</span>
-</span></span><span class=line><span class=cl><span class=c1># 301</span>
-</span></span><span class=line><span class=cl><span class=k>if</span> <span class=o>(</span><span class=nv>$server_port</span> !~ 443<span class=o>)</span> <span class=o>{</span> rewrite ^<span class=o>(</span>.*<span class=o>)</span>$ https://<span class=nv>$host$1</span> permanent<span class=p>;</span> <span class=o>}</span></span></span></code></pre></td></tr></table></div></div><h2 class=heading-element id=499><span>499</span>
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>if ($ssl_protocol = &#34;&#34;) { return 302 https://$host$request_uri; }
+</span></span><span class=line><span class=cl># 302
+</span></span><span class=line><span class=cl>if ($server_port !~ 443) { rewrite ^(.*)$ https://$host$1 redirect; }
+</span></span><span class=line><span class=cl># 301
+</span></span><span class=line><span class=cl>if ($server_port !~ 443) { rewrite ^(.*)$ https://$host$1 permanent; }</span></span></code></pre></td></tr></table></div></div><h2 class=heading-element id=499><span>499</span>
 <a href=#499 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
 </span><span class=lnt>5
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>proxy_ignore_client_abort on<span class=p>;</span>
-</span></span><span class=line><span class=cl><span class=c1># 确定在客户端关闭连接时是否应关闭与代理服务器的连接，而不在等待响应</span>
-</span></span><span class=line><span class=cl>proxy_read_timeout 600<span class=p>;</span>
-</span></span><span class=line><span class=cl>proxy_send_timeout 600<span class=p>;</span>
-</span></span><span class=line><span class=cl><span class=c1># 如果超时(默认60s)，Nginx 会主动断开连接，记录504</span></span></span></code></pre></td></tr></table></div></div><h2 class=heading-element id=log-format><span>log format</span>
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>proxy_ignore_client_abort on;
+</span></span><span class=line><span class=cl># 确定在客户端关闭连接时是否应关闭与代理服务器的连接，而不在等待响应
+</span></span><span class=line><span class=cl>proxy_read_timeout 600;
+</span></span><span class=line><span class=cl>proxy_send_timeout 600;
+</span></span><span class=line><span class=cl># 如果超时(默认60s)，Nginx 会主动断开连接，记录504</span></span></code></pre></td></tr></table></div></div><h2 class=heading-element id=log-format><span>log format</span>
 <a href=#log-format class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
@@ -78,35 +78,35 @@ Leon</span></span><span class=post-included-in>&nbsp;收录于 <a href=/categori
 </span><span class=lnt>21
 </span><span class=lnt>22
 </span><span class=lnt>23
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>log_format main  <span class=nv>escape</span><span class=o>=</span>json <span class=s1>&#39;{ &#34;time_local&#34;: &#34;$time_local&#34;, &#39;</span>
-</span></span><span class=line><span class=cl>                        <span class=s1>&#39;&#34;remote_user&#34;: &#34;$remote_user&#34;, &#39;</span>
-</span></span><span class=line><span class=cl>                        <span class=s1>&#39;&#34;remote_addr&#34;: &#34;$remote_addr&#34;, &#39;</span>
-</span></span><span class=line><span class=cl>                        <span class=s1>&#39;&#34;http_referer&#34;: &#34;$http_referer&#34;, &#39;</span>
-</span></span><span class=line><span class=cl>                        <span class=s1>&#39;&#34;request&#34;: &#34;$request&#34;, &#39;</span>
-</span></span><span class=line><span class=cl>                        <span class=s1>&#39;&#34;method&#34;: &#34;$request_method&#34;, &#39;</span>
-</span></span><span class=line><span class=cl>                        <span class=s1>&#39;&#34;url_path&#34;: &#34;$request_uri&#34;, &#39;</span>
-</span></span><span class=line><span class=cl>                        <span class=s1>&#39;&#34;request_body&#34;: &#34;$request_body&#34;, &#39;</span>
-</span></span><span class=line><span class=cl>                        <span class=s1>&#39;&#34;status&#34;: $status, &#39;</span>
-</span></span><span class=line><span class=cl>                        <span class=s1>&#39;&#34;level&#34;: &#34;$level&#34;,&#39;</span>
-</span></span><span class=line><span class=cl>                        <span class=s1>&#39;&#34;body_bytes_sent&#34;: $body_bytes_sent, &#39;</span>
-</span></span><span class=line><span class=cl>                        <span class=s1>&#39;&#34;http_user_agent&#34;: &#34;$http_user_agent&#34;, &#39;</span>
-</span></span><span class=line><span class=cl>                        <span class=s1>&#39;&#34;http_host&#34;: &#34;$http_host&#34;, &#39;</span>
-</span></span><span class=line><span class=cl>                        <span class=s1>&#39;&#34;http_requestid&#34;: &#34;$http_requestid&#34;, &#39;</span>
-</span></span><span class=line><span class=cl>                        <span class=s1>&#39;&#34;http_authorization&#34;: &#34;$http_authorization&#34;, &#39;</span>
-</span></span><span class=line><span class=cl>                        <span class=s1>&#39;&#34;business&#34;: &#34;ngx_access-$host&#34;, &#39;</span>
-</span></span><span class=line><span class=cl>                        <span class=s1>&#39;&#34;http_x_forwarded_for&#34;: &#34;$http_x_forwarded_for&#34;, &#39;</span>
-</span></span><span class=line><span class=cl>                        <span class=s1>&#39;&#34;upstream_addr&#34;: &#34;$upstream_addr&#34;,&#39;</span>
-</span></span><span class=line><span class=cl>                        <span class=s1>&#39;&#34;trace_id&#34;: &#34;$trace_id&#34;,&#39;</span>
-</span></span><span class=line><span class=cl>                        <span class=s1>&#39;&#34;upstream_response_time&#34;: &#34;$upstream_response_timer&#34;,&#39;</span>
-</span></span><span class=line><span class=cl>                        <span class=s1>&#39;&#34;ssl_protocol&#34;: &#34;$ssl_protocol&#34;,&#39;</span>
-</span></span><span class=line><span class=cl>                        <span class=s1>&#39;&#34;request_time&#34;: $request_time&#39;</span>
-</span></span><span class=line><span class=cl>                        <span class=s1>&#39; }&#39;</span><span class=p>;</span></span></span></code></pre></td></tr></table></div></div><h2 class=heading-element id=跨域><span>跨域</span>
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>log_format main  escape=json &#39;{ &#34;time_local&#34;: &#34;$time_local&#34;, &#39;
+</span></span><span class=line><span class=cl>                        &#39;&#34;remote_user&#34;: &#34;$remote_user&#34;, &#39;
+</span></span><span class=line><span class=cl>                        &#39;&#34;remote_addr&#34;: &#34;$remote_addr&#34;, &#39;
+</span></span><span class=line><span class=cl>                        &#39;&#34;http_referer&#34;: &#34;$http_referer&#34;, &#39;
+</span></span><span class=line><span class=cl>                        &#39;&#34;request&#34;: &#34;$request&#34;, &#39;
+</span></span><span class=line><span class=cl>                        &#39;&#34;method&#34;: &#34;$request_method&#34;, &#39;
+</span></span><span class=line><span class=cl>                        &#39;&#34;url_path&#34;: &#34;$request_uri&#34;, &#39;
+</span></span><span class=line><span class=cl>                        &#39;&#34;request_body&#34;: &#34;$request_body&#34;, &#39;
+</span></span><span class=line><span class=cl>                        &#39;&#34;status&#34;: $status, &#39;
+</span></span><span class=line><span class=cl>                        &#39;&#34;level&#34;: &#34;$level&#34;,&#39;
+</span></span><span class=line><span class=cl>                        &#39;&#34;body_bytes_sent&#34;: $body_bytes_sent, &#39;
+</span></span><span class=line><span class=cl>                        &#39;&#34;http_user_agent&#34;: &#34;$http_user_agent&#34;, &#39;
+</span></span><span class=line><span class=cl>                        &#39;&#34;http_host&#34;: &#34;$http_host&#34;, &#39;
+</span></span><span class=line><span class=cl>                        &#39;&#34;http_requestid&#34;: &#34;$http_requestid&#34;, &#39;
+</span></span><span class=line><span class=cl>                        &#39;&#34;http_authorization&#34;: &#34;$http_authorization&#34;, &#39;
+</span></span><span class=line><span class=cl>                        &#39;&#34;business&#34;: &#34;ngx_access-$host&#34;, &#39;
+</span></span><span class=line><span class=cl>                        &#39;&#34;http_x_forwarded_for&#34;: &#34;$http_x_forwarded_for&#34;, &#39;
+</span></span><span class=line><span class=cl>                        &#39;&#34;upstream_addr&#34;: &#34;$upstream_addr&#34;,&#39;
+</span></span><span class=line><span class=cl>                        &#39;&#34;trace_id&#34;: &#34;$trace_id&#34;,&#39;
+</span></span><span class=line><span class=cl>                        &#39;&#34;upstream_response_time&#34;: &#34;$upstream_response_timer&#34;,&#39;
+</span></span><span class=line><span class=cl>                        &#39;&#34;ssl_protocol&#34;: &#34;$ssl_protocol&#34;,&#39;
+</span></span><span class=line><span class=cl>                        &#39;&#34;request_time&#34;: $request_time&#39;
+</span></span><span class=line><span class=cl>                        &#39; }&#39;;</span></span></code></pre></td></tr></table></div></div><h2 class=heading-element id=跨域><span>跨域</span>
 <a href=#%e8%b7%a8%e5%9f%9f class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>add_header Access-Control-Allow-Origin *<span class=p>;</span>
-</span></span><span class=line><span class=cl>add_header Access-Control-Allow-Methods *<span class=p>;</span>
-</span></span><span class=line><span class=cl>add_header Access-Control-Allow-Credentials true<span class=p>;</span></span></span></code></pre></td></tr></table></div></div><h2 class=heading-element id=上传文件><span>上传文件</span>
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>add_header Access-Control-Allow-Origin *;
+</span></span><span class=line><span class=cl>add_header Access-Control-Allow-Methods *;
+</span></span><span class=line><span class=cl>add_header Access-Control-Allow-Credentials true;</span></span></code></pre></td></tr></table></div></div><h2 class=heading-element id=上传文件><span>上传文件</span>
 <a href=#%e4%b8%8a%e4%bc%a0%e6%96%87%e4%bb%b6 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl># nginx
@@ -184,45 +184,45 @@ Leon</span></span><span class=post-included-in>&nbsp;收录于 <a href=/categori
 </span><span class=lnt>37
 </span><span class=lnt>38
 </span><span class=lnt>39
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>upstream xxx.cn <span class=o>{</span>
-</span></span><span class=line><span class=cl>	server  10.x:3000  <span class=nv>weight</span><span class=o>=</span><span class=m>10</span> <span class=nv>max_fails</span><span class=o>=</span><span class=m>3</span> <span class=nv>fail_timeout</span><span class=o>=</span>3s<span class=p>;</span>
-</span></span><span class=line><span class=cl>	server  10.x:3000  <span class=nv>weight</span><span class=o>=</span><span class=m>10</span> <span class=nv>max_fails</span><span class=o>=</span><span class=m>3</span> <span class=nv>fail_timeout</span><span class=o>=</span>3s<span class=p>;</span>
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>upstream xxx.cn {
+</span></span><span class=line><span class=cl>	server  10.x:3000  weight=10 max_fails=3 fail_timeout=3s;
+</span></span><span class=line><span class=cl>	server  10.x:3000  weight=10 max_fails=3 fail_timeout=3s;
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl> 	check <span class=nv>interval</span><span class=o>=</span><span class=m>1000</span> <span class=nv>rise</span><span class=o>=</span><span class=m>2</span> <span class=nv>fall</span><span class=o>=</span><span class=m>3</span> <span class=nv>timeout</span><span class=o>=</span><span class=m>5000</span> <span class=nv>type</span><span class=o>=</span>http <span class=nv>default_down</span><span class=o>=</span>false<span class=p>;</span>
-</span></span><span class=line><span class=cl> 	check_http_send <span class=s2>&#34;GET /ping HTTP/1.0\\r\\n\\r\\n&#34;</span><span class=p>;</span>
-</span></span><span class=line><span class=cl> 	check_http_expect_alive http_2xx http_3xx<span class=p>;</span>
-</span></span><span class=line><span class=cl><span class=o>}</span>
+</span></span><span class=line><span class=cl> 	check interval=1000 rise=2 fall=3 timeout=5000 type=http default_down=false;
+</span></span><span class=line><span class=cl> 	check_http_send &#34;GET /ping HTTP/1.0\\r\\n\\r\\n&#34;;
+</span></span><span class=line><span class=cl> 	check_http_expect_alive http_2xx http_3xx;
+</span></span><span class=line><span class=cl>}
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>server <span class=o>{</span>
-</span></span><span class=line><span class=cl>	listen	80<span class=p>;</span>
-</span></span><span class=line><span class=cl>	server_name  xxx.cn<span class=p>;</span>
-</span></span><span class=line><span class=cl>	index index.html index.htm<span class=p>;</span>
-</span></span><span class=line><span class=cl>	access_log  /var/log/nginx/xxx.cn.access.log  main<span class=p>;</span>
-</span></span><span class=line><span class=cl>	error_log   /var/log/nginx/xxx.cn.error.log warn<span class=p>;</span>
+</span></span><span class=line><span class=cl>server {
+</span></span><span class=line><span class=cl>	listen	80;
+</span></span><span class=line><span class=cl>	server_name  xxx.cn;
+</span></span><span class=line><span class=cl>	index index.html index.htm;
+</span></span><span class=line><span class=cl>	access_log  /var/log/nginx/xxx.cn.access.log  main;
+</span></span><span class=line><span class=cl>	error_log   /var/log/nginx/xxx.cn.error.log warn;
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>	location ~ ^/NginxStatus/ <span class=o>{</span>
-</span></span><span class=line><span class=cl>			stub_status on<span class=p>;</span>
-</span></span><span class=line><span class=cl>			access_log on<span class=p>;</span>
-</span></span><span class=line><span class=cl>		<span class=o>}</span>
-</span></span><span class=line><span class=cl>	location / <span class=o>{</span>
-</span></span><span class=line><span class=cl>		proxy_redirect off <span class=p>;</span>
-</span></span><span class=line><span class=cl>		proxy_set_header Host <span class=nv>$host</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>		proxy_set_header X-Real-IP <span class=nv>$remote_addr</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>		proxy_set_header REMOTE-HOST <span class=nv>$remote_addr</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>		proxy_set_header X-Forwarded-For <span class=nv>$proxy_add_x_forwarded_for</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>		proxy_connect_timeout 600<span class=p>;</span>
-</span></span><span class=line><span class=cl>		proxy_send_timeout 600<span class=p>;</span>
-</span></span><span class=line><span class=cl>		proxy_read_timeout 600<span class=p>;</span>
-</span></span><span class=line><span class=cl>		proxy_ignore_client_abort on<span class=p>;</span>
-</span></span><span class=line><span class=cl>		proxy_buffer_size 1600k<span class=p>;</span>
-</span></span><span class=line><span class=cl>		proxy_buffers <span class=m>4</span> 3200k<span class=p>;</span>
-</span></span><span class=line><span class=cl>		proxy_busy_buffers_size 6400k<span class=p>;</span>
-</span></span><span class=line><span class=cl>		proxy_temp_file_write_size 6400k<span class=p>;</span>
-</span></span><span class=line><span class=cl>		proxy_max_temp_file_size 128m<span class=p>;</span>
-</span></span><span class=line><span class=cl>		proxy_next_upstream error timeout invalid_header http_500 http_503 http_404<span class=p>;</span>
-</span></span><span class=line><span class=cl>		proxy_pass	http://xxx.cn<span class=p>;</span>
-</span></span><span class=line><span class=cl>	<span class=o>}</span>
-</span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></td></tr></table></div></div><h3 class=heading-element id=php><span>php</span>
+</span></span><span class=line><span class=cl>	location ~ ^/NginxStatus/ {
+</span></span><span class=line><span class=cl>			stub_status on;
+</span></span><span class=line><span class=cl>			access_log on;
+</span></span><span class=line><span class=cl>		}
+</span></span><span class=line><span class=cl>	location / {
+</span></span><span class=line><span class=cl>		proxy_redirect off ;
+</span></span><span class=line><span class=cl>		proxy_set_header Host $host;
+</span></span><span class=line><span class=cl>		proxy_set_header X-Real-IP $remote_addr;
+</span></span><span class=line><span class=cl>		proxy_set_header REMOTE-HOST $remote_addr;
+</span></span><span class=line><span class=cl>		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+</span></span><span class=line><span class=cl>		proxy_connect_timeout 600;
+</span></span><span class=line><span class=cl>		proxy_send_timeout 600;
+</span></span><span class=line><span class=cl>		proxy_read_timeout 600;
+</span></span><span class=line><span class=cl>		proxy_ignore_client_abort on;
+</span></span><span class=line><span class=cl>		proxy_buffer_size 1600k;
+</span></span><span class=line><span class=cl>		proxy_buffers 4 3200k;
+</span></span><span class=line><span class=cl>		proxy_busy_buffers_size 6400k;
+</span></span><span class=line><span class=cl>		proxy_temp_file_write_size 6400k;
+</span></span><span class=line><span class=cl>		proxy_max_temp_file_size 128m;
+</span></span><span class=line><span class=cl>		proxy_next_upstream error timeout invalid_header http_500 http_503 http_404;
+</span></span><span class=line><span class=cl>		proxy_pass	http://xxx.cn;
+</span></span><span class=line><span class=cl>	}
+</span></span><span class=line><span class=cl>}</span></span></code></pre></td></tr></table></div></div><h3 class=heading-element id=php><span>php</span>
 <a href=#php class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
@@ -267,50 +267,50 @@ Leon</span></span><span class=post-included-in>&nbsp;收录于 <a href=/categori
 </span><span class=lnt>42
 </span><span class=lnt>43
 </span><span class=lnt>44
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>listen 80<span class=p>;</span>
-</span></span><span class=line><span class=cl>listen <span class=o>[</span>::<span class=o>]</span>:80<span class=p>;</span>
-</span></span><span class=line><span class=cl>listen <span class=m>443</span> ssl http2<span class=p>;</span>
-</span></span><span class=line><span class=cl>listen <span class=o>[</span>::<span class=o>]</span>:443 ssl http2<span class=p>;</span>
-</span></span><span class=line><span class=cl>ssl_certificate /usr/local/openresty/nginx/conf/ssl/xxx.com.pem<span class=p>;</span>
-</span></span><span class=line><span class=cl>ssl_certificate_key /usr/local/openresty/nginx/conf/ssl/xxx.com.key<span class=p>;</span>
-</span></span><span class=line><span class=cl>ssl_protocols TLSv1.2 TLSv1.3<span class=p>;</span>
-</span></span><span class=line><span class=cl>ssl_ecdh_curve X25519:prime256v1:secp384r1:secp521r1<span class=p>;</span>
-</span></span><span class=line><span class=cl>ssl_ciphers ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256<span class=p>;</span>
-</span></span><span class=line><span class=cl>ssl_conf_command Ciphersuites TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_128_GCM_SHA256<span class=p>;</span>
-</span></span><span class=line><span class=cl>ssl_conf_command Options PrioritizeChaCha<span class=p>;</span>
-</span></span><span class=line><span class=cl>ssl_prefer_server_ciphers on<span class=p>;</span>
-</span></span><span class=line><span class=cl>ssl_session_timeout 10m<span class=p>;</span>
-</span></span><span class=line><span class=cl>ssl_session_cache shared:SSL:10m<span class=p>;</span>
-</span></span><span class=line><span class=cl>ssl_buffer_size 2k<span class=p>;</span>
-</span></span><span class=line><span class=cl>add_header Strict-Transport-Security max-age<span class=o>=</span>15768000<span class=p>;</span>
-</span></span><span class=line><span class=cl>ssl_stapling on<span class=p>;</span>
-</span></span><span class=line><span class=cl>ssl_stapling_verify on<span class=p>;</span>
-</span></span><span class=line><span class=cl>server_name xxx<span class=p>;</span>
-</span></span><span class=line><span class=cl>access_log /var/log/xxx.log combined<span class=p>;</span>
-</span></span><span class=line><span class=cl>index index.html index.htm index.php<span class=p>;</span>
-</span></span><span class=line><span class=cl>root xxx_path<span class=p>;</span>
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>listen 80;
+</span></span><span class=line><span class=cl>listen [::]:80;
+</span></span><span class=line><span class=cl>listen 443 ssl http2;
+</span></span><span class=line><span class=cl>listen [::]:443 ssl http2;
+</span></span><span class=line><span class=cl>ssl_certificate /usr/local/openresty/nginx/conf/ssl/xxx.com.pem;
+</span></span><span class=line><span class=cl>ssl_certificate_key /usr/local/openresty/nginx/conf/ssl/xxx.com.key;
+</span></span><span class=line><span class=cl>ssl_protocols TLSv1.2 TLSv1.3;
+</span></span><span class=line><span class=cl>ssl_ecdh_curve X25519:prime256v1:secp384r1:secp521r1;
+</span></span><span class=line><span class=cl>ssl_ciphers ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256;
+</span></span><span class=line><span class=cl>ssl_conf_command Ciphersuites TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_128_GCM_SHA256;
+</span></span><span class=line><span class=cl>ssl_conf_command Options PrioritizeChaCha;
+</span></span><span class=line><span class=cl>ssl_prefer_server_ciphers on;
+</span></span><span class=line><span class=cl>ssl_session_timeout 10m;
+</span></span><span class=line><span class=cl>ssl_session_cache shared:SSL:10m;
+</span></span><span class=line><span class=cl>ssl_buffer_size 2k;
+</span></span><span class=line><span class=cl>add_header Strict-Transport-Security max-age=15768000;
+</span></span><span class=line><span class=cl>ssl_stapling on;
+</span></span><span class=line><span class=cl>ssl_stapling_verify on;
+</span></span><span class=line><span class=cl>server_name xxx;
+</span></span><span class=line><span class=cl>access_log /var/log/xxx.log combined;
+</span></span><span class=line><span class=cl>index index.html index.htm index.php;
+</span></span><span class=line><span class=cl>root xxx_path;
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=k>if</span> <span class=o>(</span><span class=nv>$ssl_protocol</span> <span class=o>=</span> <span class=s2>&#34;&#34;</span><span class=o>)</span> <span class=o>{</span> <span class=k>return</span> <span class=m>302</span> https://<span class=nv>$host$request_uri</span><span class=p>;</span> <span class=o>}</span>
-</span></span><span class=line><span class=cl>location ~ <span class=o>[</span>^/<span class=o>]</span><span class=se>\\</span>.php<span class=o>(</span>/<span class=p>|</span>$<span class=o>)</span> <span class=o>{</span>
-</span></span><span class=line><span class=cl>  <span class=c1>#fastcgi_pass remote_php_ip:9000;</span>
-</span></span><span class=line><span class=cl>  fastcgi_pass unix:/dev/shm/php-cgi.sock<span class=p>;</span>
-</span></span><span class=line><span class=cl>  fastcgi_index index.php<span class=p>;</span>
-</span></span><span class=line><span class=cl>  include fastcgi.conf<span class=p>;</span>
-</span></span><span class=line><span class=cl><span class=o>}</span>
-</span></span><span class=line><span class=cl>location ~ .*<span class=se>\\</span>.<span class=o>(</span>gif<span class=p>|</span>jpg<span class=p>|</span>jpeg<span class=p>|</span>png<span class=p>|</span>bmp<span class=p>|</span>swf<span class=p>|</span>flv<span class=p>|</span>mp4<span class=p>|</span>ico<span class=o>)</span>$ <span class=o>{</span>
-</span></span><span class=line><span class=cl>  expires 30d<span class=p>;</span>
-</span></span><span class=line><span class=cl>  access_log off<span class=p>;</span>
-</span></span><span class=line><span class=cl><span class=o>}</span>
-</span></span><span class=line><span class=cl>location ~ .*<span class=se>\\</span>.<span class=o>(</span>js<span class=p>|</span>css<span class=o>)</span>?$ <span class=o>{</span>
-</span></span><span class=line><span class=cl>  expires 7d<span class=p>;</span>
-</span></span><span class=line><span class=cl>  access_log off<span class=p>;</span>
-</span></span><span class=line><span class=cl><span class=o>}</span>
-</span></span><span class=line><span class=cl>location ~ /<span class=o>(</span><span class=se>\\</span>.user<span class=se>\\</span>.ini<span class=p>|</span><span class=se>\\</span>.ht<span class=p>|</span><span class=se>\\</span>.git<span class=p>|</span><span class=se>\\</span>.svn<span class=p>|</span><span class=se>\\</span>.project<span class=p>|</span>LICENSE<span class=p>|</span>README<span class=se>\\</span>.md<span class=p>|</span><span class=se>\\</span>.env<span class=o>)</span> <span class=o>{</span>
-</span></span><span class=line><span class=cl>  deny all<span class=p>;</span>
-</span></span><span class=line><span class=cl><span class=o>}</span>
-</span></span><span class=line><span class=cl>location /.well-known <span class=o>{</span>
-</span></span><span class=line><span class=cl>  allow all<span class=p>;</span>
-</span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></td></tr></table></div></div><h2 class=heading-element id=default_server><span>default_server</span>
+</span></span><span class=line><span class=cl>if ($ssl_protocol = &#34;&#34;) { return 302 https://$host$request_uri; }
+</span></span><span class=line><span class=cl>location ~ [^/]\\.php(/|$) {
+</span></span><span class=line><span class=cl>  #fastcgi_pass remote_php_ip:9000;
+</span></span><span class=line><span class=cl>  fastcgi_pass unix:/dev/shm/php-cgi.sock;
+</span></span><span class=line><span class=cl>  fastcgi_index index.php;
+</span></span><span class=line><span class=cl>  include fastcgi.conf;
+</span></span><span class=line><span class=cl>}
+</span></span><span class=line><span class=cl>location ~ .*\\.(gif|jpg|jpeg|png|bmp|swf|flv|mp4|ico)$ {
+</span></span><span class=line><span class=cl>  expires 30d;
+</span></span><span class=line><span class=cl>  access_log off;
+</span></span><span class=line><span class=cl>}
+</span></span><span class=line><span class=cl>location ~ .*\\.(js|css)?$ {
+</span></span><span class=line><span class=cl>  expires 7d;
+</span></span><span class=line><span class=cl>  access_log off;
+</span></span><span class=line><span class=cl>}
+</span></span><span class=line><span class=cl>location ~ /(\\.user\\.ini|\\.ht|\\.git|\\.svn|\\.project|LICENSE|README\\.md|\\.env) {
+</span></span><span class=line><span class=cl>  deny all;
+</span></span><span class=line><span class=cl>}
+</span></span><span class=line><span class=cl>location /.well-known {
+</span></span><span class=line><span class=cl>  allow all;
+</span></span><span class=line><span class=cl>}</span></span></code></pre></td></tr></table></div></div><h2 class=heading-element id=default_server><span>default_server</span>
 <a href=#default_server class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
@@ -355,7 +355,8 @@ Leon</span></span><span class=post-included-in>&nbsp;收录于 <a href=/categori
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl># 查看日志，检查其他域名是否正常
 </span></span><span class=line><span class=cl>tailf /var/log/nginx/000_default.access.log</span></span></code></pre></td></tr></table></div></div><h2 class=heading-element id=nginx-warn-variables_hash><span>nginx warn variables_hash</span>
-<a href=#nginx-warn-variables_hash class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h2><blockquote><p>nginx: [warn] could not build optimal variables_hash, you should increase either variables_hash_max_size: 1024 or variables_hash_bucket_size: 64; ignoring variables_hash_bucket_size</p></blockquote><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+<a href=#nginx-warn-variables_hash class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h2><blockquote><p>nginx: [warn] could not build optimal variables_hash, you should increase either variables_hash_max_size: 1024 or
+variables_hash_bucket_size: 64; ignoring variables_hash_bucket_size</p></blockquote><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl><span class=c1># 解决方法,在http中添加</span>

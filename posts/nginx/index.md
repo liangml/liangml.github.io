@@ -1,40 +1,43 @@
 # Nginx
 
+
 ## trust proxy ip
+
 ```text
-    set_real_ip_from   172.16.0.0/16;
-    real_ip_header     X-Forwarded-For;
-    real_ip_recursive on;
+set_real_ip_from   172.16.0.0/16;
+real_ip_header     X-Forwarded-For;
+real_ip_recursive on;
 ```
 
 ## 请求方法限制
-```bash
-    if ($request_method !~ ^(GET|HEAD|POST)$ ) {
-        return 501;
-    }
+
+```text
+if ($request_method !~ ^(GET|HEAD|POST)$ ) {
+    return 501;
+}
 ```
 
 ## try_files
 
-
-```bash
+```text
 location / {
     try_files $uri $uri/ /index.html;
 }
 ```
+
 ---
+
 + next.js
 
-
-
-```bash
+```text
 location / {
     try_files $uri $uri.html $uri/ /index.html;
   }
 ```
 
 ## 443 force ssl
-```bash
+
+```text
 if ($ssl_protocol = "") { return 302 https://$host$request_uri; }
 # 302
 if ($server_port !~ 443) { rewrite ^(.*)$ https://$host$1 redirect; }
@@ -43,7 +46,8 @@ if ($server_port !~ 443) { rewrite ^(.*)$ https://$host$1 permanent; }
 ```
 
 ## 499
-```bash
+
+```text
 proxy_ignore_client_abort on;
 # 确定在客户端关闭连接时是否应关闭与代理服务器的连接，而不在等待响应
 proxy_read_timeout 600;
@@ -52,7 +56,8 @@ proxy_send_timeout 600;
 ```
 
 ## log format
-```bash
+
+```text
 log_format main  escape=json '{ "time_local": "$time_local", '
                         '"remote_user": "$remote_user", '
                         '"remote_addr": "$remote_addr", '
@@ -77,17 +82,22 @@ log_format main  escape=json '{ "time_local": "$time_local", '
                         '"request_time": $request_time'
                         ' }';
 ```
+
 ## 跨域
-```bash
+
+```text
 add_header Access-Control-Allow-Origin *;
 add_header Access-Control-Allow-Methods *;
 add_header Access-Control-Allow-Credentials true;
 ```
+
 ## 上传文件
+
 ```text
 # nginx
 client_max_body_size 1024m;
 ```
+
 ```text
 # php
 file_uploads on        是否允许通过HTTP上传文件的开关。
@@ -99,7 +109,9 @@ max_execution_time 600  每个PHP页面运行的最大时间值(秒)，默认30�
 max_input_time 600      每个PHP页面接收数据所需的最大时间，默认60秒
 memory_limit 8m         每个PHP页面所吃掉的最大内存，默认8M
 ```
+
 ## proxy
+
 ```plain
 location ~ .*\.(js|css)?$ {
 	expires 12h;
@@ -110,9 +122,12 @@ location ~ .*\.(gif|jpg|jpeg|png|bmp|swf)?$ {
 	proxy_pass http://xxx;
 }
 ```
+
 ## exsample
+
 ### http
-```bash
+
+```text
 upstream xxx.cn {
 	server  10.x:3000  weight=10 max_fails=3 fail_timeout=3s;
 	server  10.x:3000  weight=10 max_fails=3 fail_timeout=3s;
@@ -155,7 +170,8 @@ server {
 ```
 
 ### php
-```bash
+
+```text
 listen 80;
 listen [::]:80;
 listen 443 ssl http2;
@@ -203,6 +219,7 @@ location /.well-known {
 ```
 
 ## default_server
+
 ```text
 # 手动生成本地ssl公私钥
 openssl req -x509 -nodes -days 3650 -newkey rsa:2048 -keyout /etc/nginx/ssl/nginx.key -out /etc/nginx/ssl/nginx.crt
@@ -229,7 +246,10 @@ tailf /var/log/nginx/000_default.access.log
 ```
 
 ## nginx warn variables_hash
-> nginx: [warn] could not build optimal variables_hash, you should increase either variables_hash_max_size: 1024 or variables_hash_bucket_size: 64; ignoring variables_hash_bucket_size
+
+> nginx: [warn] could not build optimal variables_hash, you should increase either variables_hash_max_size: 1024 or
+> variables_hash_bucket_size: 64; ignoring variables_hash_bucket_size
+
 ```shell
 # 解决方法,在http中添加
 variables_hash_max_size 4096;
