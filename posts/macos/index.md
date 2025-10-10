@@ -22,5 +22,5 @@ tabby
 ---
 
 > 作者: Leon  
-> URL: https://liangml.github.io/posts/macos/  
+> URL: https://blog.liangml.dpdns.org/posts/macos/  
 

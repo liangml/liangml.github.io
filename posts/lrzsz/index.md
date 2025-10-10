@@ -76,5 +76,5 @@ Instant: checked
 ---
 
 > 作者: Leon  
-> URL: https://liangml.github.io/posts/lrzsz/  
+> URL: https://blog.liangml.dpdns.org/posts/lrzsz/  
 

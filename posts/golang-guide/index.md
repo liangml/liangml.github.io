@@ -3904,5 +3904,5 @@ golangci-lint 有 [various-linters] 可供使用。建议将上述 linters 作�
 ---
 
 > 作者: Leon  
-> URL: https://liangml.github.io/posts/golang-guide/  
+> URL: https://blog.liangml.dpdns.org/posts/golang-guide/  
 

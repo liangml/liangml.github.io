@@ -46,5 +46,5 @@ stdout_logfile_backups = 20
 ---
 
 > 作者: Leon  
-> URL: https://liangml.github.io/posts/supervisor/  
+> URL: https://blog.liangml.dpdns.org/posts/supervisor/  
 

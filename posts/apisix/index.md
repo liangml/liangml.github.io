@@ -58,5 +58,5 @@ location /api {
 ---
 
 > 作者: Leon  
-> URL: https://liangml.github.io/posts/apisix/  
+> URL: https://blog.liangml.dpdns.org/posts/apisix/  
 

@@ -20,5 +20,5 @@ jmap -dump:format=b,file=VipQuickRoutePlatAsyn.dat 29473
 ---
 
 > 作者: Leon  
-> URL: https://liangml.github.io/posts/java/  
+> URL: https://blog.liangml.dpdns.org/posts/java/  
 

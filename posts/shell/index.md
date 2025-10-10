@@ -178,5 +178,5 @@ echo $num
 ---
 
 > 作者: Leon  
-> URL: https://liangml.github.io/posts/shell/  
+> URL: https://blog.liangml.dpdns.org/posts/shell/  
 

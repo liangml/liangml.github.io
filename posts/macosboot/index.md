@@ -19,5 +19,5 @@
 ---
 
 > 作者: Leon  
-> URL: https://liangml.github.io/posts/macosboot/  
+> URL: https://blog.liangml.dpdns.org/posts/macosboot/  
 

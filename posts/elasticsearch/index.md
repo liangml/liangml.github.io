@@ -65,5 +65,5 @@ curl -XPUT "<http://ip:9200/_cluster/settings>"  -d'{
 ---
 
 > 作者: Leon  
-> URL: https://liangml.github.io/posts/elasticsearch/  
+> URL: https://blog.liangml.dpdns.org/posts/elasticsearch/  
 

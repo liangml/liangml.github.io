@@ -125,5 +125,5 @@ poetry source add aliyun https://mirrors.aliyun.com/pypi/simple
 ---
 
 > 作者: Leon  
-> URL: https://liangml.github.io/posts/poetry/  
+> URL: https://blog.liangml.dpdns.org/posts/poetry/  
 

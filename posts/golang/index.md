@@ -111,5 +111,5 @@ go env -w GOPROXY=https://goproxy.cn,direct
 ---
 
 > 作者: Leon  
-> URL: https://liangml.github.io/posts/golang/  
+> URL: https://blog.liangml.dpdns.org/posts/golang/  
 

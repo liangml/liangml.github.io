@@ -28,5 +28,5 @@ COPY .  target  # 保留原始目录
 ---
 
 > 作者: Leon  
-> URL: https://liangml.github.io/posts/alpine/  
+> URL: https://blog.liangml.dpdns.org/posts/alpine/  
 

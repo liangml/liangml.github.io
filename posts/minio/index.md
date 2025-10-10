@@ -138,5 +138,5 @@ systemctl start minio
 ---
 
 > 作者: Leon  
-> URL: https://liangml.github.io/posts/minio/  
+> URL: https://blog.liangml.dpdns.org/posts/minio/  
 

@@ -175,5 +175,5 @@ openssl rand -base64 15
 ---
 
 > 作者: Leon  
-> URL: https://liangml.github.io/posts/linux/  
+> URL: https://blog.liangml.dpdns.org/posts/linux/  
 

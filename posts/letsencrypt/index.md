@@ -32,5 +32,5 @@ certbot certonly --manual  --preferred-challenges dns
 ---
 
 > 作者: Leon  
-> URL: https://liangml.github.io/posts/letsencrypt/  
+> URL: https://blog.liangml.dpdns.org/posts/letsencrypt/  
 
