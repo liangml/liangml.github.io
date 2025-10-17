@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>LEON BLOG</title><link>https://blog.liangml.dpdns.org/</link><description>运维小站，分享些技术经验。</description><generator>Hugo 0.151.0 &amp; FixIt v0.3.20</generator><language>zh-CN</language><lastBuildDate>Tue, 07 Jan 2025 19:07:33 +0800</lastBuildDate><atom:link href="https://blog.liangml.dpdns.org/index.xml" rel="self" type="application/rss+xml"/><item><title>Kubernetes</title><link>https://blog.liangml.dpdns.org/posts/kubernetes/</link><pubDate>Tue, 07 Jan 2025 19:07:33 +0800</pubDate><guid>https://blog.liangml.dpdns.org/posts/kubernetes/</guid><category domain="https://blog.liangml.dpdns.org/categories/kubernetes/">Kubernetes</category><description>&lt;h2 class="heading-element" id="资源清单格式"&gt;&lt;span&gt;资源清单格式&lt;/span&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>LEON BLOG</title><link>https://blog.liangml.dpdns.org/</link><description>运维小站，分享些技术经验。</description><generator>Hugo 0.151.2 &amp; FixIt v0.3.20</generator><language>zh-CN</language><lastBuildDate>Tue, 07 Jan 2025 19:07:33 +0800</lastBuildDate><atom:link href="https://blog.liangml.dpdns.org/index.xml" rel="self" type="application/rss+xml"/><item><title>Kubernetes</title><link>https://blog.liangml.dpdns.org/posts/kubernetes/</link><pubDate>Tue, 07 Jan 2025 19:07:33 +0800</pubDate><guid>https://blog.liangml.dpdns.org/posts/kubernetes/</guid><category domain="https://blog.liangml.dpdns.org/categories/kubernetes/">Kubernetes</category><description>&lt;h2 class="heading-element" id="资源清单格式"&gt;&lt;span&gt;资源清单格式&lt;/span&gt;
  &lt;a href="#%e8%b5%84%e6%ba%90%e6%b8%85%e5%8d%95%e6%a0%bc%e5%bc%8f" class="heading-mark"&gt;
  &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
  &lt;/a&gt;
@@ -77,7 +77,8 @@
 &lt;/h2&gt;&lt;blockquote&gt;
 &lt;p&gt;Object ：对象，下方是对象的属性&lt;br&gt;
 list：类别，下方包含多个数组，每个数组是一个对象&lt;br&gt;
-String：字符串 后边直接跟value的值&lt;/p&gt;&lt;/blockquote&gt;
+String：字符串 后边直接跟value的值&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h3 class="heading-element" id="通用字段"&gt;&lt;span&gt;通用字段&lt;/span&gt;
  &lt;a href="#%e9%80%9a%e7%94%a8%e5%ad%97%e6%ae%b5" class="heading-mark"&gt;
  &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
@@ -463,7 +464,8 @@ String：字符串 后边直接跟value的值&lt;/p&gt;&lt;/blockquote&gt;
  &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
  &lt;/a&gt;
 &lt;/h4&gt;&lt;blockquote&gt;
-&lt;p&gt;与容器字段通过，只不过把containers换成initcontainers&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;与容器字段通过，只不过把containers换成initcontainers&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;table&gt;
  &lt;thead&gt;
  &lt;tr&gt;
@@ -540,7 +542,8 @@ String：字符串 后边直接跟value的值&lt;/p&gt;&lt;/blockquote&gt;
  &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
  &lt;/a&gt;
 &lt;/h4&gt;&lt;blockquote&gt;
-&lt;p&gt;处理RC其他都支持&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;处理RC其他都支持&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;table&gt;
  &lt;thead&gt;
  &lt;tr&gt;
@@ -984,7 +987,8 @@ String：字符串 后边直接跟value的值&lt;/p&gt;&lt;/blockquote&gt;
 &lt;/h3&gt;&lt;blockquote&gt;
 &lt;p&gt;作用：连接外部服务值本地svc
 原理：只有配置了 selector 的 service 才会自动创建一个同名的 endpoints，没有配置 selector 的 service 不会产生 endpoints
-资源对象&lt;/p&gt;&lt;/blockquote&gt;
+资源对象&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;table&gt;
  &lt;thead&gt;
  &lt;tr&gt;
@@ -1068,7 +1072,8 @@ String：字符串 后边直接跟value的值&lt;/p&gt;&lt;/blockquote&gt;
 &lt;/h3&gt;&lt;blockquote&gt;
 &lt;p&gt;Ingress（入口，准入）是Kubernetes提供的接口，Kubernetes使用Ingress策略定义和Ingress Controller
 实现了基于Ingress策略定义的服务路由功能，用于对Kubernetes集群外部的客户端提供服务。&lt;br&gt;
-Ingress 专门对接用于七层负载的&lt;/p&gt;&lt;/blockquote&gt;
+Ingress 专门对接用于七层负载的&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;table&gt;
  &lt;thead&gt;
  &lt;tr&gt;
@@ -1125,7 +1130,8 @@ Ingress 专门对接用于七层负载的&lt;/p&gt;&lt;/blockquote&gt;
  &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
  &lt;/a&gt;
 &lt;/h3&gt;&lt;blockquote&gt;
-&lt;p&gt;创建方式：使用命令创建，在命令中&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;创建方式：使用命令创建，在命令中&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;下方是如何使用：&lt;/p&gt;
 &lt;h4 class="heading-element" id="在资源清单中添加环境变量"&gt;&lt;span&gt;在资源清单中添加环境变量&lt;/span&gt;
  &lt;a href="#%e5%9c%a8%e8%b5%84%e6%ba%90%e6%b8%85%e5%8d%95%e4%b8%ad%e6%b7%bb%e5%8a%a0%e7%8e%af%e5%a2%83%e5%8f%98%e9%87%8f" class="heading-mark"&gt;
@@ -1162,7 +1168,8 @@ Ingress 专门对接用于七层负载的&lt;/p&gt;&lt;/blockquote&gt;
  &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
  &lt;/a&gt;
 &lt;/h4&gt;&lt;blockquote&gt;
-&lt;p&gt;key=容器定义。value=configmap中的key的value&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;key=容器定义。value=configmap中的key的value&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;table&gt;
  &lt;thead&gt;
  &lt;tr&gt;
@@ -1209,7 +1216,8 @@ Ingress 专门对接用于七层负载的&lt;/p&gt;&lt;/blockquote&gt;
  &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
  &lt;/a&gt;
 &lt;/h4&gt;&lt;blockquote&gt;
-&lt;p&gt;key=configmap中的key。value=configmap中的key的value&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;key=configmap中的key。value=configmap中的key的value&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;table&gt;
  &lt;thead&gt;
  &lt;tr&gt;
@@ -1246,7 +1254,8 @@ Ingress 专门对接用于七层负载的&lt;/p&gt;&lt;/blockquote&gt;
  &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
  &lt;/a&gt;
 &lt;/h4&gt;&lt;blockquote&gt;
-&lt;p&gt;将文件填入数据卷。key就是文件名，value就是文件内容&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;将文件填入数据卷。key就是文件名，value就是文件内容&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;table&gt;
  &lt;thead&gt;
  &lt;tr&gt;
@@ -1299,7 +1308,8 @@ Ingress 专门对接用于七层负载的&lt;/p&gt;&lt;/blockquote&gt;
  &lt;/a&gt;
 &lt;/h4&gt;&lt;blockquote&gt;
 &lt;p&gt;更新 ConfigMap 目前并不会触发相关 Pod 的滚动更新，可以通过修改 pod annotations 的方式强制触发滚动更新 这个例子里我们在
-&lt;code&gt;.spec.template.metadata.annotations&lt;/code&gt; 中添加 &lt;code&gt;version/config&lt;/code&gt;，每次通过修改 &lt;code&gt;version/config&lt;/code&gt;的值 来触发滚动更新&lt;/p&gt;&lt;/blockquote&gt;
+&lt;code&gt;.spec.template.metadata.annotations&lt;/code&gt; 中添加 &lt;code&gt;version/config&lt;/code&gt;，每次通过修改 &lt;code&gt;version/config&lt;/code&gt;的值 来触发滚动更新&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
@@ -1369,7 +1379,8 @@ Ingress 专门对接用于七层负载的&lt;/p&gt;&lt;/blockquote&gt;
 中的容器可以读取和写入 emptyDir 卷中的相同文件，尽管该卷可以挂载到每个容器中的相同或不同路径上。当出于任何原因从节点中删除
 Pod 时，emptyDir 中的数据将被永久删除&lt;/li&gt;
 &lt;li&gt;用法：pod的暂存空间。（存放initC执行结果、容器运行产生元数据-mfsmaster的元数据日志）&lt;/li&gt;
-&lt;/ul&gt;&lt;/blockquote&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;⚠️注意：emptyDir跟pod生命周期一致。容器崩溃不会从节点中移除 pod，因此 emptyDir 卷中的数据在容器崩溃时是安全的&lt;/p&gt;
 &lt;table&gt;
  &lt;thead&gt;
@@ -1417,7 +1428,8 @@ Pod 时，emptyDir 中的数据将被永久删除&lt;/li&gt;
  &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
  &lt;/a&gt;
 &lt;/h4&gt;&lt;blockquote&gt;
-&lt;p&gt;hostPath卷将主机节点的文件系统中的文件或目录挂载到集群中，可对主机文件/目录进行判断，判断是否存在，存在是否合理，并做出动作&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;hostPath卷将主机节点的文件系统中的文件或目录挂载到集群中，可对主机文件/目录进行判断，判断是否存在，存在是否合理，并做出动作&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;table&gt;
  &lt;thead&gt;
  &lt;tr&gt;
@@ -1524,7 +1536,8 @@ Pod 时，emptyDir 中的数据将被永久删除&lt;/li&gt;
  &lt;/a&gt;
 &lt;/h4&gt;&lt;blockquote&gt;
 &lt;p&gt;类别是：PersistentVolume&lt;br&gt;
-PV 也是集群中的资源。 PV 是 Volume 之类的卷插件，但具有独立于使用 PV 的 Pod 的生命周期。可被PVC调用提供给pod&lt;/p&gt;&lt;/blockquote&gt;
+PV 也是集群中的资源。 PV 是 Volume 之类的卷插件，但具有独立于使用 PV 的 Pod 的生命周期。可被PVC调用提供给pod&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;table&gt;
  &lt;thead&gt;
  &lt;tr&gt;
@@ -1593,7 +1606,8 @@ PV 也是集群中的资源。 PV 是 Volume 之类的卷插件，但具有独�
 &lt;/h4&gt;&lt;blockquote&gt;
 &lt;p&gt;&lt;code&gt;pvc&lt;/code&gt;是用户存储的请求。它与Pod相似。Pod消耗节点资源，PVC消耗PV资源。Pod可以请求特定级别的资源（CPU和内存）。声明可以请求特定的大小和访问模式（例如，可以以读/写一次或只读多次模式挂载）
 声明需要在StatefulSet控制器中进行声明&lt;br&gt;
-&lt;code&gt;StatefulSet&lt;/code&gt;是为了 解决有状态服务的问题 （对应 Deployments 和 ReplicaSets 是为无状态服务而设计），需要配合无头服务Service使用&lt;/p&gt;&lt;/blockquote&gt;
+&lt;code&gt;StatefulSet&lt;/code&gt;是为了 解决有状态服务的问题 （对应 Deployments 和 ReplicaSets 是为无状态服务而设计），需要配合无头服务Service使用&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;其特性包括：&lt;/p&gt;
@@ -1620,7 +1634,8 @@ PV 也是集群中的资源。 PV 是 Volume 之类的卷插件，但具有独�
 &lt;li&gt;没有ClusterIP地址&lt;/li&gt;
 &lt;li&gt;kube-proxy不会创建负载均衡转发规则&lt;/li&gt;
 &lt;li&gt;Service是否有DNS域名解析取决于还Headless Service是否设置了Label Selector&lt;/li&gt;
-&lt;/ul&gt;&lt;/blockquote&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
 &lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
@@ -1733,7 +1748,8 @@ PV 也是集群中的资源。 PV 是 Volume 之类的卷插件，但具有独�
 &lt;/h4&gt;&lt;ul&gt;
 &lt;li&gt;匹配逻辑
 &lt;blockquote&gt;
-&lt;p&gt;匹配的是节点的标签。只要node符合该标签即为匹配成功&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;匹配的是节点的标签。只要node符合该标签即为匹配成功&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;table&gt;
@@ -1845,7 +1861,8 @@ PV 也是集群中的资源。 PV 是 Volume 之类的卷插件，但具有独�
 &lt;li&gt;
 &lt;p&gt;匹配逻辑&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;pod亲和性匹配的是拓扑域，亲和的是拓扑域，反亲和的也是拓扑域。决定跟不跟pod在同一个拓扑域&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;pod亲和性匹配的是拓扑域，亲和的是拓扑域，反亲和的也是拓扑域。决定跟不跟pod在同一个拓扑域&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;首先在整个集群中寻找标签符合匹配条件的pod&lt;/p&gt;
@@ -1860,7 +1877,8 @@ PV 也是集群中的资源。 PV 是 Volume 之类的卷插件，但具有独�
 &lt;blockquote&gt;
 &lt;p&gt;根据拓扑域匹配新的pod该建立在哪里，只要与上面符合条件的pod在同拓扑域即可。&lt;br&gt;
 拓扑域：在同一层次就属于同一拓扑域。例如：同一主机、同一机房、同一地区等等&lt;br&gt;
-pod亲和性不支持Gt、Lt运算符。&lt;/p&gt;&lt;/blockquote&gt;
+pod亲和性不支持Gt、Lt运算符。&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;table&gt;
  &lt;thead&gt;
  &lt;tr&gt;
@@ -1898,13 +1916,15 @@ pod亲和性不支持Gt、Lt运算符。&lt;/p&gt;&lt;/blockquote&gt;
  &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;blockquote&gt;
-&lt;p&gt;下方字段通过node亲和性一致&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;下方字段通过node亲和性一致&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h3 class="heading-element" id="亲和性相关运算符"&gt;&lt;span&gt;亲和性相关运算符&lt;/span&gt;
  &lt;a href="#%e4%ba%b2%e5%92%8c%e6%80%a7%e7%9b%b8%e5%85%b3%e8%bf%90%e7%ae%97%e7%ac%a6" class="heading-mark"&gt;
  &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
  &lt;/a&gt;
 &lt;/h3&gt;&lt;blockquote&gt;
-&lt;p&gt;键值运算关系&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;键值运算关系&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;ul&gt;
 &lt;li&gt;In：label 的值在某个列表中&lt;/li&gt;
 &lt;li&gt;NotIn：label 的值不在某个列表中&lt;/li&gt;
@@ -2060,7 +2080,8 @@ pod亲和性不支持Gt、Lt运算符。&lt;/p&gt;&lt;/blockquote&gt;
  &lt;/a&gt;
 &lt;/h4&gt;&lt;blockquote&gt;
 &lt;p&gt;在 RBAC API 中，Role 表示一组规则权限，权限只会增加(累加权限)，不存在一个资源一开始就有很多权限而通过 RBAC 对其进行减少的操作；Role
-可以定义在一个 namespace 中，如果想要跨 namespace 则可以创建 ClusterRole&lt;/p&gt;&lt;/blockquote&gt;
+可以定义在一个 namespace 中，如果想要跨 namespace 则可以创建 ClusterRole&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;Role资源清单&lt;/p&gt;
@@ -2096,7 +2117,8 @@ pod亲和性不支持Gt、Lt运算符。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;li&gt;集群级别的资源控制( 例如 node 访问权限 )&lt;/li&gt;
 &lt;li&gt;非资源型 endpoints( 例如 /health 访问 )&lt;/li&gt;
 &lt;li&gt;所有命名空间资源控制(例如 pods )&lt;/li&gt;
-&lt;/ul&gt;&lt;/blockquote&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
 &lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
@@ -2131,13 +2153,15 @@ pod亲和性不支持Gt、Lt运算符。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;RoleBinding and ClusterRoleBinding是什么？&lt;br&gt;
 RoloBinding可以将角色中定义的权限授予用户或用户组，RoleBinding 包含一组权限列表(subjects)
 权限列表中包含有不同形式的待授予权限资源类型(users, groups, or service accounts)；RoloBinding同样包含对被Bind的Role
-引用；RoleBinding 适用于某个命名空间内授权，而 ClusterRoleBinding 适用于集群范围内的授权&lt;/p&gt;&lt;/blockquote&gt;
+引用；RoleBinding 适用于某个命名空间内授权，而 ClusterRoleBinding 适用于集群范围内的授权&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;RoleBinding绑定Role&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;角色通过角色绑定，绑定给用户（user/group/sa）&lt;br&gt;
-例如：将 default 命名空间的 pod-reader Role 授予 jane 用户，此后 jane 用户在 default 命名空间中将具有 pod-reader 的权限&lt;/p&gt;&lt;/blockquote&gt;
+例如：将 default 命名空间的 pod-reader Role 授予 jane 用户，此后 jane 用户在 default 命名空间中将具有 pod-reader 的权限&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
@@ -2179,7 +2203,8 @@ RoloBinding可以将角色中定义的权限授予用户或用户组，RoleBindi
 &lt;code&gt;RoleBinding&lt;/code&gt;来引用&lt;/li&gt;
 &lt;li&gt;例如：以下 &lt;code&gt;RoleBinding&lt;/code&gt; 引用了一个 ClusterRole，这个 ClusterRole 具有整个集群内对 secrets 的访问权限；但是其授权用户dave只能访问
 development 空间中的 secrets(因为 &lt;code&gt;RoleBinding&lt;/code&gt; 定义在 development 命名空间)&lt;/li&gt;
-&lt;/ul&gt;&lt;/blockquote&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
 &lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
@@ -2222,7 +2247,8 @@ development 空间中的 secrets(因为 &lt;code&gt;RoleBinding&lt;/code&gt; 定
 &lt;ul&gt;
 &lt;li&gt;集群角色通过角色绑定，绑定给用户（user/group/sa）。将集群角色权限限制在角色名字空间下&lt;/li&gt;
 &lt;li&gt;使用ClusterRoleBinding可以对整个集群中的所有命名空间资源权限进行授权；以下ClusterRoleBinding样例展示了授权manager组内所有用户在全部命名空间中对secrets进行访问&lt;/li&gt;
-&lt;/ul&gt;&lt;/blockquote&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
 &lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
@@ -2264,7 +2290,8 @@ development 空间中的 secrets(因为 &lt;code&gt;RoleBinding&lt;/code&gt; 定
  &lt;/a&gt;
 &lt;/h4&gt;&lt;blockquote&gt;
 &lt;p&gt;Kubernetes 集群内一些资源一般以其名称字符串来表示，这些字符串一般会在 API 的 URL 地址中出现；同时某些资源也会包含子资源，例如
-logs 资源就属于 pods 的子资源，API 中 URL 样例如下&lt;/p&gt;&lt;/blockquote&gt;
+logs 资源就属于 pods 的子资源，API 中 URL 样例如下&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
@@ -2276,7 +2303,8 @@ logs 资源就属于 pods 的子资源，API 中 URL 样例如下&lt;/p&gt;&lt;/
 &lt;/div&gt;
 &lt;/div&gt;&lt;blockquote&gt;
 &lt;p&gt;例如：如果要在 RBAC 授权模型中控制这些子资源的访问权限，可以通过 / 分隔符来实现，以下是一个定义 pods 资资源 logs 访问权限的
-Role 定义样例&lt;/p&gt;&lt;/blockquote&gt;
+Role 定义样例&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
@@ -2307,7 +2335,8 @@ Role 定义样例&lt;/p&gt;&lt;/blockquote&gt;
 &lt;/h4&gt;&lt;blockquote&gt;
 &lt;p&gt;权利附着点：user、group、sa&lt;br&gt;
 权利附着点命名方式&lt;br&gt;
-RoleBinding 和 ClusterRoleBinding 可以将 Role 绑定到 Subjects；Subjects 可以是 groups、users 或者 service accounts&lt;/p&gt;&lt;/blockquote&gt;
+RoleBinding 和 ClusterRoleBinding 可以将 Role 绑定到 Subjects；Subjects 可以是 groups、users 或者 service accounts&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;ul&gt;
 &lt;li&gt;Subjects 中 Users 使用字符串表示，
 &lt;ul&gt;
@@ -7930,7 +7959,8 @@ use one vs other --&gt;
  &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
  &lt;/a&gt;
 &lt;/h2&gt;&lt;p&gt;&lt;a href="https://starchart.cc/xxjwxc/uber_go_guide_cn"target="_blank" rel="external nofollow noopener noreferrer"&gt;&lt;img loading="lazy" src='https://starchart.cc/xxjwxc/uber_go_guide_cn.svg' alt="Stargazers over time"&gt;&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Poetry: Python虚拟环境管理</title><link>https://blog.liangml.dpdns.org/posts/poetry/</link><pubDate>Thu, 31 Oct 2024 10:54:34 +0800</pubDate><guid>https://blog.liangml.dpdns.org/posts/poetry/</guid><category domain="https://blog.liangml.dpdns.org/categories/python/">Python</category><description>&lt;blockquote&gt;
-&lt;p&gt;macos 使用&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;macos 使用&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h2 class="heading-element" id="install"&gt;&lt;span&gt;install&lt;/span&gt;
  &lt;a href="#install" class="heading-mark"&gt;
  &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
@@ -8004,14 +8034,16 @@ use one vs other --&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;blockquote&gt;
 &lt;p&gt;如果已经创建了环境需要先移除 &lt;code&gt;poetry env remove PYTHONPATH&lt;/code&gt;&lt;br&gt;
-创建目录：poetry env use PYTHONPATH&lt;/p&gt;&lt;/blockquote&gt;
+创建目录：poetry env use PYTHONPATH&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;ul&gt;
 &lt;li&gt;退出与启动环境&lt;/li&gt;
 &lt;/ul&gt;
 &lt;blockquote&gt;
 &lt;p&gt;已 poetry 开头的命令自动检测当前环境&lt;br&gt;
 同样也可以使用&lt;code&gt;poetry shell&lt;/code&gt;进入&lt;br&gt;
-退出环境：deactivate&lt;/p&gt;&lt;/blockquote&gt;
+退出环境：deactivate&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h2 class="heading-element" id="poetry-指令"&gt;&lt;span&gt;poetry 指令&lt;/span&gt;
  &lt;a href="#poetry-%e6%8c%87%e4%bb%a4" class="heading-mark"&gt;
  &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
@@ -8021,7 +8053,8 @@ use one vs other --&gt;
  &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
  &lt;/a&gt;
 &lt;/h3&gt;&lt;blockquote&gt;
-&lt;p&gt;poetry add&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;poetry add&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
@@ -8035,7 +8068,8 @@ use one vs other --&gt;
  &lt;/a&gt;
 &lt;/h2&gt;&lt;blockquote&gt;
 &lt;p&gt;除了更新 pyproject.toml ，此时项目中还会新增一个文件，名为 poetry.lock ，它实际上就相当于 pip 的 requirements.txt ，详细记录了所有安装的模块与版本。&lt;br&gt;
-当使用 poetry add 指令时，poetry 会自动依序帮你做完这三件事：&lt;/p&gt;&lt;/blockquote&gt;
+当使用 poetry add 指令时，poetry 会自动依序帮你做完这三件事：&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;ul&gt;
 &lt;li&gt;更新 &lt;code&gt;pyproject.toml&lt;/code&gt;。&lt;/li&gt;
 &lt;li&gt;依照 &lt;code&gt;pyproject.toml&lt;/code&gt; 的内容，更新 &lt;code&gt;poetry.lock&lt;/code&gt; 。&lt;/li&gt;
@@ -8057,7 +8091,8 @@ use one vs other --&gt;
 &lt;/div&gt;&lt;p&gt;如此一来，才能确保手动修改的内容，也更新到 &lt;code&gt;poetry.lock&lt;/code&gt; 中，毕竟虚拟环境如果要重新建立，是基于 &lt;code&gt;poetry.lock&lt;/code&gt; 的内容来安装模块，而非 &lt;code&gt;pyproject.toml&lt;/code&gt; 。
 还是那句话：&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;poetry.lock 相当于 Poetry 的 requirements.txt。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;poetry.lock 相当于 Poetry 的 requirements.txt。&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;但要特别注意的是， &lt;code&gt;poetry lock&lt;/code&gt; 指令，仅会更新 &lt;code&gt;poetry.lock&lt;/code&gt; ，不会同时安装模块至虚拟环境
 因此，在执行完 &lt;code&gt;poetry lock&lt;/code&gt; 指令后，必须再使用 &lt;code&gt;poetry install&lt;/code&gt; 来安装模块。否则就会出现 &lt;code&gt;poetry.lock&lt;/code&gt; 和虚拟环境不一致的状况。
 更多 &lt;code&gt;poetry lock&lt;/code&gt; 细节可参考 官方文件，其中特别值得注意的是 &lt;code&gt;--no-update&lt;/code&gt; 参数。&lt;/p&gt;
@@ -8223,7 +8258,8 @@ Poetry 允许你区分这两者，将上述的模块安装至 dev-dependencies �
  &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
  &lt;/a&gt;
 &lt;/h3&gt;&lt;blockquote&gt;
-&lt;p&gt;在launchd依次完成的工作中，可以看到它是先注册套接字和文件描述符，然后才去启动进程，因此plist指定的进程的启动先后顺序并不明确。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;在launchd依次完成的工作中，可以看到它是先注册套接字和文件描述符，然后才去启动进程，因此plist指定的进程的启动先后顺序并不明确。&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;ul&gt;
 &lt;li&gt;launchd配置文件总共有五个路径，在系统开启之初，只加载了&lt;code&gt;/System/Library/LaunchDaemons&lt;/code&gt; 和&lt;code&gt;/Library/LaunchDaemons&lt;/code&gt;路径下的plist文件，另外三个路径下的plist文件是在用户login之后才进行的。&lt;/li&gt;
 &lt;li&gt;用户的login是由loginwindow进程完成的，而loginwindow的启动又是由&lt;code&gt;/System/Library/LaunchDaemons&lt;/code&gt;路径下的com.apple.loginwindow.plist指定的。&lt;/li&gt;
@@ -8556,7 +8592,8 @@ Poetry 允许你区分这两者，将上述的模块安装至 dev-dependencies �
 &lt;p&gt;&lt;strong&gt;注意：条件表达式要放在方括号之间，并且要有空格，例如: [$a==$b] 是错误的，必须写成 [ $a == $b ]。&lt;/strong&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;乘号(*)前边必须加反斜杠(\)才能实现乘法运算；&lt;br&gt;
-在 MAC 中 shell 的 expr 语法是：$((表达式))，此处表达式中的 &amp;ldquo;*&amp;rdquo; 不需要转义符号 &amp;ldquo;\&amp;rdquo; 。&lt;/p&gt;&lt;/blockquote&gt;
+在 MAC 中 shell 的 expr 语法是：$((表达式))，此处表达式中的 &amp;ldquo;*&amp;rdquo; 不需要转义符号 &amp;ldquo;\&amp;rdquo; 。&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h2 class="heading-element" id="自增和自减操作符"&gt;&lt;span&gt;自增和自减操作符&lt;/span&gt;
  &lt;a href="#%e8%87%aa%e5%a2%9e%e5%92%8c%e8%87%aa%e5%87%8f%e6%93%8d%e4%bd%9c%e7%ac%a6" class="heading-mark"&gt;
  &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
@@ -8565,7 +8602,8 @@ Poetry 允许你区分这两者，将上述的模块安装至 dev-dependencies �
 &lt;li&gt;使用 let 命令&lt;/li&gt;
 &lt;/ul&gt;
 &lt;blockquote&gt;
-&lt;p&gt;let 命令允许对整数进行算术运算。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;let 命令允许对整数进行算术运算。&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
@@ -8599,7 +8637,8 @@ Poetry 允许你区分这两者，将上述的模块安装至 dev-dependencies �
 &lt;li&gt;使用 $(( )) 进行算术运算&lt;/li&gt;
 &lt;/ul&gt;
 &lt;blockquote&gt;
-&lt;p&gt;$(( )) 语法也是进行算术运算的一种方式。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;$(( )) 语法也是进行算术运算的一种方式。&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
@@ -8633,7 +8672,8 @@ Poetry 允许你区分这两者，将上述的模块安装至 dev-dependencies �
 &lt;li&gt;使用 expr 命令&lt;/li&gt;
 &lt;/ul&gt;
 &lt;blockquote&gt;
-&lt;p&gt;expr 命令可以用于算术运算，但在现代脚本中不如 let 和 $(( )) 常用。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;expr 命令可以用于算术运算，但在现代脚本中不如 let 和 $(( )) 常用。&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
@@ -8667,7 +8707,8 @@ Poetry 允许你区分这两者，将上述的模块安装至 dev-dependencies �
 &lt;li&gt;使用 (( )) 进行算术运算&lt;/li&gt;
 &lt;/ul&gt;
 &lt;blockquote&gt;
-&lt;p&gt;与 $(( )) 类似，(( )) 语法也可以用于算术运算。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;与 $(( )) 类似，(( )) 语法也可以用于算术运算。&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
