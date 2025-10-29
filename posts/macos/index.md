@@ -18,6 +18,10 @@ maccy
 obsidian
 tabby
 ```
+## 认证应用
+```shell
+sudo xattr -r -d com.apple.quarantine /Applications/应用名称.app
+```
 
 ---
 
