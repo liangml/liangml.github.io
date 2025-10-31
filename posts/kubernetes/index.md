@@ -2,6 +2,18 @@
 
 
 > 常用别名：https://github.com/liangml/kubectl-aliases
+## minikube Q&A
+
+```shell
+---
+Error: INSTALLATION FAILED: 1 error occurred:
+	* Deployment.apps "ingress-nginx-controller" is invalid: spec.progressDeadlineSeconds: Invalid value: 0: must be greater than minReadySeconds
+
+# 解决方案
+helm install ingress-nginx ingress-nginx/ingress-nginx \
+  --set controller.minReadySeconds=10 \
+  --set controller.progressDeadlineSeconds=600
+```
 
 ## 资源清单格式
 
