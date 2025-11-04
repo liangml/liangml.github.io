@@ -1,4 +1,4 @@
-# Uv_python
+# Uv
 
 
 ## 常用命令
@@ -14,5 +14,5 @@ uv pip install -r requirements.txt -i https://mirrors.aliyun.com/pypi/simple/
 ---
 
 > 作者: Leon  
-> URL: https://blog.liangml.dpdns.org/posts/uv-python/  
+> URL: https://blog.liangml.dpdns.org/posts/uv/  
 
