@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Programs - 合集 - LEON BLOG</title><link>https://blog.liangml.dpdns.org/collections/programs/</link><description>运维小站，分享些技术经验。</description><generator>Hugo 0.155.3 &amp; FixIt v0.3.20</generator><language>zh-CN</language><lastBuildDate>Fri, 22 Nov 2024 15:31:08 +0800</lastBuildDate><atom:link href="https://blog.liangml.dpdns.org/collections/programs/index.xml" rel="self" type="application/rss+xml"/><item><title>Golang-Guide</title><link>https://blog.liangml.dpdns.org/posts/golang-guide/</link><pubDate>Fri, 22 Nov 2024 15:31:08 +0800</pubDate><guid>https://blog.liangml.dpdns.org/posts/golang-guide/</guid><category domain="https://blog.liangml.dpdns.org/categories/golang/">Golang</category><description>&lt;!--
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Programs - 合集 - LEON BLOG</title><link>https://blog.liangml.dpdns.org/collections/programs/</link><description>运维小站，分享些技术经验。</description><generator>Hugo 0.156.0 &amp; FixIt v0.4.2</generator><language>zh-CN</language><lastBuildDate>Fri, 22 Nov 2024 15:31:08 +0800</lastBuildDate><atom:link href="https://blog.liangml.dpdns.org/collections/programs/index.xml" rel="self" type="application/rss+xml"/><item><title>Golang-Guide</title><link>https://blog.liangml.dpdns.org/posts/golang-guide/</link><pubDate>Fri, 22 Nov 2024 15:31:08 +0800</pubDate><guid>https://blog.liangml.dpdns.org/posts/golang-guide/</guid><category domain="https://blog.liangml.dpdns.org/categories/golang/">Golang</category><description>&lt;!--
 
 Editing this document:
 
@@ -110,11 +110,11 @@ change.md
 # 2023-04-13
 - Errors: 只添加一次错误处理指南
 --&gt;
-&lt;h2 class="heading-element" id="uber-goguide-的中文翻译"&gt;&lt;span&gt;&lt;a href="https://github.com/uber-go/guide"target="_blank" rel="external nofollow noopener noreferrer"&gt;uber-go/guide&lt;/a&gt; 的中文翻译&lt;/span&gt;
+&lt;h2 class="heading-element" id="uber-goguide-的中文翻译"&gt;&lt;span&gt;&lt;a href="https://github.com/uber-go/guide" target="_blank" rel="external nofollow noopener noreferrer"&gt;uber-go/guide&lt;/a&gt; 的中文翻译&lt;/span&gt;
  &lt;a href="#uber-goguide-%e7%9a%84%e4%b8%ad%e6%96%87%e7%bf%bb%e8%af%91" class="heading-mark"&gt;
  &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
  &lt;/a&gt;
-&lt;/h2&gt;&lt;h2 class="heading-element" id="english"&gt;&lt;span&gt;&lt;a href="https://github.com/uber-go/guide/blob/master/style.md"target="_blank" rel="external nofollow noopener noreferrer"&gt;English&lt;/a&gt;&lt;/span&gt;
+&lt;/h2&gt;&lt;h2 class="heading-element" id="english"&gt;&lt;span&gt;&lt;a href="https://github.com/uber-go/guide/blob/master/style.md" target="_blank" rel="external nofollow noopener noreferrer"&gt;English&lt;/a&gt;&lt;/span&gt;
  &lt;a href="#english" class="heading-mark"&gt;
  &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
  &lt;/a&gt;
@@ -122,36 +122,20 @@ change.md
  &lt;a href="#uber-go-%e8%af%ad%e8%a8%80%e7%bc%96%e7%a0%81%e8%a7%84%e8%8c%83" class="heading-mark"&gt;
  &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
  &lt;/a&gt;
-&lt;/h2&gt;&lt;p&gt;&lt;a href="https://www.uber.com/"target="_blank" rel="external nofollow noopener noreferrer"&gt;Uber&lt;/a&gt; 是一家美国硅谷的科技公司，也是 Go 语言的早期 adopter。其开源了很多 golang 项目，诸如被 Gopher 圈熟知的 &lt;a href="https://github.com/uber-go/zap"target="_blank" rel="external nofollow noopener noreferrer"&gt;zap&lt;/a&gt;、&lt;a href="https://github.com/jaegertracing/jaeger"target="_blank" rel="external nofollow noopener noreferrer"&gt;jaeger&lt;/a&gt; 等。2018 年年末 Uber 将内部的 &lt;a href="https://github.com/uber-go/guide"target="_blank" rel="external nofollow noopener noreferrer"&gt;Go 风格规范&lt;/a&gt; 开源到 GitHub，经过一年的积累和更新，该规范已经初具规模，并受到广大 Gopher 的关注。本文是该规范的中文版本。本版本会根据原版实时更新。&lt;/p&gt;</description></item><item><title>Poetry: Python虚拟环境管理</title><link>https://blog.liangml.dpdns.org/posts/poetry/</link><pubDate>Thu, 31 Oct 2024 10:54:34 +0800</pubDate><guid>https://blog.liangml.dpdns.org/posts/poetry/</guid><category domain="https://blog.liangml.dpdns.org/categories/python/">Python</category><description>&lt;blockquote&gt;
+&lt;/h2&gt;&lt;p&gt;&lt;a href="https://www.uber.com/" target="_blank" rel="external nofollow noopener noreferrer"&gt;Uber&lt;/a&gt; 是一家美国硅谷的科技公司，也是 Go 语言的早期 adopter。其开源了很多 golang 项目，诸如被 Gopher 圈熟知的 &lt;a href="https://github.com/uber-go/zap" target="_blank" rel="external nofollow noopener noreferrer"&gt;zap&lt;/a&gt;、&lt;a href="https://github.com/jaegertracing/jaeger" target="_blank" rel="external nofollow noopener noreferrer"&gt;jaeger&lt;/a&gt; 等。2018 年年末 Uber 将内部的 &lt;a href="https://github.com/uber-go/guide" target="_blank" rel="external nofollow noopener noreferrer"&gt;Go 风格规范&lt;/a&gt; 开源到 GitHub，经过一年的积累和更新，该规范已经初具规模，并受到广大 Gopher 的关注。本文是该规范的中文版本。本版本会根据原版实时更新。&lt;/p&gt;</description></item><item><title>Poetry: Python虚拟环境管理</title><link>https://blog.liangml.dpdns.org/posts/poetry/</link><pubDate>Thu, 31 Oct 2024 10:54:34 +0800</pubDate><guid>https://blog.liangml.dpdns.org/posts/poetry/</guid><category domain="https://blog.liangml.dpdns.org/categories/python/">Python</category><description>&lt;blockquote&gt;
 &lt;p&gt;macos 使用&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 class="heading-element" id="install"&gt;&lt;span&gt;install&lt;/span&gt;
  &lt;a href="#install" class="heading-mark"&gt;
  &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
  &lt;/a&gt;
-&lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;brew install poetry&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h2 class="heading-element" id="初始化"&gt;&lt;span&gt;初始化&lt;/span&gt;
+&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;brew install poetry&lt;/code&gt;&lt;/pre&gt;&lt;h2 class="heading-element" id="初始化"&gt;&lt;span&gt;初始化&lt;/span&gt;
  &lt;a href="#%e5%88%9d%e5%a7%8b%e5%8c%96" class="heading-mark"&gt;
  &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
  &lt;/a&gt;
-&lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;span class="lnt"&gt;2
-&lt;/span&gt;&lt;span class="lnt"&gt;3
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;mkdir project-demo
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; project-demo
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;poetry init&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h2 class="heading-element" id="管理虚拟环境"&gt;&lt;span&gt;管理虚拟环境&lt;/span&gt;
+&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;mkdir project-demo
+cd project-demo
+poetry init&lt;/code&gt;&lt;/pre&gt;&lt;h2 class="heading-element" id="管理虚拟环境"&gt;&lt;span&gt;管理虚拟环境&lt;/span&gt;
  &lt;a href="#%e7%ae%a1%e7%90%86%e8%99%9a%e6%8b%9f%e7%8e%af%e5%a2%83" class="heading-mark"&gt;
  &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
  &lt;/a&gt;
@@ -159,44 +143,16 @@ change.md
 &lt;li&gt;创建虚拟环境&lt;/li&gt;
 &lt;li&gt;虚拟环境的命名模式为 项目名-随机数-python版本&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;poetry env use PYTHONPATH&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;ul&gt;
+&lt;pre&gt;&lt;code&gt;poetry env use PYTHONPATH&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
 &lt;li&gt;查看当前虚拟环境&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;poetry env list&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;ul&gt;
+&lt;pre&gt;&lt;code&gt;poetry env list&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
 &lt;li&gt;查看当前poetry配置&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;poetry config --list &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;ul&gt;
+&lt;pre&gt;&lt;code&gt;poetry config --list &lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
 &lt;li&gt;允许在项目目录下创建虚拟环境&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;poetry config virtualenvs.in-project true&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;blockquote&gt;
+&lt;pre&gt;&lt;code&gt;poetry config virtualenvs.in-project true&lt;/code&gt;&lt;/pre&gt;&lt;blockquote&gt;
 &lt;p&gt;如果已经创建了环境需要先移除 &lt;code&gt;poetry env remove PYTHONPATH&lt;/code&gt;&lt;br&gt;
 创建目录：poetry env use PYTHONPATH&lt;/p&gt;</description></item><item><title>Nodejs</title><link>https://blog.liangml.dpdns.org/posts/nodejs/</link><pubDate>Tue, 29 Oct 2024 18:10:27 +0800</pubDate><guid>https://blog.liangml.dpdns.org/posts/nodejs/</guid><category domain="https://blog.liangml.dpdns.org/categories/nodejs/">Nodejs</category><description>&lt;h2 class="heading-element" id="问题集锦"&gt;&lt;span&gt;问题集锦&lt;/span&gt;
  &lt;a href="#%e9%97%ae%e9%a2%98%e9%9b%86%e9%94%a6" class="heading-mark"&gt;
@@ -206,14 +162,7 @@ change.md
  &lt;a href="#lib64libstdcso6-version-cxxabi_139-not-found-canvasnode-%e8%a7%a3%e5%86%b3%e5%8a%9e%e6%b3%95centos" class="heading-mark"&gt;
  &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
  &lt;/a&gt;
-&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;npx node-pre-gyp rebuild -C ./node_modules/canvas&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>Shell</title><link>https://blog.liangml.dpdns.org/posts/shell/</link><pubDate>Thu, 17 Oct 2024 18:34:22 +0800</pubDate><guid>https://blog.liangml.dpdns.org/posts/shell/</guid><category domain="https://blog.liangml.dpdns.org/categories/shell/">Shell</category><description>&lt;h2 class="heading-element" id="ps命令"&gt;&lt;span&gt;&lt;code&gt;ps&lt;/code&gt;命令&lt;/span&gt;
+&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;npx node-pre-gyp rebuild -C ./node_modules/canvas&lt;/code&gt;&lt;/pre&gt;</description></item><item><title>Shell</title><link>https://blog.liangml.dpdns.org/posts/shell/</link><pubDate>Thu, 17 Oct 2024 18:34:22 +0800</pubDate><guid>https://blog.liangml.dpdns.org/posts/shell/</guid><category domain="https://blog.liangml.dpdns.org/categories/shell/">Shell</category><description>&lt;h2 class="heading-element" id="ps命令"&gt;&lt;span&gt;&lt;code&gt;ps&lt;/code&gt;命令&lt;/span&gt;
  &lt;a href="#ps%e5%91%bd%e4%bb%a4" class="heading-mark"&gt;
  &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
  &lt;/a&gt;
@@ -221,46 +170,20 @@ change.md
  &lt;a href="#%e6%9f%a5%e7%9c%8b%e8%bf%9b%e7%a8%8b%e5%90%af%e5%8a%a8%e6%97%b6%e9%97%b4" class="heading-mark"&gt;
  &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
  &lt;/a&gt;
-&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;ps -eo pid,lstart,etime,cmd &lt;span class="p"&gt;|&lt;/span&gt;grep &lt;span class="nv"&gt;$PID&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h2 class="heading-element" id="shell-判断"&gt;&lt;span&gt;shell 判断&lt;/span&gt;
+&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;ps -eo pid,lstart,etime,cmd |grep $PID&lt;/code&gt;&lt;/pre&gt;&lt;h2 class="heading-element" id="shell-判断"&gt;&lt;span&gt;shell 判断&lt;/span&gt;
  &lt;a href="#shell-%e5%88%a4%e6%96%ad" class="heading-mark"&gt;
  &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
  &lt;/a&gt;
-&lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;span class="lnt"&gt;2
-&lt;/span&gt;&lt;span class="lnt"&gt;3
-&lt;/span&gt;&lt;span class="lnt"&gt;4
-&lt;/span&gt;&lt;span class="lnt"&gt;5
-&lt;/span&gt;&lt;span class="lnt"&gt;6
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-plain" data-lang="plain"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;-eq # 等于
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;-ne # 不等于
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;-gt # 大于
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;-lt # 小于
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;-ge # 大于等于
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;-le # 小于等于&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h2 class="heading-element" id="ip地址判断"&gt;&lt;span&gt;IP地址判断&lt;/span&gt;
+&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;-eq # 等于
+-ne # 不等于
+-gt # 大于
+-lt # 小于
+-ge # 大于等于
+-le # 小于等于&lt;/code&gt;&lt;/pre&gt;&lt;h2 class="heading-element" id="ip地址判断"&gt;&lt;span&gt;IP地址判断&lt;/span&gt;
  &lt;a href="#ip%e5%9c%b0%e5%9d%80%e5%88%a4%e6%96%ad" class="heading-mark"&gt;
  &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
  &lt;/a&gt;
-&lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-plain" data-lang="plain"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;((2(5[0-5]|[0-4]\\\\d))|[0-1]?\\\\d{1,2})(\\\\.((2(5[0-5]|[0-4]\\\\d))|[0-1]?\\\\d{1,2})){3}&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h2 class="heading-element" id="字符串运算"&gt;&lt;span&gt;字符串运算&lt;/span&gt;
+&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;((2(5[0-5]|[0-4]\\\\d))|[0-1]?\\\\d{1,2})(\\\\.((2(5[0-5]|[0-4]\\\\d))|[0-1]?\\\\d{1,2})){3}&lt;/code&gt;&lt;/pre&gt;&lt;h2 class="heading-element" id="字符串运算"&gt;&lt;span&gt;字符串运算&lt;/span&gt;
  &lt;a href="#%e5%ad%97%e7%ac%a6%e4%b8%b2%e8%bf%90%e7%ae%97" class="heading-mark"&gt;
  &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
  &lt;/a&gt;
@@ -382,114 +305,55 @@ change.md
 &lt;/table&gt;
 &lt;p&gt;其他检查符：&lt;br&gt;
 -S: 判断某文件是否 socket。&lt;br&gt;
--L: 检测文件是否存在并且是一个符号链接。&lt;/p&gt;</description></item><item><title>Java</title><link>https://blog.liangml.dpdns.org/posts/java/</link><pubDate>Sat, 12 Oct 2024 15:48:00 +0800</pubDate><guid>https://blog.liangml.dpdns.org/posts/java/</guid><category domain="https://blog.liangml.dpdns.org/categories/java/">Java</category><description>&lt;h2 class="heading-element" id="java-home-配置"&gt;&lt;span&gt;java home 配置&lt;/span&gt;
+-L: 检测文件是否存在并且是一个符号链接。&lt;/p&gt;</description></item><item><title>Java</title><link>https://blog.liangml.dpdns.org/posts/java/</link><pubDate>Sat, 12 Oct 2024 15:48:00 +0800</pubDate><guid>https://blog.liangml.dpdns.org/posts/java/</guid><category domain="https://blog.liangml.dpdns.org/categories/java/">Java</category><description>&lt;h1 class="heading-element" id="java-home-配置"&gt;&lt;span&gt;java home 配置&lt;/span&gt;
  &lt;a href="#java-home-%e9%85%8d%e7%bd%ae" class="heading-mark"&gt;
  &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
  &lt;/a&gt;
-&lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;span class="lnt"&gt;2
-&lt;/span&gt;&lt;span class="lnt"&gt;3
-&lt;/span&gt;&lt;span class="lnt"&gt;4
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;vim /etc/profile
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;JAVA_HOME&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.312.b07-10.p01.ky10.aarch64/jre/
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$JAVA_HOME&lt;/span&gt;/bin:&lt;span class="nv"&gt;$PATH&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;CLASSPATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;.:&lt;span class="nv"&gt;$JAVA_HOME&lt;/span&gt;/lib/dt.jar:&lt;span class="nv"&gt;$JAVA_HOME&lt;/span&gt;/lib/tools.jar&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h2 class="heading-element" id="java"&gt;&lt;span&gt;Java&lt;/span&gt;
+&lt;/h1&gt;&lt;pre&gt;&lt;code&gt;vim /etc/profile
+export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.312.b07-10.p01.ky10.aarch64/jre/
+export PATH=$JAVA_HOME/bin:$PATH
+export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar&lt;/code&gt;&lt;/pre&gt;&lt;h2 class="heading-element" id="java"&gt;&lt;span&gt;Java&lt;/span&gt;
  &lt;a href="#java" class="heading-mark"&gt;
  &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
  &lt;/a&gt;
-&lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;span class="lnt"&gt;2
-&lt;/span&gt;&lt;span class="lnt"&gt;3
-&lt;/span&gt;&lt;span class="lnt"&gt;4
-&lt;/span&gt;&lt;span class="lnt"&gt;5
-&lt;/span&gt;&lt;span class="lnt"&gt;6
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-plain" data-lang="plain"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;• Jcmd 开启java 进程remote 端口
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;jcmd 20364 ManagementAgent.start jmxremote.port=9999 jmxremote.ssl=false jmxremote.authenticate=false
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;-Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=9999 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Djava.rmi.server.hostname=10.1.219.21
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;• Java dump堆栈信息
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;jmap -dump:format=b,file=VipQuickRoutePlatAsyn.dat 29473&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>Golang</title><link>https://blog.liangml.dpdns.org/posts/golang/</link><pubDate>Sat, 12 Oct 2024 15:05:25 +0800</pubDate><guid>https://blog.liangml.dpdns.org/posts/golang/</guid><category domain="https://blog.liangml.dpdns.org/categories/golang/">Golang</category><description>&lt;h2 class="heading-element" id="build_packages"&gt;&lt;span&gt;build_packages&lt;/span&gt;
+&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;• Jcmd 开启java 进程remote 端口
+jcmd 20364 ManagementAgent.start jmxremote.port=9999 jmxremote.ssl=false jmxremote.authenticate=false
+
+-Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=9999 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Djava.rmi.server.hostname=10.1.219.21
+• Java dump堆栈信息
+jmap -dump:format=b,file=VipQuickRoutePlatAsyn.dat 29473&lt;/code&gt;&lt;/pre&gt;</description></item><item><title>Golang</title><link>https://blog.liangml.dpdns.org/posts/golang/</link><pubDate>Sat, 12 Oct 2024 15:05:25 +0800</pubDate><guid>https://blog.liangml.dpdns.org/posts/golang/</guid><category domain="https://blog.liangml.dpdns.org/categories/golang/">Golang</category><description>&lt;h1 class="heading-element" id="build_packages"&gt;&lt;span&gt;build_packages&lt;/span&gt;
  &lt;a href="#build_packages" class="heading-mark"&gt;
  &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
  &lt;/a&gt;
-&lt;/h2&gt;&lt;h2 class="heading-element" id="go打包命令"&gt;&lt;span&gt;go打包命令&lt;/span&gt;
+&lt;/h1&gt;&lt;h2 class="heading-element" id="go打包命令"&gt;&lt;span&gt;go打包命令&lt;/span&gt;
  &lt;a href="#go%e6%89%93%e5%8c%85%e5%91%bd%e4%bb%a4" class="heading-mark"&gt;
  &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
  &lt;/a&gt;
-&lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;span class="lnt"&gt;2
-&lt;/span&gt;&lt;span class="lnt"&gt;3
-&lt;/span&gt;&lt;span class="lnt"&gt;4
-&lt;/span&gt;&lt;span class="lnt"&gt;5
-&lt;/span&gt;&lt;span class="lnt"&gt;6
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 常规打包方法&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;go build 
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 使用 “-dflags” 缩小大小&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;go build -ldflags &lt;span class="s1"&gt;&amp;#39;-w -s&amp;#39;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 使用upx打包为最小程序&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;upx ...二进制文件&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h3 class="heading-element" id="示例"&gt;&lt;span&gt;示例&lt;/span&gt;
+&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;# 常规打包方法
+go build 
+# 使用 “-dflags” 缩小大小
+go build -ldflags &amp;#39;-w -s&amp;#39;
+# 使用upx打包为最小程序
+upx ...二进制文件&lt;/code&gt;&lt;/pre&gt;&lt;h3 class="heading-element" id="示例"&gt;&lt;span&gt;示例&lt;/span&gt;
  &lt;a href="#%e7%a4%ba%e4%be%8b" class="heading-mark"&gt;
  &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
  &lt;/a&gt;
-&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;span class="lnt"&gt;2
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nv"&gt;CGO_ENABLED&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt; &lt;span class="nv"&gt;GOOS&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;linux &lt;span class="nv"&gt;GOARCH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;amd64 go build -o target/NAME_&lt;span class="sb"&gt;`&lt;/span&gt;date +%Y_%m_%d&lt;span class="sb"&gt;`&lt;/span&gt; &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;MAINSRCPATH&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nv"&gt;CGO_ENABLED&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt; &lt;span class="nv"&gt;GOOS&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;linux &lt;span class="nv"&gt;GOARCH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;amd64 go build -ldflags &lt;span class="s1"&gt;&amp;#39;-w -s&amp;#39;&lt;/span&gt; -o pkg/PACKAGENAME&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h3 class="heading-element" id="multi_platfrom_build"&gt;&lt;span&gt;multi_platfrom_build&lt;/span&gt;
+&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o target/NAME_`date &amp;#43;%Y_%m_%d` ${MAINSRCPATH}
+CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -ldflags &amp;#39;-w -s&amp;#39; -o pkg/PACKAGENAME&lt;/code&gt;&lt;/pre&gt;&lt;h3 class="heading-element" id="multi_platfrom_build"&gt;&lt;span&gt;multi_platfrom_build&lt;/span&gt;
  &lt;a href="#multi_platfrom_build" class="heading-mark"&gt;
  &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
  &lt;/a&gt;
-&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
-&lt;/span&gt;&lt;span class="lnt"&gt; 2
-&lt;/span&gt;&lt;span class="lnt"&gt; 3
-&lt;/span&gt;&lt;span class="lnt"&gt; 4
-&lt;/span&gt;&lt;span class="lnt"&gt; 5
-&lt;/span&gt;&lt;span class="lnt"&gt; 6
-&lt;/span&gt;&lt;span class="lnt"&gt; 7
-&lt;/span&gt;&lt;span class="lnt"&gt; 8
-&lt;/span&gt;&lt;span class="lnt"&gt; 9
-&lt;/span&gt;&lt;span class="lnt"&gt;10
-&lt;/span&gt;&lt;span class="lnt"&gt;11
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;● Mac 打包Linux windows
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;$ &lt;span class="nv"&gt;CGO_ENABLED&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt; &lt;span class="nv"&gt;GOOS&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;linux &lt;span class="nv"&gt;GOARCH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;amd64 go build test.go
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;$ &lt;span class="nv"&gt;CGO_ENABLED&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt; &lt;span class="nv"&gt;GOOS&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;windows &lt;span class="nv"&gt;GOARCH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;amd64 go build test.go
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;● Linux打包Mac windows
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;$ &lt;span class="nv"&gt;CGO_ENABLED&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt; &lt;span class="nv"&gt;GOOS&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;darwin &lt;span class="nv"&gt;GOARCH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;amd64 go build test.go
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;$ &lt;span class="nv"&gt;CGO_ENABLED&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt; &lt;span class="nv"&gt;GOOS&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;windows &lt;span class="nv"&gt;GOARCH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;amd64 go build test.go
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;● windows编译Linux Mac
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;$ SET &lt;span class="nv"&gt;CGO_ENABLED&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;0SET &lt;span class="nv"&gt;GOOS&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;darwin3 SET &lt;span class="nv"&gt;GOARCH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;amd64 go build test.go
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;$ SET &lt;span class="nv"&gt;CGO_ENABLED&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt; SET &lt;span class="nv"&gt;GOOS&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;linux SET &lt;span class="nv"&gt;GOARCH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;amd64 go build test.go&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;blockquote&gt;
+&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;● Mac 打包Linux windows
+$ CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build test.go
+$ CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build test.go
+
+● Linux打包Mac windows
+$ CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build test.go
+$ CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build test.go
+
+● windows编译Linux Mac
+$ SET CGO_ENABLED=0SET GOOS=darwin3 SET GOARCH=amd64 go build test.go
+$ SET CGO_ENABLED=0 SET GOOS=linux SET GOARCH=amd64 go build test.go&lt;/code&gt;&lt;/pre&gt;&lt;blockquote&gt;
 &lt;p&gt;参数说明&lt;br&gt;
 GOOS：目标可执行程序运行操作系统，支持 darwin，freebsd，linux，windows&lt;br&gt;
 GOARCH：目标可执行程序操作系统构架，包括 386，amd64，arm&lt;/p&gt;</description></item></channel></rss>

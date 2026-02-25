@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Gitlab - 分类 - LEON BLOG</title><link>https://blog.liangml.dpdns.org/categories/gitlab/</link><description>运维小站，分享些技术经验。</description><generator>Hugo 0.155.3 &amp; FixIt v0.3.20</generator><language>zh-CN</language><lastBuildDate>Mon, 14 Oct 2024 19:39:59 +0800</lastBuildDate><atom:link href="https://blog.liangml.dpdns.org/categories/gitlab/index.xml" rel="self" type="application/rss+xml"/><item><title>Gitlab</title><link>https://blog.liangml.dpdns.org/posts/gitlab/</link><pubDate>Mon, 14 Oct 2024 19:39:59 +0800</pubDate><guid>https://blog.liangml.dpdns.org/posts/gitlab/</guid><category domain="https://blog.liangml.dpdns.org/categories/gitlab/">Gitlab</category><description>&lt;h2 class="heading-element" id="git-lfs-问题"&gt;&lt;span&gt;git lfs 问题&lt;/span&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Gitlab - 分类 - LEON BLOG</title><link>https://blog.liangml.dpdns.org/categories/gitlab/</link><description>运维小站，分享些技术经验。</description><generator>Hugo 0.156.0 &amp; FixIt v0.4.2</generator><language>zh-CN</language><lastBuildDate>Mon, 14 Oct 2024 19:39:59 +0800</lastBuildDate><atom:link href="https://blog.liangml.dpdns.org/categories/gitlab/index.xml" rel="self" type="application/rss+xml"/><item><title>Gitlab</title><link>https://blog.liangml.dpdns.org/posts/gitlab/</link><pubDate>Mon, 14 Oct 2024 19:39:59 +0800</pubDate><guid>https://blog.liangml.dpdns.org/posts/gitlab/</guid><category domain="https://blog.liangml.dpdns.org/categories/gitlab/">Gitlab</category><description>&lt;h2 class="heading-element" id="git-lfs-问题"&gt;&lt;span&gt;git lfs 问题&lt;/span&gt;
  &lt;a href="#git-lfs-%e9%97%ae%e9%a2%98" class="heading-mark"&gt;
  &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
  &lt;/a&gt;
@@ -10,114 +10,49 @@
  &lt;a href="#gitlab%e9%82%ae%e7%ae%b1%e9%85%8d%e7%bd%ae" class="heading-mark"&gt;
  &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
  &lt;/a&gt;
-&lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
-&lt;/span&gt;&lt;span class="lnt"&gt; 2
-&lt;/span&gt;&lt;span class="lnt"&gt; 3
-&lt;/span&gt;&lt;span class="lnt"&gt; 4
-&lt;/span&gt;&lt;span class="lnt"&gt; 5
-&lt;/span&gt;&lt;span class="lnt"&gt; 6
-&lt;/span&gt;&lt;span class="lnt"&gt; 7
-&lt;/span&gt;&lt;span class="lnt"&gt; 8
-&lt;/span&gt;&lt;span class="lnt"&gt; 9
-&lt;/span&gt;&lt;span class="lnt"&gt;10
-&lt;/span&gt;&lt;span class="lnt"&gt;11
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;gitlab_rails&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;smtp_enable&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;true&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;gitlab_rails&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;smtp_address&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;smtp.exmail.qq.com&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;gitlab_rails&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;smtp_port&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="m"&gt;25&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;gitlab_rails&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;smtp_user_name&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;gitlab@xxx.cn&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;gitlab_rails&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;smtp_password&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;xxx&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;gitlab_rails&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;smtp_domain&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;smtp.exmail.qq.com&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;gitlab_rails&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;smtp_authentication&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;login&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;gitlab_rails&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;smtp_ssl&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;false&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;gitlab_rails&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;smtp_enable_starttls_auto&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;true&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;gitlab_rails&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;gitlab_email_from&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;gitlab@xxx.cn&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;user&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;git_user_email&amp;#34;&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;gitlab@xxx.cn&amp;#34;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h2 class="heading-element" id="gitlab迁移"&gt;&lt;span&gt;gitlab迁移&lt;/span&gt;
+&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;gitlab_rails[&amp;#39;smtp_enable&amp;#39;] = true
+gitlab_rails[&amp;#39;smtp_address&amp;#39;] = &amp;#34;smtp.exmail.qq.com&amp;#34;
+gitlab_rails[&amp;#39;smtp_port&amp;#39;] = 25
+gitlab_rails[&amp;#39;smtp_user_name&amp;#39;] = &amp;#34;gitlab@xxx.cn&amp;#34;
+gitlab_rails[&amp;#39;smtp_password&amp;#39;] = &amp;#34;xxx&amp;#34;
+gitlab_rails[&amp;#39;smtp_domain&amp;#39;] = &amp;#34;smtp.exmail.qq.com&amp;#34;
+gitlab_rails[&amp;#39;smtp_authentication&amp;#39;] = &amp;#34;login&amp;#34;
+gitlab_rails[&amp;#39;smtp_ssl&amp;#39;] = false
+gitlab_rails[&amp;#39;smtp_enable_starttls_auto&amp;#39;] = true
+gitlab_rails[&amp;#39;gitlab_email_from&amp;#39;] = &amp;#34;gitlab@xxx.cn&amp;#34;
+user[&amp;#34;git_user_email&amp;#34;] = &amp;#34;gitlab@xxx.cn&amp;#34;&lt;/code&gt;&lt;/pre&gt;&lt;h2 class="heading-element" id="gitlab迁移"&gt;&lt;span&gt;gitlab迁移&lt;/span&gt;
  &lt;a href="#gitlab%e8%bf%81%e7%a7%bb" class="heading-mark"&gt;
  &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
  &lt;/a&gt;
 &lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;gitlab备份&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;gitlab-rake gitlab:backup:create&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;ul&gt;
+&lt;pre&gt;&lt;code&gt;gitlab-rake gitlab:backup:create&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
 &lt;li&gt;gitlab 定制相关数据服务&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;span class="lnt"&gt;2
-&lt;/span&gt;&lt;span class="lnt"&gt;3
-&lt;/span&gt;&lt;span class="lnt"&gt;4
-&lt;/span&gt;&lt;span class="lnt"&gt;5
-&lt;/span&gt;&lt;span class="lnt"&gt;6
-&lt;/span&gt;&lt;span class="lnt"&gt;7
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 停止相关数据连接服务&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;gitlab-ctl stop unicorn
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;gitlab-ctl stop sidekiq
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 从1393513186编号备份中恢复&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;gitlab-rake gitlab:backup:restore &lt;span class="nv"&gt;BACKUP&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;1393513186&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 启动Gitlab&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;gitlab-ctl start&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h2 class="heading-element" id="submodule"&gt;&lt;span&gt;submodule&lt;/span&gt;
+&lt;pre&gt;&lt;code&gt;# 停止相关数据连接服务
+gitlab-ctl stop unicorn
+gitlab-ctl stop sidekiq
+# 从1393513186编号备份中恢复
+gitlab-rake gitlab:backup:restore BACKUP=1393513186
+# 启动Gitlab
+gitlab-ctl start&lt;/code&gt;&lt;/pre&gt;&lt;h2 class="heading-element" id="submodule"&gt;&lt;span&gt;submodule&lt;/span&gt;
  &lt;a href="#submodule" class="heading-mark"&gt;
  &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
  &lt;/a&gt;
 &lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;add submodule to project&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git submodule add https://github.com/yyy/xxx.git DESTPATH&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;ul&gt;
+&lt;pre&gt;&lt;code&gt;git submodule add https://github.com/yyy/xxx.git DESTPATH&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
 &lt;li&gt;list submodule&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git submodule&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;ul&gt;
+&lt;pre&gt;&lt;code&gt;git submodule&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
 &lt;li&gt;delete submodule&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git submodule deinit&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;ul&gt;
+&lt;pre&gt;&lt;code&gt;git submodule deinit&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
 &lt;li&gt;pull submodule: when git clone add parms &amp;ndash;recursive&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git clone https://github.com/xxx.git --recursive&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;ul&gt;
+&lt;pre&gt;&lt;code&gt;git clone https://github.com/xxx.git --recursive&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
 &lt;li&gt;if you forget add &amp;ndash;recursive
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;git submodule update --init&lt;/code&gt;&lt;/li&gt;
@@ -134,89 +69,43 @@ or &lt;code&gt;git config -f .gitmodules submodule.xxx.branch dev&lt;/code&gt;&l
  &lt;a href="#gitconfig-%e5%b8%b8%e7%94%a8%e9%85%8d%e7%bd%ae" class="heading-mark"&gt;
  &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
  &lt;/a&gt;
-&lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
-&lt;/span&gt;&lt;span class="lnt"&gt; 2
-&lt;/span&gt;&lt;span class="lnt"&gt; 3
-&lt;/span&gt;&lt;span class="lnt"&gt; 4
-&lt;/span&gt;&lt;span class="lnt"&gt; 5
-&lt;/span&gt;&lt;span class="lnt"&gt; 6
-&lt;/span&gt;&lt;span class="lnt"&gt; 7
-&lt;/span&gt;&lt;span class="lnt"&gt; 8
-&lt;/span&gt;&lt;span class="lnt"&gt; 9
-&lt;/span&gt;&lt;span class="lnt"&gt;10
-&lt;/span&gt;&lt;span class="lnt"&gt;11
-&lt;/span&gt;&lt;span class="lnt"&gt;12
-&lt;/span&gt;&lt;span class="lnt"&gt;13
-&lt;/span&gt;&lt;span class="lnt"&gt;14
-&lt;/span&gt;&lt;span class="lnt"&gt;15
-&lt;/span&gt;&lt;span class="lnt"&gt;16
-&lt;/span&gt;&lt;span class="lnt"&gt;17
-&lt;/span&gt;&lt;span class="lnt"&gt;18
-&lt;/span&gt;&lt;span class="lnt"&gt;19
-&lt;/span&gt;&lt;span class="lnt"&gt;20
-&lt;/span&gt;&lt;span class="lnt"&gt;21
-&lt;/span&gt;&lt;span class="lnt"&gt;22
-&lt;/span&gt;&lt;span class="lnt"&gt;23
-&lt;/span&gt;&lt;span class="lnt"&gt;24
-&lt;/span&gt;&lt;span class="lnt"&gt;25
-&lt;/span&gt;&lt;span class="lnt"&gt;26
-&lt;/span&gt;&lt;span class="lnt"&gt;27
-&lt;/span&gt;&lt;span class="lnt"&gt;28
-&lt;/span&gt;&lt;span class="lnt"&gt;29
-&lt;/span&gt;&lt;span class="lnt"&gt;30
-&lt;/span&gt;&lt;span class="lnt"&gt;31
-&lt;/span&gt;&lt;span class="lnt"&gt;32
-&lt;/span&gt;&lt;span class="lnt"&gt;33
-&lt;/span&gt;&lt;span class="lnt"&gt;34
-&lt;/span&gt;&lt;span class="lnt"&gt;35
-&lt;/span&gt;&lt;span class="lnt"&gt;36
-&lt;/span&gt;&lt;span class="lnt"&gt;37
-&lt;/span&gt;&lt;span class="lnt"&gt;38
-&lt;/span&gt;&lt;span class="lnt"&gt;39
-&lt;/span&gt;&lt;span class="lnt"&gt;40
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="o"&gt;[&lt;/span&gt;alias&lt;span class="o"&gt;]&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;	&lt;span class="nv"&gt;ch&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; checkou
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;	&lt;span class="nv"&gt;st&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; status
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;	&lt;span class="nv"&gt;staust&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;gitst&amp;#39;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;	&lt;span class="nv"&gt;cf&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; config
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;	&lt;span class="nv"&gt;ck&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; checkout
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;	&lt;span class="nv"&gt;ft&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; fetch
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;	&lt;span class="nv"&gt;fh&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; fetch
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;	&lt;span class="nv"&gt;br&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; branch
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;	&lt;span class="nv"&gt;brv&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; branch --v
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;	&lt;span class="nv"&gt;geturl&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; config --get remote.origin.url
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;	&lt;span class="nv"&gt;bs&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; bisect
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;	&lt;span class="nv"&gt;lg&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; log --graph --decorate --oneline --all
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;	&lt;span class="nv"&gt;cfg&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; config --global
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;	&lt;span class="nv"&gt;cfga&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; config --global alias.
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;	&lt;span class="nv"&gt;pull&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; pl
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;	&lt;span class="nv"&gt;pl&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; pull --rebase
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;	&lt;span class="nv"&gt;cm&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; commit -c HEAD
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;	&lt;span class="nv"&gt;ps&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; push
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;	&lt;span class="nv"&gt;lsr&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; ls-remote --heads
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;	&lt;span class="nv"&gt;udc&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; reset HEAD~
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;	&lt;span class="nv"&gt;ftg&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; fetch --tags
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;	&lt;span class="nv"&gt;am&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; commit -amend
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;	&lt;span class="nv"&gt;cmd&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; commit --amend
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;	&lt;span class="nv"&gt;rsh&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; reset HEAD~
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;	&lt;span class="nv"&gt;cmi&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; commit --interactive -c HEAD --reset-author
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;	&lt;span class="nv"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; --interactive
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;	&lt;span class="nv"&gt;rss&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; reset --soft
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;	&lt;span class="nv"&gt;rmc&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; rm --cached
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;	&lt;span class="nv"&gt;cp&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; cherry-pick
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;	&lt;span class="nv"&gt;cpx&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; cherry-pick -x
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;	&lt;span class="nv"&gt;bl&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; blame
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;	&lt;span class="nv"&gt;gk&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; gitk
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;	&lt;span class="nv"&gt;ltn&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; ls-tree -r HEAD~ --name-only
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;	&lt;span class="nv"&gt;lt&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; ls-tree -r HEAD~ --name-only
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;	&lt;span class="nv"&gt;ltng&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; ls-tree -r HEAD~ --name-only &lt;span class="p"&gt;|&lt;/span&gt;grep
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;	&lt;span class="nv"&gt;lgd&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; log -p --full-diff
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;	&lt;span class="nv"&gt;bcm&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;branch -a --contains &amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;	&lt;span class="nv"&gt;brc&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; branch -a --contains
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;	&lt;span class="nv"&gt;tagc&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; tag --contains&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;</description></item></channel></rss>
+&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;[alias]
+	ch = checkou
+	st = status
+	staust = &amp;#39;gitst&amp;#39;
+	cf = config
+	ck = checkout
+	ft = fetch
+	fh = fetch
+	br = branch
+	brv = branch --v
+	geturl = config --get remote.origin.url
+	bs = bisect
+	lg = log --graph --decorate --oneline --all
+	cfg = config --global
+	cfga = config --global alias.
+	pull = pl
+	pl = pull --rebase
+	cm = commit -c HEAD
+	ps = push
+	lsr = ls-remote --heads
+	udc = reset HEAD~
+	ftg = fetch --tags
+	am = commit -amend
+	cmd = commit --amend
+	rsh = reset HEAD~
+	cmi = commit --interactive -c HEAD --reset-author
+	i = --interactive
+	rss = reset --soft
+	rmc = rm --cached
+	cp = cherry-pick
+	cpx = cherry-pick -x
+	bl = blame
+	gk = gitk
+	ltn = ls-tree -r HEAD~ --name-only
+	lt = ls-tree -r HEAD~ --name-only
+	ltng = ls-tree -r HEAD~ --name-only |grep
+	lgd = log -p --full-diff
+	bcm = &amp;#34;branch -a --contains &amp;#34;
+	brc = branch -a --contains
+	tagc = tag --contains&lt;/code&gt;&lt;/pre&gt;</description></item></channel></rss>

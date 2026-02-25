@@ -1,68 +1,31 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Openvpn - 分类 - LEON BLOG</title><link>https://blog.liangml.dpdns.org/categories/openvpn/</link><description>运维小站，分享些技术经验。</description><generator>Hugo 0.155.3 &amp; FixIt v0.3.20</generator><language>zh-CN</language><lastBuildDate>Tue, 15 Oct 2024 19:25:44 +0800</lastBuildDate><atom:link href="https://blog.liangml.dpdns.org/categories/openvpn/index.xml" rel="self" type="application/rss+xml"/><item><title>OpenvpnCommunity</title><link>https://blog.liangml.dpdns.org/posts/openvpncommunity/</link><pubDate>Tue, 15 Oct 2024 19:25:44 +0800</pubDate><guid>https://blog.liangml.dpdns.org/posts/openvpncommunity/</guid><category domain="https://blog.liangml.dpdns.org/categories/openvpn/">Openvpn</category><description>&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
-&lt;/span&gt;&lt;span class="lnt"&gt; 2
-&lt;/span&gt;&lt;span class="lnt"&gt; 3
-&lt;/span&gt;&lt;span class="lnt"&gt; 4
-&lt;/span&gt;&lt;span class="lnt"&gt; 5
-&lt;/span&gt;&lt;span class="lnt"&gt; 6
-&lt;/span&gt;&lt;span class="lnt"&gt; 7
-&lt;/span&gt;&lt;span class="lnt"&gt; 8
-&lt;/span&gt;&lt;span class="lnt"&gt; 9
-&lt;/span&gt;&lt;span class="lnt"&gt;10
-&lt;/span&gt;&lt;span class="lnt"&gt;11
-&lt;/span&gt;&lt;span class="lnt"&gt;12
-&lt;/span&gt;&lt;span class="lnt"&gt;13
-&lt;/span&gt;&lt;span class="lnt"&gt;14
-&lt;/span&gt;&lt;span class="lnt"&gt;15
-&lt;/span&gt;&lt;span class="lnt"&gt;16
-&lt;/span&gt;&lt;span class="lnt"&gt;17
-&lt;/span&gt;&lt;span class="lnt"&gt;18
-&lt;/span&gt;&lt;span class="lnt"&gt;19
-&lt;/span&gt;&lt;span class="lnt"&gt;20
-&lt;/span&gt;&lt;span class="lnt"&gt;21
-&lt;/span&gt;&lt;span class="lnt"&gt;22
-&lt;/span&gt;&lt;span class="lnt"&gt;23
-&lt;/span&gt;&lt;span class="lnt"&gt;24
-&lt;/span&gt;&lt;span class="lnt"&gt;25
-&lt;/span&gt;&lt;span class="lnt"&gt;26
-&lt;/span&gt;&lt;span class="lnt"&gt;27
-&lt;/span&gt;&lt;span class="lnt"&gt;28
-&lt;/span&gt;&lt;span class="lnt"&gt;29
-&lt;/span&gt;&lt;span class="lnt"&gt;30
-&lt;/span&gt;&lt;span class="lnt"&gt;31
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;port &lt;span class="m"&gt;2305&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;proto udp
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;dev tun
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;ca ca.crt
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;cert server.crt
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;key server.key
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;dh dh.pem
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;auth SHA512
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;tls-crypt tc.key
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;topology subnet
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;server 10.8.0.0 255.255.255.0
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;ifconfig-pool-persist ipp.txt
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;push &lt;span class="s2"&gt;&amp;#34;dhcp-option DNS 100.100.2.136&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;push &lt;span class="s2"&gt;&amp;#34;dhcp-option DNS 100.100.2.138&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 内网推送&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;push &lt;span class="s2"&gt;&amp;#34;route 172.16.0.0 255.255.0.0&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 阿里内网推送&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;push &lt;span class="s2"&gt;&amp;#34;route 100.100.0.0 255.255.0.0&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;push &lt;span class="s2"&gt;&amp;#34;route 100.103.0.0 255.255.0.0&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;push &lt;span class="s2"&gt;&amp;#34;route 47.106.223.210 255.255.255.255&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;keepalive &lt;span class="m"&gt;10&lt;/span&gt; &lt;span class="m"&gt;120&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;cipher AES-256-CBC
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;user nobody
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;group nobody
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;persist-key
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;persist-tun
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;verb &lt;span class="m"&gt;3&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;crl-verify crl.pem
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;explicit-exit-notify&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Openvpn - 分类 - LEON BLOG</title><link>https://blog.liangml.dpdns.org/categories/openvpn/</link><description>运维小站，分享些技术经验。</description><generator>Hugo 0.156.0 &amp; FixIt v0.4.2</generator><language>zh-CN</language><lastBuildDate>Tue, 15 Oct 2024 19:25:44 +0800</lastBuildDate><atom:link href="https://blog.liangml.dpdns.org/categories/openvpn/index.xml" rel="self" type="application/rss+xml"/><item><title>OpenvpnCommunity</title><link>https://blog.liangml.dpdns.org/posts/openvpncommunity/</link><pubDate>Tue, 15 Oct 2024 19:25:44 +0800</pubDate><guid>https://blog.liangml.dpdns.org/posts/openvpncommunity/</guid><category domain="https://blog.liangml.dpdns.org/categories/openvpn/">Openvpn</category><description>&lt;pre&gt;&lt;code&gt;port 2305
+proto udp
+dev tun
+ca ca.crt
+cert server.crt
+key server.key
+dh dh.pem
+auth SHA512
+tls-crypt tc.key
+topology subnet
+server 10.8.0.0 255.255.255.0
+ifconfig-pool-persist ipp.txt
+push &amp;#34;dhcp-option DNS 100.100.2.136&amp;#34;
+push &amp;#34;dhcp-option DNS 100.100.2.138&amp;#34;
+
+# 内网推送
+push &amp;#34;route 172.16.0.0 255.255.0.0&amp;#34;
+# 阿里内网推送
+push &amp;#34;route 100.100.0.0 255.255.0.0&amp;#34;
+push &amp;#34;route 100.103.0.0 255.255.0.0&amp;#34;
+push &amp;#34;route 47.106.223.210 255.255.255.255&amp;#34;
+
+keepalive 10 120
+cipher AES-256-CBC
+user nobody
+group nobody
+persist-key
+persist-tun
+verb 3
+crl-verify crl.pem
+explicit-exit-notify&lt;/code&gt;&lt;/pre&gt;</description></item></channel></rss>

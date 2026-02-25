@@ -1,77 +1,35 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Supervisor - 分类 - LEON BLOG</title><link>https://blog.liangml.dpdns.org/categories/supervisor/</link><description>运维小站，分享些技术经验。</description><generator>Hugo 0.155.3 &amp; FixIt v0.3.20</generator><language>zh-CN</language><lastBuildDate>Tue, 15 Oct 2024 19:26:44 +0800</lastBuildDate><atom:link href="https://blog.liangml.dpdns.org/categories/supervisor/index.xml" rel="self" type="application/rss+xml"/><item><title>Supervisor</title><link>https://blog.liangml.dpdns.org/posts/supervisor/</link><pubDate>Tue, 15 Oct 2024 19:26:44 +0800</pubDate><guid>https://blog.liangml.dpdns.org/posts/supervisor/</guid><category domain="https://blog.liangml.dpdns.org/categories/supervisor/">Supervisor</category><description>&lt;ul&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Supervisor - 分类 - LEON BLOG</title><link>https://blog.liangml.dpdns.org/categories/supervisor/</link><description>运维小站，分享些技术经验。</description><generator>Hugo 0.156.0 &amp; FixIt v0.4.2</generator><language>zh-CN</language><lastBuildDate>Tue, 15 Oct 2024 19:26:44 +0800</lastBuildDate><atom:link href="https://blog.liangml.dpdns.org/categories/supervisor/index.xml" rel="self" type="application/rss+xml"/><item><title>Supervisor</title><link>https://blog.liangml.dpdns.org/posts/supervisor/</link><pubDate>Tue, 15 Oct 2024 19:26:44 +0800</pubDate><guid>https://blog.liangml.dpdns.org/posts/supervisor/</guid><category domain="https://blog.liangml.dpdns.org/categories/supervisor/">Supervisor</category><description>&lt;ul&gt;
 &lt;li&gt;/etc/supervisor.conf&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;span class="lnt"&gt;2
-&lt;/span&gt;&lt;span class="lnt"&gt;3
-&lt;/span&gt;&lt;span class="lnt"&gt;4
-&lt;/span&gt;&lt;span class="lnt"&gt;5
-&lt;/span&gt;&lt;span class="lnt"&gt;6
-&lt;/span&gt;&lt;span class="lnt"&gt;7
-&lt;/span&gt;&lt;span class="lnt"&gt;8
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="o"&gt;[&lt;/span&gt;unix_http_server&lt;span class="o"&gt;]&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nv"&gt;file&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/tmp/supervisor.sock
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="o"&gt;[&lt;/span&gt;supervisord&lt;span class="o"&gt;]&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nv"&gt;minfds&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;65535&lt;/span&gt; &lt;span class="c1"&gt;# supervisord 加大应用的可用链接数&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nv"&gt;minprocs&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;65535&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nv"&gt;user&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;deploy
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="o"&gt;[&lt;/span&gt;supervisorctl&lt;span class="o"&gt;]&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nv"&gt;serverurl&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;unix:///tmp/supervisor.sock&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;ul&gt;
+&lt;pre&gt;&lt;code&gt;[unix_http_server]
+file=/tmp/supervisor.sock
+[supervisord]
+minfds=65535 # supervisord 加大应用的可用链接数
+minprocs=65535
+user=deploy
+[supervisorctl]
+serverurl=unix:///tmp/supervisor.sock&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
 &lt;li&gt;supervisor exsample&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
-&lt;/span&gt;&lt;span class="lnt"&gt; 2
-&lt;/span&gt;&lt;span class="lnt"&gt; 3
-&lt;/span&gt;&lt;span class="lnt"&gt; 4
-&lt;/span&gt;&lt;span class="lnt"&gt; 5
-&lt;/span&gt;&lt;span class="lnt"&gt; 6
-&lt;/span&gt;&lt;span class="lnt"&gt; 7
-&lt;/span&gt;&lt;span class="lnt"&gt; 8
-&lt;/span&gt;&lt;span class="lnt"&gt; 9
-&lt;/span&gt;&lt;span class="lnt"&gt;10
-&lt;/span&gt;&lt;span class="lnt"&gt;11
-&lt;/span&gt;&lt;span class="lnt"&gt;12
-&lt;/span&gt;&lt;span class="lnt"&gt;13
-&lt;/span&gt;&lt;span class="lnt"&gt;14
-&lt;/span&gt;&lt;span class="lnt"&gt;15
-&lt;/span&gt;&lt;span class="lnt"&gt;16
-&lt;/span&gt;&lt;span class="lnt"&gt;17
-&lt;/span&gt;&lt;span class="lnt"&gt;18
-&lt;/span&gt;&lt;span class="lnt"&gt;19
-&lt;/span&gt;&lt;span class="lnt"&gt;20
-&lt;/span&gt;&lt;span class="lnt"&gt;21
-&lt;/span&gt;&lt;span class="lnt"&gt;22
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="o"&gt;[&lt;/span&gt;program:SERVICENAME&lt;span class="o"&gt;]&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;;&lt;/span&gt;脚本目录
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nv"&gt;directory&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt; /data/%&lt;span class="o"&gt;(&lt;/span&gt;program_name&lt;span class="o"&gt;)&lt;/span&gt;s/
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;;&lt;/span&gt;脚本执行命令
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nv"&gt;command&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/usr/bin/uwsgi --ini %&lt;span class="o"&gt;(&lt;/span&gt;program_name&lt;span class="o"&gt;)&lt;/span&gt;s.ini --ignore-sigpipe
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;;&lt;/span&gt;supervisor启动的时候是否随着同时启动,默认True
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nv"&gt;autostart&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;true&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;;&lt;/span&gt;当程序exit的时候，这个program不会自动重启.
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nv"&gt;autorestart&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;true&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;;&lt;/span&gt;这个选项是子进程启动多少秒之后，此时状态如果是running，则我们认为启动成功了。默认值为1
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nv"&gt;startsecs&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;5&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;;&lt;/span&gt;脚本运行的用户身份
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nv"&gt;user&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; USER
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;;&lt;/span&gt;日志输出
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nv"&gt;stdout_logfile&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt; /var/log/supervisor/%&lt;span class="o"&gt;(&lt;/span&gt;program_name&lt;span class="o"&gt;)&lt;/span&gt;s.log
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;;&lt;/span&gt;把stderr重定向到stdout，默认 &lt;span class="nb"&gt;false&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nv"&gt;redirect_stderr&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;true&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;;&lt;/span&gt;stdout日志文件大小，默认 50MB
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nv"&gt;stdout_logfile_maxbytes&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; 20MB
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;;&lt;/span&gt;stdout日志文件备份数
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nv"&gt;stdout_logfile_backups&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="m"&gt;20&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="nv"&gt;environment&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;</description></item></channel></rss>
+&lt;pre&gt;&lt;code&gt;[program:SERVICENAME]
+;脚本目录
+directory= /data/%(program_name)s/
+;脚本执行命令
+command=/usr/bin/uwsgi --ini %(program_name)s.ini --ignore-sigpipe
+;supervisor启动的时候是否随着同时启动,默认True
+autostart=true
+;当程序exit的时候，这个program不会自动重启.
+autorestart=true
+;这个选项是子进程启动多少秒之后，此时状态如果是running，则我们认为启动成功了。默认值为1
+startsecs=5
+;脚本运行的用户身份
+user = USER
+;日志输出
+stdout_logfile= /var/log/supervisor/%(program_name)s.log
+;把stderr重定向到stdout，默认 false
+redirect_stderr = true
+;stdout日志文件大小，默认 50MB
+stdout_logfile_maxbytes = 20MB
+;stdout日志文件备份数
+stdout_logfile_backups = 20
+;environment=&lt;/code&gt;&lt;/pre&gt;</description></item></channel></rss>

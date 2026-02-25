@@ -1,159 +1,73 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Postgres - 标签 - LEON BLOG</title><link>https://blog.liangml.dpdns.org/tags/postgres/</link><description>运维小站，分享些技术经验。</description><generator>Hugo 0.155.3 &amp; FixIt v0.3.20</generator><language>zh-CN</language><lastBuildDate>Mon, 14 Oct 2024 19:16:55 +0800</lastBuildDate><atom:link href="https://blog.liangml.dpdns.org/tags/postgres/index.xml" rel="self" type="application/rss+xml"/><item><title>Postgres</title><link>https://blog.liangml.dpdns.org/posts/postgres/</link><pubDate>Mon, 14 Oct 2024 19:16:55 +0800</pubDate><guid>https://blog.liangml.dpdns.org/posts/postgres/</guid><category domain="https://blog.liangml.dpdns.org/categories/postgres/">Postgres</category><description>&lt;h2 class="heading-element" id="导出"&gt;&lt;span&gt;导出&lt;/span&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Postgres - 标签 - LEON BLOG</title><link>https://blog.liangml.dpdns.org/tags/postgres/</link><description>运维小站，分享些技术经验。</description><generator>Hugo 0.156.0 &amp; FixIt v0.4.2</generator><language>zh-CN</language><lastBuildDate>Mon, 14 Oct 2024 19:16:55 +0800</lastBuildDate><atom:link href="https://blog.liangml.dpdns.org/tags/postgres/index.xml" rel="self" type="application/rss+xml"/><item><title>Postgres</title><link>https://blog.liangml.dpdns.org/posts/postgres/</link><pubDate>Mon, 14 Oct 2024 19:16:55 +0800</pubDate><guid>https://blog.liangml.dpdns.org/posts/postgres/</guid><category domain="https://blog.liangml.dpdns.org/categories/postgres/">Postgres</category><description>&lt;h1 class="heading-element" id="导出"&gt;&lt;span&gt;导出&lt;/span&gt;
  &lt;a href="#%e5%af%bc%e5%87%ba" class="heading-mark"&gt;
  &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
  &lt;/a&gt;
-&lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;pg_dump -h IPADRESS -U USERNAME -t TABLENAME --column-inserts DATABASENAME &amp;gt; BACKUPNAME.sql&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h2 class="heading-element" id="表owner批量授权"&gt;&lt;span&gt;表owner批量授权&lt;/span&gt;
+&lt;/h1&gt;&lt;pre&gt;&lt;code&gt;pg_dump -h IPADRESS -U USERNAME -t TABLENAME --column-inserts DATABASENAME &amp;gt; BACKUPNAME.sql&lt;/code&gt;&lt;/pre&gt;&lt;h1 class="heading-element" id="表owner批量授权"&gt;&lt;span&gt;表owner批量授权&lt;/span&gt;
  &lt;a href="#%e8%a1%a8owner%e6%89%b9%e9%87%8f%e6%8e%88%e6%9d%83" class="heading-mark"&gt;
  &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
  &lt;/a&gt;
-&lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-postgresql" data-lang="postgresql"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;REASSIGN&lt;/span&gt; &lt;span class="n"&gt;OWNEDBY&lt;/span&gt; &lt;span class="n"&gt;old_role&lt;/span&gt; &lt;span class="p"&gt;[,&lt;/span&gt;&lt;span class="mf"&gt;...&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="k"&gt;TO&lt;/span&gt; &lt;span class="n"&gt;new_role&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h2 class="heading-element" id="主从配置"&gt;&lt;span&gt;主从配置&lt;/span&gt;
+&lt;/h1&gt;&lt;pre&gt;&lt;code&gt;REASSIGN OWNEDBY old_role [,...] TO new_role&lt;/code&gt;&lt;/pre&gt;&lt;h1 class="heading-element" id="主从配置"&gt;&lt;span&gt;主从配置&lt;/span&gt;
  &lt;a href="#%e4%b8%bb%e4%bb%8e%e9%85%8d%e7%bd%ae" class="heading-mark"&gt;
  &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
  &lt;/a&gt;
-&lt;/h2&gt;&lt;ol&gt;
+&lt;/h1&gt;&lt;ol&gt;
 &lt;li&gt;主节点配置&lt;/li&gt;
 &lt;/ol&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
-&lt;/span&gt;&lt;span class="lnt"&gt; 2
-&lt;/span&gt;&lt;span class="lnt"&gt; 3
-&lt;/span&gt;&lt;span class="lnt"&gt; 4
-&lt;/span&gt;&lt;span class="lnt"&gt; 5
-&lt;/span&gt;&lt;span class="lnt"&gt; 6
-&lt;/span&gt;&lt;span class="lnt"&gt; 7
-&lt;/span&gt;&lt;span class="lnt"&gt; 8
-&lt;/span&gt;&lt;span class="lnt"&gt; 9
-&lt;/span&gt;&lt;span class="lnt"&gt;10
-&lt;/span&gt;&lt;span class="lnt"&gt;11
-&lt;/span&gt;&lt;span class="lnt"&gt;12
-&lt;/span&gt;&lt;span class="lnt"&gt;13
-&lt;/span&gt;&lt;span class="lnt"&gt;14
-&lt;/span&gt;&lt;span class="lnt"&gt;15
-&lt;/span&gt;&lt;span class="lnt"&gt;16
-&lt;/span&gt;&lt;span class="lnt"&gt;17
-&lt;/span&gt;&lt;span class="lnt"&gt;18
-&lt;/span&gt;&lt;span class="lnt"&gt;19
-&lt;/span&gt;&lt;span class="lnt"&gt;20
-&lt;/span&gt;&lt;span class="lnt"&gt;21
-&lt;/span&gt;&lt;span class="lnt"&gt;22
-&lt;/span&gt;&lt;span class="lnt"&gt;23
-&lt;/span&gt;&lt;span class="lnt"&gt;24
-&lt;/span&gt;&lt;span class="lnt"&gt;25
-&lt;/span&gt;&lt;span class="lnt"&gt;26
-&lt;/span&gt;&lt;span class="lnt"&gt;27
-&lt;/span&gt;&lt;span class="lnt"&gt;28
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 安装postgre&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 切换postgres&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;su - postgres
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 登录&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;psql
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 管理员用户配置密码&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;ALTER USER postgres WITH PASSWORD &lt;span class="s1"&gt;&amp;#39;YourPassWord&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 创建备份账号及权限&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;CREATE ROLE replica login replication encrypted password &lt;span class="s1"&gt;&amp;#39;replica&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 验证账号是否成功&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;SELECT usename from pg_user&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 验证权限&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;SELECT rolname from pg_roles&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 编辑pg_hba.conf,设置replica用户白名单&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;vim /var/lib/pgsql/9.6/data/pg_hba.conf
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;host all all &amp;lt;从节点的VPC IPv4网段&amp;gt; md5 &lt;span class="c1"&gt;#允许VPC网段中md5密码认证连接&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;host replication replica &amp;lt;从节点的VPC IPv4网段&amp;gt; md5 &lt;span class="c1"&gt;#允许用户从replication数据库进行数据同步&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 编辑postgresql.conf&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;vim /var/lib/pgsql/9.6/data/postgresql.conf
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 分别找到以下参数&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nv"&gt;listen_addresses&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;*&amp;#39;&lt;/span&gt; &lt;span class="c1"&gt;#监听的IP地址&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nv"&gt;wal_level&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; hot_standby &lt;span class="c1"&gt;#启用热备模式&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nv"&gt;synchronous_commit&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; on &lt;span class="c1"&gt;#开启同步复制&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nv"&gt;max_wal_senders&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="m"&gt;32&lt;/span&gt; &lt;span class="c1"&gt;#同步最大的进程数量&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nv"&gt;wal_sender_timeout&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; 60s &lt;span class="c1"&gt;#流复制主机发送数据的超时时间&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nv"&gt;max_connections&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="m"&gt;100&lt;/span&gt; &lt;span class="c1"&gt;#最大连接数，从库的max_connections必须要大于主库的&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 重启服务&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;systemctl restart postgresql-9.6.service&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;ol start="2"&gt;
+&lt;pre&gt;&lt;code&gt;# 安装postgre
+# 切换postgres
+su - postgres
+# 登录
+psql
+# 管理员用户配置密码
+ALTER USER postgres WITH PASSWORD &amp;#39;YourPassWord&amp;#39;;
+# 创建备份账号及权限
+CREATE ROLE replica login replication encrypted password &amp;#39;replica&amp;#39;;
+# 验证账号是否成功
+SELECT usename from pg_user;
+# 验证权限
+SELECT rolname from pg_roles;
+# 编辑pg_hba.conf,设置replica用户白名单
+vim /var/lib/pgsql/9.6/data/pg_hba.conf
+host all all &amp;lt;从节点的VPC IPv4网段&amp;gt; md5 #允许VPC网段中md5密码认证连接
+host replication replica &amp;lt;从节点的VPC IPv4网段&amp;gt; md5 #允许用户从replication数据库进行数据同步
+# 编辑postgresql.conf
+vim /var/lib/pgsql/9.6/data/postgresql.conf
+# 分别找到以下参数
+listen_addresses = &amp;#39;*&amp;#39; #监听的IP地址
+wal_level = hot_standby #启用热备模式
+synchronous_commit = on #开启同步复制
+max_wal_senders = 32 #同步最大的进程数量
+wal_sender_timeout = 60s #流复制主机发送数据的超时时间
+max_connections = 100 #最大连接数，从库的max_connections必须要大于主库的
+# 重启服务
+systemctl restart postgresql-9.6.service&lt;/code&gt;&lt;/pre&gt;&lt;ol start="2"&gt;
 &lt;li&gt;从节点配置&lt;/li&gt;
 &lt;/ol&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
-&lt;/span&gt;&lt;span class="lnt"&gt; 2
-&lt;/span&gt;&lt;span class="lnt"&gt; 3
-&lt;/span&gt;&lt;span class="lnt"&gt; 4
-&lt;/span&gt;&lt;span class="lnt"&gt; 5
-&lt;/span&gt;&lt;span class="lnt"&gt; 6
-&lt;/span&gt;&lt;span class="lnt"&gt; 7
-&lt;/span&gt;&lt;span class="lnt"&gt; 8
-&lt;/span&gt;&lt;span class="lnt"&gt; 9
-&lt;/span&gt;&lt;span class="lnt"&gt;10
-&lt;/span&gt;&lt;span class="lnt"&gt;11
-&lt;/span&gt;&lt;span class="lnt"&gt;12
-&lt;/span&gt;&lt;span class="lnt"&gt;13
-&lt;/span&gt;&lt;span class="lnt"&gt;14
-&lt;/span&gt;&lt;span class="lnt"&gt;15
-&lt;/span&gt;&lt;span class="lnt"&gt;16
-&lt;/span&gt;&lt;span class="lnt"&gt;17
-&lt;/span&gt;&lt;span class="lnt"&gt;18
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 运行以下命令使用pg_basebackup基础备份工具指定备份目录。&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;pg_basebackup -D /var/lib/pgsql/9.6/data -h &amp;lt;主节点IP&amp;gt; -p &lt;span class="m"&gt;5432&lt;/span&gt; -U replica -X stream -P
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 依次运行以下命令新建并修改recovery.conf配置文件。&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;cp /usr/pgsql-9.6/share/recovery.conf.sample /var/lib/pgsql/9.6/data/recovery.conf
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;vim /var/lib/pgsql/9.6/data/recovery.conf
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 分别找到以下参数，并将参数修改为以下内容：&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nv"&gt;standby_mode&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; on &lt;span class="c1"&gt;#声明此节点为从库&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nv"&gt;primary_conninfo&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; ‘host&lt;span class="o"&gt;=&lt;/span&gt;&amp;lt;主节点IP&amp;gt; &lt;span class="nv"&gt;port&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;5432&lt;/span&gt; &lt;span class="nv"&gt;user&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;replica &lt;span class="nv"&gt;password&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;replica’ &lt;span class="c1"&gt;#对应主库的连接信息&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nv"&gt;recovery_target_timeline&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; ‘latest’ &lt;span class="c1"&gt;#流复制同步到最新的数据&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 运行以下命令打开postgresql.conf文件。&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;vim /var/lib/pgsql/9.6/data/postgresql.conf
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nv"&gt;max_connections&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="m"&gt;1000&lt;/span&gt; &lt;span class="c1"&gt;# 最大连接数，从节点需设置比主节点大&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nv"&gt;hot_standby&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; on &lt;span class="c1"&gt;# 开启热备&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nv"&gt;max_standby_streaming_delay&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; 30s &lt;span class="c1"&gt;# 数据流备份的最大延迟时间&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nv"&gt;wal_receiver_status_interval&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; 1s &lt;span class="c1"&gt;# 从节点向主节点报告自身状态的最长间隔时间&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nv"&gt;hot_standby_feedback&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; on &lt;span class="c1"&gt;# 如果有错误的数据复制向主进行反馈&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 运行以下命令修改数据目录的属组和属主&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;chown -R postgres.postgres /var/lib/pgsql/9.6/data&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;ol start="3"&gt;
+&lt;pre&gt;&lt;code&gt;# 运行以下命令使用pg_basebackup基础备份工具指定备份目录。
+pg_basebackup -D /var/lib/pgsql/9.6/data -h &amp;lt;主节点IP&amp;gt; -p 5432 -U replica -X stream -P
+# 依次运行以下命令新建并修改recovery.conf配置文件。
+cp /usr/pgsql-9.6/share/recovery.conf.sample /var/lib/pgsql/9.6/data/recovery.conf
+vim /var/lib/pgsql/9.6/data/recovery.conf
+# 分别找到以下参数，并将参数修改为以下内容：
+standby_mode = on #声明此节点为从库
+primary_conninfo = ‘host=&amp;lt;主节点IP&amp;gt; port=5432 user=replica password=replica’ #对应主库的连接信息
+recovery_target_timeline = ‘latest’ #流复制同步到最新的数据
+# 运行以下命令打开postgresql.conf文件。
+vim /var/lib/pgsql/9.6/data/postgresql.conf
+max_connections = 1000 # 最大连接数，从节点需设置比主节点大
+hot_standby = on # 开启热备
+max_standby_streaming_delay = 30s # 数据流备份的最大延迟时间
+wal_receiver_status_interval = 1s # 从节点向主节点报告自身状态的最长间隔时间
+hot_standby_feedback = on # 如果有错误的数据复制向主进行反馈
+# 运行以下命令修改数据目录的属组和属主
+chown -R postgres.postgres /var/lib/pgsql/9.6/data&lt;/code&gt;&lt;/pre&gt;&lt;ol start="3"&gt;
 &lt;li&gt;检测验证&lt;/li&gt;
 &lt;/ol&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;span class="lnt"&gt;2
-&lt;/span&gt;&lt;span class="lnt"&gt;3
-&lt;/span&gt;&lt;span class="lnt"&gt;4
-&lt;/span&gt;&lt;span class="lnt"&gt;5
-&lt;/span&gt;&lt;span class="lnt"&gt;6
-&lt;/span&gt;&lt;span class="lnt"&gt;7
-&lt;/span&gt;&lt;span class="lnt"&gt;8
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 检测验证需要主从节点之间存在数据交互，例如，从节点备份目录时，进行检测能够得到预期的结果。&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;pg_basebackup -D /var/lib/pgsql/96/data -h &amp;lt;主节点IP&amp;gt; -p &lt;span class="m"&gt;5432&lt;/span&gt; -U replica -X stream -P
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 在主节点中运行以下命令查看sender进程。&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;ps aux &lt;span class="p"&gt;|&lt;/span&gt;grep sender
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 在从节点中运行以下命令查看receiver进程。&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;ps aux &lt;span class="p"&gt;|&lt;/span&gt;grep receiver
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 在主节点中进入PostgreSQL交互终端，输入以下SQL语句，在主库中查看从库状态。&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;select&lt;/span&gt; * from pg_stat_replication&lt;span class="p"&gt;;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;</description></item></channel></rss>
+&lt;pre&gt;&lt;code&gt;# 检测验证需要主从节点之间存在数据交互，例如，从节点备份目录时，进行检测能够得到预期的结果。
+pg_basebackup -D /var/lib/pgsql/96/data -h &amp;lt;主节点IP&amp;gt; -p 5432 -U replica -X stream -P
+# 在主节点中运行以下命令查看sender进程。
+ps aux |grep sender
+# 在从节点中运行以下命令查看receiver进程。
+ps aux |grep receiver
+# 在主节点中进入PostgreSQL交互终端，输入以下SQL语句，在主库中查看从库状态。
+select * from pg_stat_replication;&lt;/code&gt;&lt;/pre&gt;</description></item></channel></rss>

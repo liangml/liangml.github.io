@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Golang - 标签 - LEON BLOG</title><link>https://blog.liangml.dpdns.org/tags/golang/</link><description>运维小站，分享些技术经验。</description><generator>Hugo 0.155.3 &amp; FixIt v0.3.20</generator><language>zh-CN</language><lastBuildDate>Fri, 22 Nov 2024 15:31:08 +0800</lastBuildDate><atom:link href="https://blog.liangml.dpdns.org/tags/golang/index.xml" rel="self" type="application/rss+xml"/><item><title>Golang-Guide</title><link>https://blog.liangml.dpdns.org/posts/golang-guide/</link><pubDate>Fri, 22 Nov 2024 15:31:08 +0800</pubDate><guid>https://blog.liangml.dpdns.org/posts/golang-guide/</guid><category domain="https://blog.liangml.dpdns.org/categories/golang/">Golang</category><description>&lt;!--
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Golang - 标签 - LEON BLOG</title><link>https://blog.liangml.dpdns.org/tags/golang/</link><description>运维小站，分享些技术经验。</description><generator>Hugo 0.156.0 &amp; FixIt v0.4.2</generator><language>zh-CN</language><lastBuildDate>Fri, 22 Nov 2024 15:31:08 +0800</lastBuildDate><atom:link href="https://blog.liangml.dpdns.org/tags/golang/index.xml" rel="self" type="application/rss+xml"/><item><title>Golang-Guide</title><link>https://blog.liangml.dpdns.org/posts/golang-guide/</link><pubDate>Fri, 22 Nov 2024 15:31:08 +0800</pubDate><guid>https://blog.liangml.dpdns.org/posts/golang-guide/</guid><category domain="https://blog.liangml.dpdns.org/categories/golang/">Golang</category><description>&lt;!--
 
 Editing this document:
 
@@ -110,11 +110,11 @@ change.md
 # 2023-04-13
 - Errors: 只添加一次错误处理指南
 --&gt;
-&lt;h2 class="heading-element" id="uber-goguide-的中文翻译"&gt;&lt;span&gt;&lt;a href="https://github.com/uber-go/guide"target="_blank" rel="external nofollow noopener noreferrer"&gt;uber-go/guide&lt;/a&gt; 的中文翻译&lt;/span&gt;
+&lt;h2 class="heading-element" id="uber-goguide-的中文翻译"&gt;&lt;span&gt;&lt;a href="https://github.com/uber-go/guide" target="_blank" rel="external nofollow noopener noreferrer"&gt;uber-go/guide&lt;/a&gt; 的中文翻译&lt;/span&gt;
  &lt;a href="#uber-goguide-%e7%9a%84%e4%b8%ad%e6%96%87%e7%bf%bb%e8%af%91" class="heading-mark"&gt;
  &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
  &lt;/a&gt;
-&lt;/h2&gt;&lt;h2 class="heading-element" id="english"&gt;&lt;span&gt;&lt;a href="https://github.com/uber-go/guide/blob/master/style.md"target="_blank" rel="external nofollow noopener noreferrer"&gt;English&lt;/a&gt;&lt;/span&gt;
+&lt;/h2&gt;&lt;h2 class="heading-element" id="english"&gt;&lt;span&gt;&lt;a href="https://github.com/uber-go/guide/blob/master/style.md" target="_blank" rel="external nofollow noopener noreferrer"&gt;English&lt;/a&gt;&lt;/span&gt;
  &lt;a href="#english" class="heading-mark"&gt;
  &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
  &lt;/a&gt;
@@ -122,76 +122,39 @@ change.md
  &lt;a href="#uber-go-%e8%af%ad%e8%a8%80%e7%bc%96%e7%a0%81%e8%a7%84%e8%8c%83" class="heading-mark"&gt;
  &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
  &lt;/a&gt;
-&lt;/h2&gt;&lt;p&gt;&lt;a href="https://www.uber.com/"target="_blank" rel="external nofollow noopener noreferrer"&gt;Uber&lt;/a&gt; 是一家美国硅谷的科技公司，也是 Go 语言的早期 adopter。其开源了很多 golang 项目，诸如被 Gopher 圈熟知的 &lt;a href="https://github.com/uber-go/zap"target="_blank" rel="external nofollow noopener noreferrer"&gt;zap&lt;/a&gt;、&lt;a href="https://github.com/jaegertracing/jaeger"target="_blank" rel="external nofollow noopener noreferrer"&gt;jaeger&lt;/a&gt; 等。2018 年年末 Uber 将内部的 &lt;a href="https://github.com/uber-go/guide"target="_blank" rel="external nofollow noopener noreferrer"&gt;Go 风格规范&lt;/a&gt; 开源到 GitHub，经过一年的积累和更新，该规范已经初具规模，并受到广大 Gopher 的关注。本文是该规范的中文版本。本版本会根据原版实时更新。&lt;/p&gt;</description></item><item><title>Golang</title><link>https://blog.liangml.dpdns.org/posts/golang/</link><pubDate>Sat, 12 Oct 2024 15:05:25 +0800</pubDate><guid>https://blog.liangml.dpdns.org/posts/golang/</guid><category domain="https://blog.liangml.dpdns.org/categories/golang/">Golang</category><description>&lt;h2 class="heading-element" id="build_packages"&gt;&lt;span&gt;build_packages&lt;/span&gt;
+&lt;/h2&gt;&lt;p&gt;&lt;a href="https://www.uber.com/" target="_blank" rel="external nofollow noopener noreferrer"&gt;Uber&lt;/a&gt; 是一家美国硅谷的科技公司，也是 Go 语言的早期 adopter。其开源了很多 golang 项目，诸如被 Gopher 圈熟知的 &lt;a href="https://github.com/uber-go/zap" target="_blank" rel="external nofollow noopener noreferrer"&gt;zap&lt;/a&gt;、&lt;a href="https://github.com/jaegertracing/jaeger" target="_blank" rel="external nofollow noopener noreferrer"&gt;jaeger&lt;/a&gt; 等。2018 年年末 Uber 将内部的 &lt;a href="https://github.com/uber-go/guide" target="_blank" rel="external nofollow noopener noreferrer"&gt;Go 风格规范&lt;/a&gt; 开源到 GitHub，经过一年的积累和更新，该规范已经初具规模，并受到广大 Gopher 的关注。本文是该规范的中文版本。本版本会根据原版实时更新。&lt;/p&gt;</description></item><item><title>Golang</title><link>https://blog.liangml.dpdns.org/posts/golang/</link><pubDate>Sat, 12 Oct 2024 15:05:25 +0800</pubDate><guid>https://blog.liangml.dpdns.org/posts/golang/</guid><category domain="https://blog.liangml.dpdns.org/categories/golang/">Golang</category><description>&lt;h1 class="heading-element" id="build_packages"&gt;&lt;span&gt;build_packages&lt;/span&gt;
  &lt;a href="#build_packages" class="heading-mark"&gt;
  &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
  &lt;/a&gt;
-&lt;/h2&gt;&lt;h2 class="heading-element" id="go打包命令"&gt;&lt;span&gt;go打包命令&lt;/span&gt;
+&lt;/h1&gt;&lt;h2 class="heading-element" id="go打包命令"&gt;&lt;span&gt;go打包命令&lt;/span&gt;
  &lt;a href="#go%e6%89%93%e5%8c%85%e5%91%bd%e4%bb%a4" class="heading-mark"&gt;
  &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
  &lt;/a&gt;
-&lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;span class="lnt"&gt;2
-&lt;/span&gt;&lt;span class="lnt"&gt;3
-&lt;/span&gt;&lt;span class="lnt"&gt;4
-&lt;/span&gt;&lt;span class="lnt"&gt;5
-&lt;/span&gt;&lt;span class="lnt"&gt;6
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 常规打包方法&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;go build 
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 使用 “-dflags” 缩小大小&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;go build -ldflags &lt;span class="s1"&gt;&amp;#39;-w -s&amp;#39;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 使用upx打包为最小程序&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;upx ...二进制文件&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h3 class="heading-element" id="示例"&gt;&lt;span&gt;示例&lt;/span&gt;
+&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;# 常规打包方法
+go build 
+# 使用 “-dflags” 缩小大小
+go build -ldflags &amp;#39;-w -s&amp;#39;
+# 使用upx打包为最小程序
+upx ...二进制文件&lt;/code&gt;&lt;/pre&gt;&lt;h3 class="heading-element" id="示例"&gt;&lt;span&gt;示例&lt;/span&gt;
  &lt;a href="#%e7%a4%ba%e4%be%8b" class="heading-mark"&gt;
  &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
  &lt;/a&gt;
-&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;span class="lnt"&gt;2
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nv"&gt;CGO_ENABLED&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt; &lt;span class="nv"&gt;GOOS&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;linux &lt;span class="nv"&gt;GOARCH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;amd64 go build -o target/NAME_&lt;span class="sb"&gt;`&lt;/span&gt;date +%Y_%m_%d&lt;span class="sb"&gt;`&lt;/span&gt; &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;MAINSRCPATH&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nv"&gt;CGO_ENABLED&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt; &lt;span class="nv"&gt;GOOS&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;linux &lt;span class="nv"&gt;GOARCH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;amd64 go build -ldflags &lt;span class="s1"&gt;&amp;#39;-w -s&amp;#39;&lt;/span&gt; -o pkg/PACKAGENAME&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h3 class="heading-element" id="multi_platfrom_build"&gt;&lt;span&gt;multi_platfrom_build&lt;/span&gt;
+&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o target/NAME_`date &amp;#43;%Y_%m_%d` ${MAINSRCPATH}
+CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -ldflags &amp;#39;-w -s&amp;#39; -o pkg/PACKAGENAME&lt;/code&gt;&lt;/pre&gt;&lt;h3 class="heading-element" id="multi_platfrom_build"&gt;&lt;span&gt;multi_platfrom_build&lt;/span&gt;
  &lt;a href="#multi_platfrom_build" class="heading-mark"&gt;
  &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
  &lt;/a&gt;
-&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
-&lt;/span&gt;&lt;span class="lnt"&gt; 2
-&lt;/span&gt;&lt;span class="lnt"&gt; 3
-&lt;/span&gt;&lt;span class="lnt"&gt; 4
-&lt;/span&gt;&lt;span class="lnt"&gt; 5
-&lt;/span&gt;&lt;span class="lnt"&gt; 6
-&lt;/span&gt;&lt;span class="lnt"&gt; 7
-&lt;/span&gt;&lt;span class="lnt"&gt; 8
-&lt;/span&gt;&lt;span class="lnt"&gt; 9
-&lt;/span&gt;&lt;span class="lnt"&gt;10
-&lt;/span&gt;&lt;span class="lnt"&gt;11
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;● Mac 打包Linux windows
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;$ &lt;span class="nv"&gt;CGO_ENABLED&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt; &lt;span class="nv"&gt;GOOS&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;linux &lt;span class="nv"&gt;GOARCH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;amd64 go build test.go
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;$ &lt;span class="nv"&gt;CGO_ENABLED&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt; &lt;span class="nv"&gt;GOOS&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;windows &lt;span class="nv"&gt;GOARCH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;amd64 go build test.go
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;● Linux打包Mac windows
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;$ &lt;span class="nv"&gt;CGO_ENABLED&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt; &lt;span class="nv"&gt;GOOS&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;darwin &lt;span class="nv"&gt;GOARCH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;amd64 go build test.go
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;$ &lt;span class="nv"&gt;CGO_ENABLED&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt; &lt;span class="nv"&gt;GOOS&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;windows &lt;span class="nv"&gt;GOARCH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;amd64 go build test.go
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;● windows编译Linux Mac
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;$ SET &lt;span class="nv"&gt;CGO_ENABLED&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;0SET &lt;span class="nv"&gt;GOOS&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;darwin3 SET &lt;span class="nv"&gt;GOARCH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;amd64 go build test.go
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;$ SET &lt;span class="nv"&gt;CGO_ENABLED&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt; SET &lt;span class="nv"&gt;GOOS&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;linux SET &lt;span class="nv"&gt;GOARCH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;amd64 go build test.go&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;blockquote&gt;
+&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;● Mac 打包Linux windows
+$ CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build test.go
+$ CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build test.go
+
+● Linux打包Mac windows
+$ CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build test.go
+$ CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build test.go
+
+● windows编译Linux Mac
+$ SET CGO_ENABLED=0SET GOOS=darwin3 SET GOARCH=amd64 go build test.go
+$ SET CGO_ENABLED=0 SET GOOS=linux SET GOARCH=amd64 go build test.go&lt;/code&gt;&lt;/pre&gt;&lt;blockquote&gt;
 &lt;p&gt;参数说明&lt;br&gt;
 GOOS：目标可执行程序运行操作系统，支持 darwin，freebsd，linux，windows&lt;br&gt;
 GOARCH：目标可执行程序操作系统构架，包括 386，amd64，arm&lt;/p&gt;</description></item></channel></rss>

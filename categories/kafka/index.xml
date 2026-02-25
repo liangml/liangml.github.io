@@ -1,88 +1,27 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Kafka - 分类 - LEON BLOG</title><link>https://blog.liangml.dpdns.org/categories/kafka/</link><description>运维小站，分享些技术经验。</description><generator>Hugo 0.155.3 &amp; FixIt v0.3.20</generator><language>zh-CN</language><lastBuildDate>Tue, 15 Oct 2024 11:25:28 +0800</lastBuildDate><atom:link href="https://blog.liangml.dpdns.org/categories/kafka/index.xml" rel="self" type="application/rss+xml"/><item><title>Kafka</title><link>https://blog.liangml.dpdns.org/posts/kafka/</link><pubDate>Tue, 15 Oct 2024 11:25:28 +0800</pubDate><guid>https://blog.liangml.dpdns.org/posts/kafka/</guid><category domain="https://blog.liangml.dpdns.org/categories/kafka/">Kafka</category><description>&lt;ul&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Kafka - 分类 - LEON BLOG</title><link>https://blog.liangml.dpdns.org/categories/kafka/</link><description>运维小站，分享些技术经验。</description><generator>Hugo 0.156.0 &amp; FixIt v0.4.2</generator><language>zh-CN</language><lastBuildDate>Tue, 15 Oct 2024 11:25:28 +0800</lastBuildDate><atom:link href="https://blog.liangml.dpdns.org/categories/kafka/index.xml" rel="self" type="application/rss+xml"/><item><title>Kafka</title><link>https://blog.liangml.dpdns.org/posts/kafka/</link><pubDate>Tue, 15 Oct 2024 11:25:28 +0800</pubDate><guid>https://blog.liangml.dpdns.org/posts/kafka/</guid><category domain="https://blog.liangml.dpdns.org/categories/kafka/">Kafka</category><description>&lt;ul&gt;
 &lt;li&gt;查看topic&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;bin/kafka-topics.sh --list --bootstrap-server 127.0.0.1:9092&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;ul&gt;
+&lt;pre&gt;&lt;code&gt;bin/kafka-topics.sh --list --bootstrap-server 127.0.0.1:9092&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
 &lt;li&gt;查看某个topic信息&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;bin/kafka-topics.sh --bootstrap-server 127.0.0.1:9092 --describe TOPICNAME&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;ul&gt;
+&lt;pre&gt;&lt;code&gt;bin/kafka-topics.sh --bootstrap-server 127.0.0.1:9092 --describe TOPICNAME&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
 &lt;li&gt;查看所有消费组&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;bin/kafka-consumer-groups.sh --bootstrap-server 127.0.0.1:9092 --describe --group --all-groups&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;ul&gt;
+&lt;pre&gt;&lt;code&gt;bin/kafka-consumer-groups.sh --bootstrap-server 127.0.0.1:9092 --describe --group --all-groups&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
 &lt;li&gt;消费消息&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;bin/kafka-consumer-groups.sh --zookeeper 127.0.0.1:2181 --topic TOPICNAME&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;ul&gt;
+&lt;pre&gt;&lt;code&gt;bin/kafka-consumer-groups.sh --zookeeper 127.0.0.1:2181 --topic TOPICNAME&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
 &lt;li&gt;查看topic内容&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;bin/kafka-console-consumer.sh --bootstrap-server 127.0.0.1:9092 --from-beginning --topic TOPICNAME &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;ul&gt;
+&lt;pre&gt;&lt;code&gt;bin/kafka-console-consumer.sh --bootstrap-server 127.0.0.1:9092 --from-beginning --topic TOPICNAME &lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
 &lt;li&gt;创建topic&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;bin/kafka-topics.sh --create --bootstrap-server 127.0.0.1:9092 --partitions &lt;span class="m"&gt;1&lt;/span&gt; --replication-factor &lt;span class="m"&gt;1&lt;/span&gt; --topic TOPICNAME &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;ul&gt;
+&lt;pre&gt;&lt;code&gt;bin/kafka-topics.sh --create --bootstrap-server 127.0.0.1:9092 --partitions 1 --replication-factor 1 --topic TOPICNAME &lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
 &lt;li&gt;删除topic&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;bin/kafka-topics.sh --delete --bootstrap-server 127.0.0.1:9092 --topic TOPICNAME&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;span class="lnt"&gt;2
-&lt;/span&gt;&lt;span class="lnt"&gt;3
-&lt;/span&gt;&lt;span class="lnt"&gt;4
-&lt;/span&gt;&lt;span class="lnt"&gt;5
-&lt;/span&gt;&lt;span class="lnt"&gt;6
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;bin/kafka-topics.sh --zookeeper 127.0.0.1:2181 --list
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;bin/kafka-topics.sh --zookeeper 127.0.0.1:2181 --describe --topic TOPICNAME
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;bin/kafka-consumer-groups.sh --bootstrap-server 127.0.0.1:9092 --list
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;bin/kafka-consumer-groups.sh --bootstrap-server 127.0.0.1:9092 --describe --group GROUPNAME
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;bin/kafka-consumer-groups.sh --zookeeper 127.0.0.1:2181 --delete --group GROUPNAME
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --from-beginning --topic TOPICNAME&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;</description></item></channel></rss>
+&lt;pre&gt;&lt;code&gt;bin/kafka-topics.sh --delete --bootstrap-server 127.0.0.1:9092 --topic TOPICNAME&lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code&gt;bin/kafka-topics.sh --zookeeper 127.0.0.1:2181 --list
+bin/kafka-topics.sh --zookeeper 127.0.0.1:2181 --describe --topic TOPICNAME
+bin/kafka-consumer-groups.sh --bootstrap-server 127.0.0.1:9092 --list
+bin/kafka-consumer-groups.sh --bootstrap-server 127.0.0.1:9092 --describe --group GROUPNAME
+bin/kafka-consumer-groups.sh --zookeeper 127.0.0.1:2181 --delete --group GROUPNAME
+bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --from-beginning --topic TOPICNAME&lt;/code&gt;&lt;/pre&gt;</description></item></channel></rss>
