@@ -124,5 +124,5 @@ https://help.aliyun.com/zh/ecs/how-to-enable-the-kdump-service-for-linux-instanc
 ---
 
 > 作者: Leon  
-> URL: https://blog.liangml.dpdns.org/posts/alibabalinux/  
+> URL: https://blog.20190313.xyz/posts/alibabalinux/  
 

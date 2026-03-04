@@ -9,5 +9,5 @@ npx node-pre-gyp rebuild -C ./node_modules/canvas
 ---
 
 > 作者: Leon  
-> URL: https://blog.liangml.dpdns.org/posts/nodejs/  
+> URL: https://blog.20190313.xyz/posts/nodejs/  
 

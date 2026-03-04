@@ -836,5 +836,5 @@ $ kubectl taint node 节点名  key=value:NoSchedule-   #加个  -  号
 ---
 
 > 作者: Leon  
-> URL: https://blog.liangml.dpdns.org/posts/kubernetes/  
+> URL: https://blog.20190313.xyz/posts/kubernetes/  
 

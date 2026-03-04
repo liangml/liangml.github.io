@@ -259,5 +259,5 @@ variables_hash_bucket_size 2048;
 ---
 
 > 作者: Leon  
-> URL: https://blog.liangml.dpdns.org/posts/nginx/  
+> URL: https://blog.20190313.xyz/posts/nginx/  
 

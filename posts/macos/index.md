@@ -26,5 +26,5 @@ sudo xattr -r -d com.apple.quarantine /Applications/应用名称.app
 ---
 
 > 作者: Leon  
-> URL: https://blog.liangml.dpdns.org/posts/macos/  
+> URL: https://blog.20190313.xyz/posts/macos/  
 

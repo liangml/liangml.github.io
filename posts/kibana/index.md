@@ -30,5 +30,5 @@ PUT _settings
 ---
 
 > 作者: Leon  
-> URL: https://blog.liangml.dpdns.org/posts/kibana/  
+> URL: https://blog.20190313.xyz/posts/kibana/  
 

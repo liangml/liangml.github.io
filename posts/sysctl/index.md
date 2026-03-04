@@ -187,5 +187,5 @@ net.ipv4.tcp_slow_start_after_idle = 0
 ---
 
 > 作者: Leon  
-> URL: https://blog.liangml.dpdns.org/posts/sysctl/  
+> URL: https://blog.20190313.xyz/posts/sysctl/  
 

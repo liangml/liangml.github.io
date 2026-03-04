@@ -104,5 +104,5 @@ or ```git config -f .gitmodules submodule.xxx.branch dev```
 ---
 
 > 作者: Leon  
-> URL: https://blog.liangml.dpdns.org/posts/gitlab/  
+> URL: https://blog.20190313.xyz/posts/gitlab/  
 

@@ -37,5 +37,5 @@ explicit-exit-notify
 ---
 
 > 作者: Leon  
-> URL: https://blog.liangml.dpdns.org/posts/openvpncommunity/  
+> URL: https://blog.20190313.xyz/posts/openvpncommunity/  
 

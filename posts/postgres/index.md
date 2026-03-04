@@ -76,5 +76,5 @@ select * from pg_stat_replication;
 ---
 
 > 作者: Leon  
-> URL: https://blog.liangml.dpdns.org/posts/postgres/  
+> URL: https://blog.20190313.xyz/posts/postgres/  
 

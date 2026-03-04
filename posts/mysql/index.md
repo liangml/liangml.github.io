@@ -215,5 +215,5 @@ mysql -h IPADDRESS -uroot -pxxx DBNAME -e "load data local infile 'CSVFILE' into
 ---
 
 > 作者: Leon  
-> URL: https://blog.liangml.dpdns.org/posts/mysql/  
+> URL: https://blog.20190313.xyz/posts/mysql/  
 
