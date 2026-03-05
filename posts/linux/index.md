@@ -148,7 +148,7 @@ tar --use-compress-program="pigz -k " -xvf dir1.tar.gz
 
 
 
-## requirements 依赖生成: 
+## requirements 依赖生成:
 ```shell
 pipreqs --encoding utf8 --force
 ```

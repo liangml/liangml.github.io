@@ -5,7 +5,7 @@
 ## go打包命令
 ```shell
 # 常规打包方法
-go build                      
+go build
 # 使用 “-dflags” 缩小大小
 go build -ldflags '-w -s'
 # 使用upx打包为最小程序

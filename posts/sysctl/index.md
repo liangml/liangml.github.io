@@ -8,7 +8,7 @@
 net.ipv4.tcp_tw_recycle = 0
 ```
 +  [阿里云 - Linux系统常用内核网络参数介绍与常见问题处理:](https://help.aliyun.com/knowledge_detail/41334.html)
-* Sysctl 操作命令 
+* Sysctl 操作命令
   * 查看当前生效的内核参数
 ```bash
 sysctl -a

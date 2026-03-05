@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Python - 分类 - LEON BLOG</title><link>https://blog.20190313.xyz/categories/python/</link><description>运维小站，分享些技术经验。</description><generator>Hugo 0.157.0 &amp; FixIt v0.4.3</generator><language>zh-CN</language><lastBuildDate>Wed, 04 Mar 2026 11:13:27 +0800</lastBuildDate><atom:link href="https://blog.20190313.xyz/categories/python/index.xml" rel="self" type="application/rss+xml"/><item><title>Poetry: Python虚拟环境管理</title><link>https://blog.20190313.xyz/posts/poetry/</link><pubDate>Thu, 31 Oct 2024 10:54:34 +0800</pubDate><guid>https://blog.20190313.xyz/posts/poetry/</guid><category domain="https://blog.20190313.xyz/categories/python/">Python</category><description>&lt;blockquote&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Python - 分类 - LEON BLOG</title><link>https://blog.20190313.xyz/categories/python/</link><description>专注于Go、Kubernetes、Linux和DevOps的技术博客，分享云原生、容器化、基础设施等实战经验</description><generator>Hugo 0.157.0 &amp; FixIt v0.4.3</generator><language>zh-CN</language><lastBuildDate>Thu, 05 Mar 2026 14:13:19 +0800</lastBuildDate><atom:link href="https://blog.20190313.xyz/categories/python/index.xml" rel="self" type="application/rss+xml"/><item><title>Poetry: Python虚拟环境管理</title><link>https://blog.20190313.xyz/posts/poetry/</link><pubDate>Thu, 31 Oct 2024 10:54:34 +0800</pubDate><guid>https://blog.20190313.xyz/posts/poetry/</guid><category domain="https://blog.20190313.xyz/categories/python/">Python</category><description>&lt;blockquote&gt;
 &lt;p&gt;macos 使用&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 class="heading-element" id="install"&gt;&lt;span&gt;install&lt;/span&gt;
@@ -25,9 +25,9 @@ poetry init&lt;/code&gt;&lt;/pre&gt;&lt;h2 class="heading-element" id="管理虚
 &lt;pre&gt;&lt;code&gt;poetry env list&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
 &lt;li&gt;查看当前poetry配置&lt;/li&gt;
 &lt;/ul&gt;
-&lt;pre&gt;&lt;code&gt;poetry config --list &lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;pre&gt;&lt;code&gt;poetry config --list&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
 &lt;li&gt;允许在项目目录下创建虚拟环境&lt;/li&gt;
 &lt;/ul&gt;
 &lt;pre&gt;&lt;code&gt;poetry config virtualenvs.in-project true&lt;/code&gt;&lt;/pre&gt;&lt;blockquote&gt;
-&lt;p&gt;如果已经创建了环境需要先移除 &lt;code&gt;poetry env remove PYTHONPATH&lt;/code&gt;&lt;br&gt;
+&lt;p&gt;如果已经创建了环境需要先移除 &lt;code&gt;poetry env remove PYTHONPATH&lt;/code&gt;
 创建目录：poetry env use PYTHONPATH&lt;/p&gt;</description></item></channel></rss>

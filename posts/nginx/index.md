@@ -235,7 +235,7 @@ server {
     return 444;
     access_log /var/log/nginx/000_default.access.log;
     error_log /var/log/nginx/000_default.error.log;
-} 
+}
 EOF
 # reload nginx
 nginx -t

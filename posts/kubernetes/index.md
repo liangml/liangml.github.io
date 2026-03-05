@@ -54,13 +54,13 @@ name <string> -required-     #如果类型后面接 -required-，表示为必填
 
 ## 常用资源清单格式定义
 
-> Object ：对象，下方是对象的属性  
-> list：类别，下方包含多个数组，每个数组是一个对象  
+> Object ：对象，下方是对象的属性
+> list：类别，下方包含多个数组，每个数组是一个对象
 > String：字符串 后边直接跟value的值
 
 ### 通用字段
 
-| 参数名       | 字段类型    | 说明                                                   |                                                 
+| 参数名       | 字段类型    | 说明                                                   |
 |-----------|---------|------------------------------------------------------|
 | version   | String  | 这里是指的是K8S API的版本，目前基本上是v1，可以用kubectl apiversions命令音询 |
 | kind	     | String	 | 这里指的是yamI文件定义的资源类型和角色，比如: Pod                        |
@@ -311,7 +311,7 @@ subsets: #配置外部集群信息
 ### ingress
 
 > Ingress（入口，准入）是Kubernetes提供的接口，Kubernetes使用Ingress策略定义和Ingress Controller
-> 实现了基于Ingress策略定义的服务路由功能，用于对Kubernetes集群外部的客户端提供服务。  
+> 实现了基于Ingress策略定义的服务路由功能，用于对Kubernetes集群外部的客户端提供服务。
 > Ingress 专门对接用于七层负载的
 
 | 参数名                                             | 	字段类型    | 	说明         |
@@ -463,7 +463,7 @@ $ kubectl patch deployment nginx-test --patch '{"spec": {"template": {"metadata"
 
 #### PV
 
-> 类别是：PersistentVolume  
+> 类别是：PersistentVolume
 > PV 也是集群中的资源。 PV 是 Volume 之类的卷插件，但具有独立于使用 PV 的 Pod 的生命周期。可被PVC调用提供给pod
 
 | 字段	                                 | 字段类型	   | 描述                                                                                                                                 |
@@ -485,17 +485,17 @@ $ kubectl patch deployment nginx-test --patch '{"spec": {"template": {"metadata"
 #### PVC
 
 > `pvc`是用户存储的请求。它与Pod相似。Pod消耗节点资源，PVC消耗PV资源。Pod可以请求特定级别的资源（CPU和内存）。声明可以请求特定的大小和访问模式（例如，可以以读/写一次或只读多次模式挂载）
-> 声明需要在StatefulSet控制器中进行声明  
+> 声明需要在StatefulSet控制器中进行声明
 > `StatefulSet`是为了 解决有状态服务的问题 （对应 Deployments 和 ReplicaSets 是为无状态服务而设计），需要配合无头服务Service使用
 
 * 其特性包括：
-    * 稳定的存储：即 Pod 重新调度后还是能访问到相同的持久化数据，基于 PVC 来实现。  
+    * 稳定的存储：即 Pod 重新调度后还是能访问到相同的持久化数据，基于 PVC 来实现。
       `PV卷的名称为：PodName+PV模板Name。`
 
 * 稳定的网络标识：即 Pod 重新调度后其 PodName 和 HostName（域名）不变，基于 Headless Service（即没有 Cluster IP 的 Service
   ）来实现。
 
-* 有序扩容：有序扩展，即 Pod 是有顺序的，在部署或者扩展的时候要依据定义的顺序依次依次进行  
+* 有序扩容：有序扩展，即 Pod 是有顺序的，在部署或者扩展的时候要依据定义的顺序依次依次进行
   `即从 0 到 N-1，在 下一个 Pod 运行之前所有之前的 Pod 必须都是 Running 和 Ready 状态 ，基于 init containers 来实现。 只有当第一个pod就绪以后才会创建第二个pod`
 
 * 有序的回收：有序删除（即从 N-1 到 0）
@@ -542,7 +542,7 @@ $ kubectl patch deployment nginx-test --patch '{"spec": {"template": {"metadata"
             - containerPort: 80
               name: web
             volumeMounts:  #卷绑定
-            - name: www     
+            - name: www
               mountPath: /usr/share/nginx/html
       volumeClaimTemplates:    #pvc的卷声明模板（一个pod对应一个pvc，跟随pod一起创建）
       - metadata:
@@ -592,8 +592,8 @@ $ kubectl patch deployment nginx-test --patch '{"spec": {"template": {"metadata"
 * 找到该pod后，根据设置的拓扑域的key匹配其拓扑域的value
 * 只要在设置的拓扑域的value与符合标签的pod的拓扑域的value一致，就可以建立pod
 
-> 根据拓扑域匹配新的pod该建立在哪里，只要与上面符合条件的pod在同拓扑域即可。  
-> 拓扑域：在同一层次就属于同一拓扑域。例如：同一主机、同一机房、同一地区等等  
+> 根据拓扑域匹配新的pod该建立在哪里，只要与上面符合条件的pod在同拓扑域即可。
+> 拓扑域：在同一层次就属于同一拓扑域。例如：同一主机、同一机房、同一地区等等
 > pod亲和性不支持Gt、Lt运算符。
 
 | 字段	                                                     | 字段类型   | 	描述        |
@@ -644,7 +644,7 @@ $ kubectl patch deployment nginx-test --patch '{"spec": {"template": {"metadata"
 $ kubectl taint node 节点名 key1=value:NoSchedule
 
 # 节点说明中，查找 Taints 字段
-$ kubectl describe node  节点名  
+$ kubectl describe node  节点名
 
 # 去除污点
 $ kubectl taint node 节点名  key=value:NoSchedule-   #加个  -  号
@@ -676,7 +676,7 @@ $ kubectl taint node 节点名  key=value:NoSchedule-   #加个  -  号
     namespace: default   #必须写，不写就会有个默认值是default
     name: pod-reader
   rules:
-    - apiGroups: [ "" ] # "" indicates the core API group    #对哪个接口组版本的资源进行操作，不写就代表核心组：v1 
+    - apiGroups: [ "" ] # "" indicates the core API group    #对哪个接口组版本的资源进行操作，不写就代表核心组：v1
       resources: [ "pods" ]     #可进行操作的资源对象
       verbs: [ "get", "watch", "list" ]  #对上方资源的操作，一般写all即可，不同资源有不同操作，在开发者手册中有。get：获取这个pod。watch：监控。lsit：列出，加起来就是查看pod的信息
   ```
@@ -703,14 +703,14 @@ $ kubectl taint node 节点名  key=value:NoSchedule-   #加个  -  号
 
 #### RoleBinding and ClusterRoleBinding
 
-> RoleBinding and ClusterRoleBinding是什么？  
+> RoleBinding and ClusterRoleBinding是什么？
 > RoloBinding可以将角色中定义的权限授予用户或用户组，RoleBinding 包含一组权限列表(subjects)
 > 权限列表中包含有不同形式的待授予权限资源类型(users, groups, or service accounts)；RoloBinding同样包含对被Bind的Role
 > 引用；RoleBinding 适用于某个命名空间内授权，而 ClusterRoleBinding 适用于集群范围内的授权
 
 * RoleBinding绑定Role
 
-  > 角色通过角色绑定，绑定给用户（user/group/sa）  
+  > 角色通过角色绑定，绑定给用户（user/group/sa）
   > 例如：将 default 命名空间的 pod-reader Role 授予 jane 用户，此后 jane 用户在 default 命名空间中将具有 pod-reader 的权限
 
   ```yaml
@@ -802,8 +802,8 @@ $ kubectl taint node 节点名  key=value:NoSchedule-   #加个  -  号
 
 #### to Subjects
 
-> 权利附着点：user、group、sa  
-> 权利附着点命名方式  
+> 权利附着点：user、group、sa
+> 权利附着点命名方式
 > RoleBinding 和 ClusterRoleBinding 可以将 Role 绑定到 Subjects；Subjects 可以是 groups、users 或者 service accounts
 
 * Subjects 中 Users 使用字符串表示，

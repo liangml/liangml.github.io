@@ -41,7 +41,7 @@ curl -XPUT "<http://ip:9200/INDEXNAME/_settings>" -d '{
   }
 }'
 ```
-* http://ip:9200/INDEXNAME/list/_search?pretty&from=0&size=1 
+* http://ip:9200/INDEXNAME/list/_search?pretty&from=0&size=1
 
 ## 缩容操作
 * 服务使用的es集群中应先剔除要下线的节点

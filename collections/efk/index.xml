@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Efk - 合集 - LEON BLOG</title><link>https://blog.20190313.xyz/collections/efk/</link><description>运维小站，分享些技术经验。</description><generator>Hugo 0.157.0 &amp; FixIt v0.4.3</generator><language>zh-CN</language><lastBuildDate>Wed, 04 Mar 2026 11:13:27 +0800</lastBuildDate><atom:link href="https://blog.20190313.xyz/collections/efk/index.xml" rel="self" type="application/rss+xml"/><item><title>Kibana</title><link>https://blog.20190313.xyz/posts/kibana/</link><pubDate>Tue, 15 Oct 2024 15:08:58 +0800</pubDate><guid>https://blog.20190313.xyz/posts/kibana/</guid><category domain="https://blog.20190313.xyz/categories/kibana/">Kibana</category><description>&lt;ul&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Efk - 合集 - LEON BLOG</title><link>https://blog.20190313.xyz/collections/efk/</link><description>专注于Go、Kubernetes、Linux和DevOps的技术博客，分享云原生、容器化、基础设施等实战经验</description><generator>Hugo 0.157.0 &amp; FixIt v0.4.3</generator><language>zh-CN</language><lastBuildDate>Thu, 05 Mar 2026 14:13:19 +0800</lastBuildDate><atom:link href="https://blog.20190313.xyz/collections/efk/index.xml" rel="self" type="application/rss+xml"/><item><title>Kibana</title><link>https://blog.20190313.xyz/posts/kibana/</link><pubDate>Tue, 15 Oct 2024 15:08:58 +0800</pubDate><guid>https://blog.20190313.xyz/posts/kibana/</guid><category domain="https://blog.20190313.xyz/categories/kibana/">Kibana</category><description>&lt;ul&gt;
 &lt;li&gt;kibana无法新建索引模式，F12 &amp;ldquo;403&amp;rdquo;: 权限问题&lt;/li&gt;
 &lt;/ul&gt;
 &lt;pre&gt;&lt;code&gt;PUT .kibana/_settings
@@ -33,10 +33,10 @@
 &lt;pre&gt;&lt;code&gt;bin/kafka-consumer-groups.sh --zookeeper 127.0.0.1:2181 --topic TOPICNAME&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
 &lt;li&gt;查看topic内容&lt;/li&gt;
 &lt;/ul&gt;
-&lt;pre&gt;&lt;code&gt;bin/kafka-console-consumer.sh --bootstrap-server 127.0.0.1:9092 --from-beginning --topic TOPICNAME &lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;pre&gt;&lt;code&gt;bin/kafka-console-consumer.sh --bootstrap-server 127.0.0.1:9092 --from-beginning --topic TOPICNAME&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
 &lt;li&gt;创建topic&lt;/li&gt;
 &lt;/ul&gt;
-&lt;pre&gt;&lt;code&gt;bin/kafka-topics.sh --create --bootstrap-server 127.0.0.1:9092 --partitions 1 --replication-factor 1 --topic TOPICNAME &lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;pre&gt;&lt;code&gt;bin/kafka-topics.sh --create --bootstrap-server 127.0.0.1:9092 --partitions 1 --replication-factor 1 --topic TOPICNAME&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
 &lt;li&gt;删除topic&lt;/li&gt;
 &lt;/ul&gt;
 &lt;pre&gt;&lt;code&gt;bin/kafka-topics.sh --delete --bootstrap-server 127.0.0.1:9092 --topic TOPICNAME&lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code&gt;bin/kafka-topics.sh --zookeeper 127.0.0.1:2181 --list

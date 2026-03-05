@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Programs - 合集 - LEON BLOG</title><link>https://blog.20190313.xyz/collections/programs/</link><description>运维小站，分享些技术经验。</description><generator>Hugo 0.157.0 &amp; FixIt v0.4.3</generator><language>zh-CN</language><lastBuildDate>Wed, 04 Mar 2026 11:13:27 +0800</lastBuildDate><atom:link href="https://blog.20190313.xyz/collections/programs/index.xml" rel="self" type="application/rss+xml"/><item><title>Golang-Guide</title><link>https://blog.20190313.xyz/posts/golang-guide/</link><pubDate>Fri, 22 Nov 2024 15:31:08 +0800</pubDate><guid>https://blog.20190313.xyz/posts/golang-guide/</guid><category domain="https://blog.20190313.xyz/categories/golang/">Golang</category><description>&lt;!--
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Programs - 合集 - LEON BLOG</title><link>https://blog.20190313.xyz/collections/programs/</link><description>专注于Go、Kubernetes、Linux和DevOps的技术博客，分享云原生、容器化、基础设施等实战经验</description><generator>Hugo 0.157.0 &amp; FixIt v0.4.3</generator><language>zh-CN</language><lastBuildDate>Thu, 05 Mar 2026 14:13:19 +0800</lastBuildDate><atom:link href="https://blog.20190313.xyz/collections/programs/index.xml" rel="self" type="application/rss+xml"/><item><title>Golang-Guide</title><link>https://blog.20190313.xyz/posts/golang-guide/</link><pubDate>Fri, 22 Nov 2024 15:31:08 +0800</pubDate><guid>https://blog.20190313.xyz/posts/golang-guide/</guid><category domain="https://blog.20190313.xyz/categories/golang/">Golang</category><description>&lt;!--
 
 Editing this document:
 
@@ -102,7 +102,7 @@ change.md
 # 2022-03-30
 
 - 添加有关在封送结构中使用字段标记的指导。
-- 
+-
 # 2022-10-18
 
 - 管理goroutine生命周期的指导.
@@ -149,11 +149,11 @@ poetry init&lt;/code&gt;&lt;/pre&gt;&lt;h2 class="heading-element" id="管理虚
 &lt;pre&gt;&lt;code&gt;poetry env list&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
 &lt;li&gt;查看当前poetry配置&lt;/li&gt;
 &lt;/ul&gt;
-&lt;pre&gt;&lt;code&gt;poetry config --list &lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;pre&gt;&lt;code&gt;poetry config --list&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
 &lt;li&gt;允许在项目目录下创建虚拟环境&lt;/li&gt;
 &lt;/ul&gt;
 &lt;pre&gt;&lt;code&gt;poetry config virtualenvs.in-project true&lt;/code&gt;&lt;/pre&gt;&lt;blockquote&gt;
-&lt;p&gt;如果已经创建了环境需要先移除 &lt;code&gt;poetry env remove PYTHONPATH&lt;/code&gt;&lt;br&gt;
+&lt;p&gt;如果已经创建了环境需要先移除 &lt;code&gt;poetry env remove PYTHONPATH&lt;/code&gt;
 创建目录：poetry env use PYTHONPATH&lt;/p&gt;</description></item><item><title>Nodejs</title><link>https://blog.20190313.xyz/posts/nodejs/</link><pubDate>Tue, 29 Oct 2024 18:10:27 +0800</pubDate><guid>https://blog.20190313.xyz/posts/nodejs/</guid><category domain="https://blog.20190313.xyz/categories/nodejs/">Nodejs</category><description>&lt;h2 class="heading-element" id="问题集锦"&gt;&lt;span&gt;问题集锦&lt;/span&gt;
  &lt;a href="#%e9%97%ae%e9%a2%98%e9%9b%86%e9%94%a6" class="heading-mark"&gt;
  &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
@@ -303,8 +303,8 @@ poetry init&lt;/code&gt;&lt;/pre&gt;&lt;h2 class="heading-element" id="管理虚
  &lt;/tr&gt;
  &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;其他检查符：&lt;br&gt;
--S: 判断某文件是否 socket。&lt;br&gt;
+&lt;p&gt;其他检查符：
+-S: 判断某文件是否 socket。
 -L: 检测文件是否存在并且是一个符号链接。&lt;/p&gt;</description></item><item><title>Java</title><link>https://blog.20190313.xyz/posts/java/</link><pubDate>Sat, 12 Oct 2024 15:48:00 +0800</pubDate><guid>https://blog.20190313.xyz/posts/java/</guid><category domain="https://blog.20190313.xyz/categories/java/">Java</category><description>&lt;h1 class="heading-element" id="java-home-配置"&gt;&lt;span&gt;java home 配置&lt;/span&gt;
  &lt;a href="#java-home-%e9%85%8d%e7%bd%ae" class="heading-mark"&gt;
  &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
@@ -330,7 +330,7 @@ jmap -dump:format=b,file=VipQuickRoutePlatAsyn.dat 29473&lt;/code&gt;&lt;/pre&gt
  &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
  &lt;/a&gt;
 &lt;/h2&gt;&lt;pre&gt;&lt;code&gt;# 常规打包方法
-go build 
+go build
 # 使用 “-dflags” 缩小大小
 go build -ldflags &amp;#39;-w -s&amp;#39;
 # 使用upx打包为最小程序

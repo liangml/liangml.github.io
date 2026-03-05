@@ -2,7 +2,7 @@
 
 ## ssl
 ```bash
-# acme.sh 
+# acme.sh
 # 默认是zerossl，存在认证问题：get authz objec with invalid status, please try again later.
 # https://github.com/acmesh-official/acme.sh/wiki/Server
 acme.sh --set-default-ca --server letsencrypt

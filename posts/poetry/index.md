@@ -23,17 +23,17 @@ poetry env list
 ```
 * 查看当前poetry配置
 ```shell
-poetry config --list 
+poetry config --list
 ```
 * 允许在项目目录下创建虚拟环境
 ```shell
 poetry config virtualenvs.in-project true
 ```
-> 如果已经创建了环境需要先移除 ```poetry env remove PYTHONPATH```  
+> 如果已经创建了环境需要先移除 ```poetry env remove PYTHONPATH```
 > 创建目录：poetry env use PYTHONPATH
 * 退出与启动环境
-> 已 poetry 开头的命令自动检测当前环境  
-> 同样也可以使用```poetry shell```进入  
+> 已 poetry 开头的命令自动检测当前环境
+> 同样也可以使用```poetry shell```进入
 > 退出环境：deactivate
 
 ## poetry 指令
@@ -43,7 +43,7 @@ poetry config virtualenvs.in-project true
 poetry add requests
 ```
 ## poetry.lock 与更新顺序
-> 除了更新 pyproject.toml ，此时项目中还会新增一个文件，名为 poetry.lock ，它实际上就相当于 pip 的 requirements.txt ，详细记录了所有安装的模块与版本。  
+> 除了更新 pyproject.toml ，此时项目中还会新增一个文件，名为 poetry.lock ，它实际上就相当于 pip 的 requirements.txt ，详细记录了所有安装的模块与版本。
 > 当使用 poetry add 指令时，poetry 会自动依序帮你做完这三件事：
 * 更新 `pyproject.toml`。
 * 依照 `pyproject.toml` 的内容，更新 `poetry.lock` 。
@@ -78,10 +78,10 @@ flask = "^2.3.2"
 [tool.poetry.group.dev.dependencies]
 black = "^23.7.0"
 ```
-可以看到 black 被列在不同区块： `tool.poetry.dev-dependencies` 。  
-**强烈建议善用 `dev-dependencies`**  
-善用 `--group dev` 参数，明确区分开发环境，我认为非常必要。  
-首先，这些模块常常属于「检测型」工具，相关的依赖模块着实不少！比如 flake8 ，它依赖了 `pycodestyle` 、 `pyflakes` 、 `mccabe` 等等，还有 `black` 、 `pre-commit` ，依赖模块数量也都很可观。  
+可以看到 black 被列在不同区块： `tool.poetry.dev-dependencies` 。
+**强烈建议善用 `dev-dependencies`**
+善用 `--group dev` 参数，明确区分开发环境，我认为非常必要。
+首先，这些模块常常属于「检测型」工具，相关的依赖模块着实不少！比如 flake8 ，它依赖了 `pycodestyle` 、 `pyflakes` 、 `mccabe` 等等，还有 `black` 、 `pre-commit` ，依赖模块数量也都很可观。
 ## Poetry 更新模块
 这个就很简单了，使用 poetry update 指令即可：
 ```shell
@@ -91,8 +91,8 @@ poetry update
 ```shell
 poetry update requests toml
 ```
-关于 `poetry update` 的其余参数，请参考文件。  
-还一件重要的事，那就是关于模块版本的升级限制规则，取决于你在 pyproject.toml 中的设定。  
+关于 `poetry update` 的其余参数，请参考文件。
+还一件重要的事，那就是关于模块版本的升级限制规则，取决于你在 pyproject.toml 中的设定。
 ## 列出全部模块清单
 ```shell
 poetry show
@@ -103,7 +103,7 @@ poetry show --tree
 ```
 **也可以指定模块显示**
 ```shell
-poetry show celery --tree 
+poetry show celery --tree
 ```
 ## 删除模块
 ```shell

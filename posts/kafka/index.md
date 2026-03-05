@@ -18,11 +18,11 @@ bin/kafka-consumer-groups.sh --zookeeper 127.0.0.1:2181 --topic TOPICNAME
 ```
 + 查看topic内容
 ```shell
-bin/kafka-console-consumer.sh --bootstrap-server 127.0.0.1:9092 --from-beginning --topic TOPICNAME 
+bin/kafka-console-consumer.sh --bootstrap-server 127.0.0.1:9092 --from-beginning --topic TOPICNAME
 ```
 + 创建topic
 ```bash
-bin/kafka-topics.sh --create --bootstrap-server 127.0.0.1:9092 --partitions 1 --replication-factor 1  --topic TOPICNAME 
+bin/kafka-topics.sh --create --bootstrap-server 127.0.0.1:9092 --partitions 1 --replication-factor 1  --topic TOPICNAME
 ```
 + 删除topic
 ```shell
