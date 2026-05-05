@@ -1,0 +1,34 @@
+# -----------------------------------------------------------
+# SRE 优化版：优先声明站点地图，确保搜索引擎抓取效率
+# -----------------------------------------------------------
+
+# 放在最顶部，确保所有爬虫第一眼就能看到
+Sitemap: https://blog.20190313.xyz/sitemap.xml
+
+# 允许所有搜索引擎建立索引，但不允许 AI 训练（对应你 CF 的 Content-Signal）
+User-agent: *
+Allow: /
+Disallow: /cgi-bin/ # 如果你有的话
+
+# -----------------------------------------------------------
+# 以下是针对特定 AI 爬虫的防御逻辑（保持与 Cloudflare 同步）
+# -----------------------------------------------------------
+
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+# 阻止 Google 的 AI 训练爬虫，但不影响搜索索引爬虫 (Googlebot)
+User-agent: Google-Extended
+Disallow: /
