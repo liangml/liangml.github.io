@@ -1,4 +1,0 @@
-Sitemap: https://blog.20190313.xyz/sitemap.xml
-
-User-agent: *
-Allow: /
