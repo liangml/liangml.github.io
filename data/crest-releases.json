@@ -1,0 +1,556 @@
+{
+  "source": "github-api",
+  "repo": "sevoniva/Crest",
+  "apiUrl": "https://api.github.com/repos/sevoniva/Crest/releases",
+  "pageUrl": "https://github.com/sevoniva/Crest/releases",
+  "fetchedAt": "2026-06-13T14:29:19.773Z",
+  "releases": [
+    {
+      "id": 338955313,
+      "name": "Crest v1.5.10",
+      "tag_name": "v1.5.10",
+      "body": "# Crest v1.5.10 发布说明\n\n发布日期：2026-06-13\n\nCrest v1.5.10 是 v1.5.8 之后的稳定补丁版本，合并菜单国际化、应用模板本地导入和应用模板导入导出完整性修复。v1.5.9 不作为稳定交付版本；已有 v1.5.8 环境应直接升级到 v1.5.10。\n\n## Release 附件\n\n```text\ncrest-offline-v1.5.10-linux-amd64.tar.gz\ncrest-offline-v1.5.10-linux-arm64.tar.gz\ncrest-app-images-v1.5.10-linux-amd64.tar.gz\ncrest-app-images-v1.5.10-linux-arm64.tar.gz\ncrest-source-v1.5.10.tar.gz\ncrest-v1.5.10-checksums.txt\ncrest-app-images-v1.5.10-checksums.txt\n```\n\nGitHub Release 页面仍会自动提供 `Source code (zip)` 和 `Source code (tar.gz)`。`crest-source-v1.5.10.tar.gz` 是发布流程额外生成的命名源码包，便于归档和交付。\n\n## 镜像\n\n镜像标签：\n\n```text\nghcr.io/sevoniva/crest-service:v1.5.10\nghcr.io/sevoniva/crest-service:main\nghcr.io/sevoniva/crest-web:v1.5.10\nghcr.io/sevoniva/crest-web:main\n```\n\n支持架构：\n\n```text\nlinux/amd64\nlinux/arm64\n```\n\n## 离线包\n\n`crest-offline-*` 是完整离线安装包，包含安装脚本、配置模板、Docker Compose 文件、Crest 后端镜像、Crest 前端镜像、MySQL 镜像、可选监控组件配置、升级 SQL 和离线安装说明。\n\n`crest-app-images-*` 是应用镜像升级包，仅包含 Crest 后端镜像、Crest 前端镜像、增量升级 SQL 和加载说明，不包含 MySQL、Prometheus、Grafana 镜像，也不包含完整安装脚本。已有环境只需要替换前后端应用服务时，可使用该包。\n\n## 新增内容\n\n- 数据大屏和仪表盘资源列表支持“导入应用模板”，可上传 `.DET2` 或 `.DET2APP` 文件并进入编辑器。\n- 应用模板导入后保留数据源、数据集、图表、联动和下钻配置，保存时继续使用现有应用映射流程绑定目标环境资源。\n\n## 修复内容\n\n- 修复后端默认语言包缺少菜单 key 时，工作台、数据准备、系统管理等菜单显示 `i18n_menu.*` 的问题。\n- 补齐简体中文、繁体中文、英文和默认语言包的菜单翻译，并增加菜单语言包完整性测试。\n- 修复 `.DET2`、`.DET2APP` 文件无法通过本地文件导入创建数据大屏或仪表盘的问题。\n- 修复外部应用模板导入时未保留模板版本和应用映射数据，导致数据源、数据集映射流程无法继续的问题。\n- 修复历史模板缺少 `scaleHeight` 时导入后画布高度缩放可能异常的问题。\n- 修复 `.DET2APP` 应用模板导入保存时只保留外部链接，内部大屏跳转配置未写入的问题。\n- 修复应用模板导入后跳转源图表 ID 未按新图表 ID 映射，导致点击指标无法匹配跳转配置的问题。\n- 修复应用模板导入后跳转目标字段配置未保存的问题。\n- 修复应用模板导入未完成数据源或数据集匹配时返回“系统内部错误”的问题，改为返回明确的匹配提示。\n- 修复刚导入但未发布的大屏或仪表盘再次导出应用模板时，图表和跳转配置可能缺失的问题。\n\n## 升级说明\n\n全新安装不需要手动执行 `upgrade-sql/` 中的 SQL。\n\n已有 v1.5.8 环境升级到 v1.5.10 时，只需要替换前后端镜像或使用 v1.5.10 应用镜像升级包，不需要新增升级 SQL。\n\n从 v1.5.7 升级到 v1.5.10 时，请先执行：\n\n```text\nupgrade-sql/v1.5.7_to_v1.5.8.sql\n```\n\n执行升级 SQL 后，再替换 v1.5.10 前后端镜像。生产环境升级前建议完成数据库备份、运行目录备份和关键报表导出。\n\n## 验证范围\n\n本版本发布前执行以下检查：\n\n- 应用模板内部跳转导入保存单元测试；\n- `.DET2`、`.DET2APP` 本地导入解析单元测试；\n- 菜单语言包完整性单元测试；\n- 工作台菜单显示检查，确认页面不再显示 `i18n_menu.*`；\n- 应用模板数据源映射、数据集映射、内部跳转导出和保存验证；\n- 刚导入未发布资源的应用模板导出验证；\n- 后端编译和单元测试。\n",
+      "html_url": "https://github.com/sevoniva/Crest/releases/tag/v1.5.10",
+      "published_at": "2026-06-13T11:14:45Z",
+      "prerelease": false,
+      "draft": false,
+      "assets": [
+        {
+          "id": 446521548,
+          "name": "crest-app-images-v1.5.10-checksums.txt",
+          "size": 220,
+          "browser_download_url": "https://github.com/sevoniva/Crest/releases/download/v1.5.10/crest-app-images-v1.5.10-checksums.txt",
+          "download_count": 0
+        },
+        {
+          "id": 446521549,
+          "name": "crest-app-images-v1.5.10-linux-amd64.tar.gz",
+          "size": 293043934,
+          "browser_download_url": "https://github.com/sevoniva/Crest/releases/download/v1.5.10/crest-app-images-v1.5.10-linux-amd64.tar.gz",
+          "download_count": 1
+        },
+        {
+          "id": 446521550,
+          "name": "crest-app-images-v1.5.10-linux-arm64.tar.gz",
+          "size": 292060835,
+          "browser_download_url": "https://github.com/sevoniva/Crest/releases/download/v1.5.10/crest-app-images-v1.5.10-linux-arm64.tar.gz",
+          "download_count": 0
+        },
+        {
+          "id": 446523210,
+          "name": "crest-offline-v1.5.10-linux-amd64.tar.gz",
+          "size": 1013610270,
+          "browser_download_url": "https://github.com/sevoniva/Crest/releases/download/v1.5.10/crest-offline-v1.5.10-linux-amd64.tar.gz",
+          "download_count": 0
+        },
+        {
+          "id": 446523211,
+          "name": "crest-offline-v1.5.10-linux-arm64.tar.gz",
+          "size": 970235453,
+          "browser_download_url": "https://github.com/sevoniva/Crest/releases/download/v1.5.10/crest-offline-v1.5.10-linux-arm64.tar.gz",
+          "download_count": 0
+        },
+        {
+          "id": 446523212,
+          "name": "crest-source-v1.5.10.tar.gz",
+          "size": 5847691,
+          "browser_download_url": "https://github.com/sevoniva/Crest/releases/download/v1.5.10/crest-source-v1.5.10.tar.gz",
+          "download_count": 0
+        },
+        {
+          "id": 446523209,
+          "name": "crest-v1.5.10-checksums.txt",
+          "size": 308,
+          "browser_download_url": "https://github.com/sevoniva/Crest/releases/download/v1.5.10/crest-v1.5.10-checksums.txt",
+          "download_count": 0
+        }
+      ]
+    },
+    {
+      "id": 338910292,
+      "name": "Crest v1.5.8",
+      "tag_name": "v1.5.8",
+      "body": "# Crest v1.5.8 发布说明\n\n发布日期：2026-06-13\n\nCrest v1.5.8 是 v1.5 系列的数据资产和缓存管理版本。本版本新增数据资产中心、缓存任务中心，完善数据集缓存状态、任务刷新、用户密码维护、Excel 数据源兼容性、公开分享下钻和数据准备表格体验。已有 v1.5.x 环境升级时请先备份元数据库和运行目录，并执行 `upgrade-sql/v1.5.7_to_v1.5.8.sql`。\n\n## Release 附件\n\n```text\ncrest-offline-v1.5.8-linux-amd64.tar.gz\ncrest-offline-v1.5.8-linux-arm64.tar.gz\ncrest-app-images-v1.5.8-linux-amd64.tar.gz\ncrest-app-images-v1.5.8-linux-arm64.tar.gz\ncrest-source-v1.5.8.tar.gz\ncrest-v1.5.8-checksums.txt\ncrest-app-images-v1.5.8-checksums.txt\n```\n\nGitHub Release 页面仍会自动提供 `Source code (zip)` 和 `Source code (tar.gz)`。`crest-source-v1.5.8.tar.gz` 是本次发布流程额外生成的命名源码包，便于内网归档和交付。\n\n## 镜像\n\n镜像标签：\n\n```text\nghcr.io/sevoniva/crest-service:v1.5.8\nghcr.io/sevoniva/crest-service:main\nghcr.io/sevoniva/crest-web:v1.5.8\nghcr.io/sevoniva/crest-web:main\n```\n\n支持架构：\n\n```text\nlinux/amd64\nlinux/arm64\n```\n\n## 离线包\n\n`crest-offline-*` 是完整离线安装包，包含安装脚本、配置模板、Docker Compose 文件、Crest 后端镜像、Crest 前端镜像、MySQL 镜像、可选监控组件配置、升级 SQL 和离线安装说明。启用 `INCLUDE_OBSERVABILITY_IMAGES=true` 制作的离线包还会包含 Prometheus 和 Grafana 镜像，适合完全无公网环境。\n\n`crest-app-images-*` 是应用镜像升级包，仅包含 Crest 后端镜像、Crest 前端镜像、增量升级 SQL 和加载说明，不包含 MySQL、Prometheus、Grafana 镜像，也不包含完整安装脚本。已有内网环境只需要替换前后端应用服务时，可使用该包降低传输体积。\n\n## 新增和优化\n\n- 新增数据资产中心，统一查看数据源、数据表、数据集、仪表盘、大屏和分享资源，支持负责人、说明、标签、更新时间、使用次数和上下游影响信息。\n- 数据集支持治理状态：已认证、推荐使用、已废弃。已废弃与已认证、推荐使用互斥，避免废弃资产继续被推荐。\n- 新增缓存任务中心，集中展示数据集缓存任务、最近执行状态、任务耗时、失败原因和手动更新入口。\n- 数据集缓存设置页优化未保存配置、增量不可用、立即更新和定时更新的状态提示。\n- 缓存任务点击“立即更新”后自动轮询任务状态，短暂刷新失败会重试。\n- 数据资产页、数据集页、数据源页和详情页表格统一使用 `crest-data-table` 样式。\n- 数据门户和大屏、仪表盘展示页不向普通访问用户展示缓存技术状态；缓存状态集中在管理端查看。\n- 用户管理支持新建或编辑本地账号时设置密码，重置本地密码后返回本次生成的新密码。\n- Excel 数据源导入会跳过首行疑似 SQL 说明或无效表头的工作表，并保留可导入工作表，避免说明页影响正常数据页导入。\n- Excel 数据源使用安全的物理字段名保存长表头、中文表头和重复表头，前端仍展示原始业务字段名。\n- 公开分享页中的内部下钻保持在分享上下文内打开，支持弹窗查看目标资源并下载明细数据。\n- 明细表序号列改为独立序号字段，开启表头说明、表头分组、合计行或合并单元格时不再占用第一列业务字段。\n- 上传文件大小限制支持通过 `CREST_UPLOAD_MAX_FILE_SIZE` 和 `CREST_UPLOAD_MAX_REQUEST_SIZE` 配置；超出限制时返回明确提示。\n- 前端构建产物文件名包含版本号和内容 hash，降低升级后浏览器缓存旧资源的概率。\n\n## 修复内容\n\n- 修复数据资产筛选在部分资产类型下报错的问题。\n- 修复非管理员但具备资产维护权限时无法保存资产负责人、治理状态和资产说明的问题。\n- 修复数据资产 SQL 按固定组织读取资源，导致管理员也可能无法编辑部分资产的问题。\n- 修复数据资产详情页多个 tab 风格与列表页不一致的问题。\n- 修复缓存任务轮询遇到短暂接口错误后过早停止的问题。\n- 修复数据资产查询在不同表字符集或排序规则不一致时可能报错的问题。\n- 修复公开分享页点击内部下钻后跳到受后台权限保护页面，导致未登录访问需要重新登录的问题。\n- 修复分享弹窗下载按钮不可用或导出空数据的问题。\n- 修复 Excel 文件中说明页首行包含长 SQL 文本时，导入报字段名过长或编辑时报未知列的问题。\n- 修复上传文件超出限制时返回通用内部错误的问题。\n- 修复放大弹窗中图表样式调整后无法按原事件重新渲染的问题。\n\n## 升级说明\n\n全新安装不需要手动执行 `upgrade-sql/` 中的 SQL。\n\n已有 v1.5.7 环境升级到 v1.5.8 时，请先备份元数据库和运行目录，再执行：\n\n```text\nupgrade-sql/v1.5.7_to_v1.5.8.sql\n```\n\n从 v1.5.4 升级到 v1.5.8 时，请按顺序执行：\n\n```text\nupgrade-sql/v1.5.4_to_v1.5.5.sql\nupgrade-sql/v1.5.7_to_v1.5.8.sql\n```\n\n执行升级 SQL 后，再替换 v1.5.8 前后端镜像。生产环境升级前建议完成数据库备份、运行目录备份和关键报表导出。\n\n## 验证范围\n\n本版本发布前执行以下检查：\n\n- 数据资产列表、筛选、详情、负责人、治理状态和上下游影响回归测试；\n- 数据集缓存配置、立即更新、定时任务、任务轮询和失败重试回归测试；\n- 数据门户、大屏和仪表盘展示页缓存状态可见性检查；\n- 公开分享链接、分享页内部下钻、弹窗查看和数据下载回归测试；\n- Excel 数据源导入、跳过无效工作表、长表头、重复表头和在线编辑回归测试；\n- 明细表序号列、表头说明、表头分组、合计行和合并单元格回归测试；\n- 数据准备模块表格样式扫描；\n- 用户管理新建密码、编辑密码、重置密码和管理员权限回归测试；\n- 后端数据资产、缓存任务、数据门户、菜单权限、Excel 字段、分享权限、导出模式和审计文案相关单元测试；\n- 前端类型检查、ESLint、Stylelint、构建检查；\n- 版本号、发布说明、升级 SQL 和 README 检查。\n",
+      "html_url": "https://github.com/sevoniva/Crest/releases/tag/v1.5.8",
+      "published_at": "2026-06-13T05:58:39Z",
+      "prerelease": false,
+      "draft": false,
+      "assets": [
+        {
+          "id": 446373755,
+          "name": "crest-app-images-v1.5.8-checksums.txt",
+          "size": 218,
+          "browser_download_url": "https://github.com/sevoniva/Crest/releases/download/v1.5.8/crest-app-images-v1.5.8-checksums.txt",
+          "download_count": 2
+        },
+        {
+          "id": 446373754,
+          "name": "crest-app-images-v1.5.8-linux-amd64.tar.gz",
+          "size": 293041846,
+          "browser_download_url": "https://github.com/sevoniva/Crest/releases/download/v1.5.8/crest-app-images-v1.5.8-linux-amd64.tar.gz",
+          "download_count": 1
+        },
+        {
+          "id": 446373756,
+          "name": "crest-app-images-v1.5.8-linux-arm64.tar.gz",
+          "size": 292055932,
+          "browser_download_url": "https://github.com/sevoniva/Crest/releases/download/v1.5.8/crest-app-images-v1.5.8-linux-arm64.tar.gz",
+          "download_count": 1
+        },
+        {
+          "id": 446375717,
+          "name": "crest-offline-v1.5.8-linux-amd64.tar.gz",
+          "size": 1013608088,
+          "browser_download_url": "https://github.com/sevoniva/Crest/releases/download/v1.5.8/crest-offline-v1.5.8-linux-amd64.tar.gz",
+          "download_count": 0
+        },
+        {
+          "id": 446375719,
+          "name": "crest-offline-v1.5.8-linux-arm64.tar.gz",
+          "size": 970228016,
+          "browser_download_url": "https://github.com/sevoniva/Crest/releases/download/v1.5.8/crest-offline-v1.5.8-linux-arm64.tar.gz",
+          "download_count": 0
+        },
+        {
+          "id": 446375718,
+          "name": "crest-source-v1.5.8.tar.gz",
+          "size": 5839766,
+          "browser_download_url": "https://github.com/sevoniva/Crest/releases/download/v1.5.8/crest-source-v1.5.8.tar.gz",
+          "download_count": 0
+        },
+        {
+          "id": 446375716,
+          "name": "crest-v1.5.8-checksums.txt",
+          "size": 305,
+          "browser_download_url": "https://github.com/sevoniva/Crest/releases/download/v1.5.8/crest-v1.5.8-checksums.txt",
+          "download_count": 1
+        }
+      ]
+    },
+    {
+      "id": 337304241,
+      "name": "Crest v1.5.7",
+      "tag_name": "v1.5.7",
+      "body": "# Crest v1.5.7 发布说明\n\n发布日期：2026-06-10\n\nCrest v1.5.7 是 v1.5 系列维护版本。本版本新增 MySQL 数据源的数据集缓存能力，并修复公开分享链接、API 数据源 JsonPath 解析和数据源本地校验等问题。已有 v1.5.6 环境升级时，只需替换前后端镜像，不需要执行新增升级 SQL。\n\n## 发布附件\n\n```text\ncrest-offline-v1.5.7-linux-amd64.tar.gz\ncrest-offline-v1.5.7-linux-arm64.tar.gz\ncrest-app-images-v1.5.7-linux-amd64.tar.gz\ncrest-app-images-v1.5.7-linux-arm64.tar.gz\ncrest-source-v1.5.7.tar.gz\ncrest-v1.5.7-checksums.txt\ncrest-app-images-v1.5.7-checksums.txt\n```\n\nGitHub 发布页面会自动提供 `Source code (zip)` 和 `Source code (tar.gz)`。`crest-source-v1.5.7.tar.gz` 是发布流程生成的命名源码包，用于归档和交付。\n\n## 镜像\n\n镜像标签：\n\n```text\nghcr.io/sevoniva/crest-service:v1.5.7\nghcr.io/sevoniva/crest-service:main\nghcr.io/sevoniva/crest-web:v1.5.7\nghcr.io/sevoniva/crest-web:main\n```\n\n支持架构：\n\n```text\nlinux/amd64\nlinux/arm64\n```\n\n## 离线包\n\n`crest-offline-*` 是完整离线安装包，包含安装脚本、配置模板、Docker Compose 文件、Crest 后端镜像、Crest 前端镜像、MySQL 镜像、Prometheus/Grafana 配置、升级 SQL 和离线安装说明。启用 `INCLUDE_OBSERVABILITY_IMAGES=true` 制作的离线包还会包含 Prometheus 和 Grafana 镜像。\n\n`crest-app-images-*` 是应用镜像升级包，仅包含 Crest 后端镜像、Crest 前端镜像、增量升级 SQL 和加载说明，不包含 MySQL、Prometheus、Grafana 镜像，也不包含完整安装脚本。已有环境只需要替换前后端应用服务时，可使用该包。\n\n本版本没有数据库结构、系统参数或初始化数据变更，不新增升级 SQL。已有 v1.5.6 环境升级到 v1.5.7 时，请先备份元数据库和运行目录，再替换前后端镜像。\n\n从 v1.5.4 升级到 v1.5.7 时，请按顺序执行：\n\n```text\nupgrade-sql/v1.5.4_to_v1.5.5.sql\n```\n\n执行完 v1.5.4 到 v1.5.5 的升级 SQL 后，再替换 v1.5.7 前后端镜像。\n\n## 新增功能\n\n- MySQL 数据源支持数据集缓存。数据集可配置为直连读取或缓存读取，缓存表由系统同步维护。\n- 数据集缓存支持全量更新、增量更新、手动更新和定时更新。\n- 数据集缓存记录最近执行状态、缓存可用状态、源数据行数、缓存行数和一致性校验结果。\n- 数据大屏通过数据集取数时，可使用数据集缓存结果。\n- 增量缓存支持增量字段水位记录；切换增量字段或更新类型时，系统清理旧水位，后续同步按新配置执行。\n\n## 修复与调整\n\n- 修复已登录后台用户访问 `/link/:uuid` 公开分享链接时被重定向到工作台的问题。登录态和未登录态访问同一分享链接时均进入分享展示页。\n- 登录态下，公开分享、预览等只读路由按只读访问策略处理；工作台、数据源、数据集等后台路由继续执行菜单权限校验。\n- 数据集缓存点击“立即更新”时，系统先保存当前数据集和缓存配置，再提交同步任务。\n- 数据集缓存状态文案调整为“源数据与缓存一致”“数据一致性校验失败”等明确状态。\n- 修复 API 数据源使用 JsonPath 时仍按完整响应解析数据结构的问题。`$data.dataList` 可按行解析子节点字段。\n- API 数据源请求头配置补充标准 `Authorization` 项。\n- API 数据源启用 JsonPath 后，字段选择保持可编辑。\n- 修复数据源详情页对 19 位雪花 ID 调用 `Number(...)` 导致精度丢失的问题；数据源详情、校验、编辑等接口使用原始字符串 ID。\n- 修复数据源详情页校验在异常节点或旧状态下可能返回“系统内部错误”的问题。缺失数据源时返回明确提示。\n- MySQL 数据源查询时动态注册 Calcite schema，避免数据集、缓存或预览使用新建数据源时找不到 schema。\n\n## 升级说明\n\n- 全新安装不需要执行 `upgrade-sql/` 中的 SQL。\n- v1.5.6 升级到 v1.5.7 时不需要执行新增升级 SQL。\n- v1.5.4 升级到 v1.5.7 时，请先执行 `upgrade-sql/v1.5.4_to_v1.5.5.sql`，再替换 v1.5.7 前后端镜像。\n- 生产环境升级前请备份元数据库和运行目录。\n\n## 验证范围\n\n本版本已完成以下验证：\n\n- 已登录后台用户访问 `/link/:uuid` 分享链接的路由策略测试；\n- 后台工作台路径继续进入菜单权限校验的路由策略测试；\n- API 数据源 Authorization 请求头、JsonPath `$data.dataList`、嵌套字段解析和字段选择回归测试；\n- 数据源雪花 ID 字符串传参回归测试；\n- 数据集缓存保存、立即更新、定时任务状态和状态文案回归测试；\n- 数据源详情页校验和 API 数据源请求头联调验证；\n- 后端 API 数据源、数据集缓存和数据源校验相关单元测试；\n- 版本号、发布说明和 README 检查。",
+      "html_url": "https://github.com/sevoniva/Crest/releases/tag/v1.5.7",
+      "published_at": "2026-06-10T14:46:37Z",
+      "prerelease": false,
+      "draft": false,
+      "assets": [
+        {
+          "id": 443791392,
+          "name": "crest-app-images-v1.5.7-checksums.txt",
+          "size": 218,
+          "browser_download_url": "https://github.com/sevoniva/Crest/releases/download/v1.5.7/crest-app-images-v1.5.7-checksums.txt",
+          "download_count": 0
+        },
+        {
+          "id": 443791393,
+          "name": "crest-app-images-v1.5.7-linux-amd64.tar.gz",
+          "size": 292959446,
+          "browser_download_url": "https://github.com/sevoniva/Crest/releases/download/v1.5.7/crest-app-images-v1.5.7-linux-amd64.tar.gz",
+          "download_count": 1
+        },
+        {
+          "id": 443791394,
+          "name": "crest-app-images-v1.5.7-linux-arm64.tar.gz",
+          "size": 291968208,
+          "browser_download_url": "https://github.com/sevoniva/Crest/releases/download/v1.5.7/crest-app-images-v1.5.7-linux-arm64.tar.gz",
+          "download_count": 1
+        },
+        {
+          "id": 443793145,
+          "name": "crest-offline-v1.5.7-linux-amd64.tar.gz",
+          "size": 1013522611,
+          "browser_download_url": "https://github.com/sevoniva/Crest/releases/download/v1.5.7/crest-offline-v1.5.7-linux-amd64.tar.gz",
+          "download_count": 0
+        },
+        {
+          "id": 443793144,
+          "name": "crest-offline-v1.5.7-linux-arm64.tar.gz",
+          "size": 970152177,
+          "browser_download_url": "https://github.com/sevoniva/Crest/releases/download/v1.5.7/crest-offline-v1.5.7-linux-arm64.tar.gz",
+          "download_count": 0
+        },
+        {
+          "id": 443793142,
+          "name": "crest-source-v1.5.7.tar.gz",
+          "size": 5786787,
+          "browser_download_url": "https://github.com/sevoniva/Crest/releases/download/v1.5.7/crest-source-v1.5.7.tar.gz",
+          "download_count": 0
+        },
+        {
+          "id": 443793146,
+          "name": "crest-v1.5.7-checksums.txt",
+          "size": 305,
+          "browser_download_url": "https://github.com/sevoniva/Crest/releases/download/v1.5.7/crest-v1.5.7-checksums.txt",
+          "download_count": 0
+        }
+      ]
+    },
+    {
+      "id": 337049972,
+      "name": "Crest v1.5.6",
+      "tag_name": "v1.5.6",
+      "body": "# Crest v1.5.6 发布说明\n\n发布日期：2026-06-10\n\nCrest v1.5.6 是 v1.5 系列的数据大屏资源权限补丁版本。此版本修复后台数据大屏和仪表盘资源树中只读资源错误展示复制等管理入口、授权管理者复制资源被拦截、复制请求状态字段不兼容、数据集导出失败缺少提示、明细表合并单元格不可按需选择，以及本地开发端口变化后登录被 CORS 拦截的问题。\n\n建议已经升级到 v1.5.5，且使用数据大屏、仪表盘后台资源树或业务资源授权管理的环境升级到 v1.5.6。已有 v1.5.5 环境升级时只需替换前后端镜像，不需要执行新增升级 SQL。\n\n## Release 附件\n\n```text\ncrest-offline-v1.5.6-linux-amd64.tar.gz\ncrest-offline-v1.5.6-linux-arm64.tar.gz\ncrest-app-images-v1.5.6-linux-amd64.tar.gz\ncrest-app-images-v1.5.6-linux-arm64.tar.gz\ncrest-source-v1.5.6.tar.gz\ncrest-v1.5.6-checksums.txt\ncrest-app-images-v1.5.6-checksums.txt\n```\n\nGitHub Release 页面仍会自动提供 `Source code (zip)` 和 `Source code (tar.gz)`。`crest-source-v1.5.6.tar.gz` 是本次发布流程额外生成的命名源码包，便于内网归档和交付。\n\n## 镜像\n\n镜像标签：\n\n```text\nghcr.io/sevoniva/crest-service:v1.5.6\nghcr.io/sevoniva/crest-service:main\nghcr.io/sevoniva/crest-web:v1.5.6\nghcr.io/sevoniva/crest-web:main\n```\n\n支持架构：\n\n```text\nlinux/amd64\nlinux/arm64\n```\n\n## 离线包\n\n`crest-offline-*` 是完整离线安装包，包含安装脚本、配置模板、Docker Compose 文件、Crest 后端镜像、Crest 前端镜像、MySQL 镜像、Prometheus/Grafana 配置、升级 SQL 和离线安装说明。启用 `INCLUDE_OBSERVABILITY_IMAGES=true` 制作的离线包还会包含 Prometheus 和 Grafana 镜像，适合完全无公网环境。\n\n`crest-app-images-*` 是应用镜像升级包，仅包含 Crest 后端镜像、Crest 前端镜像、增量升级 SQL 和加载说明，不包含 MySQL、Prometheus、Grafana 镜像，也不包含完整安装脚本。已有内网环境只需要替换前后端应用服务时，可使用该包降低传输体积。\n\n本版本没有数据库结构、系统参数或初始化数据变更，不新增升级 SQL。已有 v1.5.5 环境升级到 v1.5.6 时，请先备份元数据库和运行目录，再替换前后端镜像。\n\n从 v1.5.4 升级到 v1.5.6 时，请按顺序执行：\n\n```text\nupgrade-sql/v1.5.4_to_v1.5.5.sql\n```\n\n执行完 v1.5.4 到 v1.5.5 的升级 SQL 后，再替换 v1.5.6 前后端镜像。\n\n## 修复内容\n\n- 修复数据大屏和仪表盘资源树将只读可见资源按可管理资源返回的问题。后端现在会按创建人、系统管理员、组织管理员、用户/组织/角色资源授权计算节点权重，前端据此隐藏只读资源的复制、移动、重命名和删除操作。\n- 修复非创建人但已获得资源管理权限时复制数据大屏或仪表盘会被服务端创建人校验拦截的问题。复制接口改为复用资源管理权限判断，只读用户仍不可复制，管理授权用户可正常复制。\n- 修复资源树复制数据大屏或仪表盘时，前端携带布尔型发布状态导致后端参数解析失败，页面提示“系统内部错误，请联系管理员”的问题。后端现在兼容布尔型和数字型发布状态。\n- 修复本地开发模式登录后 WebSocket 代理地址解析异常导致页面白屏的问题。\n- 修复数据集导出请求被取消、后端返回 JSON 错误或异常响应时，前端仍可能关闭弹窗且不给出明确失败反馈的问题。确认按钮在导出请求处理中会禁用，避免重复点击造成并发状态混乱。\n- 明细表支持按字段选择需要合并的列。开启“合并单元格”后，可在“合并字段”中选择当前明细表第一个指标字段之前的维度字段；指标字段不参与合并。\n- 合并规则调整为可预期的纵向合并：只合并上下相邻且值相同的单元格；选择后置维度时，会在前置维度相同的范围内合并，避免不同上级分类下的同名值被合到一起。\n- 清空“合并字段”表示不合并任何字段；历史图表未保存合并字段时，仍沿用原来的默认合并规则，避免升级后展示变化。\n- 修复快速增删合并字段时页面卡顿、不同上级分类下的同名值被合并、序号列跟随自定义字段合并后展示混乱的问题。\n- 统一 `/login` 登录入口。本地账号和管理员应急登录都从该入口进入；旧 token 损坏或过期时，会清理登录态并回到登录页。\n- 修复本地开发模式下 Vite 端口从 8080 切换到 8081 等端口后，登录请求被后端 CORS 拦截并返回 403 的问题。\n\n## 升级说明\n\n- 全新安装不需要执行 `upgrade-sql/` 中的 SQL。\n- v1.5.5 升级到 v1.5.6 时不需要执行新增升级 SQL。\n- v1.5.4 升级到 v1.5.6 时，请先执行 `upgrade-sql/v1.5.4_to_v1.5.5.sql`，再替换 v1.5.6 前后端镜像。\n- 生产环境升级前仍建议备份元数据库和运行目录。\n\n## 验证范围\n\n本版本发布前执行以下检查：\n\n- 数据大屏和仪表盘资源树权限权重测试；\n- 非创建人但具备管理授权时复制数据大屏的服务端测试；\n- 复制请求兼容布尔型发布状态的 JSON 解析测试；\n- 本地开发模式登录后页面渲染和 WebSocket 初始化验证；\n- 数据集导出响应解析、取消请求和 JSON 错误提示测试；\n- 明细表合并单元格字段候选范围、上级分组边界、清空字段和配置保存测试；\n- 统一登录入口、旧 token 恢复和本地开发代理 CORS 验证；\n- 后端 Maven 单元测试；\n- 版本号、发布说明和 README 检查。\n",
+      "html_url": "https://github.com/sevoniva/Crest/releases/tag/v1.5.6",
+      "published_at": "2026-06-10T06:55:41Z",
+      "prerelease": false,
+      "draft": false,
+      "assets": [
+        {
+          "id": 443447705,
+          "name": "crest-app-images-v1.5.6-checksums.txt",
+          "size": 218,
+          "browser_download_url": "https://github.com/sevoniva/Crest/releases/download/v1.5.6/crest-app-images-v1.5.6-checksums.txt",
+          "download_count": 0
+        },
+        {
+          "id": 443447707,
+          "name": "crest-app-images-v1.5.6-linux-amd64.tar.gz",
+          "size": 292957052,
+          "browser_download_url": "https://github.com/sevoniva/Crest/releases/download/v1.5.6/crest-app-images-v1.5.6-linux-amd64.tar.gz",
+          "download_count": 0
+        },
+        {
+          "id": 443447706,
+          "name": "crest-app-images-v1.5.6-linux-arm64.tar.gz",
+          "size": 291963198,
+          "browser_download_url": "https://github.com/sevoniva/Crest/releases/download/v1.5.6/crest-app-images-v1.5.6-linux-arm64.tar.gz",
+          "download_count": 1
+        },
+        {
+          "id": 443446332,
+          "name": "crest-offline-v1.5.6-linux-amd64.tar.gz",
+          "size": 1013518483,
+          "browser_download_url": "https://github.com/sevoniva/Crest/releases/download/v1.5.6/crest-offline-v1.5.6-linux-amd64.tar.gz",
+          "download_count": 0
+        },
+        {
+          "id": 443446331,
+          "name": "crest-offline-v1.5.6-linux-arm64.tar.gz",
+          "size": 970137520,
+          "browser_download_url": "https://github.com/sevoniva/Crest/releases/download/v1.5.6/crest-offline-v1.5.6-linux-arm64.tar.gz",
+          "download_count": 0
+        },
+        {
+          "id": 443446330,
+          "name": "crest-source-v1.5.6.tar.gz",
+          "size": 5777647,
+          "browser_download_url": "https://github.com/sevoniva/Crest/releases/download/v1.5.6/crest-source-v1.5.6.tar.gz",
+          "download_count": 0
+        },
+        {
+          "id": 443446329,
+          "name": "crest-v1.5.6-checksums.txt",
+          "size": 305,
+          "browser_download_url": "https://github.com/sevoniva/Crest/releases/download/v1.5.6/crest-v1.5.6-checksums.txt",
+          "download_count": 0
+        }
+      ]
+    },
+    {
+      "id": 335421215,
+      "name": "Crest v1.5.5",
+      "tag_name": "v1.5.5",
+      "body": "# Crest v1.5.5 发布说明\n\n发布日期：2026-06-06\n\nCrest v1.5.5 是面向数据门户和可视化交付场景的功能修复版本。此版本提供独立数据门户，支持普通用户在授权范围内访问已发布资源，并交付数据大屏筛选导出、表格表头说明、账号默认密码管理和离线升级 SQL。\n\n建议使用数据门户、普通用户只读访问、数据大屏导出、后台用户管理或内网离线交付的环境升级到 v1.5.5。已有 v1.5.4 环境升级时，请同时替换前后端镜像并执行离线包内的升级 SQL。\n\n## Release 附件\n\n```text\ncrest-offline-v1.5.5-linux-amd64.tar.gz\ncrest-offline-v1.5.5-linux-arm64.tar.gz\ncrest-app-images-v1.5.5-linux-amd64.tar.gz\ncrest-app-images-v1.5.5-linux-arm64.tar.gz\ncrest-source-v1.5.5.tar.gz\ncrest-v1.5.5-checksums.txt\ncrest-app-images-v1.5.5-checksums.txt\n```\n\nGitHub Release 页面仍会自动提供 `Source code (zip)` 和 `Source code (tar.gz)`。`crest-source-v1.5.5.tar.gz` 是本次发布流程额外生成的命名源码包，便于内网归档和交付。\n\n## 镜像\n\n镜像标签：\n\n```text\nghcr.io/sevoniva/crest-service:v1.5.5\nghcr.io/sevoniva/crest-service:main\nghcr.io/sevoniva/crest-web:v1.5.5\nghcr.io/sevoniva/crest-web:main\n```\n\n支持架构：\n\n```text\nlinux/amd64\nlinux/arm64\n```\n\n后端镜像包含应用服务、驱动、静态资源种子文件和 Prometheus metrics 能力；前端镜像包含 Web 产物和 Nginx 网关配置。离线部署请使用 Release 附件中的离线安装包。\n\n## 离线包\n\n`crest-offline-*` 是完整离线安装包，包含安装脚本、配置模板、Docker Compose 文件、Crest 后端镜像、Crest 前端镜像、MySQL 镜像、Prometheus/Grafana 配置、升级 SQL 和离线安装说明。启用 `INCLUDE_OBSERVABILITY_IMAGES=true` 制作的离线包还会包含 Prometheus 和 Grafana 镜像，适合完全无公网环境。\n\n`crest-app-images-*` 是应用镜像升级包，仅包含 Crest 后端镜像、Crest 前端镜像、增量升级 SQL 和加载说明，不包含 MySQL、Prometheus、Grafana 镜像，也不包含完整安装脚本。已有内网环境只需要替换前后端应用服务时，可使用该包降低传输体积。\n\n本版本随包提供升级 SQL：\n\n```text\nupgrade-sql/v1.5.4_to_v1.5.5.sql\n```\n\n全新安装不需要手动执行该 SQL。已有 v1.5.4 环境升级到 v1.5.5 时，请先备份元数据库，再在离线包目录执行：\n\n```bash\nset -a\nsource /opt/crest/.env\nset +a\ndocker exec -i mysql-crest mysql -uroot -p\"${CREST_DB_PASSWORD}\" \"${CREST_DB_NAME:-crest}\" < upgrade-sql/v1.5.4_to_v1.5.5.sql\n```\n\n如安装时修改过 `CREST_BASE`，请把 `/opt/crest/.env` 换成实际运行目录中的 `.env`。外部 MySQL 环境可在数据库服务器或运维机执行同一 SQL 文件，目标库为 Crest 元数据库。\n\n## 主要变化\n\n### 数据门户\n\n- 新增 `/portal` 数据门户作为默认登录入口。普通用户登录后进入门户，管理员仍可通过 `/admin-login` 或门户外层入口进入后台。\n- 新增门户资源接口，支持概览统计、我的收藏、全部资源、最近使用、关键字搜索、资源类型筛选、分页和排序。\n- 门户资源范围按创建人、默认组织、用户/组织/角色资源授权计算；管理员和系统管理员不受门户只读范围限制。\n- 门户首页默认展示“我的收藏”，普通用户可直接收藏、取消收藏并打开已授权的数据大屏和仪表盘。\n- 门户查看页提供返回、刷新、全屏和账号菜单，不在大屏内部展示“进入后台”入口。\n- 门户和门户查看页顶栏统一使用 Crest 标识、系统名称、资源标题和账号区布局；系统名称来自站点设置。\n\n### 已发布资源预览\n\n- 普通用户可在已授权范围内访问已发布数据大屏和仪表盘，不再依赖后台资源树权限。\n- 数据大屏筛选组件在门户预览中携带可视化资源 ID，请求数据集枚举值和树形筛选时按当前大屏与数据集关系进行只读校验。\n- 门户打开资源时记录最近使用，支持门户“最近使用”列表。\n\n### 数据大屏导出\n\n- 新增“导出按钮”组件，可在数据大屏中绑定表格视图。\n- 导出按钮支持配置按钮文案、目标表格、导出范围（当前筛选结果/全部数据）和透视表带格式导出。\n- 表格视图导出可按当前筛选、联动、外部参数、Web 参数和钻取上下文生成 Excel。\n- 导出中心分页参数和状态参数增加兜底处理，避免 `undefined`、`null` 或非法页码导致任务列表异常。\n- 下载票据校验改为按任务、用户和票据时间判断，兼容历史任务缺少有效期配置的场景。\n\n### 表格表头\n\n- 表格组件新增“表头说明”配置，支持按字段填写说明内容，并配置说明行高度、字号、颜色和对齐方式。\n- 表头说明可与多级表头同时使用；字段隐藏或调整顺序后按字段重新匹配说明内容。\n- 复制表格内容时保留完整表头层级和说明行，富文本单元格会转换为可复制的纯文本和表格 HTML。\n- Excel 导出支持表头说明和多级表头，避免隐藏字段、说明字段和表头分组组合使用时出现错位。\n\n### 账号与系统管理\n\n- 系统参数新增“账号安全”分组，包含默认密码、密码策略、禁用初始密码、密码有效期、登录限制次数和限制时间。\n- 新建本地用户和重置本地用户密码后，管理员可直接看到当前默认密码并一键复制。\n- 当前用户信息增加 `admin` 和 `backendAccess` 标识，前端根据该标识控制后台入口和只读访问路径。\n- 新建用户时会自动选取可用组织，减少未选择组织导致的保存失败。\n- 审计日志补充新路由、权限接口、导出下载和用户密码操作的描述。\n\n### 兼容性与安全\n\n- 恢复旧版嵌入 token 参数读取方式，支持 `/embedded/token-args` 和旧路径 `/embedded/getTokenArgs`。\n- 兼容旧版可视化组件名称，历史大屏中的装饰、边框、图片、标签页、视频等组件可继续加载。\n- 修复数据集自定义 SQL 保存按钮、编辑器拖拽插入、复制数据集路由参数和资源树默认排序异常。\n- SQL 占位符、schema alias 和标识符替换改为边界感知处理，避免误替换字段名、表名或 Unicode 字符串。\n- 查询取数和跨源取数字段场景增加单语句、只读 SQL 校验。\n- 远程下载 URL 增加协议和地址校验，默认阻止本地、私有和组播地址。\n- 文件上传、读取和删除路径使用规范化校验，避免路径越界。\n- 分离部署示例不再提供固定默认密码和固定加密参数，启动时必须显式设置敏感环境变量。\n\n## 升级说明\n\n- 全新安装不需要执行 `upgrade-sql/` 中的 SQL。\n- v1.5.4 升级到 v1.5.5 时，请先备份元数据库和运行目录，再执行 `upgrade-sql/v1.5.4_to_v1.5.5.sql`。\n- 该 SQL 用于写入账号安全相关系统参数：默认密码、密码策略、禁用初始密码、密码有效期、登录限制次数和限制时间。\n- 早期开发环境迁移到 v1.5.5 时，仍建议先导出业务资源，再在全新环境中导入。\n- 生产环境必须设置高强度 `CREST_INITIAL_PASSWORD`、`CREST_DB_PASSWORD`、`CREST_AES_KEY`、`CREST_AES_IV` 和 Prometheus 抓取 token。\n- Prometheus/Grafana 默认不启动；只有显式设置参数后才启用。\n\n## 验证范围\n\n本版本发布前执行以下检查：\n\n- 前端类型检查；\n- 前端正式构建；\n- 前端轻量产物检查；\n- 后端 Maven 单元测试；\n- 后端 standalone 打包；\n- API 路由合同测试；\n- 数据门户权限和默认入口测试；\n- 门户预览筛选测试；\n- 数据大屏筛选导出测试；\n- 表格表头说明复制和导出测试；\n- 导出中心任务列表和下载票据测试；\n- 用户默认密码和重置密码提示测试；\n- 嵌入 token 参数兼容测试；\n- SQL 兼容和安全校验测试；\n- amd64、arm64 完整离线包、应用镜像升级包和源码包 checksum 校验。\n",
+      "html_url": "https://github.com/sevoniva/Crest/releases/tag/v1.5.5",
+      "published_at": "2026-06-06T14:40:23Z",
+      "prerelease": false,
+      "draft": false,
+      "assets": [
+        {
+          "id": 440252679,
+          "name": "crest-app-images-v1.5.5-checksums.txt",
+          "size": 218,
+          "browser_download_url": "https://github.com/sevoniva/Crest/releases/download/v1.5.5/crest-app-images-v1.5.5-checksums.txt",
+          "download_count": 1
+        },
+        {
+          "id": 440252677,
+          "name": "crest-app-images-v1.5.5-linux-amd64.tar.gz",
+          "size": 292938507,
+          "browser_download_url": "https://github.com/sevoniva/Crest/releases/download/v1.5.5/crest-app-images-v1.5.5-linux-amd64.tar.gz",
+          "download_count": 0
+        },
+        {
+          "id": 440252678,
+          "name": "crest-app-images-v1.5.5-linux-arm64.tar.gz",
+          "size": 291959146,
+          "browser_download_url": "https://github.com/sevoniva/Crest/releases/download/v1.5.5/crest-app-images-v1.5.5-linux-arm64.tar.gz",
+          "download_count": 0
+        },
+        {
+          "id": 440241431,
+          "name": "crest-offline-v1.5.5-linux-amd64.tar.gz",
+          "size": 1013497856,
+          "browser_download_url": "https://github.com/sevoniva/Crest/releases/download/v1.5.5/crest-offline-v1.5.5-linux-amd64.tar.gz",
+          "download_count": 2
+        },
+        {
+          "id": 440241428,
+          "name": "crest-offline-v1.5.5-linux-arm64.tar.gz",
+          "size": 970126987,
+          "browser_download_url": "https://github.com/sevoniva/Crest/releases/download/v1.5.5/crest-offline-v1.5.5-linux-arm64.tar.gz",
+          "download_count": 0
+        },
+        {
+          "id": 440241429,
+          "name": "crest-source-v1.5.5.tar.gz",
+          "size": 5757684,
+          "browser_download_url": "https://github.com/sevoniva/Crest/releases/download/v1.5.5/crest-source-v1.5.5.tar.gz",
+          "download_count": 3
+        },
+        {
+          "id": 440241426,
+          "name": "crest-v1.5.5-checksums.txt",
+          "size": 305,
+          "browser_download_url": "https://github.com/sevoniva/Crest/releases/download/v1.5.5/crest-v1.5.5-checksums.txt",
+          "download_count": 2
+        }
+      ]
+    },
+    {
+      "id": 332931158,
+      "name": "Crest v1.5.4",
+      "tag_name": "v1.5.4",
+      "body": "# Crest v1.5.4 发布说明\n\n发布日期：2026-06-02\n\nCrest v1.5.4 是 v1.5 系列的可观测性增强版本，面向企业内网、专有云和统一监控平台接入场景。此版本在前后端分离部署基础上补齐 Prometheus metrics、Grafana 看板、Prometheus 告警规则和可选内置监控组件，同时保持默认最小暴露面。\n\n如已成功安装并运行 v1.5.3，可继续使用现有环境。需要接入 Prometheus/Grafana、分发带监控配置的离线包，或在 Kubernetes 中部署配套监控组件时，建议使用 v1.5.4。\n\n## 镜像\n\n镜像标签：\n\n```text\nghcr.io/sevoniva/crest-service:v1.5.4\nghcr.io/sevoniva/crest-service:main\nghcr.io/sevoniva/crest-web:v1.5.4\nghcr.io/sevoniva/crest-web:main\n```\n\n支持架构：\n\n```text\nlinux/amd64\nlinux/arm64\n```\n\n后端镜像包含应用服务、驱动、静态资源种子文件和 Prometheus metrics 能力；前端镜像包含 Web 产物和 Nginx 网关配置。离线部署请使用 Release 附件中的离线安装包。\n\n## 离线包\n\nRelease 附件：\n\n```text\ncrest-offline-v1.5.4-linux-amd64.tar.gz\ncrest-offline-v1.5.4-linux-arm64.tar.gz\ncrest-offline-v1.5.4-checksums.txt\n```\n\n离线包包含安装脚本、配置模板、Docker Compose 文件、Crest 后端镜像、Crest 前端镜像、MySQL 镜像、Prometheus/Grafana 配置和离线安装说明。启用 `INCLUDE_OBSERVABILITY_IMAGES=true` 制作的离线包还会包含 Prometheus 和 Grafana 镜像，适合完全无公网环境。\n\n## 主要变化\n\n- 后端接入 Actuator 和 Micrometer Prometheus registry，提供 `/api/v1/actuator/prometheus` 指标端点。\n- 指标端点默认关闭；开启后必须配置 `CREST_PROMETHEUS_TOKEN`，抓取请求使用 Bearer Token 认证。\n- 前端网关默认对外屏蔽 Prometheus 指标路径，Prometheus 从容器或集群内网直接访问后端服务。\n- Grafana provisioning 新增服务总览、API 监控、告警与 SLO、JVM、数据库连接池、任务与缓存 6 个看板，覆盖接口纳管、模块分类、接口吞吐、错误率、P95 延迟、状态码分布、Top 接口、JVM、GC、线程池、缓存和数据库连接池。\n- Prometheus 新增默认告警规则，覆盖服务采集中断、API 路由清单缺失、HTTP 5xx 错误率、P95 延迟、CPU、JVM 堆内存、线程池队列和数据库连接池。\n- Grafana Top 类和分布类面板增加空数据兜底，状态码分布、接口吞吐 Top 20、接口 P95 Top 20 等面板在低流量窗口下不再显示 No data。\n- 单机安装新增 observability profile，可选启动 `crest-prometheus` 和 `crest-grafana`。\n- Kubernetes 新增 `internal-mysql-observability` 和 `external-mysql-observability` overlay，支持内置 MySQL 和外部 MySQL 两种形态。\n- 系统参数页新增“可观测性”页签，管理员可查看 Prometheus/Grafana 状态、指标端点、token 是否已配置和内置看板信息。\n- 离线包制作脚本支持打入 Prometheus/Grafana 镜像；企业已有统一监控平台时，也可只启用 Crest metrics 并导入 Crest 看板。\n- 后端运行镜像补齐 JVM management 模块，确保 JVM、GC、线程和 CPU 指标完整输出。\n- 文档、安装脚本、Kubernetes 示例、离线包示例和 CI 默认镜像标签统一更新至 v1.5.4。\n\n## 接入方式\n\n### 使用内置 Prometheus/Grafana\n\n单机安装前在 `installer/install.conf` 中设置：\n\n```bash\nCREST_PROMETHEUS_ENABLED=true\nCREST_GRAFANA_ENABLED=true\n```\n\n安装脚本会在 token 为空时生成随机抓取 token，写入运行目录的 `conf/prometheus-token`，并以只读文件挂载给 Prometheus。Grafana 默认监听 `CREST_GRAFANA_PORT`，并自动加载 Prometheus 数据源和 Crest 看板。\n\n### 接入企业已有 Prometheus/Grafana\n\n只开启 Crest metrics：\n\n```bash\nCREST_PROMETHEUS_ENABLED=true\nCREST_PROMETHEUS_TOKEN=<prometheus-scrape-token>\n```\n\nPrometheus 侧抓取后端内网地址：\n\n```yaml\nscrape_configs:\n  - job_name: crest-service\n    metrics_path: /api/v1/actuator/prometheus\n    scheme: http\n    bearer_token: <prometheus-scrape-token>\n    static_configs:\n      - targets:\n          - crest-service:8100\n```\n\nGrafana 可直接导入仓库内看板：\n\n```text\ninstaller/crest/observability/grafana/provisioning/dashboards/*.json\n```\n\nPrometheus 可加载仓库内告警规则：\n\n```text\ninstaller/crest/observability/prometheus/rules/crest-alerts.yml\n```\n\n生产环境建议使用 Prometheus Secret、Kubernetes Secret 或企业密钥系统管理 token，不要把 token 写入公开文档、截图或前端页面。\n\n## 安装注意事项\n\n- Prometheus/Grafana 默认不启动；只有显式设置参数后才启用。\n- 指标端点开启但未配置 token 时，后端返回 503，不输出指标。\n- token 缺失或错误时，后端返回 401，并要求 Bearer Token。\n- 前端网关访问 `/api/v1/actuator/prometheus` 返回 404，避免指标端点被公网或普通用户直接访问。\n- `CREST_PROMETHEUS_MAX_URI_TAGS` 默认 200，用于限制 HTTP URI 标签数量，避免高基数指标影响 Prometheus。\n- v1.5.4 面向全新环境安装，不支持从早期开发环境直接执行 Flyway 原地升级。\n- 迁移已有环境前，请先备份元数据库和运行目录，导出业务资源，再在新环境中导入。\n- 生产环境必须设置高强度 `CREST_INITIAL_PASSWORD`、`CREST_DB_PASSWORD`、`CREST_AES_KEY`、`CREST_AES_IV` 和 Prometheus 抓取 token。\n\n## 验证范围\n\n本版本发布前执行以下检查：\n\n- 前端正式构建；\n- 前端轻量产物检查；\n- 后端 Maven 打包；\n- 后端 split 打包；\n- 后端和前端 Dockerfile 构建；\n- Prometheus metrics 默认关闭验证；\n- Prometheus metrics Bearer Token 认证验证；\n- 前端网关屏蔽 metrics 路径验证；\n- Prometheus 容器抓取 Crest metrics 验证；\n- Grafana provisioning 和看板加载验证；\n- Kubernetes internal/external overlay 渲染检查；\n- Compose 单机和 split 配置渲染检查；\n- 后端应用日志和前端网关日志检查；\n- amd64、arm64 离线包生成和 checksum 校验。\n",
+      "html_url": "https://github.com/sevoniva/Crest/releases/tag/v1.5.4",
+      "published_at": "2026-06-02T06:58:53Z",
+      "prerelease": false,
+      "draft": false,
+      "assets": [
+        {
+          "id": 435968414,
+          "name": "crest-offline-v1.5.4-checksums.txt",
+          "size": 212,
+          "browser_download_url": "https://github.com/sevoniva/Crest/releases/download/v1.5.4/crest-offline-v1.5.4-checksums.txt",
+          "download_count": 1
+        },
+        {
+          "id": 435968412,
+          "name": "crest-offline-v1.5.4-linux-amd64.tar.gz",
+          "size": 1013205311,
+          "browser_download_url": "https://github.com/sevoniva/Crest/releases/download/v1.5.4/crest-offline-v1.5.4-linux-amd64.tar.gz",
+          "download_count": 0
+        },
+        {
+          "id": 435968410,
+          "name": "crest-offline-v1.5.4-linux-arm64.tar.gz",
+          "size": 969829178,
+          "browser_download_url": "https://github.com/sevoniva/Crest/releases/download/v1.5.4/crest-offline-v1.5.4-linux-arm64.tar.gz",
+          "download_count": 0
+        }
+      ]
+    },
+    {
+      "id": 332826914,
+      "name": "Crest v1.5.4-rc.1",
+      "tag_name": "v1.5.4-rc.1",
+      "body": "# Crest v1.5.4-rc.1 发布说明\n\n发布日期：2026-06-02\n\nCrest v1.5.4-rc.1 是 v1.5 系列的可观测性候选版本，面向企业内网、专有云和统一监控平台接入场景。此版本在前后端分离部署基础上加入 Prometheus metrics、Grafana 看板和可选的内置监控组件，同时保持默认最小暴露面。\n\n如已成功安装并运行 v1.5.3，可继续使用现有环境；如需要接入 Prometheus/Grafana、分发带监控配置的离线包，或在 Kubernetes 中验证可观测性部署，可使用 v1.5.4-rc.1 进行测试验证。正式发布会在候选版验证完成后再打 `v1.5.4`。\n\n## 镜像\n\n镜像标签：\n\n```text\nghcr.io/sevoniva/crest-service:v1.5.4-rc.1\nghcr.io/sevoniva/crest-service:main\nghcr.io/sevoniva/crest-web:v1.5.4-rc.1\nghcr.io/sevoniva/crest-web:main\n```\n\n支持架构：\n\n```text\nlinux/amd64\nlinux/arm64\n```\n\n后端镜像包含应用服务、驱动、静态资源种子文件和 Prometheus metrics 能力；前端镜像包含 Web 产物和 Nginx 网关配置。离线部署请使用 Release 附件中的离线安装包。\n\n## 离线包\n\nRelease 附件：\n\n```text\ncrest-offline-v1.5.4-rc.1-linux-amd64.tar.gz\ncrest-offline-v1.5.4-rc.1-linux-arm64.tar.gz\ncrest-offline-v1.5.4-rc.1-checksums.txt\n```\n\n离线包包含安装脚本、配置模板、Docker Compose 文件、Crest 后端镜像、Crest 前端镜像、MySQL 镜像、Prometheus/Grafana 配置和离线安装说明。启用 `INCLUDE_OBSERVABILITY_IMAGES=true` 制作的离线包还会包含 Prometheus 和 Grafana 镜像，适合完全无公网环境。\n\n## 主要变化\n\n- 后端接入 Actuator 和 Micrometer Prometheus registry，提供 `/api/v1/actuator/prometheus` 指标端点。\n- 指标端点默认关闭；开启后必须配置 `CREST_PROMETHEUS_TOKEN`，抓取请求使用 Bearer Token 认证。\n- 前端网关默认对外屏蔽 Prometheus 指标路径，Prometheus 从容器或集群内网直接访问后端服务。\n- Grafana provisioning 新增“Crest 可观测性总览”看板，覆盖接口吞吐、错误率、P95 延迟、状态码分布、接口明细、JVM、GC、运行时线程池、CPU 和采集状态。\n- 单机安装新增 observability profile，可选启动 `crest-prometheus` 和 `crest-grafana`。\n- Kubernetes 新增 `internal-mysql-observability` 和 `external-mysql-observability` overlay，支持内置 MySQL 和外部 MySQL 两种形态。\n- 系统参数页新增“可观测性”页签，管理员可查看 Prometheus/Grafana 状态、指标端点、token 是否已配置和内置看板信息。\n- 离线包制作脚本支持打入 Prometheus/Grafana 镜像；企业已有统一监控平台时，也可只启用 Crest metrics 并导入 dashboard。\n- 后端运行镜像补齐 JVM management 模块，确保 JVM、GC、线程和 CPU 指标完整输出。\n- 文档、安装脚本、Kubernetes 示例、离线包示例和 CI 默认镜像标签统一更新至 v1.5.4-rc.1。\n\n## 接入方式\n\n### 使用内置 Prometheus/Grafana\n\n单机安装前在 `installer/install.conf` 中设置：\n\n```bash\nCREST_PROMETHEUS_ENABLED=true\nCREST_GRAFANA_ENABLED=true\n```\n\n安装脚本会在 token 为空时生成随机抓取 token，写入运行目录的 `conf/prometheus-token`，并以只读文件挂载给 Prometheus。Grafana 默认监听 `CREST_GRAFANA_PORT`，并自动加载 Prometheus 数据源和 Crest dashboard。\n\n### 接入企业已有 Prometheus/Grafana\n\n只开启 Crest metrics：\n\n```bash\nCREST_PROMETHEUS_ENABLED=true\nCREST_PROMETHEUS_TOKEN=<prometheus-scrape-token>\n```\n\nPrometheus 侧抓取后端内网地址：\n\n```yaml\nscrape_configs:\n  - job_name: crest-service\n    metrics_path: /api/v1/actuator/prometheus\n    scheme: http\n    bearer_token: <prometheus-scrape-token>\n    static_configs:\n      - targets:\n          - crest-service:8100\n```\n\nGrafana 可直接导入仓库内 dashboard：\n\n```text\ninstaller/crest/observability/grafana/provisioning/dashboards/crest-observability.json\n```\n\n生产环境建议使用 Prometheus Secret、Kubernetes Secret 或企业密钥系统管理 token，不要把 token 写入公开文档、截图或前端页面。\n\n## 安装注意事项\n\n- Prometheus/Grafana 默认不启动；只有显式设置参数后才启用。\n- 指标端点开启但未配置 token 时，后端返回 503，不输出指标。\n- token 缺失或错误时，后端返回 401，并要求 Bearer Token。\n- 前端网关访问 `/api/v1/actuator/prometheus` 返回 404，避免指标端点被公网或普通用户直接访问。\n- `CREST_PROMETHEUS_MAX_URI_TAGS` 默认 200，用于限制 HTTP URI 标签数量，避免高基数指标影响 Prometheus。\n- v1.5.4-rc.1 面向全新环境安装，不支持从早期开发环境直接执行 Flyway 原地升级。\n- 迁移已有环境前，请先备份元数据库和运行目录，导出业务资源，再在新环境中导入。\n- 生产环境必须设置高强度 `CREST_INITIAL_PASSWORD`、`CREST_DB_PASSWORD`、`CREST_AES_KEY`、`CREST_AES_IV` 和 Prometheus 抓取 token。\n\n## 验证范围\n\n本版本发布前执行以下检查：\n\n- 前端正式构建；\n- 前端轻量产物检查；\n- 后端完整测试；\n- 后端 split 打包；\n- 后端和前端 Dockerfile 构建；\n- Prometheus metrics 默认关闭验证；\n- Prometheus metrics Bearer Token 认证验证；\n- 前端网关屏蔽 metrics 路径验证；\n- Prometheus 容器抓取 Crest metrics 验证；\n- Grafana provisioning 和 dashboard 加载验证；\n- Kubernetes internal/external overlay 渲染检查；\n- Compose 单机和 split 配置渲染检查；\n- 后端应用日志和前端网关日志检查；\n- amd64、arm64 离线包生成和 checksum 校验。\n",
+      "html_url": "https://github.com/sevoniva/Crest/releases/tag/v1.5.4-rc.1",
+      "published_at": "2026-06-01T23:48:37Z",
+      "prerelease": true,
+      "draft": false,
+      "assets": [
+        {
+          "id": 435692595,
+          "name": "crest-offline-v1.5.4-rc.1-checksums.txt",
+          "size": 222,
+          "browser_download_url": "https://github.com/sevoniva/Crest/releases/download/v1.5.4-rc.1/crest-offline-v1.5.4-rc.1-checksums.txt",
+          "download_count": 0
+        },
+        {
+          "id": 435692597,
+          "name": "crest-offline-v1.5.4-rc.1-linux-amd64.tar.gz",
+          "size": 540712975,
+          "browser_download_url": "https://github.com/sevoniva/Crest/releases/download/v1.5.4-rc.1/crest-offline-v1.5.4-rc.1-linux-amd64.tar.gz",
+          "download_count": 0
+        },
+        {
+          "id": 435692593,
+          "name": "crest-offline-v1.5.4-rc.1-linux-arm64.tar.gz",
+          "size": 535869052,
+          "browser_download_url": "https://github.com/sevoniva/Crest/releases/download/v1.5.4-rc.1/crest-offline-v1.5.4-rc.1-linux-arm64.tar.gz",
+          "download_count": 0
+        }
+      ]
+    },
+    {
+      "id": 332797072,
+      "name": "Crest v1.5.3",
+      "tag_name": "v1.5.3",
+      "body": "# Crest v1.5.3 发布说明\n\n发布日期：2026-06-02\n\nCrest v1.5.3 是 v1.5 系列的部署形态升级版本，面向全新私有化部署环境。此版本将应用拆分为后端服务和前端网关两个容器，补齐 Kubernetes 前后端分离部署、健康检查、网关转发和公开分享链路。\n\n如已成功安装并运行 v1.5.2，可继续使用现有环境；如需要重新部署、分发离线包或在 Kubernetes 中验证前后端分离部署，建议使用 v1.5.3。\n\n## 镜像\n\n镜像标签：\n\n```text\nghcr.io/sevoniva/crest-service:v1.5.3\nghcr.io/sevoniva/crest-service:main\nghcr.io/sevoniva/crest-web:v1.5.3\nghcr.io/sevoniva/crest-web:main\n```\n\n支持架构：\n\n```text\nlinux/amd64\nlinux/arm64\n```\n\n后端镜像包含应用服务、驱动和静态资源种子文件；前端镜像包含 Web 产物和 Nginx 网关配置。离线部署请使用 Release 附件中的离线安装包。\n\n## 离线包\n\nRelease 附件：\n\n```text\ncrest-offline-v1.5.3-linux-amd64.tar.gz\ncrest-offline-v1.5.3-linux-arm64.tar.gz\ncrest-offline-v1.5.3-checksums.txt\n```\n\n离线包包含安装脚本、配置模板、Docker Compose 文件、Crest 后端镜像、Crest 前端镜像、MySQL 镜像和离线安装说明。\n\n## 主要变化\n\n- 单机安装默认启动 `crest-service` 后端服务、`crest` 前端网关和 `mysql-crest` 元数据库三个容器。\n- Kubernetes 清单拆分为 `crest-service` 后端 Deployment 和 `crest` 前端 Deployment，分别配置资源、探针和安全上下文。\n- 新增 Kubernetes 前端 Nginx ConfigMap，统一处理静态资源、API 转发、WebSocket 转发、`doc.html` 和 OpenAPI 入口。\n- 后端新增独立的 liveness 和 readiness 检查；readiness 校验元数据库连接，liveness 只判断应用进程响应。\n- 前端网关新增 `/healthz` 检查，Kubernetes startup、readiness 和 liveness 阈值按冷启动和初始化场景重新设置。\n- Kubernetes 部署不再由 Kustomize 生成占位 Secret，改为部署前在目标 namespace 创建 `crest-db-secret`。\n- 内置 MySQL 镜像调整为 `mysql:8.0.43`，探针使用 `MYSQL_PWD` 注入密码，避免命令行参数暴露。\n- 修复公开分享链接独立打开时被登录态拦截的问题，数据大屏分享链接可在未登录浏览器中直接访问。\n- 分享页启动阶段只开放分享代理信息和分享校验接口，后续数据请求继续使用受限分享 token。\n- 文档、安装脚本、Kubernetes 示例、离线包示例和 CI 默认镜像标签统一更新至 v1.5.3。\n\n## 安装注意事项\n\n- v1.5.3 面向全新环境安装，不支持从早期开发环境直接执行 Flyway 原地升级。\n- 迁移已有环境前，请先备份元数据库和运行目录，导出业务资源，再在新环境中导入。\n- 默认安装会加载内置演示资源。生产环境不需要示例数据时，安装前设置：\n\n```bash\nCREST_LOAD_DEMO=false\n```\n\n- 同时将 Flyway 路径设置为只加载核心初始化脚本：\n\n```bash\nCREST_FLYWAY_LOCATIONS=classpath:db/migration\n```\n\n- Kubernetes 部署前必须在目标 namespace 创建 `crest-db-secret`，生产环境建议由集群侧 Secret 管理系统下发。\n- 生产环境必须设置高强度 `CREST_INITIAL_PASSWORD`、`CREST_DB_PASSWORD`、`CREST_AES_KEY` 和 `CREST_AES_IV`。\n- 内置 MySQL 适合快速验证和单集群测试；正式环境建议优先使用外部托管 MySQL 或企业标准数据库服务。\n\n## 验证范围\n\n本版本发布前执行以下检查：\n\n- 前端正式构建；\n- 前端轻量产物检查；\n- 后端完整测试；\n- 后端 split 打包；\n- 后端和前端 Dockerfile 构建；\n- Kubernetes internal/external overlay 渲染检查；\n- kind 内置 MySQL 全新安装验证；\n- `/healthz`、后端 liveness、后端 readiness 检查；\n- 管理员登录、分享开关和分享详情接口验证；\n- 数据大屏公开分享链接未登录独立打开验证；\n- Pod Ready 状态、重启次数和 Kubernetes Warning events 检查；\n- 后端应用日志和前端网关日志检查；\n- amd64、arm64 离线包生成和 checksum 校验。\n",
+      "html_url": "https://github.com/sevoniva/Crest/releases/tag/v1.5.3",
+      "published_at": "2026-06-01T21:58:01Z",
+      "prerelease": false,
+      "draft": false,
+      "assets": [
+        {
+          "id": 435623163,
+          "name": "crest-offline-v1.5.3-checksums.txt",
+          "size": 212,
+          "browser_download_url": "https://github.com/sevoniva/Crest/releases/download/v1.5.3/crest-offline-v1.5.3-checksums.txt",
+          "download_count": 0
+        },
+        {
+          "id": 435623162,
+          "name": "crest-offline-v1.5.3-linux-amd64.tar.gz",
+          "size": 525737693,
+          "browser_download_url": "https://github.com/sevoniva/Crest/releases/download/v1.5.3/crest-offline-v1.5.3-linux-amd64.tar.gz",
+          "download_count": 0
+        },
+        {
+          "id": 435623166,
+          "name": "crest-offline-v1.5.3-linux-arm64.tar.gz",
+          "size": 520879988,
+          "browser_download_url": "https://github.com/sevoniva/Crest/releases/download/v1.5.3/crest-offline-v1.5.3-linux-arm64.tar.gz",
+          "download_count": 0
+        }
+      ]
+    },
+    {
+      "id": 332415437,
+      "name": "Crest v1.5.2",
+      "tag_name": "v1.5.2",
+      "body": "# Crest v1.5.2 发布说明\n\n发布日期：2026-06-01\n\nCrest v1.5.2 是 v1.5 系列的安装交付修复版本，面向全新私有化部署环境。此版本修正单机离线安装包的数据库初始化编排，确保内置演示资源可按配置加载或跳过，并修复服务健康检查在多容器场景下的误判。\n\n如已成功安装并运行 v1.5.1，可继续使用现有环境；如需要重新部署或分发离线安装包，建议使用 v1.5.2。\n\n## 镜像\n\n发布镜像：\n\n```text\nghcr.io/sevoniva/crest:v1.5.2\nghcr.io/sevoniva/crest:main\n```\n\n支持架构：\n\n```text\nlinux/amd64\nlinux/arm64\n```\n\n## 离线包\n\nRelease 附件：\n\n```text\ncrest-offline-v1.5.2-linux-amd64.tar.gz\ncrest-offline-v1.5.2-linux-arm64.tar.gz\ncrest-offline-v1.5.2-checksums.txt\n```\n\n离线包包含安装脚本、配置模板、Docker Compose 文件、Crest 应用镜像、MySQL 镜像和离线安装说明。\n\n## 主要变化\n\n- 修复离线安装包中演示资源清理 SQL 被 MySQL 首次初始化流程误执行的问题。\n- 移除 MySQL 初始化 SQL 挂载，改为通过 `MYSQL_DATABASE=${CREST_DB_NAME}` 创建元数据库，避免数据库名被脚本写死。\n- 保留安装时演示资源开关：`CREST_LOAD_DEMO=true` 时加载内置演示资源，设置为 `false` 时只初始化平台基础数据。\n- 将 `cleanup-demo-data.sql` 移至手动维护目录，仅由 `cleanup-demo-data.sh` 调用，不再参与数据库首次启动。\n- 修复 `crestctl` 健康检查读取多个 `container_name` 后误判服务失败的问题。\n- 离线包制作流程清理 macOS 扩展属性文件，避免包内出现 `._*` 或 `.DS_Store`。\n- 文档、镜像标签、Kubernetes 示例和安装包示例统一更新至 v1.5.2。\n\n## 安装注意事项\n\n- 默认安装会加载零售经营和研发效能演示资源。\n- 生产环境不需要示例数据时，安装前设置：\n\n```bash\nCREST_LOAD_DEMO=false\n```\n\n- 已加载演示资源的单机环境可执行：\n\n```bash\nbash cleanup-demo-data.sh --yes\n```\n\n- Kubernetes 环境清理演示资源前，先将 `CREST_LOAD_DEMO` 设为 `false`，将 `CREST_FLYWAY_LOCATIONS` 设为 `classpath:db/migration`，重启应用后再执行清理 SQL。\n- 生产环境必须设置高强度 `CREST_INITIAL_PASSWORD`、`CREST_DB_PASSWORD`、`CREST_AES_KEY` 和 `CREST_AES_IV`。\n- 只有在环境明确要求 SM2 / SM3 / SM4 时，才启用 `CREST_CRYPTO_MODE=sm-suite`，并配置 `CREST_SM4_KEY`。\n\n## 验证范围\n\n本版本发布前执行以下检查：\n\n- 安装脚本语法检查；\n- Docker Compose 配置展开检查；\n- 演示资源开关配置检查；\n- 前端构建；\n- 后端打包；\n- 离线包内容检查；\n- 公开文档与版本号检查。\n",
+      "html_url": "https://github.com/sevoniva/Crest/releases/tag/v1.5.2",
+      "published_at": "2026-06-01T10:32:35Z",
+      "prerelease": false,
+      "draft": false,
+      "assets": [
+        {
+          "id": 435155676,
+          "name": "crest-offline-v1.5.2-checksums.txt",
+          "size": 212,
+          "browser_download_url": "https://github.com/sevoniva/Crest/releases/download/v1.5.2/crest-offline-v1.5.2-checksums.txt",
+          "download_count": 0
+        },
+        {
+          "id": 435155674,
+          "name": "crest-offline-v1.5.2-linux-amd64.tar.gz",
+          "size": 420309209,
+          "browser_download_url": "https://github.com/sevoniva/Crest/releases/download/v1.5.2/crest-offline-v1.5.2-linux-amd64.tar.gz",
+          "download_count": 0
+        },
+        {
+          "id": 435155669,
+          "name": "crest-offline-v1.5.2-linux-arm64.tar.gz",
+          "size": 652030074,
+          "browser_download_url": "https://github.com/sevoniva/Crest/releases/download/v1.5.2/crest-offline-v1.5.2-linux-arm64.tar.gz",
+          "download_count": 0
+        }
+      ]
+    },
+    {
+      "id": 332347137,
+      "name": "Crest v1.5.1",
+      "tag_name": "v1.5.1",
+      "body": "# Crest v1.5.1 发布说明\n\n发布日期：2026-06-01\n\nCrest v1.5.1 是 v1.5 系列维护版本，主要处理 v1.5.0 发布后在安装交付、示例资源、权限、导出、数据集选择和审计链路中发现的问题。该版本继续面向全新私有化部署环境，不建议在早期开发版本数据库上直接原地升级。已有环境迁移时，请先备份元数据库和运行目录，并导出业务资源后再导入新环境。\n\n## 一、安装与交付\n\n本版本将内置示例资源从核心数据库初始化流程中拆出，安装时可通过 `CREST_LOAD_DEMO` 控制是否加载演示数据。默认安装仍会加载示例资源，便于验收和二次开发；正式生产环境如需纯净初始化，可在安装前设置：\n\n```bash\nCREST_LOAD_DEMO=false\n```\n\n针对已加载示例资源的环境，本版本提供清理脚本：\n\n```bash\nbash cleanup-demo-data.sh --yes\n```\n\n清理范围包括内置示例数据源、数据集、图表、大屏资源以及 `crest_demo_retail` 演示库。Kubernetes 部署文档同步补充了示例资源开关和清理方案，避免生产环境误带演示数据。\n\n本版本发布镜像：\n\n```text\nghcr.io/sevoniva/crest:v1.5.1\nghcr.io/sevoniva/crest:main\n```\n\n镜像支持 `linux/amd64` 和 `linux/arm64`。离线包包含应用镜像、MySQL 镜像、安装脚本、配置模板、Docker Compose 文件和离线安装说明。\n\n## 二、功能修复\n\n- 修复管理员登录后业务菜单权限异常，导致工作台显示无业务菜单权限的问题。\n- 修复数据集列表、数据源列表、新建仪表盘和新建数据大屏中数据集无法选择或持续加载的问题。\n- 修复内置研发效能大屏部分图表持续刷新、数据未加载或下钻数据异常的问题。\n- 修复仪表盘发布时出现 405 请求错误，并同时提示“已被他人更新”和“发布成功”的问题。\n- 修复导出中心下载在文件过期、文件缺失、用户信息解析异常等场景下的错误提示和下载失败问题。\n- 修复审计日志入口、菜单权限和接口访问校验不稳定的问题，管理员和审计只读角色可正常查看审计记录。\n- 修复 v1.5.1 镜像构建中遗漏前端导出通知模块的问题。\n- 移除旧版 `commons-lang:commons-lang` 传递依赖，关闭相关 Dependabot 安全告警。\n\n## 三、体验优化\n\n- 优化工作台、系统设置、数据源、数据集、数据血缘、导出中心等页面的浅色界面一致性。\n- 调整系统设置侧边栏、角色管理、权限管理、审计日志等页面的表格、按钮、边框和间距，减少视觉割裂。\n- 优化顶部导航、Logo、用户入口和“数据准备”下拉菜单的交互状态。\n- 优化导出中心通知逻辑，多个任务完成时合并提示，避免连续弹出多条成功消息。\n- 优化表格数据显示，对 `\\n`、`\\t`、HTML 换行和空白实体做兼容处理，避免在页面中直接显示转义字符。\n- 增强表格复制体验，仪表盘、大屏、分享页面和“查看数据”中的表格可按选区复制，复制结果保持表格结构，便于粘贴到 Excel。\n- 优化研发效能演示大屏的累计流、阶段漏斗、投入产出矩阵和明细下钻数据表现。\n\n## 四、文档与接口\n\n- 更新 README、安装文档、Kubernetes 文档、开发文档和数据血缘说明。\n- API 文档页按 Crest 产品模块重新整理，覆盖仪表盘与数据大屏、图表、数据集、数据源、数据血缘、导出中心、系统设置、基础能力和权限管理。\n- 明确示例资源、核心初始化脚本和清理脚本的边界，降低后续部署和运维成本。\n\n## 五、验证范围\n\n本版本发布前已完成以下检查：\n\n- 前端构建。\n- 后端测试与打包。\n- 本地 Docker 环境运行验证。\n- 工作台、数据源、数据集、仪表盘、数据大屏、审计日志、权限管理和导出中心关键链路验证。\n- 内置演示资源初始化和大屏数据加载验证。\n- 依赖安全告警复查。\n",
+      "html_url": "https://github.com/sevoniva/Crest/releases/tag/v1.5.1",
+      "published_at": "2026-06-01T07:48:53Z",
+      "prerelease": false,
+      "draft": false,
+      "assets": [
+        {
+          "id": 435071476,
+          "name": "crest-offline-v1.5.1-checksums.txt",
+          "size": 212,
+          "browser_download_url": "https://github.com/sevoniva/Crest/releases/download/v1.5.1/crest-offline-v1.5.1-checksums.txt",
+          "download_count": 1
+        },
+        {
+          "id": 435071478,
+          "name": "crest-offline-v1.5.1-linux-amd64.tar.gz",
+          "size": 420309416,
+          "browser_download_url": "https://github.com/sevoniva/Crest/releases/download/v1.5.1/crest-offline-v1.5.1-linux-amd64.tar.gz",
+          "download_count": 1
+        },
+        {
+          "id": 435071477,
+          "name": "crest-offline-v1.5.1-linux-arm64.tar.gz",
+          "size": 652030217,
+          "browser_download_url": "https://github.com/sevoniva/Crest/releases/download/v1.5.1/crest-offline-v1.5.1-linux-arm64.tar.gz",
+          "download_count": 0
+        }
+      ]
+    },
+    {
+      "id": 332174696,
+      "name": "Crest v1.5.0",
+      "tag_name": "v1.5.0",
+      "body": "# Crest v1.5.0 发布说明\n\n发布日期：2026-06-01\n\nCrest v1.5.0 面向企业内网和私有化部署场景发布，重点提升安装交付、平台管理、数据治理和安全审计能力。安装完成后，系统会自动初始化示例数据、数据集、仪表盘和数据大屏，便于团队快速完成部署验证和后续配置。\n\nv1.5.0 面向全新环境安装，不支持从早期开发版本直接执行 Flyway 原地升级。已有环境迁移到本版本时，请先导出业务资源，部署新的 v1.5.0 环境，再导入资源。\n\n## 镜像\n\n发布镜像：\n\n```text\nghcr.io/sevoniva/crest:v1.5.0\nghcr.io/sevoniva/crest:main\n```\n\n支持架构：\n\n```text\nlinux/amd64\nlinux/arm64\n```\n\n## 离线包\n\nRelease 附件：\n\n```text\ncrest-offline-v1.5.0-linux-amd64.tar.gz\ncrest-offline-v1.5.0-linux-arm64.tar.gz\ncrest-offline-v1.5.0-checksums.txt\n```\n\n离线包内包含安装脚本、配置模板、Docker Compose 文件、Crest 应用镜像、MySQL 镜像和离线安装说明。\n\n## 数据库初始化\n\nv1.5.0 只保留两份 Flyway 初始化脚本：\n\n| 脚本 | 用途 |\n| --- | --- |\n| `V1.5.0.1__initial_schema.sql` | 创建元数据库表结构、默认管理员、菜单、系统参数、平台管理、单点登录、审计日志、国产密码套件配置和内置驱动 |\n| `V1.5.0.2__demo_resources.sql` | 创建零售经营演示库，以及研发效能主题数据、指标视图、图表、仪表盘和数据大屏 |\n\n这两份脚本仅用于全新元数据库初始化。\n\n## 主要变化\n\n- 新增字段级数据血缘，覆盖数据源表、物理字段、数据集字段、图表、仪表盘和数据大屏。\n- 内置零售经营演示资源和研发效能分析资源。\n- 支持 OceanBase Oracle 模式数据源，基于 OceanBase Connector/J。\n- 完善平台管理，覆盖用户、角色、权限、单点登录、审计日志、系统参数、站点设置和字体管理。\n- 单点登录支持 OIDC / OAuth2 授权码模式，并按系统配置控制登录页入口。\n- 国产密码套件模式由配置文件开关控制。\n- 服务治理命名统一到 Crest 语义，覆盖接口、表结构、模块名和公开文档。\n- 提供单机 Docker 安装、Kubernetes 部署和双架构离线部署包。\n\n## 安装注意事项\n\n- 请使用空的元数据库安装 v1.5.0。\n- 生产环境必须设置高强度 `CREST_INITIAL_PASSWORD`、`CREST_DB_PASSWORD`、`CREST_AES_KEY` 和 `CREST_AES_IV`。\n- 只有在环境明确要求 SM2 / SM3 / SM4 时，才启用 `CREST_CRYPTO_MODE=sm-suite`，并配置 `CREST_SM4_KEY`。\n- 将 `/opt/crest` 或实际安装目录纳入备份。\n- 生产环境建议启用 HTTPS，并设置明确的 `CREST_ORIGIN_LIST`。\n\n## 验证情况\n\n本版本发布前已完成以下检查：\n\n- 前端构建；\n- 后端打包；\n- 空 MySQL 初始化；\n- Docker 镜像启动；\n- `linux/amd64` 和 `linux/arm64` 离线包制作；\n- 敏感信息扫描；\n- 版本扫描，确认公开发布材料中没有旧版本号残留。\n",
+      "html_url": "https://github.com/sevoniva/Crest/releases/tag/v1.5.0",
+      "published_at": "2026-05-31T17:21:21Z",
+      "prerelease": false,
+      "draft": false,
+      "assets": [
+        {
+          "id": 434697558,
+          "name": "crest-offline-v1.5.0-checksums.txt",
+          "size": 212,
+          "browser_download_url": "https://github.com/sevoniva/Crest/releases/download/v1.5.0/crest-offline-v1.5.0-checksums.txt",
+          "download_count": 0
+        },
+        {
+          "id": 434697560,
+          "name": "crest-offline-v1.5.0-linux-amd64.tar.gz",
+          "size": 420568802,
+          "browser_download_url": "https://github.com/sevoniva/Crest/releases/download/v1.5.0/crest-offline-v1.5.0-linux-amd64.tar.gz",
+          "download_count": 0
+        },
+        {
+          "id": 434697559,
+          "name": "crest-offline-v1.5.0-linux-arm64.tar.gz",
+          "size": 652289028,
+          "browser_download_url": "https://github.com/sevoniva/Crest/releases/download/v1.5.0/crest-offline-v1.5.0-linux-arm64.tar.gz",
+          "download_count": 0
+        }
+      ]
+    },
+    {
+      "id": 331318893,
+      "name": "Crest v1.3.0",
+      "tag_name": "v1.3.0",
+      "body": "## 发布内容\n\nCrest v1.3.0 是面向正式部署的发布版本，包含产品界面调整、研发效能分析大屏、内置演示数据、Docker 部署补充和离线安装包。\n\n## 镜像\n\n- ghcr.io/sevoniva/crest:v1.3.0\n- 支持 linux/amd64 与 linux/arm64\n\n## 离线安装包\n\n- crest-offline-v1.3.0-linux-amd64.tar.gz\n- crest-offline-v1.3.0-linux-arm64.tar.gz\n- crest-offline-v1.3.0-checksums.txt\n\n离线包内包含安装脚本、Docker Compose 配置、Crest 应用镜像、MySQL 8.4.5 镜像和离线安装说明。\n\n## 校验\n\n- Maven standalone 构建通过\n- Docker Compose 配置渲染通过\n- GitHub Actions 双架构镜像发布通过\n",
+      "html_url": "https://github.com/sevoniva/Crest/releases/tag/v1.3.0",
+      "published_at": "2026-05-29T06:35:23Z",
+      "prerelease": false,
+      "draft": false,
+      "assets": [
+        {
+          "id": 432782440,
+          "name": "crest-offline-v1.3.0-checksums.txt",
+          "size": 212,
+          "browser_download_url": "https://github.com/sevoniva/Crest/releases/download/v1.3.0/crest-offline-v1.3.0-checksums.txt",
+          "download_count": 0
+        },
+        {
+          "id": 432782439,
+          "name": "crest-offline-v1.3.0-linux-amd64.tar.gz",
+          "size": 457846165,
+          "browser_download_url": "https://github.com/sevoniva/Crest/releases/download/v1.3.0/crest-offline-v1.3.0-linux-amd64.tar.gz",
+          "download_count": 0
+        },
+        {
+          "id": 432782441,
+          "name": "crest-offline-v1.3.0-linux-arm64.tar.gz",
+          "size": 452952555,
+          "browser_download_url": "https://github.com/sevoniva/Crest/releases/download/v1.3.0/crest-offline-v1.3.0-linux-arm64.tar.gz",
+          "download_count": 0
+        }
+      ]
+    },
+    {
+      "id": 329824944,
+      "name": "Crest v1.2.0",
+      "tag_name": "v1.2.0",
+      "body": "## v1.2.0 - 2026-05-27\n\nThis is the first Crest public release baseline.\n\n### Added\n\n- Field-level data lineage across datasources, physical tables, fields, datasets, chart fields, charts, dashboards, and dataV screens.\n- OceanBase Oracle mode datasource support based on OceanBase Connector/J.\n- Built-in retail operation demo with a datasource, modeled datasets, charts, and a dataV showcase screen.\n- Kubernetes deployment manifests for internal MySQL and external MySQL modes.\n- GHCR image publishing workflow and a slim runtime image based on a JDK 21 Alpine build stage.\n- Runtime API documentation grouped by current Crest modules.\n\n### Changed\n\n- Default administrator password is `admin`.\n- Product branding, navigation, login, and API documentation use Crest naming.\n- Removed non-current product entries from the visible navigation and documentation.\n- Demo datasource connection is synchronized from the active metadata database settings at startup, so fresh installs work without host-specific SQL.\n\n### Fixed\n\n- DataV chart detail dialogs now fetch chart data when no local cache is available.\n- Custom SQL dataset editing no longer hits a missing `/sysVariable/query` route.\n- Large lineage graphs use a canvas renderer and steadier sizing to reduce blur and layout jitter.\n- Workbench shortcut and favorite panels keep consistent spacing while loading.\n- Initialization SQL can be replayed on a clean database without SQL warnings.\n\n### Upgrade Notes\n\n- Back up the metadata database and runtime directory before upgrading.\n- Flyway `V1.2__demo_retail_dashboard.sql` creates or rebuilds the `crest_demo_retail` demo schema.\n- The default image tag for this release is `ghcr.io/sevoniva/crest:v1.2.0`.\n- Crest remains a GPLv3 project derived from DataEase 2.10.22. Keep the upstream copyright and license notices when redistributing.",
+      "html_url": "https://github.com/sevoniva/Crest/releases/tag/v1.2.0",
+      "published_at": "2026-05-27T01:14:03Z",
+      "prerelease": false,
+      "draft": false,
+      "assets": []
+    }
+  ]
+}
