@@ -4,7 +4,7 @@
         <title>LEON BLOG</title>
         <link>https://blog.20190313.xyz</link>
         <description>技术笔记、命令记录和工具入口。</description>
-        <lastBuildDate>Sat, 18 Jul 2026 02:30:56 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 19 Jul 2026 02:44:45 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -13,610 +13,610 @@
             <title><![CDATA[Draw]]></title>
             <link>https://blog.20190313.xyz/docs/draw</link>
             <guid isPermaLink="false">/docs/draw</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
             <description><![CDATA[Excalidraw 画板。]]></description>
         </item>
         <item>
             <title><![CDATA[技术文档]]></title>
             <link>https://blog.20190313.xyz/docs</link>
             <guid isPermaLink="false">/docs</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
             <description><![CDATA[技术笔记、命令记录和工具入口。]]></description>
         </item>
         <item>
             <title><![CDATA[Go 学习指南]]></title>
             <link>https://blog.20190313.xyz/docs/backend/golang-guide</link>
             <guid isPermaLink="false">/docs/backend/golang-guide</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
             <description><![CDATA[Go 学习资料和规范索引。]]></description>
         </item>
         <item>
             <title><![CDATA[Go]]></title>
             <link>https://blog.20190313.xyz/docs/backend/golang</link>
             <guid isPermaLink="false">/docs/backend/golang</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
             <description><![CDATA[Go 语法、并发和工程记录。]]></description>
         </item>
         <item>
             <title><![CDATA[后端开发]]></title>
             <link>https://blog.20190313.xyz/docs/backend</link>
             <guid isPermaLink="false">/docs/backend</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
             <description><![CDATA[Go、Java、Node.js、Python 和 Shell。]]></description>
         </item>
         <item>
             <title><![CDATA[Java]]></title>
             <link>https://blog.20190313.xyz/docs/backend/java</link>
             <guid isPermaLink="false">/docs/backend/java</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
             <description><![CDATA[Java 和 JVM 配置。]]></description>
         </item>
         <item>
             <title><![CDATA[Node.js]]></title>
             <link>https://blog.20190313.xyz/docs/backend/nodejs</link>
             <guid isPermaLink="false">/docs/backend/nodejs</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
             <description><![CDATA[Node.js 环境和包管理。]]></description>
         </item>
         <item>
             <title><![CDATA[Poetry]]></title>
             <link>https://blog.20190313.xyz/docs/backend/poetry</link>
             <guid isPermaLink="false">/docs/backend/poetry</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
             <description><![CDATA[虚拟环境和依赖管理。]]></description>
         </item>
         <item>
             <title><![CDATA[Shell]]></title>
             <link>https://blog.20190313.xyz/docs/backend/shell</link>
             <guid isPermaLink="false">/docs/backend/shell</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
             <description><![CDATA[Shell 脚本记录。]]></description>
         </item>
         <item>
             <title><![CDATA[uv]]></title>
             <link>https://blog.20190313.xyz/docs/backend/uv</link>
             <guid isPermaLink="false">/docs/backend/uv</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
             <description><![CDATA[安装和项目接入。]]></description>
         </item>
         <item>
             <title><![CDATA[部署]]></title>
             <link>https://blog.20190313.xyz/docs/blindkit/deployment</link>
             <guid isPermaLink="false">/docs/blindkit/deployment</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
             <description><![CDATA[BlindKit 部署关系。]]></description>
         </item>
         <item>
             <title><![CDATA[工具]]></title>
             <link>https://blog.20190313.xyz/docs/blindkit/features</link>
             <guid isPermaLink="false">/docs/blindkit/features</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
             <description><![CDATA[BlindKit 工具列表。]]></description>
         </item>
         <item>
             <title><![CDATA[BlindKit]]></title>
             <link>https://blog.20190313.xyz/docs/blindkit</link>
             <guid isPermaLink="false">/docs/blindkit</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
             <description><![CDATA[在线工具箱。]]></description>
         </item>
         <item>
             <title><![CDATA[隐私]]></title>
             <link>https://blog.20190313.xyz/docs/blindkit/privacy</link>
             <guid isPermaLink="false">/docs/blindkit/privacy</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
             <description><![CDATA[BlindKit 隐私说明。]]></description>
         </item>
         <item>
             <title><![CDATA[概览]]></title>
             <link>https://blog.20190313.xyz/docs/crest</link>
             <guid isPermaLink="false">/docs/crest</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
             <description><![CDATA[Crest 文档入口，覆盖安装部署、配置管理、用户指南、管理员指南、运维维护、开发扩展和常见问题。]]></description>
         </item>
         <item>
             <title><![CDATA[快速开始]]></title>
             <link>https://blog.20190313.xyz/docs/crest/quick-start</link>
             <guid isPermaLink="false">/docs/crest/quick-start</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
             <description><![CDATA[从环境准备到首次登录，再到创建第一个分析页面的最短路径。]]></description>
         </item>
         <item>
             <title><![CDATA[版本发布]]></title>
             <link>https://blog.20190313.xyz/docs/crest/releases</link>
             <guid isPermaLink="false">/docs/crest/releases</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
             <description><![CDATA[Crest 版本发布记录与更新日志。]]></description>
         </item>
         <item>
             <title><![CDATA[安全说明]]></title>
             <link>https://blog.20190313.xyz/docs/crest/security</link>
             <guid isPermaLink="false">/docs/crest/security</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
             <description><![CDATA[Crest 账号、密码、权限、分享、数据源、SSO、审计和生产环境安全建议。]]></description>
         </item>
         <item>
             <title><![CDATA[Elasticsearch]]></title>
             <link>https://blog.20190313.xyz/docs/database/elasticsearch</link>
             <guid isPermaLink="false">/docs/database/elasticsearch</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
             <description><![CDATA[部署、索引和查询记录。]]></description>
         </item>
         <item>
             <title><![CDATA[数据库与中间件]]></title>
             <link>https://blog.20190313.xyz/docs/database</link>
             <guid isPermaLink="false">/docs/database</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
             <description><![CDATA[MySQL、PostgreSQL、Elasticsearch、Kafka 和 Kibana。]]></description>
         </item>
         <item>
             <title><![CDATA[Kafka]]></title>
             <link>https://blog.20190313.xyz/docs/database/kafka</link>
             <guid isPermaLink="false">/docs/database/kafka</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
             <description><![CDATA[部署和消费者管理。]]></description>
         </item>
         <item>
             <title><![CDATA[Kibana]]></title>
             <link>https://blog.20190313.xyz/docs/database/kibana</link>
             <guid isPermaLink="false">/docs/database/kibana</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
             <description><![CDATA[日志检索和数据查看。]]></description>
         </item>
         <item>
             <title><![CDATA[MySQL]]></title>
             <link>https://blog.20190313.xyz/docs/database/mysql</link>
             <guid isPermaLink="false">/docs/database/mysql</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
             <description><![CDATA[安装、备份、复制和排障。]]></description>
         </item>
         <item>
             <title><![CDATA[PostgreSQL]]></title>
             <link>https://blog.20190313.xyz/docs/database/postgres</link>
             <guid isPermaLink="false">/docs/database/postgres</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
             <description><![CDATA[部署、备份和常用命令。]]></description>
         </item>
         <item>
             <title><![CDATA[GitLab]]></title>
             <link>https://blog.20190313.xyz/docs/devops/gitlab</link>
             <guid isPermaLink="false">/docs/devops/gitlab</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
             <description><![CDATA[仓库、权限和 CI/CD。]]></description>
         </item>
         <item>
             <title><![CDATA[DevOps 与发布]]></title>
             <link>https://blog.20190313.xyz/docs/devops</link>
             <guid isPermaLink="false">/docs/devops</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
             <description><![CDATA[GitLab、Nginx、证书和进程管理。]]></description>
         </item>
         <item>
             <title><![CDATA[Let's Encrypt]]></title>
             <link>https://blog.20190313.xyz/docs/devops/letsencrypt</link>
             <guid isPermaLink="false">/docs/devops/letsencrypt</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
             <description><![CDATA[证书申请和续期。]]></description>
         </item>
         <item>
             <title><![CDATA[Nginx]]></title>
             <link>https://blog.20190313.xyz/docs/devops/nginx</link>
             <guid isPermaLink="false">/docs/devops/nginx</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
             <description><![CDATA[反向代理、静态资源和 HTTPS。]]></description>
         </item>
         <item>
             <title><![CDATA[Supervisor]]></title>
             <link>https://blog.20190313.xyz/docs/devops/supervisor</link>
             <guid isPermaLink="false">/docs/devops/supervisor</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
             <description><![CDATA[进程管理和服务守护。]]></description>
         </item>
         <item>
             <title><![CDATA[Tomcat]]></title>
             <link>https://blog.20190313.xyz/docs/devops/tomcat</link>
             <guid isPermaLink="false">/docs/devops/tomcat</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
             <description><![CDATA[部署、参数和服务管理。]]></description>
-        </item>
-        <item>
-            <title><![CDATA[Kubernetes]]></title>
-            <link>https://blog.20190313.xyz/docs/kubernetes</link>
-            <guid isPermaLink="false">/docs/kubernetes</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
-            <description><![CDATA[资源清单、工作负载、网络、存储和 RBAC。]]></description>
-        </item>
-        <item>
-            <title><![CDATA[Kubernetes]]></title>
-            <link>https://blog.20190313.xyz/docs/kubernetes/kubernetes</link>
-            <guid isPermaLink="false">/docs/kubernetes/kubernetes</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
-            <description><![CDATA[资源清单、集群管理和 RBAC。]]></description>
         </item>
         <item>
             <title><![CDATA[Alibaba Cloud Linux]]></title>
             <link>https://blog.20190313.xyz/docs/linux/alibaba-linux</link>
             <guid isPermaLink="false">/docs/linux/alibaba-linux</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
             <description><![CDATA[系统配置和运维记录。]]></description>
         </item>
         <item>
             <title><![CDATA[Alpine Linux]]></title>
             <link>https://blog.20190313.xyz/docs/linux/alpine</link>
             <guid isPermaLink="false">/docs/linux/alpine</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
             <description><![CDATA[包管理和基础配置。]]></description>
         </item>
         <item>
             <title><![CDATA[Linux]]></title>
             <link>https://blog.20190313.xyz/docs/linux</link>
             <guid isPermaLink="false">/docs/linux</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
             <description><![CDATA[系统配置、内核参数、性能工具和常用命令。]]></description>
         </item>
         <item>
             <title><![CDATA[Linux 性能分析工具]]></title>
             <link>https://blog.20190313.xyz/docs/linux/linux-analysis-tools</link>
             <guid isPermaLink="false">/docs/linux/linux-analysis-tools</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
             <description><![CDATA[性能分析工具图谱。]]></description>
         </item>
         <item>
             <title><![CDATA[Linux]]></title>
             <link>https://blog.20190313.xyz/docs/linux/linux</link>
             <guid isPermaLink="false">/docs/linux/linux</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
             <description><![CDATA[系统管理和常用命令。]]></description>
         </item>
         <item>
             <title><![CDATA[sysctl]]></title>
             <link>https://blog.20190313.xyz/docs/linux/sysctl</link>
             <guid isPermaLink="false">/docs/linux/sysctl</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
             <description><![CDATA[内核参数记录。]]></description>
         </item>
         <item>
             <title><![CDATA[APISIX]]></title>
             <link>https://blog.20190313.xyz/docs/network/apisix</link>
             <guid isPermaLink="false">/docs/network/apisix</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
             <description><![CDATA[安装和路由配置。]]></description>
         </item>
         <item>
             <title><![CDATA[网络与工具]]></title>
             <link>https://blog.20190313.xyz/docs/network</link>
             <guid isPermaLink="false">/docs/network</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
             <description><![CDATA[APISIX、OpenVPN、MinIO、lrzsz 和 macOS。]]></description>
         </item>
         <item>
             <title><![CDATA[lrzsz]]></title>
             <link>https://blog.20190313.xyz/docs/network/lrzsz</link>
             <guid isPermaLink="false">/docs/network/lrzsz</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
             <description><![CDATA[rz/sz 文件传输。]]></description>
         </item>
         <item>
             <title><![CDATA[macOS 启动维护]]></title>
             <link>https://blog.20190313.xyz/docs/network/macos-boot</link>
             <guid isPermaLink="false">/docs/network/macos-boot</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
             <description><![CDATA[启动项和系统维护。]]></description>
         </item>
         <item>
             <title><![CDATA[macOS]]></title>
             <link>https://blog.20190313.xyz/docs/network/macos</link>
             <guid isPermaLink="false">/docs/network/macos</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
             <description><![CDATA[开发环境和系统设置。]]></description>
         </item>
         <item>
             <title><![CDATA[MinIO]]></title>
             <link>https://blog.20190313.xyz/docs/network/minio</link>
             <guid isPermaLink="false">/docs/network/minio</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
             <description><![CDATA[部署、配置和常用命令。]]></description>
         </item>
         <item>
             <title><![CDATA[OpenVPN Community]]></title>
             <link>https://blog.20190313.xyz/docs/network/openvpn-community</link>
             <guid isPermaLink="false">/docs/network/openvpn-community</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
             <description><![CDATA[部署、客户端连接和排障。]]></description>
         </item>
         <item>
-            <title><![CDATA[审计与账号安全]]></title>
-            <link>https://blog.20190313.xyz/docs/crest/admin-guide/audit</link>
-            <guid isPermaLink="false">/docs/crest/admin-guide/audit</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
-            <description><![CDATA[Crest 审计日志、密码修改、异常操作排查和账号安全治理。]]></description>
+            <title><![CDATA[Kubernetes]]></title>
+            <link>https://blog.20190313.xyz/docs/kubernetes</link>
+            <guid isPermaLink="false">/docs/kubernetes</guid>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
+            <description><![CDATA[资源清单、工作负载、网络、存储和 RBAC。]]></description>
         </item>
         <item>
-            <title><![CDATA[管理员总览]]></title>
-            <link>https://blog.20190313.xyz/docs/crest/admin-guide</link>
-            <guid isPermaLink="false">/docs/crest/admin-guide</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
-            <description><![CDATA[Crest 管理员指南入口，说明用户、组织、角色、权限、系统设置、SSO 和审计管理。]]></description>
-        </item>
-        <item>
-            <title><![CDATA[角色与权限]]></title>
-            <link>https://blog.20190313.xyz/docs/crest/admin-guide/roles-permissions</link>
-            <guid isPermaLink="false">/docs/crest/admin-guide/roles-permissions</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
-            <description><![CDATA[Crest 角色管理、权限管理、菜单权限和资源权限配置方法。]]></description>
-        </item>
-        <item>
-            <title><![CDATA[单点登录管理]]></title>
-            <link>https://blog.20190313.xyz/docs/crest/admin-guide/sso</link>
-            <guid isPermaLink="false">/docs/crest/admin-guide/sso</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
-            <description><![CDATA[Crest 管理员配置和维护单点登录的操作说明。]]></description>
-        </item>
-        <item>
-            <title><![CDATA[系统、站点与字体]]></title>
-            <link>https://blog.20190313.xyz/docs/crest/admin-guide/system-site-font</link>
-            <guid isPermaLink="false">/docs/crest/admin-guide/system-site-font</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
-            <description><![CDATA[Crest 管理员维护系统参数、站点标识和字体资源的操作说明。]]></description>
-        </item>
-        <item>
-            <title><![CDATA[用户与组织]]></title>
-            <link>https://blog.20190313.xyz/docs/crest/admin-guide/users-orgs</link>
-            <guid isPermaLink="false">/docs/crest/admin-guide/users-orgs</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
-            <description><![CDATA[Crest 用户管理、组织管理、账号生命周期和账号安全操作说明。]]></description>
+            <title><![CDATA[Kubernetes]]></title>
+            <link>https://blog.20190313.xyz/docs/kubernetes/kubernetes</link>
+            <guid isPermaLink="false">/docs/kubernetes/kubernetes</guid>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
+            <description><![CDATA[资源清单、集群管理和 RBAC。]]></description>
         </item>
         <item>
             <title><![CDATA[数据库与密钥]]></title>
             <link>https://blog.20190313.xyz/docs/crest/configuration/database-and-secrets</link>
             <guid isPermaLink="false">/docs/crest/configuration/database-and-secrets</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
             <description><![CDATA[Crest 数据库连接、初始密码、AES Key、国密模式和敏感配置管理说明。]]></description>
         </item>
         <item>
             <title><![CDATA[配置总览]]></title>
             <link>https://blog.20190313.xyz/docs/crest/configuration</link>
             <guid isPermaLink="false">/docs/crest/configuration</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
             <description><![CDATA[Crest 配置管理入口，说明配置变更顺序、风险控制、验证和回滚建议。]]></description>
         </item>
         <item>
             <title><![CDATA[端口、域名与 HTTPS]]></title>
             <link>https://blog.20190313.xyz/docs/crest/configuration/port-domain-https</link>
             <guid isPermaLink="false">/docs/crest/configuration/port-domain-https</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
             <description><![CDATA[Crest 访问端口、域名、反向代理和 HTTPS 配置建议。]]></description>
         </item>
         <item>
             <title><![CDATA[分享安全]]></title>
             <link>https://blog.20190313.xyz/docs/crest/configuration/share-security</link>
             <guid isPermaLink="false">/docs/crest/configuration/share-security</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
             <description><![CDATA[Crest 分享链接、密码、有效期、访问控制和公开发布风险管理。]]></description>
         </item>
         <item>
             <title><![CDATA[单点登录配置]]></title>
             <link>https://blog.20190313.xyz/docs/crest/configuration/sso</link>
             <guid isPermaLink="false">/docs/crest/configuration/sso</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
             <description><![CDATA[Crest 单点登录配置流程、回调地址、字段映射和排查方法。]]></description>
         </item>
         <item>
             <title><![CDATA[系统参数、站点与字体]]></title>
             <link>https://blog.20190313.xyz/docs/crest/configuration/system-settings</link>
             <guid isPermaLink="false">/docs/crest/configuration/system-settings</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
             <description><![CDATA[Crest 系统参数、站点信息和字体资源配置方法。]]></description>
         </item>
         <item>
             <title><![CDATA[外部 MySQL]]></title>
             <link>https://blog.20190313.xyz/docs/crest/deployment/external-mysql</link>
             <guid isPermaLink="false">/docs/crest/deployment/external-mysql</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
             <description><![CDATA[在生产环境中为 Crest 准备外部 MySQL 数据库和连接配置。]]></description>
         </item>
         <item>
             <title><![CDATA[部署总览]]></title>
             <link>https://blog.20190313.xyz/docs/crest/deployment</link>
             <guid isPermaLink="false">/docs/crest/deployment</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
             <description><![CDATA[Crest 安装部署入口，说明部署方式选择、上线前准备和后续检查。]]></description>
         </item>
         <item>
             <title><![CDATA[Kubernetes 部署]]></title>
             <link>https://blog.20190313.xyz/docs/crest/deployment/kubernetes</link>
             <guid isPermaLink="false">/docs/crest/deployment/kubernetes</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
             <description><![CDATA[使用 deploy/kubernetes 清单部署 Crest v1.5.10，支持前后端分离、内置 MySQL、外部 MySQL 和可选监控组件。]]></description>
         </item>
         <item>
             <title><![CDATA[离线安装]]></title>
             <link>https://blog.20190313.xyz/docs/crest/deployment/offline</link>
             <guid isPermaLink="false">/docs/crest/deployment/offline</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
             <description><![CDATA[制作 Crest 离线安装包，并在不能访问外网的服务器上完成部署。]]></description>
         </item>
         <item>
             <title><![CDATA[部署后检查]]></title>
             <link>https://blog.20190313.xyz/docs/crest/deployment/post-check</link>
             <guid isPermaLink="false">/docs/crest/deployment/post-check</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
             <description><![CDATA[Crest 安装完成后的页面、账号、系统设置、数据、导出和日志检查清单。]]></description>
         </item>
         <item>
             <title><![CDATA[环境要求]]></title>
             <link>https://blog.20190313.xyz/docs/crest/deployment/requirements</link>
             <guid isPermaLink="false">/docs/crest/deployment/requirements</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
             <description><![CDATA[部署 Crest 前需要确认的服务器、端口、Docker、数据库和安全要求。]]></description>
         </item>
         <item>
             <title><![CDATA[服务管理]]></title>
             <link>https://blog.20190313.xyz/docs/crest/deployment/service-management</link>
             <guid isPermaLink="false">/docs/crest/deployment/service-management</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
             <description><![CDATA[使用 crestctl、Docker Compose 和日志命令管理 Crest 服务。]]></description>
         </item>
         <item>
             <title><![CDATA[单机在线安装]]></title>
             <link>https://blog.20190313.xyz/docs/crest/deployment/single-node</link>
             <guid isPermaLink="false">/docs/crest/deployment/single-node</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
             <description><![CDATA[使用 installer/install.sh 在线安装 Crest，并理解关键配置和安装结果。]]></description>
         </item>
         <item>
             <title><![CDATA[开发总览]]></title>
             <link>https://blog.20190313.xyz/docs/crest/development</link>
             <guid isPermaLink="false">/docs/crest/development</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
             <description><![CDATA[Crest v1.5.10 开发指南入口，说明源码结构、开发边界、前后端分离开发方式、构建命令和提交前检查。]]></description>
         </item>
         <item>
             <title><![CDATA[本地开发环境]]></title>
             <link>https://blog.20190313.xyz/docs/crest/development/local-setup</link>
             <guid isPermaLink="false">/docs/crest/development/local-setup</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
             <description><![CDATA[Crest v1.5.10 本地开发环境搭建：拉代码、导数据库、配置本地变量、启动前后端、打包和排查常见问题。]]></description>
         </item>
         <item>
             <title><![CDATA[数据与可视化问题]]></title>
             <link>https://blog.20190313.xyz/docs/crest/faq/data-visualization</link>
             <guid isPermaLink="false">/docs/crest/faq/data-visualization</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
             <description><![CDATA[Crest 数据源、数据集、图表、仪表盘、大屏、导出和数据血缘常见问题。]]></description>
         </item>
         <item>
             <title><![CDATA[问题索引]]></title>
             <link>https://blog.20190313.xyz/docs/crest/faq</link>
             <guid isPermaLink="false">/docs/crest/faq</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
             <description><![CDATA[Crest 安装登录、权限、数据可视化、单点登录和 Kubernetes 常见问题索引。]]></description>
         </item>
         <item>
             <title><![CDATA[安装与登录问题]]></title>
             <link>https://blog.20190313.xyz/docs/crest/faq/install-login</link>
             <guid isPermaLink="false">/docs/crest/faq/install-login</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
             <description><![CDATA[Crest 服务访问、初始密码、登录失败、端口和 HTTPS 常见问题。]]></description>
         </item>
         <item>
             <title><![CDATA[权限与账号问题]]></title>
             <link>https://blog.20190313.xyz/docs/crest/faq/permissions</link>
             <guid isPermaLink="false">/docs/crest/faq/permissions</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
             <description><![CDATA[Crest 用户、角色、菜单权限、资源权限和账号生命周期常见问题。]]></description>
         </item>
         <item>
             <title><![CDATA[SSO 与 Kubernetes 问题]]></title>
             <link>https://blog.20190313.xyz/docs/crest/faq/sso-kubernetes</link>
             <guid isPermaLink="false">/docs/crest/faq/sso-kubernetes</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
             <description><![CDATA[Crest 单点登录、回调地址、Ingress、Pod 状态和 Kubernetes 部署常见问题。]]></description>
         </item>
         <item>
             <title><![CDATA[备份与恢复]]></title>
             <link>https://blog.20190313.xyz/docs/crest/maintenance/backup-restore</link>
             <guid isPermaLink="false">/docs/crest/maintenance/backup-restore</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
             <description><![CDATA[Crest 数据库、配置、运行目录、字体和导出文件备份恢复流程。]]></description>
         </item>
         <item>
             <title><![CDATA[维护总览]]></title>
             <link>https://blog.20190313.xyz/docs/crest/maintenance</link>
             <guid isPermaLink="false">/docs/crest/maintenance</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
             <description><![CDATA[Crest 运维维护入口，说明日常巡检、备份恢复、升级回滚、日志、健康检查和可观测性。]]></description>
         </item>
         <item>
             <title><![CDATA[日志与健康检查]]></title>
             <link>https://blog.20190313.xyz/docs/crest/maintenance/logs-health</link>
             <guid isPermaLink="false">/docs/crest/maintenance/logs-health</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
             <description><![CDATA[Crest 服务状态、日志排查、导出中心和审计日志检查方法。]]></description>
         </item>
         <item>
             <title><![CDATA[监控与可观测性]]></title>
             <link>https://blog.20190313.xyz/docs/crest/maintenance/observability</link>
             <guid isPermaLink="false">/docs/crest/maintenance/observability</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
             <description><![CDATA[Crest Prometheus 指标、Grafana 看板、启用方式、指标口径和安全边界。]]></description>
         </item>
         <item>
             <title><![CDATA[升级与回滚]]></title>
             <link>https://blog.20190313.xyz/docs/crest/maintenance/upgrade-rollback</link>
             <guid isPermaLink="false">/docs/crest/maintenance/upgrade-rollback</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
             <description><![CDATA[Crest 版本升级、验证、回滚和上线观察流程。]]></description>
         </item>
         <item>
             <title><![CDATA[图表]]></title>
             <link>https://blog.20190313.xyz/docs/crest/user-guide/chart</link>
             <guid isPermaLink="false">/docs/crest/user-guide/chart</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
             <description><![CDATA[Crest 图表操作手册，覆盖创建图表、选择数据集、配置维度指标、样式、过滤、排序、联动、跳转、导出和典型图表示例。]]></description>
         </item>
         <item>
             <title><![CDATA[仪表盘]]></title>
             <link>https://blog.20190313.xyz/docs/crest/user-guide/dashboard</link>
             <guid isPermaLink="false">/docs/crest/user-guide/dashboard</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
             <description><![CDATA[Crest 仪表盘操作手册，覆盖列表管理、画布编辑、图表配置、数据集字段、查询组件、联动、跳转、预览发布和排错。]]></description>
         </item>
         <item>
             <title><![CDATA[数据集]]></title>
             <link>https://blog.20190313.xyz/docs/crest/user-guide/dataset</link>
             <guid isPermaLink="false">/docs/crest/user-guide/dataset</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
             <description><![CDATA[Crest 数据集操作手册，覆盖数据表、SQL、Excel/CSV、API、多表关联、字段管理、计算字段、分组字段、预览、同步和血缘检查。]]></description>
         </item>
         <item>
             <title><![CDATA[数据源]]></title>
             <link>https://blog.20190313.xyz/docs/crest/user-guide/datasource</link>
             <guid isPermaLink="false">/docs/crest/user-guide/datasource</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
             <description><![CDATA[Crest 数据源管理操作手册，覆盖数据库、Excel/CSV、API 数据源、连接测试、表字段预览、维护和排错。]]></description>
         </item>
         <item>
             <title><![CDATA[使用总览]]></title>
             <link>https://blog.20190313.xyz/docs/crest/user-guide</link>
             <guid isPermaLink="false">/docs/crest/user-guide</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
             <description><![CDATA[面向业务用户和数据分析人员的 Crest 使用入口，覆盖登录、数据源、数据集、图表、仪表盘、大屏、分享、导出和血缘。]]></description>
         </item>
         <item>
             <title><![CDATA[数据血缘]]></title>
             <link>https://blog.20190313.xyz/docs/crest/user-guide/lineage</link>
             <guid isPermaLink="false">/docs/crest/user-guide/lineage</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
             <description><![CDATA[Crest 数据血缘详细说明，包括资源选择、字段筛选、图谱解读、影响分析、删除前检查和常见问题。]]></description>
         </item>
         <item>
             <title><![CDATA[登录与工作台]]></title>
             <link>https://blog.20190313.xyz/docs/crest/user-guide/login-workspace</link>
             <guid isPermaLink="false">/docs/crest/user-guide/login-workspace</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
             <description><![CDATA[Crest 登录、数据门户、单点登录、工作台、快速创建、收藏、最近使用、账号菜单和修改密码的详细说明。]]></description>
         </item>
         <item>
             <title><![CDATA[数据门户]]></title>
             <link>https://blog.20190313.xyz/docs/crest/user-guide/portal</link>
             <guid isPermaLink="false">/docs/crest/user-guide/portal</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
             <description><![CDATA[Crest 数据门户使用说明，覆盖普通用户登录后的资源查看、收藏、最近使用、搜索筛选、预览和权限边界。]]></description>
         </item>
         <item>
             <title><![CDATA[数据大屏]]></title>
             <link>https://blog.20190313.xyz/docs/crest/user-guide/screen</link>
             <guid isPermaLink="false">/docs/crest/user-guide/screen</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
             <description><![CDATA[Crest 数据大屏操作手册，覆盖从零创建、组件配置、图层管理、样式设计、示例大屏拆解、预览发布和投屏上线。]]></description>
         </item>
         <item>
             <title><![CDATA[分享与导出]]></title>
             <link>https://blog.20190313.xyz/docs/crest/user-guide/share-export</link>
             <guid isPermaLink="false">/docs/crest/user-guide/share-export</guid>
-            <pubDate>Sat, 18 Jul 2026 02:30:56 GMT</pubDate>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
             <description><![CDATA[Crest 分享链接、访问密码、有效期、分享管理、导出中心、下载、失败排查和交付安全说明。]]></description>
+        </item>
+        <item>
+            <title><![CDATA[审计与账号安全]]></title>
+            <link>https://blog.20190313.xyz/docs/crest/admin-guide/audit</link>
+            <guid isPermaLink="false">/docs/crest/admin-guide/audit</guid>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
+            <description><![CDATA[Crest 审计日志、密码修改、异常操作排查和账号安全治理。]]></description>
+        </item>
+        <item>
+            <title><![CDATA[管理员总览]]></title>
+            <link>https://blog.20190313.xyz/docs/crest/admin-guide</link>
+            <guid isPermaLink="false">/docs/crest/admin-guide</guid>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
+            <description><![CDATA[Crest 管理员指南入口，说明用户、组织、角色、权限、系统设置、SSO 和审计管理。]]></description>
+        </item>
+        <item>
+            <title><![CDATA[角色与权限]]></title>
+            <link>https://blog.20190313.xyz/docs/crest/admin-guide/roles-permissions</link>
+            <guid isPermaLink="false">/docs/crest/admin-guide/roles-permissions</guid>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
+            <description><![CDATA[Crest 角色管理、权限管理、菜单权限和资源权限配置方法。]]></description>
+        </item>
+        <item>
+            <title><![CDATA[单点登录管理]]></title>
+            <link>https://blog.20190313.xyz/docs/crest/admin-guide/sso</link>
+            <guid isPermaLink="false">/docs/crest/admin-guide/sso</guid>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
+            <description><![CDATA[Crest 管理员配置和维护单点登录的操作说明。]]></description>
+        </item>
+        <item>
+            <title><![CDATA[系统、站点与字体]]></title>
+            <link>https://blog.20190313.xyz/docs/crest/admin-guide/system-site-font</link>
+            <guid isPermaLink="false">/docs/crest/admin-guide/system-site-font</guid>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
+            <description><![CDATA[Crest 管理员维护系统参数、站点标识和字体资源的操作说明。]]></description>
+        </item>
+        <item>
+            <title><![CDATA[用户与组织]]></title>
+            <link>https://blog.20190313.xyz/docs/crest/admin-guide/users-orgs</link>
+            <guid isPermaLink="false">/docs/crest/admin-guide/users-orgs</guid>
+            <pubDate>Sun, 19 Jul 2026 02:44:45 GMT</pubDate>
+            <description><![CDATA[Crest 用户管理、组织管理、账号生命周期和账号安全操作说明。]]></description>
         </item>
     </channel>
 </rss>
